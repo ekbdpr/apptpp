@@ -52,6 +52,11 @@
             Grid.Row="0"
             Grid.Column="1"
             Background="#EEEEEE">
+            <Border BorderBrush="#222933" BorderThickness="3,0,0,0">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="10" ShadowDepth="2" />
+                </Border.Effect>
+            </Border>
             <StackPanel
                 HorizontalAlignment="Right"
                 VerticalAlignment="Center"
@@ -318,6 +323,11 @@
             Grid.RowSpan="2"
             Grid.Column="1"
             Background="#EEEEEE">
+            <Border BorderBrush="#222933" BorderThickness="3,0,0,0">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="10" ShadowDepth="2" />
+                </Border.Effect>
+            </Border>
 
             <!--  Input Data Batch  -->
             <Grid
