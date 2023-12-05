@@ -1,0 +1,23 @@
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\Tugas Besar\Tugas Besar\bin\Debug\net7.0-windows\Tugas Besar.exe
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\Tugas Besar\Tugas Besar\bin\Debug\net7.0-windows\Tugas Besar.deps.json
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\Tugas Besar\Tugas Besar\bin\Debug\net7.0-windows\Tugas Besar.runtimeconfig.json
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\Tugas Besar\Tugas Besar\bin\Debug\net7.0-windows\Tugas Besar.dll
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\Tugas Besar\Tugas Besar\bin\Debug\net7.0-windows\Tugas Besar.pdb
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\Tugas Besar\Tugas Besar\obj\Debug\net7.0-windows\Login.g.cs
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\Tugas Besar\Tugas Besar\obj\Debug\net7.0-windows\MainWindow.g.cs
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\Tugas Besar\Tugas Besar\obj\Debug\net7.0-windows\App.g.cs
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\Tugas Besar\Tugas Besar\obj\Debug\net7.0-windows\Tugas Besar_MarkupCompile.cache
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\Tugas Besar\Tugas Besar\obj\Debug\net7.0-windows\Tugas Besar_MarkupCompile.lref
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\Tugas Besar\Tugas Besar\obj\Debug\net7.0-windows\Login.baml
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\Tugas Besar\Tugas Besar\obj\Debug\net7.0-windows\MainWindow.baml
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\Tugas Besar\Tugas Besar\obj\Debug\net7.0-windows\Tugas Besar.g.resources
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\Tugas Besar\Tugas Besar\obj\Debug\net7.0-windows\Tugas Besar.GeneratedMSBuildEditorConfig.editorconfig
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\Tugas Besar\Tugas Besar\obj\Debug\net7.0-windows\Tugas Besar.AssemblyInfoInputs.cache
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\Tugas Besar\Tugas Besar\obj\Debug\net7.0-windows\Tugas Besar.AssemblyInfo.cs
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\Tugas Besar\Tugas Besar\obj\Debug\net7.0-windows\Tugas Besar.csproj.CoreCompileInputs.cache
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\Tugas Besar\Tugas Besar\obj\Debug\net7.0-windows\Tugas Besar.dll
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\Tugas Besar\Tugas Besar\obj\Debug\net7.0-windows\refint\Tugas Besar.dll
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\Tugas Besar\Tugas Besar\obj\Debug\net7.0-windows\Tugas Besar.pdb
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\Tugas Besar\Tugas Besar\obj\Debug\net7.0-windows\Tugas Besar.genruntimeconfig.cache
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\Tugas Besar\Tugas Besar\obj\Debug\net7.0-windows\ref\Tugas Besar.dll
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\Tugas Besar\Tugas Besar\obj\Debug\net7.0-windows\Styles.baml

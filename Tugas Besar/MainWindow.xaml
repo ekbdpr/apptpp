@@ -1,0 +1,268 @@
+﻿<Window
+    x:Class="Tugas_Besar.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Tugas_Besar"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="1200"
+    Height="768"
+    Background="Transparent"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
+    WindowState="Maximized"
+    WindowStyle="None"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid>
+        <!--  Rules Kolom dan Baris  -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*" />
+            <ColumnDefinition Width="16*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="4*" />
+            <RowDefinition Height="15*" />
+        </Grid.RowDefinitions>
+
+        <Grid
+            Grid.Row="0"
+            Grid.Column="0"
+            Background="#222831">
+            <TextBlock
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontSize="20"
+                Foreground="White"
+                Text="Selamat Datang" />
+        </Grid>
+
+        <Grid
+            Grid.Row="0"
+            Grid.Column="1"
+            Background="#EEEEEE">
+            <StackPanel
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Orientation="Horizontal">
+                <StackPanel Margin="0,0,30,0">
+                    <TextBlock FontSize="15" Text="Muhammad Akbar Azis (Admin)" />
+                </StackPanel>
+                <Button
+                    x:Name="minimize"
+                    Width="20"
+                    Height="20"
+                    Margin="0,0,5,0"
+                    Content="_" />
+                <Button
+                    x:Name="close"
+                    Width="20"
+                    Height="20"
+                    Margin="0,0,5,0"
+                    Content="X" />
+            </StackPanel>
+
+        </Grid>
+
+        <!--  Logo  -->
+        <Grid
+            Grid.Row="1"
+            Grid.Column="0"
+            Background="#222831">
+            <TextBlock
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontSize="20"
+                FontWeight="Bold"
+                Foreground="White"
+                Text="Logo Disini"
+                TextAlignment="Center" />
+        </Grid>
+
+        <!--  Navigasi  -->
+        <Grid
+            Grid.Row="2"
+            Grid.Column="0"
+            Background="#222831">
+            <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Top">
+                <Button
+                    x:Name="btnDataPegawai"
+                    Click="btnDataPegawai_Click"
+                    Content="👤  Data Pegawai    ➥"
+                    Style="{StaticResource CustomButtonStyle}">
+                    <Button.Resources>
+                        <Storyboard x:Key="ToggleOpenMenu">
+                            <DoubleAnimation
+                                Storyboard.Target="{Binding ElementName=menuDataPegawai}"
+                                Storyboard.TargetProperty="Opacity"
+                                From="0"
+                                To="1"
+                                Duration="0:0:0.5" />
+                            <DoubleAnimation
+                                Storyboard.Target="{Binding ElementName=btnLihatLaporan}"
+                                Storyboard.TargetProperty="(Button.RenderTransform).(TranslateTransform.Y)"
+                                From="-120"
+                                To="0"
+                                Duration="0:0:0.2" />
+                            <DoubleAnimation
+                                Storyboard.Target="{Binding ElementName=btnUnduhTpp}"
+                                Storyboard.TargetProperty="(Button.RenderTransform).(TranslateTransform.Y)"
+                                From="-120"
+                                To="0"
+                                Duration="0:0:0.2" />
+                        </Storyboard>
+                        <Storyboard x:Key="ToggleCloseMenu">
+                            <DoubleAnimation
+                                Storyboard.Target="{Binding ElementName=menuDataPegawai}"
+                                Storyboard.TargetProperty="Opacity"
+                                From="1"
+                                To="0"
+                                Duration="0:0:0.5" />
+                            <DoubleAnimation
+                                Storyboard.Target="{Binding ElementName=btnLihatLaporan}"
+                                Storyboard.TargetProperty="(Button.RenderTransform).(TranslateTransform.Y)"
+                                From="120"
+                                To="0"
+                                Duration="0:0:0.2" />
+                            <DoubleAnimation
+                                Storyboard.Target="{Binding ElementName=btnUnduhTpp}"
+                                Storyboard.TargetProperty="(Button.RenderTransform).(TranslateTransform.Y)"
+                                From="120"
+                                To="0"
+                                Duration="0:0:0.2" />
+                        </Storyboard>
+                    </Button.Resources>
+                </Button>
+                <StackPanel x:Name="menuDataPegawai" Background="#222831">
+                    <Button
+                        x:Name="btnInputData"
+                        Click="btnInputData_Click"
+                        Content="•  Input Data Batch"
+                        Style="{StaticResource CustomButtonStyle}" />
+                    <Button
+                        x:Name="btnKelolaData"
+                        Click="btnHapusData_Click"
+                        Content="•  Kelola Data Pegawai"
+                        Style="{StaticResource CustomButtonStyle}" />
+                </StackPanel>
+
+                <Button
+                    x:Name="btnLihatLaporan"
+                    Click="btnLihatLaporan_Click"
+                    Content="📋  Lihat Laporan"
+                    Style="{StaticResource CustomButtonStyle}">
+                    <Button.RenderTransform>
+                        <TranslateTransform />
+                    </Button.RenderTransform>
+                </Button>
+
+                <Button
+                    x:Name="btnUnduhTpp"
+                    Click="btnUnduhTpp_Click"
+                    Content="📥︎  Unduh TPP    ➥"
+                    Style="{StaticResource CustomButtonStyle}">
+                    <Button.RenderTransform>
+                        <TranslateTransform />
+                    </Button.RenderTransform>
+                    <Button.Triggers>
+                        <EventTrigger RoutedEvent="Button.Click">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation
+                                        Storyboard.TargetName="menuDataTpp"
+                                        Storyboard.TargetProperty="Opacity"
+                                        From="0"
+                                        To="1"
+                                        Duration="0:0:0.5" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Button.Triggers>
+                </Button>
+                <StackPanel x:Name="menuDataTpp" Background="#222831">
+                    <Button
+                        x:Name="btnArip"
+                        Click="btnArip_Click"
+                        Content="•  Format ARIP"
+                        Style="{StaticResource CustomButtonStyle}" />
+                    <Button
+                        x:Name="btnSimgaji"
+                        Click="btnSimgaji_Click"
+                        Content="•  Format SIMGAJI"
+                        Style="{StaticResource CustomButtonStyle}" />
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+
+        <!--  Konten  -->
+        <Grid
+            Grid.Row="1"
+            Grid.RowSpan="2"
+            Grid.Column="1"
+            Background="#EEEEEE">
+            <Grid
+                x:Name="tampilanInput"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="100"
+                    Text="Input Data Batch" />
+            </Grid>
+            <Grid
+                x:Name="tampilanKelolaData"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="100"
+                    Text="Kelola Data Pegawai"
+                    TextAlignment="Center" />
+            </Grid>
+            <Grid
+                x:Name="tampilanLihatLaporan"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="100"
+                    Text="Lihat Laporan"
+                    TextAlignment="Center" />
+            </Grid>
+            <Grid
+                x:Name="tampilanFormatArip"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="100"
+                    Text="Format ARIP"
+                    TextAlignment="Center" />
+            </Grid>
+            <Grid
+                x:Name="tampilanFormatSimgaji"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="100"
+                    Text="Format SIMGAJI"
+                    TextAlignment="Center" />
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
