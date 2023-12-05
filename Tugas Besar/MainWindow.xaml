@@ -313,12 +313,44 @@
         </Grid>
 
         <!--  Konten  -->
-        <!--  Input Data Batch  -->
         <Grid
             Grid.Row="1"
             Grid.RowSpan="2"
             Grid.Column="1"
             Background="#EEEEEE">
+
+            <!--  Input Data Batch  -->
+            <Grid
+                x:Name="tampilanUtama"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch">
+                <StackPanel>
+                    <TextBlock
+                        Margin="30,30,30,0"
+                        FontSize="40"
+                        Text="Selamat Datang," />
+                    <TextBlock
+                        Margin="30,0,30,0"
+                        FontSize="50"
+                        Text="Muhammad Akbar Azis ! " />
+                    <TextBlock
+                        Margin="30,40,30,0"
+                        FontSize="25"
+                        Text="Silahkan memilih menu pada sidebar disamping."
+                        TextWrapping="Wrap" />
+                    <TextBlock
+                        Margin="30,10,30,0"
+                        FontSize="20"
+                        Text="Jika mengalami kendala silahkan lakukan relogin akun anda. Jika masih mengalami kendala yang sama, silahkan menghubungi admin !"
+                        TextWrapping="Wrap" />
+                    <Image
+                        MaxWidth="300"
+                        Margin="30,100,30,0"
+                        Source="/Image/welcome.png" />
+                </StackPanel>
+            </Grid>
+
+            <!--  Input Data Batch  -->
             <Grid
                 x:Name="tampilanInput"
                 HorizontalAlignment="Stretch"

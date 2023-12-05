@@ -10,10 +10,12 @@
 
   <ItemGroup>
     <None Remove="Image\image.png" />
+    <None Remove="Image\welcome.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Image\image.png" />
+    <Resource Include="Image\welcome.png" />
   </ItemGroup>
 
 </Project>

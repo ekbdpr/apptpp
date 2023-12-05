@@ -68,6 +68,7 @@ namespace Tugas_Besar
         {
             tampilanInput.Visibility = Visibility.Visible;
 
+            tampilanUtama.Visibility = Visibility.Collapsed;
             tampilanKelolaData.Visibility = Visibility.Collapsed;
             tampilanLihatLaporan.Visibility = Visibility.Collapsed;
             tampilanFormatArip.Visibility = Visibility.Collapsed;
@@ -78,6 +79,7 @@ namespace Tugas_Besar
         {
             tampilanKelolaData.Visibility = Visibility.Visible;
 
+            tampilanUtama.Visibility = Visibility.Collapsed;
             tampilanInput.Visibility = Visibility.Collapsed;
             tampilanLihatLaporan.Visibility = Visibility.Collapsed;
             tampilanFormatArip.Visibility = Visibility.Collapsed;
@@ -88,6 +90,7 @@ namespace Tugas_Besar
         {
             tampilanLihatLaporan.Visibility = Visibility.Visible;
 
+            tampilanUtama.Visibility = Visibility.Collapsed;
             tampilanInput.Visibility = Visibility.Collapsed;
             tampilanKelolaData.Visibility = Visibility.Collapsed;
             tampilanFormatArip.Visibility = Visibility.Collapsed;
@@ -98,6 +101,7 @@ namespace Tugas_Besar
         {
             tampilanFormatArip.Visibility = Visibility.Visible;
 
+            tampilanUtama.Visibility = Visibility.Collapsed;
             tampilanInput.Visibility = Visibility.Collapsed;
             tampilanKelolaData.Visibility = Visibility.Collapsed;
             tampilanLihatLaporan.Visibility = Visibility.Collapsed;
@@ -108,6 +112,7 @@ namespace Tugas_Besar
         {
             tampilanFormatSimgaji.Visibility = Visibility.Visible;
 
+            tampilanUtama.Visibility = Visibility.Collapsed;
             tampilanInput.Visibility = Visibility.Collapsed;
             tampilanKelolaData.Visibility = Visibility.Collapsed;
             tampilanLihatLaporan.Visibility = Visibility.Collapsed;
