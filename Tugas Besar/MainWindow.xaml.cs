@@ -25,6 +25,7 @@ namespace Tugas_Besar
         public MainWindow()
         {
             InitializeComponent();
+            this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
 
             menuDataPegawai.Visibility = Visibility.Collapsed;
             menuDataTpp.Visibility = Visibility.Collapsed;
