@@ -112,5 +112,15 @@ namespace Tugas_Besar
             tampilanLihatLaporan.Visibility = Visibility.Collapsed;
             tampilanFormatArip.Visibility = Visibility.Collapsed;
         }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void btnMinimize_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
     }
 }

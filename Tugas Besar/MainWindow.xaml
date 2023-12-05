@@ -34,6 +34,7 @@
             <RowDefinition Height="15*" />
         </Grid.RowDefinitions>
 
+        <!--  Welcome  -->
         <Grid
             Grid.Row="0"
             Grid.Column="0"
@@ -46,6 +47,7 @@
                 Text="Selamat Datang" />
         </Grid>
 
+        <!--  Control dan Akun  -->
         <Grid
             Grid.Row="0"
             Grid.Column="1"
@@ -54,21 +56,129 @@
                 HorizontalAlignment="Right"
                 VerticalAlignment="Center"
                 Orientation="Horizontal">
-                <StackPanel Margin="0,0,30,0">
-                    <TextBlock FontSize="15" Text="Muhammad Akbar Azis (Admin)" />
+                <StackPanel Margin="0,0,30,0" Orientation="Horizontal">
+                    <Border
+                        Width="30"
+                        Height="30"
+                        Margin="0,0,10,0"
+                        CornerRadius="20">
+                        <Border.Background>
+                            <ImageBrush ImageSource="/Image/image.png" Stretch="Fill" />
+                        </Border.Background>
+                    </Border>
+                    <TextBlock
+                        VerticalAlignment="Center"
+                        FontSize="15"
+                        Text="Muhammad Akbar Azis (Admin)" />
                 </StackPanel>
                 <Button
-                    x:Name="minimize"
-                    Width="20"
-                    Height="20"
+                    x:Name="btnMinimize"
+                    Width="30"
+                    Height="30"
                     Margin="0,0,5,0"
-                    Content="_" />
+                    Click="btnMinimize_Click"
+                    Content="_"
+                    Cursor="Hand"
+                    FontSize="15"
+                    FontWeight="Bold">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="20" />
+                        </Style>
+                    </Button.Resources>
+
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#00ADB5" />
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Trigger.EnterActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ColorAnimation
+                                                    Storyboard.TargetProperty="Background.(SolidColorBrush.Color)"
+                                                    To="#58b3b8"
+                                                    Duration="0:0:0.3" />
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.EnterActions>
+                                    <Trigger.ExitActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ColorAnimation
+                                                    Storyboard.TargetProperty="Background.(SolidColorBrush.Color)"
+                                                    To="#00ADB5"
+                                                    Duration="0:0:0.3" />
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.ExitActions>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
                 <Button
-                    x:Name="close"
-                    Width="20"
-                    Height="20"
+                    x:Name="btnClose"
+                    Width="30"
+                    Height="30"
                     Margin="0,0,5,0"
-                    Content="X" />
+                    Click="btnClose_Click"
+                    Content="X"
+                    Cursor="Hand"
+                    FontSize="15"
+                    FontWeight="Bold">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="20" />
+                        </Style>
+                    </Button.Resources>
+
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#CD1818" />
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Trigger.EnterActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ColorAnimation
+                                                    Storyboard.TargetProperty="Background.(SolidColorBrush.Color)"
+                                                    To="#d44242"
+                                                    Duration="0:0:0.3" />
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.EnterActions>
+                                    <Trigger.ExitActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ColorAnimation
+                                                    Storyboard.TargetProperty="Background.(SolidColorBrush.Color)"
+                                                    To="#CD1818"
+                                                    Duration="0:0:0.3" />
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.ExitActions>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
             </StackPanel>
 
         </Grid>
