@@ -27,9 +27,6 @@ namespace Tugas_Besar
             InitializeComponent();
             this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
 
-            menuDataPegawai.Visibility = Visibility.Collapsed;
-            menuDataTpp.Visibility = Visibility.Collapsed;
-
             tampilanInput.Visibility = Visibility.Collapsed;
             tampilanKelolaData.Visibility = Visibility.Collapsed;
             tampilanLihatLaporan.Visibility = Visibility.Collapsed;
@@ -39,29 +36,45 @@ namespace Tugas_Besar
 
         private void btnDataPegawai_Click(object sender, RoutedEventArgs e)
         {
-            if(menuDataPegawai.Visibility == Visibility.Collapsed ) 
+            if(menuDataPegawai.Visibility == Visibility.Hidden ) 
             {
                 menuDataPegawai.Visibility= Visibility.Visible;
-                menuDataTpp.Visibility = Visibility.Collapsed;
-
                 ((Storyboard)btnDataPegawai.Resources["ToggleOpenMenu"]).Begin();
             } else
             {
-                menuDataPegawai.Visibility= Visibility.Collapsed;
+                menuDataPegawai.Visibility= Visibility.Hidden;
                 ((Storyboard)btnDataPegawai.Resources["ToggleCloseMenu"]).Begin();
             }    
         }
 
         private void btnUnduhTpp_Click(object sender, RoutedEventArgs e)
         {
-            if(menuDataTpp.Visibility == Visibility.Collapsed )
+            DoubleAnimation tppOpenAnimation;
+
+            Storyboard toggleOpenMenuStoryboard = (Storyboard)btnUnduhTpp.Resources["ToggleOpenMenu"];
+            tppOpenAnimation = (DoubleAnimation)toggleOpenMenuStoryboard.Children[0];
+
+            if (menuDataTpp.Visibility == Visibility.Hidden)
             {
+                if(menuDataPegawai.Visibility == Visibility.Hidden)
+                {
+                    tppOpenAnimation.From = -177;
+                    tppOpenAnimation.To = -118;
+                }
+
+                if(menuDataPegawai.Visibility == Visibility.Visible)
+                {
+                    tppOpenAnimation.From = -59;
+                    tppOpenAnimation.To = 0;
+                }
+
                 menuDataTpp.Visibility = Visibility.Visible;
-                menuDataPegawai.Visibility = Visibility.Collapsed;
-            } else
+                ((Storyboard)btnUnduhTpp.Resources["ToggleOpenMenu"]).Begin();
+            }
+            else
             {
-                menuDataTpp.Visibility = Visibility.Collapsed;
-            }            
+                menuDataTpp.Visibility = Visibility.Hidden;
+            }
         }
 
         private void btnInputData_Click(object sender, RoutedEventArgs e)

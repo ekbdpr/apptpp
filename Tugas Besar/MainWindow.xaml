@@ -38,152 +38,66 @@
         <Grid
             Grid.Row="0"
             Grid.Column="0"
-            Background="#222831">
-            <TextBlock
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                FontSize="20"
-                Foreground="White"
-                Text="Selamat Datang" />
+            Style="{StaticResource PrimaryColorGrid}">
+            <TextBlock Text="SELAMAT DATANG">
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="HorizontalAlignment" Value="Center" />
+                        <Setter Property="VerticalAlignment" Value="Center" />
+                        <Setter Property="FontSize" Value="20" />
+                        <Setter Property="Foreground" Value="White" />
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
         </Grid>
 
         <!--  Control dan Akun Info  -->
         <Grid
             Grid.Row="0"
             Grid.Column="1"
-            Background="#EEEEEE">
-            <Border BorderBrush="#222933" BorderThickness="3,0,0,0">
-                <Border.Effect>
-                    <DropShadowEffect BlurRadius="10" ShadowDepth="2" />
-                </Border.Effect>
-            </Border>
-            <StackPanel
-                HorizontalAlignment="Right"
-                VerticalAlignment="Center"
-                Orientation="Horizontal">
+            Style="{StaticResource BackgroundColorGrid}">
+            <Border Style="{StaticResource DropShadowBorderStyle}" />
+            <StackPanel>
+                <StackPanel.Style>
+                    <Style TargetType="StackPanel">
+                        <Setter Property="HorizontalAlignment" Value="Right" />
+                        <Setter Property="VerticalAlignment" Value="Center" />
+                        <Setter Property="Orientation" Value="Horizontal" />
+                    </Style>
+                </StackPanel.Style>
                 <StackPanel Margin="0,0,30,0" Orientation="Horizontal">
-                    <Border
-                        Width="30"
-                        Height="30"
-                        Margin="0,0,10,0"
-                        CornerRadius="20">
+                    <Border>
+                        <Border.Style>
+                            <Style TargetType="Border">
+                                <Setter Property="Width" Value="30" />
+                                <Setter Property="Height" Value="30" />
+                                <Setter Property="Margin" Value="0,0,10,0" />
+                                <Setter Property="CornerRadius" Value="20" />
+                            </Style>
+                        </Border.Style>
                         <Border.Background>
                             <ImageBrush ImageSource="/Image/image.png" Stretch="Fill" />
                         </Border.Background>
                     </Border>
-                    <TextBlock
-                        VerticalAlignment="Center"
-                        FontSize="15"
-                        Text="Muhammad Akbar Azis (Admin)" />
+                    <TextBlock Text="Muhammad Akbar Azis (Admin)">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="VerticalAlignment" Value="Center" />
+                                <Setter Property="FontSize" Value="15" />
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
                 </StackPanel>
                 <Button
                     x:Name="btnMinimize"
-                    Width="30"
-                    Height="30"
-                    Margin="0,0,5,0"
                     Click="btnMinimize_Click"
                     Content="_"
-                    Cursor="Hand"
-                    FontSize="15"
-                    FontWeight="Bold">
-                    <Button.Resources>
-                        <Style TargetType="{x:Type Border}">
-                            <Setter Property="CornerRadius" Value="20" />
-                        </Style>
-                    </Button.Resources>
-
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Setter Property="Background" Value="#00ADB5" />
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Trigger.EnterActions>
-                                        <BeginStoryboard>
-                                            <Storyboard>
-                                                <ColorAnimation
-                                                    Storyboard.TargetProperty="Background.(SolidColorBrush.Color)"
-                                                    To="#58b3b8"
-                                                    Duration="0:0:0.3" />
-                                            </Storyboard>
-                                        </BeginStoryboard>
-                                    </Trigger.EnterActions>
-                                    <Trigger.ExitActions>
-                                        <BeginStoryboard>
-                                            <Storyboard>
-                                                <ColorAnimation
-                                                    Storyboard.TargetProperty="Background.(SolidColorBrush.Color)"
-                                                    To="#00ADB5"
-                                                    Duration="0:0:0.3" />
-                                            </Storyboard>
-                                        </BeginStoryboard>
-                                    </Trigger.ExitActions>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
-
-                    <Button.Template>
-                        <ControlTemplate TargetType="Button">
-                            <Border Background="{TemplateBinding Background}">
-                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                            </Border>
-                        </ControlTemplate>
-                    </Button.Template>
-                </Button>
+                    Style="{StaticResource MinimizeButtonStyle}" />
                 <Button
                     x:Name="btnClose"
-                    Width="30"
-                    Height="30"
-                    Margin="0,0,5,0"
                     Click="btnClose_Click"
                     Content="X"
-                    Cursor="Hand"
-                    FontSize="15"
-                    FontWeight="Bold">
-                    <Button.Resources>
-                        <Style TargetType="{x:Type Border}">
-                            <Setter Property="CornerRadius" Value="20" />
-                        </Style>
-                    </Button.Resources>
-
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Setter Property="Background" Value="#CD1818" />
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Trigger.EnterActions>
-                                        <BeginStoryboard>
-                                            <Storyboard>
-                                                <ColorAnimation
-                                                    Storyboard.TargetProperty="Background.(SolidColorBrush.Color)"
-                                                    To="#d44242"
-                                                    Duration="0:0:0.3" />
-                                            </Storyboard>
-                                        </BeginStoryboard>
-                                    </Trigger.EnterActions>
-                                    <Trigger.ExitActions>
-                                        <BeginStoryboard>
-                                            <Storyboard>
-                                                <ColorAnimation
-                                                    Storyboard.TargetProperty="Background.(SolidColorBrush.Color)"
-                                                    To="#CD1818"
-                                                    Duration="0:0:0.3" />
-                                            </Storyboard>
-                                        </BeginStoryboard>
-                                    </Trigger.ExitActions>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
-
-                    <Button.Template>
-                        <ControlTemplate TargetType="Button">
-                            <Border Background="{TemplateBinding Background}">
-                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                            </Border>
-                        </ControlTemplate>
-                    </Button.Template>
-                </Button>
+                    Style="{StaticResource CloseButtonStyle}" />
             </StackPanel>
         </Grid>
 
@@ -191,22 +105,26 @@
         <Grid
             Grid.Row="1"
             Grid.Column="0"
-            Background="#222831">
-            <TextBlock
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                FontSize="20"
-                FontWeight="Bold"
-                Foreground="White"
-                Text="Logo Disini"
-                TextAlignment="Center" />
+            Style="{StaticResource PrimaryColorGrid}">
+            <TextBlock Text="LOGO DISINI">
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="HorizontalAlignment" Value="Center" />
+                        <Setter Property="VerticalAlignment" Value="Center" />
+                        <Setter Property="FontSize" Value="20" />
+                        <Setter Property="FontWeight" Value="Bold" />
+                        <Setter Property="Foreground" Value="White" />
+                        <Setter Property="TextAlignment" Value="Center" />
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
         </Grid>
 
         <!--  Navigasi  -->
         <Grid
             Grid.Row="2"
             Grid.Column="0"
-            Background="#222831">
+            Style="{StaticResource PrimaryColorGrid}">
             <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Top">
                 <Button
                     x:Name="btnDataPegawai"
@@ -214,7 +132,14 @@
                     Content="👤  Data Pegawai    ➥"
                     Style="{StaticResource CustomButtonStyle}">
                     <Button.Resources>
+                        <!--  Open Animation  -->
                         <Storyboard x:Key="ToggleOpenMenu">
+                            <DoubleAnimation
+                                Storyboard.Target="{Binding ElementName=menuDataPegawai}"
+                                Storyboard.TargetProperty="(Button.RenderTransform).(TranslateTransform.Y)"
+                                From="-59"
+                                To="0"
+                                Duration="0:0:0.2" />
                             <DoubleAnimation
                                 Storyboard.Target="{Binding ElementName=menuDataPegawai}"
                                 Storyboard.TargetProperty="Opacity"
@@ -224,17 +149,31 @@
                             <DoubleAnimation
                                 Storyboard.Target="{Binding ElementName=btnLihatLaporan}"
                                 Storyboard.TargetProperty="(Button.RenderTransform).(TranslateTransform.Y)"
-                                From="-120"
+                                From="-118"
                                 To="0"
                                 Duration="0:0:0.2" />
                             <DoubleAnimation
                                 Storyboard.Target="{Binding ElementName=btnUnduhTpp}"
                                 Storyboard.TargetProperty="(Button.RenderTransform).(TranslateTransform.Y)"
-                                From="-120"
+                                From="-118"
+                                To="0"
+                                Duration="0:0:0.2" />
+                            <DoubleAnimation
+                                Storyboard.Target="{Binding ElementName=menuDataTpp}"
+                                Storyboard.TargetProperty="(Button.RenderTransform).(TranslateTransform.Y)"
+                                From="-118"
                                 To="0"
                                 Duration="0:0:0.2" />
                         </Storyboard>
+
+                        <!--  Close Animation  -->
                         <Storyboard x:Key="ToggleCloseMenu">
+                            <DoubleAnimation
+                                Storyboard.Target="{Binding ElementName=menuDataPegawai}"
+                                Storyboard.TargetProperty="(Button.RenderTransform).(TranslateTransform.Y)"
+                                From="0"
+                                To="-59"
+                                Duration="0:0:0.1" />
                             <DoubleAnimation
                                 Storyboard.Target="{Binding ElementName=menuDataPegawai}"
                                 Storyboard.TargetProperty="Opacity"
@@ -244,19 +183,31 @@
                             <DoubleAnimation
                                 Storyboard.Target="{Binding ElementName=btnLihatLaporan}"
                                 Storyboard.TargetProperty="(Button.RenderTransform).(TranslateTransform.Y)"
-                                From="120"
-                                To="0"
-                                Duration="0:0:0.2" />
+                                From="0"
+                                To="-118"
+                                Duration="0:0:0.1" />
                             <DoubleAnimation
                                 Storyboard.Target="{Binding ElementName=btnUnduhTpp}"
                                 Storyboard.TargetProperty="(Button.RenderTransform).(TranslateTransform.Y)"
-                                From="120"
-                                To="0"
+                                From="0"
+                                To="-118"
+                                Duration="0:0:0.1" />
+                            <DoubleAnimation
+                                Storyboard.Target="{Binding ElementName=menuDataTpp}"
+                                Storyboard.TargetProperty="(Button.RenderTransform).(TranslateTransform.Y)"
+                                From="0"
+                                To="-118"
                                 Duration="0:0:0.2" />
                         </Storyboard>
                     </Button.Resources>
                 </Button>
-                <StackPanel x:Name="menuDataPegawai" Background="#222831">
+                <StackPanel
+                    x:Name="menuDataPegawai"
+                    Style="{StaticResource PrimaryColorPanel}"
+                    Visibility="Hidden">
+                    <StackPanel.RenderTransform>
+                        <TranslateTransform />
+                    </StackPanel.RenderTransform>
                     <Button
                         x:Name="btnInputData"
                         Click="btnInputData_Click"
@@ -275,7 +226,7 @@
                     Content="📋  Lihat Laporan"
                     Style="{StaticResource CustomButtonStyle}">
                     <Button.RenderTransform>
-                        <TranslateTransform />
+                        <TranslateTransform Y="-118" />
                     </Button.RenderTransform>
                 </Button>
 
@@ -285,24 +236,49 @@
                     Content="📥︎  Unduh TPP    ➥"
                     Style="{StaticResource CustomButtonStyle}">
                     <Button.RenderTransform>
-                        <TranslateTransform />
+                        <TranslateTransform Y="-118" />
                     </Button.RenderTransform>
-                    <Button.Triggers>
-                        <EventTrigger RoutedEvent="Button.Click">
-                            <BeginStoryboard>
-                                <Storyboard>
-                                    <DoubleAnimation
-                                        Storyboard.TargetName="menuDataTpp"
-                                        Storyboard.TargetProperty="Opacity"
-                                        From="0"
-                                        To="1"
-                                        Duration="0:0:0.5" />
-                                </Storyboard>
-                            </BeginStoryboard>
-                        </EventTrigger>
-                    </Button.Triggers>
+                    <Button.Resources>
+                        <!--  Open Animation  -->
+                        <Storyboard x:Key="ToggleOpenMenu">
+                            <DoubleAnimation
+                                Storyboard.Target="{Binding ElementName=menuDataTpp}"
+                                Storyboard.TargetProperty="(Button.RenderTransform).(TranslateTransform.Y)"
+                                From="-59"
+                                To="0"
+                                Duration="0:0:0.1" />
+                            <DoubleAnimation
+                                Storyboard.Target="{Binding ElementName=menuDataTpp}"
+                                Storyboard.TargetProperty="Opacity"
+                                From="0"
+                                To="1"
+                                Duration="0:0:0.5" />
+                        </Storyboard>
+
+                        <!--  Close Animation  -->
+                        <Storyboard x:Key="ToggleCloseMenu">
+                            <DoubleAnimation
+                                Storyboard.Target="{Binding ElementName=menuDataTpp}"
+                                Storyboard.TargetProperty="(Button.RenderTransform).(TranslateTransform.Y)"
+                                From="0"
+                                To="-59"
+                                Duration="0:0:0.1" />
+                            <DoubleAnimation
+                                Storyboard.Target="{Binding ElementName=menuDataTpp}"
+                                Storyboard.TargetProperty="Opacity"
+                                From="1"
+                                To="0"
+                                Duration="0:0:0.5" />
+                        </Storyboard>
+                    </Button.Resources>
                 </Button>
-                <StackPanel x:Name="menuDataTpp" Background="#222831">
+                <StackPanel
+                    x:Name="menuDataTpp"
+                    Style="{StaticResource PrimaryColorPanel}"
+                    Visibility="Hidden">
+                    <StackPanel.RenderTransform>
+                        <TranslateTransform />
+                    </StackPanel.RenderTransform>
                     <Button
                         x:Name="btnArip"
                         Click="btnArip_Click"
@@ -322,12 +298,8 @@
             Grid.Row="1"
             Grid.RowSpan="2"
             Grid.Column="1"
-            Background="#EEEEEE">
-            <Border BorderBrush="#222933" BorderThickness="3,0,0,0">
-                <Border.Effect>
-                    <DropShadowEffect BlurRadius="10" ShadowDepth="2" />
-                </Border.Effect>
-            </Border>
+            Style="{StaticResource BackgroundColorGrid}">
+            <Border Style="{StaticResource DropShadowBorderStyle}" />
 
             <!--  Input Data Batch  -->
             <Grid

@@ -1,5 +1,50 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <!--  Button Style  -->
+    <!--  Background Color  -->
+    <!--  Primary  -->
+    <Style x:Key="PrimaryColor" TargetType="Control">
+        <Setter Property="Background" Value="#222831" />
+    </Style>
+    <Style x:Key="PrimaryColorGrid" TargetType="Grid">
+        <Setter Property="Background" Value="#222831" />
+    </Style>
+    <Style x:Key="PrimaryColorPanel" TargetType="StackPanel">
+        <Setter Property="Background" Value="#222831" />
+    </Style>
+
+    <!--  Secondary  -->
+    <Style x:Key="SecondaryColor" TargetType="Control">
+        <Setter Property="Background" Value="#393E46" />
+    </Style>
+    <Style x:Key="SecondaryColorGrid" TargetType="Grid">
+        <Setter Property="Background" Value="#393E46" />
+    </Style>
+    <Style x:Key="SecondaryColorPanel" TargetType="StackPanel">
+        <Setter Property="Background" Value="#393E46" />
+    </Style>
+
+    <!--  Accent  -->
+    <Style x:Key="AccentColor" TargetType="Control">
+        <Setter Property="Background" Value="#00ADB5" />
+    </Style>
+    <Style x:Key="AccentColorGrid" TargetType="Grid">
+        <Setter Property="Background" Value="#00ADB5" />
+    </Style>
+    <Style x:Key="AccentColorPanel" TargetType="StackPanel">
+        <Setter Property="Background" Value="#00ADB5" />
+    </Style>
+
+    <!--  Background  -->
+    <Style x:Key="BackgroundColor" TargetType="Control">
+        <Setter Property="Background" Value="#EEEEEE" />
+    </Style>
+    <Style x:Key="BackgroundColorGrid" TargetType="Grid">
+        <Setter Property="Background" Value="#EEEEEE" />
+    </Style>
+    <Style x:Key="BackgroundColorPanel" TargetType="StackPanel">
+        <Setter Property="Background" Value="#EEEEEE" />
+    </Style>
+
+    <!--  Custom General Button Style  -->
     <Style x:Key="CustomButtonStyle" TargetType="Button">
         <Setter Property="Background" Value="#222831" />
         <Setter Property="Foreground" Value="#EEEEEE" />
@@ -52,4 +97,116 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <!--  Minimize Button Style  -->
+    <Style x:Key="MinimizeButtonStyle" TargetType="Button">
+        <Setter Property="Width" Value="30" />
+        <Setter Property="Height" Value="30" />
+        <Setter Property="Margin" Value="0,0,5,0" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="FontSize" Value="15" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="Background" Value="#00ADB5" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Resources>
+            <Style TargetType="{x:Type Border}">
+                <Setter Property="CornerRadius" Value="20" />
+            </Style>
+        </Style.Resources>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Trigger.EnterActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation
+                                Storyboard.TargetProperty="Background.(SolidColorBrush.Color)"
+                                To="#58b3b8"
+                                Duration="0:0:0.3" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.EnterActions>
+                <Trigger.ExitActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation
+                                Storyboard.TargetProperty="Background.(SolidColorBrush.Color)"
+                                To="#00ADB5"
+                                Duration="0:0:0.3" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.ExitActions>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--  Close Button Style  -->
+    <Style x:Key="CloseButtonStyle" TargetType="Button">
+        <Setter Property="Width" Value="30" />
+        <Setter Property="Height" Value="30" />
+        <Setter Property="Margin" Value="0,0,5,0" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="FontSize" Value="15" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="Background" Value="#CD1818" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Resources>
+            <Style TargetType="{x:Type Border}">
+                <Setter Property="CornerRadius" Value="20" />
+            </Style>
+        </Style.Resources>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Trigger.EnterActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation
+                                Storyboard.TargetProperty="Background.(SolidColorBrush.Color)"
+                                To="#d44242"
+                                Duration="0:0:0.3" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.EnterActions>
+                <Trigger.ExitActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation
+                                Storyboard.TargetProperty="Background.(SolidColorBrush.Color)"
+                                To="#CD1818"
+                                Duration="0:0:0.3" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.ExitActions>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--  Border Shadow  -->
+    <Style x:Key="DropShadowBorderStyle" TargetType="Border">
+        <Setter Property="BorderBrush" Value="#222831" />
+        <Setter Property="BorderThickness" Value="3,0,0,0" />
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="2" />
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--  Btn Data Pegawai Animation  -->
+    
 </ResourceDictionary>
