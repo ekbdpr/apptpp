@@ -316,8 +316,8 @@
                         Text="Jika mengalami kendala silahkan lakukan relogin akun anda. Jika masih mengalami kendala yang sama, silahkan menghubungi admin !"
                         TextWrapping="Wrap" />
                     <Image
-                        MaxWidth="300"
-                        Margin="30,100,30,0"
+                        MaxWidth="400"
+                        Margin="30,0,30,0"
                         Source="/Image/welcome.png" />
                 </StackPanel>
             </Grid>

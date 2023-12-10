@@ -32,16 +32,16 @@
             Opacity="0.95">
             <Border.BorderBrush>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Offset="0" Color="#ffb4Ac" />
-                    <GradientStop Offset="0.75" Color="#679186" />
-                    <GradientStop Offset="1" Color="#ffebd3" />
+                    <GradientStop Offset="0" Color="#6624c0" />
+                    <GradientStop Offset="0.75" Color="#a67be0" />
+                    <GradientStop Offset="1" Color="#58b580" />
                 </LinearGradientBrush>
             </Border.BorderBrush>
 
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
-                    <GradientStop Offset="0" Color="#264e70" />
-                    <GradientStop Offset="1" Color="#EEEEEE" />
+                    <GradientStop Offset="0" Color="#0a1647" />
+                    <GradientStop Offset="1" Color="#e4e7e4" />
                 </LinearGradientBrush>
             </Border.Background>
 
@@ -51,13 +51,14 @@
                         <Setter Property="VerticalAlignment" Value="Center" />
                     </Style>
                 </StackPanel.Style>
+
                 <!--  Logo  -->
                 <Image MaxWidth="250" Source="/Image/login-logo.png" />
 
                 <!--  Username  -->
                 <TextBlock
                     MaxWidth="250"
-                    Margin="10,20,0,10"
+                    Margin="0,20,0,10"
                     FontWeight="Bold"
                     Foreground="White"
                     Text="Username" />
@@ -83,7 +84,7 @@
                 <!--  Password  -->
                 <TextBlock
                     MaxWidth="250"
-                    Margin="10,20,0,10"
+                    Margin="0,20,0,10"
                     FontWeight="Bold"
                     Foreground="White"
                     Text="Password" />
