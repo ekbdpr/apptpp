@@ -11,6 +11,7 @@
     AllowsTransparency="True"
     Background="Transparent"
     ResizeMode="NoResize"
+    SnapsToDevicePixels="True"
     WindowStartupLocation="CenterScreen"
     WindowStyle="None"
     mc:Ignorable="d">
