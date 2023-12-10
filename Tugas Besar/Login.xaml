@@ -41,7 +41,7 @@
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
                     <GradientStop Offset="0" Color="#264e70" />
-                    <GradientStop Offset="1" Color="#ffb4Ac" />
+                    <GradientStop Offset="1" Color="#EEEEEE" />
                 </LinearGradientBrush>
             </Border.Background>
 
@@ -133,7 +133,7 @@
                     Margin="0,10,0,0"
                     FontSize="11"
                     Foreground="White"
-                    Text="Lupa Password ? Silahkan menghubungi Admin di 081XXXXXXXXX"
+                    Text="Lupa Password ? Silahkan menghubungi Admin di 081XXXXXXXXX (WhatsApp)"
                     TextAlignment="Center"
                     TextWrapping="Wrap" />
             </StackPanel>
