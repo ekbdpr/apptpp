@@ -24,7 +24,7 @@
     </Window.Resources>
     <Border CornerRadius="12">
         <Border.Background>
-            <ImageBrush ImageSource="/Image/login-bg.jpg" />
+            <ImageBrush ImageSource="/Images/login-bg.jpg" />
         </Border.Background>
 
         <Border
@@ -33,16 +33,16 @@
             Opacity="0.95">
             <Border.BorderBrush>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Offset="0" Color="#6624c0" />
+                    <GradientStop Offset="0" Color="#00ADB5" />
                     <GradientStop Offset="0.75" Color="#a67be0" />
-                    <GradientStop Offset="1" Color="#58b580" />
+                    <GradientStop Offset="1" Color="#EEEEEE" />
                 </LinearGradientBrush>
             </Border.BorderBrush>
 
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
-                    <GradientStop Offset="0" Color="#0a1647" />
-                    <GradientStop Offset="1" Color="#e4e7e4" />
+                    <GradientStop Offset="0" Color="#393E46" />
+                    <GradientStop Offset="1" Color="#222831" />
                 </LinearGradientBrush>
             </Border.Background>
 
@@ -54,7 +54,7 @@
                 </StackPanel.Style>
 
                 <!--  Logo  -->
-                <Image MaxWidth="250" Source="/Image/login-logo.png" />
+                <Image MaxWidth="250" Source="/Images/login-logo.png" />
 
                 <!--  Username  -->
                 <TextBlock
@@ -77,7 +77,7 @@
                     <TextBox.Background>
                         <ImageBrush
                             AlignmentX="Left"
-                            ImageSource="/Image/user-icon.png"
+                            ImageSource="/Images/user-icon.png"
                             Stretch="None" />
                     </TextBox.Background>
                 </TextBox>
@@ -103,7 +103,7 @@
                     <PasswordBox.Background>
                         <ImageBrush
                             AlignmentX="Left"
-                            ImageSource="/Image/key-icon.png"
+                            ImageSource="/Images/key-icon.png"
                             Stretch="None" />
                     </PasswordBox.Background>
                 </PasswordBox>

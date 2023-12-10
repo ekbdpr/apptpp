@@ -9,26 +9,28 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Image\dashboard-logo.png" />
-    <None Remove="Image\image.png" />
-    <None Remove="Image\key-icon.png" />
-    <None Remove="Image\login-bg.jpg" />
-    <None Remove="Image\login-logo.png" />
-    <None Remove="Image\user-icon.png" />
-    <None Remove="Image\welcome.png" />
+    <None Remove="Images\dashboard-bg.jpg" />
+    <None Remove="Images\dashboard-logo.png" />
+    <None Remove="Images\image.png" />
+    <None Remove="Images\key-icon.png" />
+    <None Remove="Images\login-bg.jpg" />
+    <None Remove="Images\login-logo.png" />
+    <None Remove="Images\user-icon.png" />
+    <None Remove="Images\welcome.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Image\dashboard-logo.png" />
-    <Resource Include="Image\login-logo.png" />
+    <Resource Include="Images\dashboard-bg.jpg" />
+    <Resource Include="Images\dashboard-logo.png" />
+    <Resource Include="Images\login-logo.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Image\image.png" />
-    <Resource Include="Image\key-icon.png" />
-    <Resource Include="Image\login-bg.jpg" />
-    <Resource Include="Image\user-icon.png" />
-    <Resource Include="Image\welcome.png" />
+    <Resource Include="Images\image.png" />
+    <Resource Include="Images\key-icon.png" />
+    <Resource Include="Images\login-bg.jpg" />
+    <Resource Include="Images\user-icon.png" />
+    <Resource Include="Images\welcome.png" />
   </ItemGroup>
 
 </Project>

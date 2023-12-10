@@ -63,7 +63,7 @@
                                 </Style>
                             </Border.Style>
                             <Border.Background>
-                                <ImageBrush ImageSource="/Image/image.png" Stretch="Fill" />
+                                <ImageBrush ImageSource="/Images/image.png" Stretch="Fill" />
                             </Border.Background>
                         </Border>
 
@@ -99,7 +99,7 @@
             Grid.Column="0"
             Style="{StaticResource PrimaryColorGrid}">
             <Viewbox>
-                <Image MaxWidth="250" Source="/Image/dashboard-logo.png" />
+                <Image MaxWidth="250" Source="/Images/dashboard-logo.png" />
             </Viewbox>
         </Grid>
 
@@ -333,7 +333,7 @@
                         <Image
                             MaxWidth="500"
                             Margin="30,50,30,0"
-                            Source="/Image/welcome.png" />
+                            Source="/Images/welcome.png" />
                     </StackPanel>
                 </Grid>
             </Viewbox>
