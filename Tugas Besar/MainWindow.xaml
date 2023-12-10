@@ -8,6 +8,7 @@
     Title="MainWindow"
     Width="1200"
     Height="768"
+    AllowsTransparency="True"
     Background="Transparent"
     ResizeMode="NoResize"
     WindowStartupLocation="CenterScreen"
@@ -106,18 +107,7 @@
             Grid.Row="1"
             Grid.Column="0"
             Style="{StaticResource PrimaryColorGrid}">
-            <TextBlock Text="LOGO DISINI">
-                <TextBlock.Style>
-                    <Style TargetType="TextBlock">
-                        <Setter Property="HorizontalAlignment" Value="Center" />
-                        <Setter Property="VerticalAlignment" Value="Center" />
-                        <Setter Property="FontSize" Value="20" />
-                        <Setter Property="FontWeight" Value="Bold" />
-                        <Setter Property="Foreground" Value="White" />
-                        <Setter Property="TextAlignment" Value="Center" />
-                    </Style>
-                </TextBlock.Style>
-            </TextBlock>
+            <Image MaxWidth="250" Source="/Image/dashboard-logo.png" />
         </Grid>
 
         <!--  Navigasi  -->
