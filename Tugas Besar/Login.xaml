@@ -109,26 +109,39 @@
                 </PasswordBox>
 
                 <!--  Login Button  -->
-                <Button Click="Button_Click" Content="Login">
-                    <Button.Style>
-                        <Style BasedOn="{StaticResource CustomButtonStyle}" TargetType="Button">
-                            <Setter Property="Width" Value="100" />
-                            <Setter Property="Height" Value="30" />
-                            <Setter Property="Padding" Value="0" />
-                            <Setter Property="FontWeight" Value="Bold" />
-                            <Setter Property="FontSize" Value="12" />
-                            <Setter Property="Margin" Value="0,20,0,0" />
-                            <Setter Property="VerticalAlignment" Value="Center" />
-                            <Setter Property="HorizontalContentAlignment" Value="Center" />
-                        </Style>
-                    </Button.Style>
+                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                    <Button Click="Login_Button_Click" Content="Login">
+                        <Button.Style>
+                            <Style BasedOn="{StaticResource CustomButtonStyle}" TargetType="Button">
+                                <Setter Property="Width" Value="100" />
+                                <Setter Property="Height" Value="30" />
+                                <Setter Property="Padding" Value="0" />
+                                <Setter Property="FontWeight" Value="Bold" />
+                                <Setter Property="FontSize" Value="12" />
+                                <Setter Property="Margin" Value="0,20,0,0" />
+                                <Setter Property="VerticalAlignment" Value="Center" />
+                                <Setter Property="HorizontalContentAlignment" Value="Center" />
+                            </Style>
+                        </Button.Style>
 
-                    <Button.Resources>
-                        <Style TargetType="{x:Type Border}">
-                            <Setter Property="CornerRadius" Value="10" />
-                        </Style>
-                    </Button.Resources>
-                </Button>
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="10" />
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+
+                    <Button
+                        Click="Exit_Button_Click"
+                        Content="Keluar"
+                        Style="{StaticResource KeluarButtonStyle}">
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="10" />
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                </StackPanel>
 
                 <TextBlock
                     MaxWidth="250"

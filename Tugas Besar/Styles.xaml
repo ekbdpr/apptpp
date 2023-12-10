@@ -86,6 +86,69 @@
         </Setter>
     </Style>
 
+    <!--  Keluar Button Style  -->
+    <Style x:Key="KeluarButtonStyle" TargetType="Button">
+        <Setter Property="Width" Value="100" />
+        <Setter Property="Foreground" Value="#CD1818" />
+        <Setter Property="Background" Value="#EEEEEE" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Height" Value="30" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="Margin" Value="20,20,0,0" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border
+                        Padding="{TemplateBinding Padding}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <!--  Mouse Hover  -->
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation
+                                            Storyboard.TargetProperty="Background.(SolidColorBrush.Color)"
+                                            To="#CD1818"
+                                            Duration="0:0:0.3" />
+
+                                        <ColorAnimation
+                                            Storyboard.TargetProperty="Foreground.(SolidColorBrush.Color)"
+                                            To="#EEEEEE"
+                                            Duration="0:0:0.3" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation
+                                            Storyboard.TargetProperty="Background.(SolidColorBrush.Color)"
+                                            To="#EEEEEE"
+                                            Duration="0:0:0.3" />
+
+                                        <ColorAnimation
+                                            Storyboard.TargetProperty="Foreground.(SolidColorBrush.Color)"
+                                            To="#CD1818"
+                                            Duration="0:0:0.3" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     <!--  Minimize Button Style  -->
     <Style x:Key="MinimizeButtonStyle" TargetType="Button">
         <Setter Property="Width" Value="30" />
