@@ -481,3 +481,4 @@ D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Release\net7.0-windo
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Release\net7.0-windows\win-x86\AppTpp.pdb
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Release\net7.0-windows\win-x86\AppTpp.genruntimeconfig.cache
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Release\net7.0-windows\win-x86\ref\AppTpp.dll
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Release\net7.0-windows\win-x86\AppTpp_Content.g.cs

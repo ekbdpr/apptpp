@@ -44,3 +44,4 @@ D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\AppTpp.pdb
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\AppTpp.genruntimeconfig.cache
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\ref\AppTpp.dll
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\AppTpp_Content.g.cs

@@ -6,9 +6,11 @@
     <RootNamespace>Tugas_Besar</RootNamespace>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>Images\dashboard-logo.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="dashboard-logo.ico" />
     <None Remove="Images\dashboard-logo.png" />
     <None Remove="Images\image.png" />
     <None Remove="Images\key-icon.png" />
@@ -19,6 +21,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Images\dashboard-logo.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="dashboard-logo.ico" />
     <Resource Include="Images\dashboard-logo.png" />
     <Resource Include="Images\login-logo.png" />
   </ItemGroup>

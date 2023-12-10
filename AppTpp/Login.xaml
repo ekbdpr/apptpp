@@ -10,6 +10,7 @@
     Height="500"
     AllowsTransparency="True"
     Background="Transparent"
+    Icon="/dashboard-logo.ico"
     ResizeMode="NoResize"
     SnapsToDevicePixels="True"
     WindowStartupLocation="CenterScreen"
