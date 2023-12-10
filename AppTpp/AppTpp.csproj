@@ -9,7 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Images\dashboard-bg.jpg" />
     <None Remove="Images\dashboard-logo.png" />
     <None Remove="Images\image.png" />
     <None Remove="Images\key-icon.png" />
@@ -20,7 +19,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Images\dashboard-bg.jpg" />
     <Resource Include="Images\dashboard-logo.png" />
     <Resource Include="Images\login-logo.png" />
   </ItemGroup>
