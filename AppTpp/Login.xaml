@@ -1,0 +1,157 @@
+﻿<Window
+    x:Class="AppTpp.Login"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:AppTpp"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Login"
+    Width="400"
+    Height="500"
+    AllowsTransparency="True"
+    Background="Transparent"
+    ResizeMode="NoResize"
+    SnapsToDevicePixels="True"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Border CornerRadius="12">
+        <Border.Background>
+            <ImageBrush ImageSource="/Image/login-bg.jpg" />
+        </Border.Background>
+
+        <Border
+            BorderThickness="2"
+            CornerRadius="10"
+            Opacity="0.95">
+            <Border.BorderBrush>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Offset="0" Color="#6624c0" />
+                    <GradientStop Offset="0.75" Color="#a67be0" />
+                    <GradientStop Offset="1" Color="#58b580" />
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                    <GradientStop Offset="0" Color="#0a1647" />
+                    <GradientStop Offset="1" Color="#e4e7e4" />
+                </LinearGradientBrush>
+            </Border.Background>
+
+            <StackPanel>
+                <StackPanel.Style>
+                    <Style TargetType="StackPanel">
+                        <Setter Property="VerticalAlignment" Value="Center" />
+                    </Style>
+                </StackPanel.Style>
+
+                <!--  Logo  -->
+                <Image MaxWidth="250" Source="/Image/login-logo.png" />
+
+                <!--  Username  -->
+                <TextBlock
+                    MaxWidth="250"
+                    Margin="0,20,0,10"
+                    FontWeight="Bold"
+                    Foreground="White"
+                    Text="Username" />
+
+                <TextBox
+                    Height="30"
+                    MaxWidth="250"
+                    Margin="0,5,0,0"
+                    Padding="20,0,0,0"
+                    VerticalContentAlignment="Center"
+                    BorderBrush="DarkGray"
+                    BorderThickness="0,0,0,2"
+                    CaretBrush="LightGray"
+                    Foreground="White">
+                    <TextBox.Background>
+                        <ImageBrush
+                            AlignmentX="Left"
+                            ImageSource="/Image/user-icon.png"
+                            Stretch="None" />
+                    </TextBox.Background>
+                </TextBox>
+
+                <!--  Password  -->
+                <TextBlock
+                    MaxWidth="250"
+                    Margin="0,20,0,10"
+                    FontWeight="Bold"
+                    Foreground="White"
+                    Text="Password" />
+
+                <PasswordBox
+                    Height="30"
+                    MaxWidth="250"
+                    Margin="0,5,0,0"
+                    Padding="20,0,0,0"
+                    VerticalContentAlignment="Center"
+                    BorderBrush="DarkGray"
+                    BorderThickness="0,0,0,2"
+                    CaretBrush="LightGray"
+                    Foreground="White">
+                    <PasswordBox.Background>
+                        <ImageBrush
+                            AlignmentX="Left"
+                            ImageSource="/Image/key-icon.png"
+                            Stretch="None" />
+                    </PasswordBox.Background>
+                </PasswordBox>
+
+                <!--  Login Button  -->
+                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                    <Button Click="Login_Button_Click" Content="Login">
+                        <Button.Style>
+                            <Style BasedOn="{StaticResource CustomButtonStyle}" TargetType="Button">
+                                <Setter Property="Width" Value="100" />
+                                <Setter Property="Height" Value="30" />
+                                <Setter Property="Padding" Value="0" />
+                                <Setter Property="FontWeight" Value="Bold" />
+                                <Setter Property="FontSize" Value="12" />
+                                <Setter Property="Margin" Value="0,20,0,0" />
+                                <Setter Property="VerticalAlignment" Value="Center" />
+                                <Setter Property="HorizontalContentAlignment" Value="Center" />
+                            </Style>
+                        </Button.Style>
+
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="10" />
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+
+                    <Button
+                        Click="Exit_Button_Click"
+                        Content="Keluar"
+                        Style="{StaticResource KeluarButtonStyle}">
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="10" />
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                </StackPanel>
+
+                <TextBlock
+                    MaxWidth="250"
+                    Margin="0,10,0,0"
+                    FontSize="11"
+                    Foreground="White"
+                    Text="Lupa Password ? Silahkan menghubungi Admin di 081XXXXXXXXX (WhatsApp)"
+                    TextAlignment="Center"
+                    TextWrapping="Wrap" />
+            </StackPanel>
+        </Border>
+    </Border>
+</Window>

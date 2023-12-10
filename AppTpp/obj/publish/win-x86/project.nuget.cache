@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "eAC+6NFsg4hpbG+4+xKEJ0IdTNWP8BCSEoQoCGalVQ8KPN7nW7urrR6Sba6jqOwabd1LdSXg3HCDeFbilxYMAw==",
+  "success": true,
+  "projectFilePath": "D:\\UNITAMA\\Semester 3\\Pemrograman 2\\Tugas\\AppTpp\\AppTpp\\AppTpp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ekabu\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x86\\7.0.14\\microsoft.netcore.app.runtime.win-x86.7.0.14.nupkg.sha512",
+    "C:\\Users\\ekabu\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x86\\7.0.14\\microsoft.windowsdesktop.app.runtime.win-x86.7.0.14.nupkg.sha512",
+    "C:\\Users\\ekabu\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x86\\7.0.14\\microsoft.aspnetcore.app.runtime.win-x86.7.0.14.nupkg.sha512"
+  ],
+  "logs": []
+}
