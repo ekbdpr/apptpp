@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net7.0-windows</TargetFramework>
-    <RootNamespace>Tugas_Besar</RootNamespace>
+    <RootNamespace>AppTpp</RootNamespace>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <ApplicationIcon>Images\dashboard-logo.ico</ApplicationIcon>
@@ -36,6 +36,11 @@
     <Resource Include="Images\login-bg.jpg" />
     <Resource Include="Images\user-icon.png" />
     <Resource Include="Images\welcome.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Fonts\" />
+    <Folder Include="Model\" />
   </ItemGroup>
 
 </Project>

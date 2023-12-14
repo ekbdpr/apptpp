@@ -12,6 +12,24 @@
     <Compile Update="Login.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\FormatArip.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\FormatSimgaji.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\Home.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\InputDataBatch.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\KelolaData.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\LihatLaporan.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Login.xaml">
@@ -20,7 +38,34 @@
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Styles.xaml">
+    <Page Update="Styles\MainBorderShadow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\Buttons.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\Page.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Utilities\DataTemplate.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\FormatArip.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\FormatSimgaji.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Home.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\InputDataBatch.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\KelolaData.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\LihatLaporan.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

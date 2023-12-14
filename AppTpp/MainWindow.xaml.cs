@@ -1,19 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
+﻿using System.Windows;
 using System.Windows.Media.Animation;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace AppTpp
 {
@@ -26,12 +12,6 @@ namespace AppTpp
         {
             InitializeComponent();
             this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
-
-            tampilanInput.Visibility = Visibility.Collapsed;
-            tampilanKelolaData.Visibility = Visibility.Collapsed;
-            tampilanLihatLaporan.Visibility = Visibility.Collapsed;
-            tampilanFormatArip.Visibility = Visibility.Collapsed;
-            tampilanFormatSimgaji.Visibility = Visibility.Collapsed;
         }
 
         private void btnDataPegawai_Click(object sender, RoutedEventArgs e)
@@ -75,61 +55,6 @@ namespace AppTpp
             {
                 menuDataTpp.Visibility = Visibility.Hidden;
             }
-        }
-
-        private void btnInputData_Click(object sender, RoutedEventArgs e)
-        {
-            tampilanInput.Visibility = Visibility.Visible;
-
-            tampilanUtama.Visibility = Visibility.Collapsed;
-            tampilanKelolaData.Visibility = Visibility.Collapsed;
-            tampilanLihatLaporan.Visibility = Visibility.Collapsed;
-            tampilanFormatArip.Visibility = Visibility.Collapsed;
-            tampilanFormatSimgaji.Visibility = Visibility.Collapsed;
-        }
-
-        private void btnHapusData_Click(object sender, RoutedEventArgs e)
-        {
-            tampilanKelolaData.Visibility = Visibility.Visible;
-
-            tampilanUtama.Visibility = Visibility.Collapsed;
-            tampilanInput.Visibility = Visibility.Collapsed;
-            tampilanLihatLaporan.Visibility = Visibility.Collapsed;
-            tampilanFormatArip.Visibility = Visibility.Collapsed;
-            tampilanFormatSimgaji.Visibility = Visibility.Collapsed;
-        }
-
-        private void btnLihatLaporan_Click(object sender, RoutedEventArgs e)
-        {
-            tampilanLihatLaporan.Visibility = Visibility.Visible;
-
-            tampilanUtama.Visibility = Visibility.Collapsed;
-            tampilanInput.Visibility = Visibility.Collapsed;
-            tampilanKelolaData.Visibility = Visibility.Collapsed;
-            tampilanFormatArip.Visibility = Visibility.Collapsed;
-            tampilanFormatSimgaji.Visibility = Visibility.Collapsed;
-        }
-
-        private void btnArip_Click(object sender, RoutedEventArgs e)
-        {
-            tampilanFormatArip.Visibility = Visibility.Visible;
-
-            tampilanUtama.Visibility = Visibility.Collapsed;
-            tampilanInput.Visibility = Visibility.Collapsed;
-            tampilanKelolaData.Visibility = Visibility.Collapsed;
-            tampilanLihatLaporan.Visibility = Visibility.Collapsed;
-            tampilanFormatSimgaji.Visibility = Visibility.Collapsed;
-        }
-
-        private void btnSimgaji_Click(object sender, RoutedEventArgs e)
-        {
-            tampilanFormatSimgaji.Visibility = Visibility.Visible;
-
-            tampilanUtama.Visibility = Visibility.Collapsed;
-            tampilanInput.Visibility = Visibility.Collapsed;
-            tampilanKelolaData.Visibility = Visibility.Collapsed;
-            tampilanLihatLaporan.Visibility = Visibility.Collapsed;
-            tampilanFormatArip.Visibility = Visibility.Collapsed;
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
