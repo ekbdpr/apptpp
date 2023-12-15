@@ -60,6 +60,7 @@
                     Margin="0,20,0,10"
                     FontWeight="Bold"
                     Foreground="White"
+                    Style="{StaticResource Text_Style}"
                     Text="Username" />
 
                 <TextBox
@@ -87,6 +88,7 @@
                     Margin="0,20,0,10"
                     FontWeight="Bold"
                     Foreground="White"
+                    Style="{StaticResource Text_Style}"
                     Text="Password" />
 
                 <PasswordBox
@@ -111,7 +113,8 @@
 
                 <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
 
-                    <Button Click="Login_Button_Click" Content="Login">
+                    <Button Click="Login_Button_Click">
+
                         <Button.Style>
                             <Style BasedOn="{StaticResource CustomButtonStyle}" TargetType="Button">
 
@@ -134,18 +137,20 @@
                             </Style>
 
                         </Button.Resources>
+
+                        <TextBlock Style="{StaticResource Text_Style}" Text="Login" />
+
                     </Button>
 
-                    <Button
-                        Click="Exit_Button_Click"
-                        Content="Keluar"
-                        Style="{StaticResource KeluarButtonStyle}">
+                    <Button Click="Exit_Button_Click" Style="{StaticResource KeluarButtonStyle}">
 
                         <Button.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="10" />
                             </Style>
                         </Button.Resources>
+
+                        <TextBlock Style="{StaticResource Text_Style}" Text="Keluar" />
 
                     </Button>
 
@@ -156,6 +161,7 @@
                     Margin="0,10,0,0"
                     FontSize="11"
                     Foreground="White"
+                    Style="{StaticResource Text_Style}"
                     Text="Lupa Password ? Silahkan menghubungi Admin di 081XXXXXXXXX (WhatsApp)"
                     TextAlignment="Center"
                     TextWrapping="Wrap" />

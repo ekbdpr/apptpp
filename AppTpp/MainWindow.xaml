@@ -120,6 +120,20 @@
 
             <Viewbox>
                 <StackPanel Width="200">
+                    <Menu:Btn
+                        Command="{Binding HomeCommand}"
+                        IsChecked="True"
+                        Style="{StaticResource BtnStyle}">
+
+                        <TextBlock
+                            Padding="20"
+                            VerticalAlignment="Center"
+                            FontSize="12"
+                            Style="{StaticResource Text_Style}"
+                            Text="&#127968;  Home" />
+
+                    </Menu:Btn>
+
                     <Button
                         x:Name="btnDataPegawai"
                         Click="btnDataPegawai_Click"
@@ -201,7 +215,7 @@
                             VerticalAlignment="Center"
                             FontSize="12"
                             Style="{StaticResource Text_Style}"
-                            Text="👤  Data Pegawai    ➥" />
+                            Text="&#128119;  Data Pegawai    &#10149;" />
                     </Button>
 
                     <StackPanel
@@ -216,22 +230,22 @@
                         <Menu:Btn Command="{Binding InputDataBatchCommand}" Style="{StaticResource BtnStyle}">
 
                             <TextBlock
-                                Padding="20"
+                                Padding="40"
                                 VerticalAlignment="Center"
                                 FontSize="12"
                                 Style="{StaticResource Text_Style}"
-                                Text="•  Input Data Batch" />
+                                Text="&#8284;  Input Data Batch" />
 
                         </Menu:Btn>
 
                         <Menu:Btn Command="{Binding KelolaDataCommand}" Style="{StaticResource BtnStyle}">
 
                             <TextBlock
-                                Padding="20"
+                                Padding="40"
                                 VerticalAlignment="Center"
                                 FontSize="12"
                                 Style="{StaticResource Text_Style}"
-                                Text="•  Kelola Data Pegawai" />
+                                Text="&#8284;  Kelola Data Pegawai" />
 
                         </Menu:Btn>
 
@@ -251,7 +265,7 @@
                             VerticalAlignment="Center"
                             FontSize="12"
                             Style="{StaticResource Text_Style}"
-                            Text="📋  Lihat Laporan" />
+                            Text="&#128196;  Lihat Laporan" />
 
                     </Menu:Btn>
 
@@ -300,7 +314,7 @@
                             </Storyboard>
                         </Button.Resources>
 
-                        <TextBlock Style="{StaticResource Text_Style}" Text="📥︎  Unduh TPP    ➥" />
+                        <TextBlock Style="{StaticResource Text_Style}" Text="&#128229;  Unduh TPP    &#10149;" />
 
                     </Button>
 
@@ -316,22 +330,22 @@
                         <Menu:Btn Command="{Binding FormatAripCommand}" Style="{StaticResource BtnStyle}">
 
                             <TextBlock
-                                Padding="20"
+                                Padding="40"
                                 VerticalAlignment="Center"
                                 FontSize="12"
                                 Style="{StaticResource Text_Style}"
-                                Text="•  Format ARIP" />
+                                Text="&#8284;  Format ARIP" />
 
                         </Menu:Btn>
 
                         <Menu:Btn Command="{Binding FormatSimgajiCommand}" Style="{StaticResource BtnStyle}">
 
                             <TextBlock
-                                Padding="20"
+                                Padding="40"
                                 VerticalAlignment="Center"
                                 FontSize="12"
                                 Style="{StaticResource Text_Style}"
-                                Text="•  Format SIMGAJI" />
+                                Text="&#8284;  Format SIMGAJI" />
 
                         </Menu:Btn>
 
