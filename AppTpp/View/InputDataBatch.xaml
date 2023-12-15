@@ -9,15 +9,13 @@
 
     <Viewbox>
 
-        <Grid
-            x:Name="tampilanInput"
-            HorizontalAlignment="Stretch"
-            VerticalAlignment="Stretch">
+        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
             <TextBlock
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 FontSize="100"
+                Style="{StaticResource Text_Style}"
                 Text="Input Data Batch" />
 
         </Grid>

@@ -19,6 +19,8 @@ namespace AppTpp.ViewModel
         public ICommand LihatLaporanCommand { get; set; }
         public ICommand FormatAripCommand { get; set; }
         public ICommand FormatSimgajiCommand { get; set; }
+        public ICommand BendaharaCommand { get; set; }
+        public ICommand UserManagerCommand { get; set; }
 
         private void Home(object obj) => Currentview = new HomeVM();
         private void InputDataBatch(object obj) => Currentview = new InputDataBatchVM();
@@ -26,6 +28,8 @@ namespace AppTpp.ViewModel
         private void LihatLaporan(object obj) => Currentview = new LihatLaporanVM();
         private void FormatArip(object obj) => Currentview = new FormatAripVM();
         private void FormatSimgaji(object obj) => Currentview = new FormatSimgajiVM();
+        private void Bendahara(object obj) => Currentview = new BendaharaVM();
+        private void UserManager(object obj) => Currentview = new UserManagerVM();
 
         public NavigationVM()
         {
@@ -35,6 +39,8 @@ namespace AppTpp.ViewModel
             LihatLaporanCommand = new RelayCommand(LihatLaporan);
             FormatAripCommand = new RelayCommand(FormatArip);
             FormatSimgajiCommand = new RelayCommand(FormatSimgaji);
+            BendaharaCommand = new RelayCommand(Bendahara);
+            UserManagerCommand = new RelayCommand(UserManager);
 
             Currentview = new HomeVM();
         }

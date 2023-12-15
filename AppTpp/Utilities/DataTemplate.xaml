@@ -28,4 +28,12 @@
         <view:FormatSimgaji />
     </DataTemplate>
 
+    <DataTemplate DataType="{x:Type vm:BendaharaVM}">
+        <view:BendaharaPengeluaran />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:UserManagerVM}">
+        <view:UserManager />
+    </DataTemplate>
+
 </ResourceDictionary>

@@ -64,3 +64,7 @@ D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\Styles\Page.baml
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\AppTpp.sourcelink.json
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\Styles\Text.baml
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\View\BendaharaPengeluaran.g.cs
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\View\UserManager.g.cs
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\View\BendaharaPengeluaran.baml
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\View\UserManager.baml

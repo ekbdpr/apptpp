@@ -31,9 +31,9 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="4*" />
-            <RowDefinition Height="15*" />
+            <RowDefinition Height="3*" />
+            <RowDefinition Height="3*" />
+            <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
 
         <Grid
@@ -72,28 +72,23 @@
                             </Border.Background>
                         </Border>
 
-                        <TextBlock Text="Muhammad Akbar Azis (Admin)">
-                            <TextBlock.Style>
-
-                                <Style TargetType="TextBlock">
-                                    <Setter Property="VerticalAlignment" Value="Center" />
-                                    <Setter Property="FontSize" Value="15" />
-                                </Style>
-
-                            </TextBlock.Style>
-                        </TextBlock>
+                        <TextBlock
+                            VerticalAlignment="Center"
+                            FontSize="15"
+                            Style="{StaticResource Text_Style}"
+                            Text="Muhammad Akbar Azis (Admin)" />
 
                     </StackPanel>
 
                     <Button
                         x:Name="btnMinimize"
-                        Click="btnMinimize_Click"
+                        Click="BtnMinimize_Click"
                         Content="_"
                         Style="{StaticResource MinimizeButtonStyle}" />
 
                     <Button
                         x:Name="btnClose"
-                        Click="btnClose_Click"
+                        Click="BtnClose_Click"
                         Content="X"
                         Style="{StaticResource CloseButtonStyle}" />
 
@@ -108,7 +103,10 @@
             Background="#222831">
 
             <Viewbox>
-                <Image MaxWidth="250" Source="/Images/dashboard-logo.png" />
+                <Image
+                    MaxWidth="250"
+                    Margin="50"
+                    Source="/Images/dashboard-logo.png" />
             </Viewbox>
 
         </Grid>
@@ -136,7 +134,7 @@
 
                     <Button
                         x:Name="btnDataPegawai"
-                        Click="btnDataPegawai_Click"
+                        Click="BtnDataPegawai_Click"
                         Style="{StaticResource CustomButtonStyle}">
 
                         <Button.Resources>
@@ -172,6 +170,18 @@
                                     From="-118"
                                     To="0"
                                     Duration="0:0:0.2" />
+                                <DoubleAnimation
+                                    Storyboard.Target="{Binding ElementName=btnBendahara}"
+                                    Storyboard.TargetProperty="(Button.RenderTransform).(TranslateTransform.Y)"
+                                    From="-236"
+                                    To="-118"
+                                    Duration="0:0:0.2" />
+                                <DoubleAnimation
+                                    Storyboard.Target="{Binding ElementName=btnUserManager}"
+                                    Storyboard.TargetProperty="(Button.RenderTransform).(TranslateTransform.Y)"
+                                    From="-236"
+                                    To="-118"
+                                    Duration="0:0:0.2" />
 
                             </Storyboard>
 
@@ -182,7 +192,7 @@
                                     Storyboard.TargetProperty="(Button.RenderTransform).(TranslateTransform.Y)"
                                     From="0"
                                     To="-59"
-                                    Duration="0:0:0.1" />
+                                    Duration="0:0:0.2" />
                                 <DoubleAnimation
                                     Storyboard.Target="{Binding ElementName=menuDataPegawai}"
                                     Storyboard.TargetProperty="Opacity"
@@ -194,18 +204,30 @@
                                     Storyboard.TargetProperty="(RadioButton.RenderTransform).(TranslateTransform.Y)"
                                     From="0"
                                     To="-118"
-                                    Duration="0:0:0.1" />
+                                    Duration="0:0:0.2" />
                                 <DoubleAnimation
                                     Storyboard.Target="{Binding ElementName=btnUnduhTpp}"
                                     Storyboard.TargetProperty="(Button.RenderTransform).(TranslateTransform.Y)"
                                     From="0"
                                     To="-118"
-                                    Duration="0:0:0.1" />
+                                    Duration="0:0:0.2" />
                                 <DoubleAnimation
                                     Storyboard.Target="{Binding ElementName=menuDataTpp}"
                                     Storyboard.TargetProperty="(Button.RenderTransform).(TranslateTransform.Y)"
                                     From="0"
                                     To="-118"
+                                    Duration="0:0:0.2" />
+                                <DoubleAnimation
+                                    Storyboard.Target="{Binding ElementName=btnBendahara}"
+                                    Storyboard.TargetProperty="(Button.RenderTransform).(TranslateTransform.Y)"
+                                    From="-118"
+                                    To="-236"
+                                    Duration="0:0:0.2" />
+                                <DoubleAnimation
+                                    Storyboard.Target="{Binding ElementName=btnUserManager}"
+                                    Storyboard.TargetProperty="(Button.RenderTransform).(TranslateTransform.Y)"
+                                    From="-118"
+                                    To="-236"
                                     Duration="0:0:0.2" />
 
                             </Storyboard>
@@ -271,7 +293,7 @@
 
                     <Button
                         x:Name="btnUnduhTpp"
-                        Click="btnUnduhTpp_Click"
+                        Click="BtnUnduhTpp_Click"
                         Style="{StaticResource CustomButtonStyle}">
 
                         <Button.RenderTransform>
@@ -293,6 +315,18 @@
                                     From="0"
                                     To="1"
                                     Duration="0:0:0.5" />
+                                <DoubleAnimation
+                                    Storyboard.Target="{Binding ElementName=btnBendahara}"
+                                    Storyboard.TargetProperty="(Button.RenderTransform).(TranslateTransform.Y)"
+                                    From="-236"
+                                    To="-118"
+                                    Duration="0:0:0.2" />
+                                <DoubleAnimation
+                                    Storyboard.Target="{Binding ElementName=btnUserManager}"
+                                    Storyboard.TargetProperty="(Button.RenderTransform).(TranslateTransform.Y)"
+                                    From="-236"
+                                    To="-118"
+                                    Duration="0:0:0.2" />
 
                             </Storyboard>
 
@@ -310,6 +344,18 @@
                                     From="1"
                                     To="0"
                                     Duration="0:0:0.5" />
+                                <DoubleAnimation
+                                    Storyboard.Target="{Binding ElementName=btnBendahara}"
+                                    Storyboard.TargetProperty="(Button.RenderTransform).(TranslateTransform.Y)"
+                                    From="-118"
+                                    To="-236"
+                                    Duration="0:0:0.2" />
+                                <DoubleAnimation
+                                    Storyboard.Target="{Binding ElementName=btnUserManager}"
+                                    Storyboard.TargetProperty="(Button.RenderTransform).(TranslateTransform.Y)"
+                                    From="-118"
+                                    To="-236"
+                                    Duration="0:0:0.2" />
 
                             </Storyboard>
                         </Button.Resources>
@@ -317,6 +363,7 @@
                         <TextBlock Style="{StaticResource Text_Style}" Text="&#128229;  Unduh TPP    &#10149;" />
 
                     </Button>
+
 
                     <StackPanel
                         x:Name="menuDataTpp"
@@ -350,6 +397,42 @@
                         </Menu:Btn>
 
                     </StackPanel>
+
+                    <Menu:Btn
+                        x:Name="btnBendahara"
+                        Command="{Binding BendaharaCommand}"
+                        Style="{StaticResource BtnStyle}">
+
+                        <RadioButton.RenderTransform>
+                            <TranslateTransform Y="-236" />
+                        </RadioButton.RenderTransform>
+
+                        <TextBlock
+                            Padding="20"
+                            VerticalAlignment="Center"
+                            FontSize="12"
+                            Style="{StaticResource Text_Style}"
+                            Text="&#128181;  Bendahara Pengeluaran" />
+
+                    </Menu:Btn>
+
+                    <Menu:Btn
+                        x:Name="btnUserManager"
+                        Command="{Binding UserManagerCommand}"
+                        Style="{StaticResource BtnStyle}">
+
+                        <RadioButton.RenderTransform>
+                            <TranslateTransform Y="-236" />
+                        </RadioButton.RenderTransform>
+
+                        <TextBlock
+                            Padding="20"
+                            VerticalAlignment="Center"
+                            FontSize="12"
+                            Style="{StaticResource Text_Style}"
+                            Text="&#127899;  User Manager" />
+
+                    </Menu:Btn>
 
                 </StackPanel>
             </Viewbox>

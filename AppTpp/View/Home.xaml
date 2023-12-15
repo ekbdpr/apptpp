@@ -9,10 +9,7 @@
 
     <Viewbox>
 
-        <Grid
-            x:Name="tampilanUtama"
-            HorizontalAlignment="Stretch"
-            VerticalAlignment="Stretch">
+        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
             <Grid>
 
@@ -30,22 +27,26 @@
                     Grid.Row="0"
                     Margin="30,30,30,0"
                     FontSize="40"
+                    Style="{StaticResource Text_Style}"
                     Text="Selamat Datang," />
                 <TextBlock
                     Grid.Row="1"
                     Margin="30,0,30,0"
                     FontSize="50"
+                    Style="{StaticResource Text_Style}"
                     Text="Muhammad Akbar Azis ! " />
                 <TextBlock
                     Grid.Row="2"
                     Margin="30,40,30,0"
                     FontSize="25"
+                    Style="{StaticResource Text_Style}"
                     Text="Silahkan memilih menu pada sidebar disamping."
                     TextWrapping="Wrap" />
                 <TextBlock
                     Grid.Row="3"
                     Margin="30,10,30,0"
                     FontSize="20"
+                    Style="{StaticResource Text_Style}"
                     Text="Jika mengalami kendala silahkan lakukan relogin akun anda. Jika masih mengalami kendala yang sama, silahkan menghubungi admin !"
                     TextWrapping="Wrap" />
                 <Image

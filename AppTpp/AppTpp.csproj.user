@@ -12,6 +12,9 @@
     <Compile Update="Login.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\BendaharaPengeluaran.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\FormatArip.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -28,6 +31,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\LihatLaporan.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\UserManager.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -53,6 +59,9 @@
     <Page Update="Utilities\DataTemplate.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="View\BendaharaPengeluaran.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\FormatArip.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -69,6 +78,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\LihatLaporan.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\UserManager.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
