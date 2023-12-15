@@ -119,7 +119,7 @@
             Background="#222831">
 
             <Viewbox>
-                <StackPanel Width="200">
+                <StackPanel Width="auto">
                     <Menu:Btn
                         Command="{Binding HomeCommand}"
                         IsChecked="True"
