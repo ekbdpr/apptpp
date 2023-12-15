@@ -11,6 +11,10 @@
 
   <ItemGroup>
     <None Remove="dashboard-logo.ico" />
+    <None Remove="Fonts\FiraSans-Bold.ttf" />
+    <None Remove="Fonts\FiraSans-Regular.ttf" />
+    <None Remove="Fonts\Poppins-Bold.ttf" />
+    <None Remove="Fonts\Poppins-Regular.ttf" />
     <None Remove="Images\dashboard-logo.png" />
     <None Remove="Images\image.png" />
     <None Remove="Images\key-icon.png" />
@@ -25,7 +29,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Fonts\FiraSans-Bold.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="dashboard-logo.ico" />
+    <Resource Include="Fonts\FiraSans-Regular.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\dashboard-logo.png" />
     <Resource Include="Images\login-logo.png" />
   </ItemGroup>
@@ -39,7 +52,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Fonts\" />
     <Folder Include="Model\" />
   </ItemGroup>
 

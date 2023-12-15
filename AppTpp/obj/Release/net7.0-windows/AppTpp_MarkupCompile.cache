@@ -5,16 +5,16 @@ winexe
 C#
 .cs
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Release\net7.0-windows\
-Tugas_Besar
+AppTpp
 none
 false
 TRACE;RELEASE;NET;NET7_0;NETCOREAPP
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\App.xaml
-3-1996651987
+12832777869
 1875577548
-465254801
+19630800695
 1981723223080
-Login.xaml;MainWindow.xaml;Styles.xaml;
+Login.xaml;MainWindow.xaml;Styles\Buttons.xaml;Styles\MainBorderShadow.xaml;Styles\Page.xaml;Utilities\DataTemplate.xaml;View\FormatArip.xaml;View\FormatSimgaji.xaml;View\Home.xaml;View\InputDataBatch.xaml;View\KelolaData.xaml;View\LihatLaporan.xaml;
 
 False
 

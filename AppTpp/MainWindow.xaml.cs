@@ -16,15 +16,16 @@ namespace AppTpp
 
         private void btnDataPegawai_Click(object sender, RoutedEventArgs e)
         {
-            if(menuDataPegawai.Visibility == Visibility.Hidden ) 
+            if (menuDataPegawai.Visibility == Visibility.Hidden)
             {
-                menuDataPegawai.Visibility= Visibility.Visible;
+                menuDataPegawai.Visibility = Visibility.Visible;
                 ((Storyboard)btnDataPegawai.Resources["ToggleOpenMenu"]).Begin();
-            } else
+            }
+            else
             {
-                menuDataPegawai.Visibility= Visibility.Hidden;
+                menuDataPegawai.Visibility = Visibility.Hidden;
                 ((Storyboard)btnDataPegawai.Resources["ToggleCloseMenu"]).Begin();
-            }    
+            }
         }
 
         private void btnUnduhTpp_Click(object sender, RoutedEventArgs e)
@@ -36,13 +37,13 @@ namespace AppTpp
 
             if (menuDataTpp.Visibility == Visibility.Hidden)
             {
-                if(menuDataPegawai.Visibility == Visibility.Hidden)
+                if (menuDataPegawai.Visibility == Visibility.Hidden)
                 {
                     tppOpenAnimation.From = -177;
                     tppOpenAnimation.To = -118;
                 }
 
-                if(menuDataPegawai.Visibility == Visibility.Visible)
+                if (menuDataPegawai.Visibility == Visibility.Visible)
                 {
                     tppOpenAnimation.From = -59;
                     tppOpenAnimation.To = 0;
