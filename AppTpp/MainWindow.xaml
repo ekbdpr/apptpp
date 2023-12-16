@@ -26,8 +26,8 @@
     <Grid>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="4*" />
-            <ColumnDefinition Width="16*" />
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="14*" />
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
@@ -54,6 +54,7 @@
                     </StackPanel.Style>
 
                     <StackPanel Margin="0,10,30,10" Orientation="Horizontal">
+
                         <Border>
                             <Border.Style>
 
@@ -434,6 +435,16 @@
                             Text="&#127899;  User Manager" />
 
                     </Menu:Btn>
+
+                    <Button
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Click="LogoutButton_Click"
+                        Style="{StaticResource CustomButtonStyle}">
+
+                        <TextBlock Style="{StaticResource Text_Style}" Text="Logout &#x25E2;" />
+
+                    </Button>
 
                 </StackPanel>
             </Viewbox>

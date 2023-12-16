@@ -172,5 +172,13 @@ namespace AppTpp
         {
             WindowState = WindowState.Minimized;
         }
+
+        private void LogoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+
+            this.Close();
+        }
     }
 }

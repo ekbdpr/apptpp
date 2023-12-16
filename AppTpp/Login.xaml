@@ -119,12 +119,17 @@
 
                 </TextBox>
 
-
-
+                <TextBlock
+                    MaxWidth="250"
+                    Margin="0,5,0,0"
+                    FontWeight="Bold"
+                    Foreground="Red"
+                    Style="{StaticResource Text_Style}"
+                    Text="{Binding ErrorMessage}" />
 
                 <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
 
-                    <Button Command="{Binding LoginCommand}">
+                    <Button Click="LoginButton_Click" Command="{Binding LoginCommand}">
 
                         <Button.Style>
                             <Style BasedOn="{StaticResource CustomButtonStyle}" TargetType="Button">

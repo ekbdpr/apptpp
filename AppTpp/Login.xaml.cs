@@ -17,5 +17,27 @@ namespace AppTpp
         {
             Application.Current.Shutdown();
         }
+
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (IsMainWindowOpen())
+            {
+                this.Close();
+            }
+
+            return;
+        }
+
+        private bool IsMainWindowOpen()
+        {
+            foreach (Window window in Application.Current.Windows)
+            {
+                if (window is MainWindow)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }

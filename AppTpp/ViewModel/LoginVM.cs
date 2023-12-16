@@ -14,6 +14,7 @@ namespace AppTpp.ViewModel
     {
         private string _username;
         private string _password;
+        private string _errorMessage;
 
         public string Username
         {
@@ -27,6 +28,12 @@ namespace AppTpp.ViewModel
             set { _password = value; OnPropertyChanged(); }
         }
 
+        public string ErrorMessage
+        {
+            get { return _errorMessage; }
+            set { _errorMessage = value; OnPropertyChanged(); }
+        }
+
         public ICommand LoginCommand { get; }
 
         public LoginVM()
@@ -36,30 +43,30 @@ namespace AppTpp.ViewModel
 
         private void Login(object obj)
         {
-            if (isValidUser())
+            if (IsValidUser())
             {
                 MainWindow mainWindow = new MainWindow();
                 mainWindow.Show();
-            } else
-            {
-                MessageBox.Show("Username / Password anda salah");
+                return;
             }
+
+            ErrorMessage = "* Username atau Password Tidak Valid";
         }
 
-        private bool isValidUser()
+        private bool IsValidUser()
         {
             string connectionString = GetConnectionString();
             var connection = new MySqlConnection(connectionString);
 
             try
             {
-                using(connection)
+                using (connection)
                 {
                     connection.Open();
 
                     string query = $"SELECT * FROM daftar_user WHERE username = '{Username}' AND password = '{Password}'";
 
-                    using(MySqlCommand command = new MySqlCommand(query, connection))
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
 
                         command.Parameters.AddWithValue("@Username", Username);
@@ -67,7 +74,7 @@ namespace AppTpp.ViewModel
 
                         using (MySqlDataReader reader = command.ExecuteReader())
                         {
-                            if(reader.Read())
+                            if (reader.Read())
                             {
                                 UserModel userModel = new UserModel
                                 {
@@ -80,10 +87,10 @@ namespace AppTpp.ViewModel
 
                             return reader.HasRows;
                         }
-                    }                                        
+                    }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
                 return false;
