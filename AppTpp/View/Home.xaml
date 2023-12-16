@@ -4,8 +4,13 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:AppTpp.ViewModel"
     Style="{StaticResource Page_Style}"
     mc:Ignorable="d">
+
+    <UserControl.DataContext>
+        <vm:HomeVM />
+    </UserControl.DataContext>
 
     <Viewbox>
 
@@ -34,7 +39,7 @@
                     Margin="30,0,30,0"
                     FontSize="50"
                     Style="{StaticResource Text_Style}"
-                    Text="Muhammad Akbar Azis ! " />
+                    Text="{Binding Username, StringFormat='{}{0} !'}" />
                 <TextBlock
                     Grid.Row="2"
                     Margin="30,40,30,0"

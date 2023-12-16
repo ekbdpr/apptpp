@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "qLlpOC77t5U34yptT4wNfOlK5Fy88fYqVfNB8A5kiFIBBhQ1E7DXaiNTjIjj6HfI2wLy8IRu1FTvA0eRg9wgEg==",
+  "dgSpecHash": "6Bl/MpsvfhP7D7NBgqJcrkmPzVlS+2h6rqbLSmDhzJbknnPnpUh8gRBDMtZCfObAIxKelRuE8LvUHBi3k39wpA==",
   "success": true,
   "projectFilePath": "D:\\UNITAMA\\Semester 3\\Pemrograman 2\\Tugas\\AppTpp\\AppTpp\\AppTpp.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\ekabu\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\7.0.1\\microsoft.extensions.logging.abstractions.7.0.1.nupkg.sha512",
+    "C:\\Users\\ekabu\\.nuget\\packages\\mysqlconnector\\2.3.1\\mysqlconnector.2.3.1.nupkg.sha512"
+  ],
   "logs": []
 }

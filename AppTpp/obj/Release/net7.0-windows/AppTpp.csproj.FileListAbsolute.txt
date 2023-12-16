@@ -39,3 +39,15 @@ D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Release\net7.0-windo
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Release\net7.0-windows\View\InputDataBatch.baml
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Release\net7.0-windows\View\KelolaData.baml
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Release\net7.0-windows\View\LihatLaporan.baml
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\bin\Release\net7.0-windows\AppTpp.dll.config
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\bin\Release\net7.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\bin\Release\net7.0-windows\MySqlConnector.dll
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Release\net7.0-windows\AppTpp.csproj.AssemblyReference.cache
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Release\net7.0-windows\Styles\Password.baml
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Release\net7.0-windows\Styles\Text.baml
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Release\net7.0-windows\View\BendaharaPengeluaran.baml
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Release\net7.0-windows\View\UserManager.baml
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Release\net7.0-windows\View\BendaharaPengeluaran.g.cs
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Release\net7.0-windows\View\UserManager.g.cs
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Release\net7.0-windows\AppTpp.sourcelink.json
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Release\net7.0-windows\AppTpp.csproj.CopyComplete

@@ -1,9 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "eAC+6NFsg4hpbG+4+xKEJ0IdTNWP8BCSEoQoCGalVQ8KPN7nW7urrR6Sba6jqOwabd1LdSXg3HCDeFbilxYMAw==",
+  "dgSpecHash": "VA9htUTfV+D5/RSFncoYBiRxJcR8ptR4T+YAAh5K/xno95O/DQPyGidihTnEZGDjkaDtkZOE7Q5gNcapsHxetw==",
   "success": true,
   "projectFilePath": "D:\\UNITAMA\\Semester 3\\Pemrograman 2\\Tugas\\AppTpp\\AppTpp\\AppTpp.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\ekabu\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\7.0.1\\microsoft.extensions.logging.abstractions.7.0.1.nupkg.sha512",
+    "C:\\Users\\ekabu\\.nuget\\packages\\microsoft.net.illink.analyzers\\7.0.100-1.23211.1\\microsoft.net.illink.analyzers.7.0.100-1.23211.1.nupkg.sha512",
+    "C:\\Users\\ekabu\\.nuget\\packages\\microsoft.net.illink.tasks\\7.0.100-1.23211.1\\microsoft.net.illink.tasks.7.0.100-1.23211.1.nupkg.sha512",
+    "C:\\Users\\ekabu\\.nuget\\packages\\mysqlconnector\\2.3.1\\mysqlconnector.2.3.1.nupkg.sha512",
     "C:\\Users\\ekabu\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x86\\7.0.14\\microsoft.netcore.app.runtime.win-x86.7.0.14.nupkg.sha512",
     "C:\\Users\\ekabu\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x86\\7.0.14\\microsoft.windowsdesktop.app.runtime.win-x86.7.0.14.nupkg.sha512",
     "C:\\Users\\ekabu\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x86\\7.0.14\\microsoft.aspnetcore.app.runtime.win-x86.7.0.14.nupkg.sha512"

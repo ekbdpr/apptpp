@@ -1,12 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AppTpp.Model;
+using AppTpp.Services;
+using AppTpp.Utilities;
+using System.Windows;
 
 namespace AppTpp.ViewModel
 {
-    internal class HomeVM
+    internal class HomeVM : ViewModelBase
     {
+        private readonly UserModel _userModel;
+
+        public string Username
+        {
+            get { return _userModel.Name; }
+            set { _userModel.Name = value; OnPropertyChanged(); }
+        }
+        
+        public HomeVM()
+        {
+            _userModel = new UserModel();
+            Username = UserDataService.Instance.CurrentUsername;
+        }
     }
 }

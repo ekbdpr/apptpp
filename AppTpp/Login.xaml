@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:AppTpp.ViewModel"
     Title="Login"
     Width="400"
     Height="500"
@@ -15,6 +16,10 @@
     WindowStartupLocation="CenterScreen"
     WindowStyle="None"
     mc:Ignorable="d">
+
+    <Window.DataContext>
+        <vm:LoginVM />
+    </Window.DataContext>
 
     <Border CornerRadius="12">
 
@@ -72,7 +77,8 @@
                     BorderBrush="DarkGray"
                     BorderThickness="0,0,0,2"
                     CaretBrush="LightGray"
-                    Foreground="White">
+                    Foreground="White"
+                    Text="{Binding Username}">
 
                     <TextBox.Background>
                         <ImageBrush
@@ -91,7 +97,7 @@
                     Style="{StaticResource Text_Style}"
                     Text="Password" />
 
-                <PasswordBox
+                <TextBox
                     Height="30"
                     MaxWidth="250"
                     Margin="0,5,0,0"
@@ -100,20 +106,25 @@
                     BorderBrush="DarkGray"
                     BorderThickness="0,0,0,2"
                     CaretBrush="LightGray"
-                    Foreground="White">
+                    Foreground="White"
+                    Style="{StaticResource Password_Style}"
+                    Text="{Binding Password}">
 
-                    <PasswordBox.Background>
+                    <TextBox.Background>
                         <ImageBrush
                             AlignmentX="Left"
                             ImageSource="/Images/key-icon.png"
                             Stretch="None" />
-                    </PasswordBox.Background>
+                    </TextBox.Background>
 
-                </PasswordBox>
+                </TextBox>
+
+
+
 
                 <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
 
-                    <Button Click="Login_Button_Click">
+                    <Button Command="{Binding LoginCommand}">
 
                         <Button.Style>
                             <Style BasedOn="{StaticResource CustomButtonStyle}" TargetType="Button">

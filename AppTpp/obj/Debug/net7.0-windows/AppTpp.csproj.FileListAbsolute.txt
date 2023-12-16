@@ -68,3 +68,9 @@ D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\View\UserManager.g.cs
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\View\BendaharaPengeluaran.baml
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\View\UserManager.baml
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\bin\Debug\net7.0-windows\AppTpp.dll.config
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\bin\Debug\net7.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\bin\Debug\net7.0-windows\MySqlConnector.dll
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\AppTpp.csproj.AssemblyReference.cache
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\AppTpp.csproj.CopyComplete
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\Styles\Password.baml

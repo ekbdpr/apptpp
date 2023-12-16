@@ -73,10 +73,11 @@
                         </Border>
 
                         <TextBlock
+                            x:Name="loginInfo"
                             VerticalAlignment="Center"
                             FontSize="15"
                             Style="{StaticResource Text_Style}"
-                            Text="Muhammad Akbar Azis (Admin)" />
+                            Text="" />
 
                     </StackPanel>
 

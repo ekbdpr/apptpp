@@ -10,11 +10,11 @@ none
 false
 TRACE;RELEASE;NET;NET7_0;NETCOREAPP
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\App.xaml
-12832777869
+16507511131
 1875577548
-21769280242
-1981723223080
-Login.xaml;MainWindow.xaml;Styles\Buttons.xaml;Styles\MainBorderShadow.xaml;Styles\Page.xaml;Utilities\DataTemplate.xaml;View\FormatArip.xaml;View\FormatSimgaji.xaml;View\Home.xaml;View\InputDataBatch.xaml;View\KelolaData.xaml;View\LihatLaporan.xaml;
+29-808807581
+200721720868
+Login.xaml;MainWindow.xaml;Styles\Buttons.xaml;Styles\MainBorderShadow.xaml;Styles\Page.xaml;Styles\Password.xaml;Styles\Text.xaml;Utilities\DataTemplate.xaml;View\BendaharaPengeluaran.xaml;View\FormatArip.xaml;View\FormatSimgaji.xaml;View\Home.xaml;View\InputDataBatch.xaml;View\KelolaData.xaml;View\LihatLaporan.xaml;View\UserManager.xaml;
 
 True
 

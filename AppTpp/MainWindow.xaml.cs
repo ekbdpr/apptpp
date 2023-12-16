@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using AppTpp.Services;
+using System.Windows;
 using System.Windows.Media.Animation;
 
 namespace AppTpp
@@ -11,6 +12,7 @@ namespace AppTpp
         public MainWindow()
         {
             InitializeComponent();
+            loginInfo.Text = $"{UserDataService.Instance.CurrentUsername} ({UserDataService.Instance.CurrentPrivilege})";
             this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
         }
 
