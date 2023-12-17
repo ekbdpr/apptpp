@@ -13,6 +13,7 @@
     Icon="/dashboard-logo.ico"
     ResizeMode="NoResize"
     SnapsToDevicePixels="True"
+    UseLayoutRounding="True"
     WindowStartupLocation="CenterScreen"
     WindowStyle="None"
     mc:Ignorable="d">

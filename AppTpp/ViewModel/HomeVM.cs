@@ -1,7 +1,6 @@
 ﻿using AppTpp.Model;
 using AppTpp.Services;
 using AppTpp.Utilities;
-using System.Windows;
 
 namespace AppTpp.ViewModel
 {
@@ -9,7 +8,7 @@ namespace AppTpp.ViewModel
     {
         private readonly UserModel _userModel;
 
-        public string Username
+        public string Name
         {
             get { return _userModel.Name; }
             set { _userModel.Name = value; OnPropertyChanged(); }
@@ -18,7 +17,8 @@ namespace AppTpp.ViewModel
         public HomeVM()
         {
             _userModel = new UserModel();
-            Username = UserDataService.Instance.CurrentUsername;
+
+            Name = UserDataService.Instance.CurrentUsername;
         }
     }
 }

@@ -28,7 +28,7 @@ namespace AppTpp
             return;
         }
 
-        private bool IsMainWindowOpen()
+        private static bool IsMainWindowOpen()
         {
             foreach (Window window in Application.Current.Windows)
             {

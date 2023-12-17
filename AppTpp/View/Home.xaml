@@ -39,7 +39,7 @@
                     Margin="30,0,30,0"
                     FontSize="50"
                     Style="{StaticResource Text_Style}"
-                    Text="{Binding Username, StringFormat='{}{0} !'}" />
+                    Text="{Binding Name, StringFormat='{}{0} !'}" />
                 <TextBlock
                     Grid.Row="2"
                     Margin="30,40,30,0"

@@ -1,11 +1,5 @@
-﻿using AppTpp.Model;
-using AppTpp.Services;
+﻿using AppTpp.Services;
 using AppTpp.Utilities;
-using MySqlConnector;
-using System;
-using System.Configuration;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Input;
 
 namespace AppTpp.ViewModel
@@ -45,7 +39,7 @@ namespace AppTpp.ViewModel
         {
             if (IsValidUser())
             {
-                MainWindow mainWindow = new MainWindow();
+                MainWindow mainWindow = new();
                 mainWindow.Show();
                 return;
             }
@@ -53,57 +47,8 @@ namespace AppTpp.ViewModel
             ErrorMessage = "* Username atau Password Tidak Valid";
         }
 
-        private bool IsValidUser()
-        {
-            string connectionString = GetConnectionString();
-            var connection = new MySqlConnection(connectionString);
+        private bool IsValidUser() => UserDataService.Instance.GetUserLoginData(Username, Password);
 
-            try
-            {
-                using (connection)
-                {
-                    connection.Open();
 
-                    string query = $"SELECT * FROM daftar_user WHERE username = '{Username}' AND password = '{Password}'";
-
-                    using (MySqlCommand command = new MySqlCommand(query, connection))
-                    {
-
-                        command.Parameters.AddWithValue("@Username", Username);
-                        command.Parameters.AddWithValue("@Password", Password);
-
-                        using (MySqlDataReader reader = command.ExecuteReader())
-                        {
-                            if (reader.Read())
-                            {
-                                UserModel userModel = new UserModel
-                                {
-                                    Name = reader["nama"].ToString(),
-                                    Privilege = reader["privilege"].ToString()
-                                };
-
-                                UserDataService.Instance.SetCurrentUser(userModel.Name, userModel.Privilege);
-                            }
-
-                            return reader.HasRows;
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                return false;
-            }
-            finally
-            {
-                connection.Close();
-            }
-        }
-
-        public string GetConnectionString()
-        {
-            return ConfigurationManager.ConnectionStrings["DbConnectionString"].ConnectionString;
-        }
     }
 }

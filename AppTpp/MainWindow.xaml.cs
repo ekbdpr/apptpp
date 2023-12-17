@@ -1,5 +1,4 @@
-﻿using AppTpp.Services;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Media.Animation;
 
 namespace AppTpp
@@ -12,7 +11,6 @@ namespace AppTpp
         public MainWindow()
         {
             InitializeComponent();
-            loginInfo.Text = $"{UserDataService.Instance.CurrentUsername} ({UserDataService.Instance.CurrentPrivilege})";
             this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
         }
 
@@ -175,7 +173,7 @@ namespace AppTpp
 
         private void LogoutButton_Click(object sender, RoutedEventArgs e)
         {
-            Login login = new Login();
+            Login login = new();
             login.Show();
 
             this.Close();
