@@ -21,7 +21,7 @@
     <Window.Triggers>
         <EventTrigger RoutedEvent="Loaded">
             <BeginStoryboard>
-                <Storyboard Storyboard.TargetProperty="Opacity" Duration="00:00:2">
+                <Storyboard Storyboard.TargetProperty="Opacity" Duration="00:00:3">
                     <DoubleAnimation From="0" To="1" />
                 </Storyboard>
             </BeginStoryboard>
