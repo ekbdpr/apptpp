@@ -1,5 +1,8 @@
 ﻿using AppTpp.Services;
 using AppTpp.Utilities;
+using System;
+using System.Diagnostics;
+using System.Windows;
 using System.Windows.Input;
 
 namespace AppTpp.ViewModel
@@ -39,8 +42,18 @@ namespace AppTpp.ViewModel
         {
             if (IsValidUser())
             {
+                var timer = new System.Windows.Threading.DispatcherTimer();
+                timer.Interval = TimeSpan.FromSeconds(0.1); // Adjust the timeout duration as needed
+                timer.Tick += (sender, e) =>
+                {
+                    Application.Current.MainWindow.Close();
+                    timer.Stop(); // Stop the timer after the action is performed
+                };
+                timer.Start();
+
                 MainWindow mainWindow = new();
                 mainWindow.Show();
+
                 return;
             }
 

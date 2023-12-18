@@ -130,7 +130,7 @@
 
                 <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
 
-                    <Button Click="LoginButton_Click" Command="{Binding LoginCommand}">
+                    <Button Command="{Binding LoginCommand}">
 
                         <Button.Style>
                             <Style BasedOn="{StaticResource CustomButtonStyle}" TargetType="Button">
