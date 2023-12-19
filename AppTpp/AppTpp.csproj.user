@@ -80,6 +80,54 @@
     <Page Update="Styles\Login\_UserBox\Login_UserBox.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Styles\MainWindow\Content\Content.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\MainWindow\Header\Header.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\MainWindow\Header\_CloseButton\Header_CloseButton.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\MainWindow\Header\_Container\Header_Container.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\MainWindow\Header\_MinimizeButton\Header_MinimizeButton.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\MainWindow\Logo\Logo.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\MainWindow\Logo\_Image\Logo_Image.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\MainWindow\Navigation\Navigation.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\MainWindow\Navigation\_BendaharaButton\Navigation_BendaharaButton.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\MainWindow\Navigation\_ButtonText\Navigation_ButtonText.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\MainWindow\Navigation\_Dropdown\Navigation_Dropdown.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\MainWindow\Navigation\_LihatLaporanButton\Navigation_LihatLaporanButton.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\MainWindow\Navigation\_LogoutButton\Navigation_LogoutButton.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\MainWindow\Navigation\_RadioButton\Navigation_RadioButton.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\MainWindow\Navigation\_UnduhTppButton\Navigation_UnduhTppButton.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\MainWindow\Navigation\_UserManagerButton\Navigation_UserManagerButton.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Styles\Window\Window.xaml">
       <SubType>Designer</SubType>
     </Page>

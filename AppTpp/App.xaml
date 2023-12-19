@@ -9,6 +9,8 @@
         <ResourceDictionary>
 
             <ResourceDictionary.MergedDictionaries>
+
+                <!--  Global Style  -->
                 <ResourceDictionary Source="/Styles/Page.xaml" />
                 <ResourceDictionary Source="/Styles/Text.xaml" />
                 <ResourceDictionary Source="/Styles/ProfileImage.xaml" />
@@ -18,9 +20,10 @@
                 <ResourceDictionary Source="/Styles/DataGrid.xaml" />
                 <ResourceDictionary Source="/Utilities/DataTemplate.xaml" />
 
-
+                <!--  Window Load Animation  -->
                 <ResourceDictionary Source="/Styles/Window/Window.xaml" />
 
+                <!--  Login Form Style  -->
                 <ResourceDictionary Source="/Styles/Login/Login.xaml" />
                 <ResourceDictionary Source="/Styles/Login/_Border/Login_Border.xaml" />
                 <ResourceDictionary Source="/Styles/Login/_Container/Login_Container.xaml" />
@@ -34,7 +37,26 @@
                 <ResourceDictionary Source="/Styles/Login/_KeluarButton/Login_KeluarButton.xaml" />
                 <ResourceDictionary Source="/Styles/Login/_ExtraMessage/Login_ExtraMessage.xaml" />
 
+                <!--  Window Form Style  -->
+                <ResourceDictionary Source="/Styles/MainWindow/Header/Header.xaml" />
+                <ResourceDictionary Source="/Styles/MainWindow/Header/_Container/Header_Container.xaml" />
+                <ResourceDictionary Source="/Styles/MainWindow/Header/_MinimizeButton/Header_MinimizeButton.xaml" />
+                <ResourceDictionary Source="/Styles/MainWindow/Header/_CloseButton/Header_CloseButton.xaml" />
 
+                <ResourceDictionary Source="/Styles/MainWindow/Logo/Logo.xaml" />
+                <ResourceDictionary Source="/Styles/MainWindow/Logo/_Image/Logo_Image.xaml" />
+
+                <ResourceDictionary Source="/Styles/MainWindow/Navigation/Navigation.xaml" />
+                <ResourceDictionary Source="/Styles/MainWindow/Navigation/_RadioButton/Navigation_RadioButton.xaml" />
+                <ResourceDictionary Source="/Styles/MainWindow/Navigation/_ButtonText/Navigation_ButtonText.xaml" />
+                <ResourceDictionary Source="/Styles/MainWindow/Navigation/_Dropdown/Navigation_Dropdown.xaml" />
+                <ResourceDictionary Source="/Styles/MainWindow/Navigation/_LihatLaporanButton/Navigation_LihatLaporanButton.xaml" />
+                <ResourceDictionary Source="/Styles/MainWindow/Navigation/_UnduhTppButton/Navigation_UnduhTppButton.xaml" />
+                <ResourceDictionary Source="/Styles/MainWindow/Navigation/_BendaharaButton/Navigation_BendaharaButton.xaml" />
+                <ResourceDictionary Source="/Styles/MainWindow/Navigation/_UserManagerButton/Navigation_UserManagerButton.xaml" />
+                <ResourceDictionary Source="/Styles/MainWindow/Navigation/_LogoutButton/Navigation_LogoutButton.xaml" />
+
+                <ResourceDictionary Source="/Styles/MainWindow/Content/Content.xaml" />
 
             </ResourceDictionary.MergedDictionaries>
 

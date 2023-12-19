@@ -1,0 +1,15 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style x:Key="Navigation_Dropdown" TargetType="StackPanel">
+        <Setter Property="Background" Value="#222831" />
+        <Setter Property="Visibility" Value="Hidden" />
+
+
+        <Setter Property="RenderTransform">
+            <Setter.Value>
+                <TranslateTransform />
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

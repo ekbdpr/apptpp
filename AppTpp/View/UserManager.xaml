@@ -27,7 +27,7 @@
                 <TextBlock
                     FontSize="40"
                     FontWeight="Bold"
-                    Style="{StaticResource Text_Style}"
+                    Style="{StaticResource TextStyle}"
                     Text="User Manager" />
 
                 <Border
@@ -54,7 +54,7 @@
                             </Style>
                         </Button.Resources>
 
-                        <TextBlock Style="{StaticResource Text_Style}" Text="Add New Data" />
+                        <TextBlock Style="{StaticResource TextStyle}" Text="Add New Data" />
 
                     </Button>
                 </StackPanel>
@@ -122,7 +122,7 @@
                                                         </Style>
                                                     </Button.Resources>
 
-                                                    <TextBlock Style="{StaticResource Text_Style}" Text="Edit" />
+                                                    <TextBlock Style="{StaticResource TextStyle}" Text="Edit" />
 
                                                 </Button>
                                                 <Button
@@ -141,7 +141,7 @@
                                                         </Style>
                                                     </Button.Resources>
 
-                                                    <TextBlock Style="{StaticResource Text_Style}" Text="Delete" />
+                                                    <TextBlock Style="{StaticResource TextStyle}" Text="Delete" />
 
                                                 </Button>
                                                 <Button
@@ -160,7 +160,7 @@
                                                         </Style>
                                                     </Button.Resources>
 
-                                                    <TextBlock Style="{StaticResource Text_Style}" Text="Detail" />
+                                                    <TextBlock Style="{StaticResource TextStyle}" Text="Detail" />
 
                                                 </Button>
                                             </StackPanel>

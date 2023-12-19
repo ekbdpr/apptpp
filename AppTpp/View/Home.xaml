@@ -31,26 +31,26 @@
                     Grid.Row="0"
                     FontSize="40"
                     FontWeight="Bold"
-                    Style="{StaticResource Text_Style}"
+                    Style="{StaticResource TextStyle}"
                     Text="Selamat Datang," />
                 <TextBlock
                     Grid.Row="1"
                     FontSize="50"
                     FontWeight="Bold"
-                    Style="{StaticResource Text_Style}"
+                    Style="{StaticResource TextStyle}"
                     Text="{Binding Name, StringFormat='{}{0} !'}" />
                 <TextBlock
                     Grid.Row="2"
                     Margin="0,40,0,0"
                     FontSize="25"
-                    Style="{StaticResource Text_Style}"
+                    Style="{StaticResource TextStyle}"
                     Text="Silahkan memilih menu pada sidebar disamping."
                     TextWrapping="Wrap" />
                 <TextBlock
                     Grid.Row="3"
                     Margin="0,10,0,0"
                     FontSize="20"
-                    Style="{StaticResource Text_Style}"
+                    Style="{StaticResource TextStyle}"
                     Text="Jika mengalami kendala silahkan lakukan relogin akun anda. Jika masih mengalami kendala yang sama, silahkan menghubungi admin !"
                     TextWrapping="Wrap" />
                 <Image

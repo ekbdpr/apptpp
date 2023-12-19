@@ -38,386 +38,173 @@
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
 
-        <Grid
-            Grid.Row="0"
-            Grid.Column="1"
-            Background="#EEEEEE">
+        <Grid Style="{StaticResource Header}">
 
             <Border Style="{StaticResource DropShadowBorderStyle}" />
 
+            <!--  Header  -->
             <Viewbox HorizontalAlignment="Right">
-                <StackPanel>
-                    <StackPanel.Style>
-                        <Style TargetType="StackPanel">
-
-                            <Setter Property="Orientation" Value="Horizontal" />
-
-                        </Style>
-                    </StackPanel.Style>
+                <StackPanel Style="{StaticResource Header_Container}">
 
                     <view:UserInfo />
 
+                    <!--  Minimize Window Button  -->
                     <Button
                         x:Name="btnMinimize"
                         Click="BtnMinimize_Click"
                         Content="_"
-                        Style="{StaticResource MinimizeButtonStyle}" />
+                        Style="{StaticResource Header_MinimizeButton}" />
 
+                    <!--  Close Window Button  -->
                     <Button
                         x:Name="btnClose"
                         Click="BtnClose_Click"
                         Content="X"
-                        Style="{StaticResource CloseButtonStyle}" />
+                        Style="{StaticResource Header_CloseButton}" />
 
                 </StackPanel>
             </Viewbox>
         </Grid>
 
-        <Grid
-            Grid.Row="0"
-            Grid.RowSpan="2"
-            Grid.Column="0"
-            Background="#222831">
+        <!--  Logo  -->
+        <Grid Style="{StaticResource Logo}">
 
             <Viewbox>
-                <Image
-                    MaxWidth="250"
-                    Margin="50"
-                    Source="/Images/dashboard-logo.png" />
+                <Image Style="{StaticResource Logo_Image}" />
             </Viewbox>
 
         </Grid>
 
-        <Grid
-            Grid.Row="2"
-            Grid.Column="0"
-            Background="#222831">
+        <!--  Navigation  -->
+        <Grid Style="{StaticResource Navigation}">
 
             <Viewbox>
-                <StackPanel Width="auto">
+                <StackPanel>
+
+                    <!--  Home Button  -->
                     <Menu:Btn
                         Command="{Binding HomeCommand}"
                         IsChecked="True"
-                        Style="{StaticResource BtnStyle}">
+                        Style="{StaticResource Navigation_RadioButton}">
 
-                        <TextBlock
-                            Padding="20"
-                            VerticalAlignment="Center"
-                            FontSize="12"
-                            Style="{StaticResource Text_Style}"
-                            Text="&#127968;  Home" />
+                        <TextBlock Style="{StaticResource Navigation_ButtonText}" Text="&#127968;  Home" />
 
                     </Menu:Btn>
 
+                    <!--  Data Pegawai Button  -->
                     <Button
                         x:Name="btnDataPegawai"
                         Click="BtnDataPegawai_Click"
                         Style="{StaticResource CustomButtonStyle}">
 
-                        <Button.Resources>
-                            <Storyboard x:Key="ToggleOpenMenu">
-
-                                <DoubleAnimation
-                                    Storyboard.Target="{Binding ElementName=menuDataPegawai}"
-                                    Storyboard.TargetProperty="(Button.RenderTransform).(TranslateTransform.Y)"
-                                    From="-59"
-                                    To="0"
-                                    Duration="0:0:0.2" />
-                                <DoubleAnimation
-                                    Storyboard.Target="{Binding ElementName=menuDataPegawai}"
-                                    Storyboard.TargetProperty="Opacity"
-                                    From="0"
-                                    To="1"
-                                    Duration="0:0:0.5" />
-                                <DoubleAnimation
-                                    Storyboard.Target="{Binding ElementName=btnLihatLaporan}"
-                                    Storyboard.TargetProperty="(RadioButton.RenderTransform).(TranslateTransform.Y)"
-                                    From="-118"
-                                    To="0"
-                                    Duration="0:0:0.2" />
-                                <DoubleAnimation
-                                    Storyboard.Target="{Binding ElementName=btnUnduhTpp}"
-                                    Storyboard.TargetProperty="(Button.RenderTransform).(TranslateTransform.Y)"
-                                    From="-118"
-                                    To="0"
-                                    Duration="0:0:0.2" />
-                                <DoubleAnimation
-                                    Storyboard.Target="{Binding ElementName=menuDataTpp}"
-                                    Storyboard.TargetProperty="(Button.RenderTransform).(TranslateTransform.Y)"
-                                    From="-118"
-                                    To="0"
-                                    Duration="0:0:0.2" />
-                                <DoubleAnimation
-                                    Storyboard.Target="{Binding ElementName=btnBendahara}"
-                                    Storyboard.TargetProperty="(Button.RenderTransform).(TranslateTransform.Y)"
-                                    From="-236"
-                                    To="-118"
-                                    Duration="0:0:0.2" />
-                                <DoubleAnimation
-                                    Storyboard.Target="{Binding ElementName=btnUserManager}"
-                                    Storyboard.TargetProperty="(Button.RenderTransform).(TranslateTransform.Y)"
-                                    From="-236"
-                                    To="-118"
-                                    Duration="0:0:0.2" />
-
-                            </Storyboard>
-
-                            <Storyboard x:Key="ToggleCloseMenu">
-
-                                <DoubleAnimation
-                                    Storyboard.Target="{Binding ElementName=menuDataPegawai}"
-                                    Storyboard.TargetProperty="(Button.RenderTransform).(TranslateTransform.Y)"
-                                    From="0"
-                                    To="-59"
-                                    Duration="0:0:0.2" />
-                                <DoubleAnimation
-                                    Storyboard.Target="{Binding ElementName=menuDataPegawai}"
-                                    Storyboard.TargetProperty="Opacity"
-                                    From="1"
-                                    To="0"
-                                    Duration="0:0:0.5" />
-                                <DoubleAnimation
-                                    Storyboard.Target="{Binding ElementName=btnLihatLaporan}"
-                                    Storyboard.TargetProperty="(RadioButton.RenderTransform).(TranslateTransform.Y)"
-                                    From="0"
-                                    To="-118"
-                                    Duration="0:0:0.2" />
-                                <DoubleAnimation
-                                    Storyboard.Target="{Binding ElementName=btnUnduhTpp}"
-                                    Storyboard.TargetProperty="(Button.RenderTransform).(TranslateTransform.Y)"
-                                    From="0"
-                                    To="-118"
-                                    Duration="0:0:0.2" />
-                                <DoubleAnimation
-                                    Storyboard.Target="{Binding ElementName=menuDataTpp}"
-                                    Storyboard.TargetProperty="(Button.RenderTransform).(TranslateTransform.Y)"
-                                    From="0"
-                                    To="-118"
-                                    Duration="0:0:0.2" />
-                                <DoubleAnimation
-                                    Storyboard.Target="{Binding ElementName=btnBendahara}"
-                                    Storyboard.TargetProperty="(Button.RenderTransform).(TranslateTransform.Y)"
-                                    From="-118"
-                                    To="-236"
-                                    Duration="0:0:0.2" />
-                                <DoubleAnimation
-                                    Storyboard.Target="{Binding ElementName=btnUserManager}"
-                                    Storyboard.TargetProperty="(Button.RenderTransform).(TranslateTransform.Y)"
-                                    From="-118"
-                                    To="-236"
-                                    Duration="0:0:0.2" />
-
-                            </Storyboard>
-                        </Button.Resources>
-
                         <TextBlock
-                            VerticalAlignment="Center"
-                            FontSize="12"
-                            Style="{StaticResource Text_Style}"
+                            Padding="0"
+                            Style="{StaticResource Navigation_ButtonText}"
                             Text="&#128119;  Data Pegawai    &#10149;" />
+
                     </Button>
 
-                    <StackPanel
-                        x:Name="menuDataPegawai"
-                        Background="#222831"
-                        Visibility="Hidden">
+                    <!--  Data Pegawai Dropdown  -->
+                    <StackPanel x:Name="menuDataPegawai" Style="{StaticResource Navigation_Dropdown}">
 
-                        <StackPanel.RenderTransform>
-                            <TranslateTransform />
-                        </StackPanel.RenderTransform>
-
-                        <Menu:Btn Command="{Binding InputDataBatchCommand}" Style="{StaticResource BtnStyle}">
+                        <!--  Input Data Batch Button  -->
+                        <Menu:Btn Command="{Binding InputDataBatchCommand}" Style="{StaticResource Navigation_RadioButton}">
 
                             <TextBlock
                                 Padding="40"
-                                VerticalAlignment="Center"
-                                FontSize="12"
-                                Style="{StaticResource Text_Style}"
+                                Style="{StaticResource Navigation_ButtonText}"
                                 Text="&#8284;  Input Data Batch" />
 
                         </Menu:Btn>
 
-                        <Menu:Btn Command="{Binding KelolaDataCommand}" Style="{StaticResource BtnStyle}">
+                        <!--  Kelola Data Pegawai Button  -->
+                        <Menu:Btn Command="{Binding KelolaDataCommand}" Style="{StaticResource Navigation_RadioButton}">
 
                             <TextBlock
                                 Padding="40"
-                                VerticalAlignment="Center"
-                                FontSize="12"
-                                Style="{StaticResource Text_Style}"
+                                Style="{StaticResource Navigation_ButtonText}"
                                 Text="&#8284;  Kelola Data Pegawai" />
 
                         </Menu:Btn>
 
                     </StackPanel>
 
+                    <!--  Lihat Laporan Button  -->
                     <Menu:Btn
                         x:Name="btnLihatLaporan"
                         Command="{Binding LihatLaporanCommand}"
-                        Style="{StaticResource BtnStyle}">
+                        Style="{StaticResource Navigation_LihatLaporanButton}">
 
-                        <RadioButton.RenderTransform>
-                            <TranslateTransform Y="-118" />
-                        </RadioButton.RenderTransform>
-
-                        <TextBlock
-                            Padding="20"
-                            VerticalAlignment="Center"
-                            FontSize="12"
-                            Style="{StaticResource Text_Style}"
-                            Text="&#128196;  Lihat Laporan" />
+                        <TextBlock Style="{StaticResource Navigation_ButtonText}" Text="&#128196;  Lihat Laporan" />
 
                     </Menu:Btn>
 
+                    <!--  Unduh TPP Button  -->
                     <Button
                         x:Name="btnUnduhTpp"
                         Click="BtnUnduhTpp_Click"
-                        Style="{StaticResource CustomButtonStyle}">
+                        Style="{StaticResource Navigation_UnduhTppButton}">
 
-                        <Button.RenderTransform>
-                            <TranslateTransform Y="-118" />
-                        </Button.RenderTransform>
-
-                        <Button.Resources>
-                            <Storyboard x:Key="ToggleOpenMenu">
-
-                                <DoubleAnimation
-                                    Storyboard.Target="{Binding ElementName=menuDataTpp}"
-                                    Storyboard.TargetProperty="(Button.RenderTransform).(TranslateTransform.Y)"
-                                    From="-59"
-                                    To="0"
-                                    Duration="0:0:0.1" />
-                                <DoubleAnimation
-                                    Storyboard.Target="{Binding ElementName=menuDataTpp}"
-                                    Storyboard.TargetProperty="Opacity"
-                                    From="0"
-                                    To="1"
-                                    Duration="0:0:0.5" />
-                                <DoubleAnimation
-                                    Storyboard.Target="{Binding ElementName=btnBendahara}"
-                                    Storyboard.TargetProperty="(Button.RenderTransform).(TranslateTransform.Y)"
-                                    From="-236"
-                                    To="-118"
-                                    Duration="0:0:0.2" />
-                                <DoubleAnimation
-                                    Storyboard.Target="{Binding ElementName=btnUserManager}"
-                                    Storyboard.TargetProperty="(Button.RenderTransform).(TranslateTransform.Y)"
-                                    From="-236"
-                                    To="-118"
-                                    Duration="0:0:0.2" />
-
-                            </Storyboard>
-
-                            <Storyboard x:Key="ToggleCloseMenu">
-
-                                <DoubleAnimation
-                                    Storyboard.Target="{Binding ElementName=menuDataTpp}"
-                                    Storyboard.TargetProperty="(Button.RenderTransform).(TranslateTransform.Y)"
-                                    From="0"
-                                    To="-59"
-                                    Duration="0:0:0.1" />
-                                <DoubleAnimation
-                                    Storyboard.Target="{Binding ElementName=menuDataTpp}"
-                                    Storyboard.TargetProperty="Opacity"
-                                    From="1"
-                                    To="0"
-                                    Duration="0:0:0.5" />
-                                <DoubleAnimation
-                                    Storyboard.Target="{Binding ElementName=btnBendahara}"
-                                    Storyboard.TargetProperty="(Button.RenderTransform).(TranslateTransform.Y)"
-                                    From="-118"
-                                    To="-236"
-                                    Duration="0:0:0.2" />
-                                <DoubleAnimation
-                                    Storyboard.Target="{Binding ElementName=btnUserManager}"
-                                    Storyboard.TargetProperty="(Button.RenderTransform).(TranslateTransform.Y)"
-                                    From="-118"
-                                    To="-236"
-                                    Duration="0:0:0.2" />
-
-                            </Storyboard>
-                        </Button.Resources>
-
-                        <TextBlock Style="{StaticResource Text_Style}" Text="&#128229;  Unduh TPP    &#10149;" />
+                        <TextBlock
+                            Padding="0"
+                            Style="{StaticResource Navigation_ButtonText}"
+                            Text="&#128229;  Unduh TPP    &#10149;" />
 
                     </Button>
 
 
-                    <StackPanel
-                        x:Name="menuDataTpp"
-                        Background="#222831"
-                        Visibility="Hidden">
+                    <!--  Unduh Tpp Dropdown  -->
+                    <StackPanel x:Name="menuUnduhTpp" Style="{StaticResource Navigation_Dropdown}">
 
-                        <StackPanel.RenderTransform>
-                            <TranslateTransform />
-                        </StackPanel.RenderTransform>
-
-                        <Menu:Btn Command="{Binding FormatAripCommand}" Style="{StaticResource BtnStyle}">
+                        <!--  Format ARIP Button  -->
+                        <Menu:Btn Command="{Binding FormatAripCommand}" Style="{StaticResource Navigation_RadioButton}">
 
                             <TextBlock
                                 Padding="40"
-                                VerticalAlignment="Center"
-                                FontSize="12"
-                                Style="{StaticResource Text_Style}"
+                                Style="{StaticResource Navigation_ButtonText}"
                                 Text="&#8284;  Format ARIP" />
 
                         </Menu:Btn>
 
-                        <Menu:Btn Command="{Binding FormatSimgajiCommand}" Style="{StaticResource BtnStyle}">
+                        <!--  Format SIMGAJI  -->
+                        <Menu:Btn Command="{Binding FormatSimgajiCommand}" Style="{StaticResource Navigation_RadioButton}">
 
                             <TextBlock
                                 Padding="40"
-                                VerticalAlignment="Center"
-                                FontSize="12"
-                                Style="{StaticResource Text_Style}"
+                                Style="{StaticResource Navigation_ButtonText}"
                                 Text="&#8284;  Format SIMGAJI" />
 
                         </Menu:Btn>
 
                     </StackPanel>
 
+                    <!--  Bendahara Pengeluaran Button  -->
                     <Menu:Btn
                         x:Name="btnBendahara"
                         Command="{Binding BendaharaCommand}"
-                        Style="{StaticResource BtnStyle}">
+                        Style="{StaticResource Navigation_BendaharaButton}">
 
-                        <RadioButton.RenderTransform>
-                            <TranslateTransform Y="-236" />
-                        </RadioButton.RenderTransform>
-
-                        <TextBlock
-                            Padding="20"
-                            VerticalAlignment="Center"
-                            FontSize="12"
-                            Style="{StaticResource Text_Style}"
-                            Text="&#128181;  Bendahara Pengeluaran" />
+                        <TextBlock Style="{StaticResource Navigation_ButtonText}" Text="&#128181;  Bendahara Pengeluaran" />
 
                     </Menu:Btn>
 
+                    <!--  User Manager Button  -->
                     <Menu:Btn
                         x:Name="btnUserManager"
                         Command="{Binding UserManagerCommand}"
-                        Style="{StaticResource BtnStyle}">
+                        Style="{StaticResource Navigation_UserManagerButton}">
 
-                        <RadioButton.RenderTransform>
-                            <TranslateTransform Y="-236" />
-                        </RadioButton.RenderTransform>
-
-                        <TextBlock
-                            Padding="20"
-                            VerticalAlignment="Center"
-                            FontSize="12"
-                            Style="{StaticResource Text_Style}"
-                            Text="&#127899;  User Manager" />
+                        <TextBlock Style="{StaticResource Navigation_ButtonText}" Text="&#127899;  User Manager" />
 
                     </Menu:Btn>
 
-                    <Button
-                        HorizontalAlignment="Right"
-                        VerticalAlignment="Center"
-                        Click="LogoutButton_Click"
-                        Style="{StaticResource CustomButtonStyle}">
+                    <!--  Logout Button  -->
+                    <Button Click="LogoutButton_Click" Style="{StaticResource Navigation_LogoutButton}">
 
-                        <TextBlock Style="{StaticResource Text_Style}" Text="Logout &#x25E2;" />
+                        <TextBlock
+                            Padding="0"
+                            Style="{StaticResource Navigation_ButtonText}"
+                            Text="Logout &#x25E2;" />
 
                     </Button>
 
@@ -426,11 +213,7 @@
 
         </Grid>
 
-        <Grid
-            Grid.Row="1"
-            Grid.RowSpan="2"
-            Grid.Column="1"
-            Background="#EEEEEE">
+        <Grid Style="{StaticResource Content}">
 
             <Border Style="{StaticResource DropShadowBorderStyle}" />
 

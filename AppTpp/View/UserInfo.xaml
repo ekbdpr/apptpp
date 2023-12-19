@@ -42,7 +42,7 @@
         <TextBlock
             VerticalAlignment="Center"
             FontSize="15"
-            Style="{StaticResource Text_Style}">
+            Style="{StaticResource TextStyle}">
             <TextBlock.Text>
                 <MultiBinding StringFormat="{}{0} ({1})">
                     <Binding Path="Name" />

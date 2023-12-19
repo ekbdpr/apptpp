@@ -1,0 +1,14 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style
+        x:Key="Navigation_LihatLaporanButton"
+        BasedOn="{StaticResource Navigation_RadioButton}"
+        TargetType="RadioButton">
+        <Setter Property="RenderTransform">
+            <Setter.Value>
+                <TranslateTransform Y="-118" />
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>
