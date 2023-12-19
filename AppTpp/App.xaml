@@ -2,21 +2,39 @@
     x:Class="AppTpp.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    StartupUri="Login.xaml">
+    StartupUri="/View/Login.xaml">
 
     <Application.Resources>
 
         <ResourceDictionary>
 
             <ResourceDictionary.MergedDictionaries>
-
                 <ResourceDictionary Source="/Styles/Page.xaml" />
                 <ResourceDictionary Source="/Styles/Text.xaml" />
                 <ResourceDictionary Source="/Styles/ProfileImage.xaml" />
                 <ResourceDictionary Source="/Styles/Password.xaml" />
                 <ResourceDictionary Source="/Styles/Buttons.xaml" />
                 <ResourceDictionary Source="/Styles/MainBorderShadow.xaml" />
+                <ResourceDictionary Source="/Styles/DataGrid.xaml" />
                 <ResourceDictionary Source="/Utilities/DataTemplate.xaml" />
+
+
+                <ResourceDictionary Source="/Styles/Window/Window.xaml" />
+
+                <ResourceDictionary Source="/Styles/Login/Login.xaml" />
+                <ResourceDictionary Source="/Styles/Login/_Border/Login_Border.xaml" />
+                <ResourceDictionary Source="/Styles/Login/_Container/Login_Container.xaml" />
+                <ResourceDictionary Source="/Styles/Login/_Logo/Login_Logo.xaml" />
+                <ResourceDictionary Source="/Styles/Login/_Text/Login_Text.xaml" />
+                <ResourceDictionary Source="/Styles/Login/_UserBox/Login_UserBox.xaml" />
+                <ResourceDictionary Source="/Styles/Login/_PasswordBox/Login_PasswordBox.xaml" />
+                <ResourceDictionary Source="/Styles/Login/_ErrorMessage/Login_ErrorMessage.xaml" />
+                <ResourceDictionary Source="/Styles/Login/_ButtonContainer/Login_ButtonContainer.xaml" />
+                <ResourceDictionary Source="/Styles/Login/_LoginButton/Login_LoginButton.xaml" />
+                <ResourceDictionary Source="/Styles/Login/_KeluarButton/Login_KeluarButton.xaml" />
+                <ResourceDictionary Source="/Styles/Login/_ExtraMessage/Login_ExtraMessage.xaml" />
+
+
 
             </ResourceDictionary.MergedDictionaries>
 

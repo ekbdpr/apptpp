@@ -21,6 +21,7 @@ D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\Tugas Besar\Tugas Besar\obj\Debug\net7
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\Tugas Besar\Tugas Besar\obj\Debug\net7.0-windows\AppTpp.pdb
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\Tugas Besar\Tugas Besar\obj\Debug\net7.0-windows\AppTpp.genruntimeconfig.cache
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\Tugas Besar\Tugas Besar\obj\Debug\net7.0-windows\ref\AppTpp.dll
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\bin\Debug\net7.0-windows\Images\avatar.png
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\bin\Debug\net7.0-windows\AppTpp.exe
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\bin\Debug\net7.0-windows\AppTpp.dll.config
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\bin\Debug\net7.0-windows\AppTpp.deps.json
@@ -31,21 +32,22 @@ D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\bin\Debug\net7.0-windows
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\bin\Debug\net7.0-windows\MySqlConnector.dll
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\AppTpp.csproj.AssemblyReference.cache
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\Styles\Buttons.baml
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\Styles\DataGrid.baml
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\Styles\Login\Login.baml
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\Styles\Login\_LoginButton\Login_LoginButton.baml
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\Styles\MainBorderShadow.baml
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\Styles\Page.baml
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\Styles\Password.baml
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\Styles\ProfileImage.baml
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\Styles\Text.baml
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\Styles\Window\Window.baml
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\View\BendaharaPengeluaran.baml
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\View\FormatArip.baml
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\View\FormatSimgaji.baml
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\View\InputDataBatch.baml
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\View\KelolaData.baml
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\View\LihatLaporan.baml
-D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\View\UserManager.baml
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\App.baml
-D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\Login.g.cs
-D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\MainWindow.g.cs
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\View\BendaharaPengeluaran.g.cs
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\View\FormatArip.g.cs
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\View\FormatSimgaji.g.cs
@@ -53,6 +55,9 @@ D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\View\InputDataBatch.g.cs
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\View\KelolaData.g.cs
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\View\LihatLaporan.g.cs
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\View\Login.g.cs
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\View\MainWindow.g.cs
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\View\UserDataDialog.g.cs
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\View\UserInfo.g.cs
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\View\UserManager.g.cs
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\App.g.cs
@@ -60,11 +65,13 @@ D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\GeneratedInternalTypeHelper.g.cs
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\AppTpp_MarkupCompile.cache
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\AppTpp_MarkupCompile.lref
-D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\Login.baml
-D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\MainWindow.baml
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\Utilities\DataTemplate.baml
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\View\Home.baml
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\View\Login.baml
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\View\MainWindow.baml
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\View\UserDataDialog.baml
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\View\UserInfo.baml
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\View\UserManager.baml
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\AppTpp.g.resources
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\AppTpp.GeneratedMSBuildEditorConfig.editorconfig
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\AppTpp.AssemblyInfoInputs.cache
@@ -77,4 +84,11 @@ D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\AppTpp.pdb
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\AppTpp.genruntimeconfig.cache
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\ref\AppTpp.dll
-D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\bin\Debug\net7.0-windows\Images\avatar.png
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\Styles\Login\_Border\Login_Border.baml
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\Styles\Login\_ButtonContainer\Login_ButtonContainer.baml
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\Styles\Login\_Container\Login_Container.baml
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\Styles\Login\_ErrorMessage\Login_ErrorMessage.baml
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\Styles\Login\_Logo\Login_Logo.baml
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\Styles\Login\_PasswordBox\Login_PasswordBox.baml
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\Styles\Login\_Text\Login_Text.baml
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\Styles\Login\_UserBox\Login_UserBox.baml

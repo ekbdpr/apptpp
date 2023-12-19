@@ -1,5 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
+    <!--  Navigation Button Style  -->
     <Style x:Key="BtnStyle" TargetType="RadioButton">
 
         <Setter Property="HorizontalAlignment" Value="Center" />
@@ -95,6 +96,7 @@
 
     </Style>
 
+    <!--  Custom Button Style  -->
     <Style x:Key="CustomButtonStyle" TargetType="Button">
 
         <Setter Property="Background" Value="#222831" />
@@ -161,19 +163,18 @@
 
     </Style>
 
-    <Style x:Key="KeluarButtonStyle" TargetType="Button">
+    <!--  Minimize Button Style  -->
+    <Style x:Key="MinimizeButtonStyle" TargetType="Button">
 
-        <Setter Property="Width" Value="100" />
-        <Setter Property="Foreground" Value="#CD1818" />
-        <Setter Property="Background" Value="#EEEEEE" />
-        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Width" Value="30" />
         <Setter Property="Height" Value="30" />
-        <Setter Property="Padding" Value="0" />
+        <Setter Property="Margin" Value="0,0,5,0" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="FontSize" Value="15" />
         <Setter Property="FontWeight" Value="Bold" />
-        <Setter Property="FontSize" Value="12" />
-        <Setter Property="Margin" Value="20,20,0,0" />
-        <Setter Property="VerticalAlignment" Value="Center" />
-        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="Background" Value="#00ADB5" />
+        <Setter Property="Foreground" Value="#EEEEEE" />
 
         <Setter Property="Template">
             <Setter.Value>
@@ -187,74 +188,6 @@
                         <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
 
                     </Border>
-
-                    <ControlTemplate.Triggers>
-
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Trigger.EnterActions>
-                                <BeginStoryboard>
-                                    <Storyboard>
-
-                                        <ColorAnimation
-                                            Storyboard.TargetProperty="Background.(SolidColorBrush.Color)"
-                                            To="#CD1818"
-                                            Duration="0:0:0.2" />
-
-                                        <ColorAnimation
-                                            Storyboard.TargetProperty="Foreground.(SolidColorBrush.Color)"
-                                            To="#EEEEEE"
-                                            Duration="0:0:0.2" />
-
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </Trigger.EnterActions>
-
-                            <Trigger.ExitActions>
-                                <BeginStoryboard>
-                                    <Storyboard>
-
-                                        <ColorAnimation
-                                            Storyboard.TargetProperty="Background.(SolidColorBrush.Color)"
-                                            To="#EEEEEE"
-                                            Duration="0:0:0.2" />
-
-                                        <ColorAnimation
-                                            Storyboard.TargetProperty="Foreground.(SolidColorBrush.Color)"
-                                            To="#CD1818"
-                                            Duration="0:0:0.2" />
-
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </Trigger.ExitActions>
-
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-
-    </Style>
-
-    <Style x:Key="MinimizeButtonStyle" TargetType="Button">
-
-        <Setter Property="Width" Value="30" />
-        <Setter Property="Height" Value="30" />
-        <Setter Property="Margin" Value="0,0,5,0" />
-        <Setter Property="Cursor" Value="Hand" />
-        <Setter Property="FontSize" Value="15" />
-        <Setter Property="FontWeight" Value="Bold" />
-        <Setter Property="Background" Value="#00ADB5" />
-        <Setter Property="Foreground" Value="#EEEEEE" />
-
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="Button">
-                    <Border Background="{TemplateBinding Background}">
-
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-
-                    </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -266,38 +199,35 @@
         </Style.Resources>
 
         <Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Trigger.EnterActions>
-                    <BeginStoryboard>
-                        <Storyboard>
+            <EventTrigger RoutedEvent="Button.MouseEnter">
+                <BeginStoryboard>
+                    <Storyboard>
 
-                            <ColorAnimation
-                                Storyboard.TargetProperty="Background.(SolidColorBrush.Color)"
-                                To="#58b3b8"
-                                Duration="0:0:0.2" />
+                        <DoubleAnimation
+                            Storyboard.TargetProperty="Opacity"
+                            To="0.8"
+                            Duration="0:0:0.2" />
 
-                        </Storyboard>
-                    </BeginStoryboard>
-                </Trigger.EnterActions>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+            <EventTrigger RoutedEvent="Button.MouseLeave">
+                <BeginStoryboard>
+                    <Storyboard>
 
-                <Trigger.ExitActions>
-                    <BeginStoryboard>
-                        <Storyboard>
+                        <DoubleAnimation
+                            Storyboard.TargetProperty="Opacity"
+                            To="1"
+                            Duration="0:0:0.2" />
 
-                            <ColorAnimation
-                                Storyboard.TargetProperty="Background.(SolidColorBrush.Color)"
-                                To="#00ADB5"
-                                Duration="0:0:0.2" />
-
-                        </Storyboard>
-                    </BeginStoryboard>
-                </Trigger.ExitActions>
-
-            </Trigger>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
         </Style.Triggers>
 
     </Style>
 
+    <!--  Close Button Style  -->
     <Style x:Key="CloseButtonStyle" TargetType="Button">
 
         <Setter Property="Width" Value="30" />
@@ -306,15 +236,20 @@
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="FontSize" Value="15" />
         <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Background" Value="#CD1818" />
         <Setter Property="Foreground" Value="#EEEEEE" />
 
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border Background="{TemplateBinding Background}">
+                    <Border
+                        Padding="{TemplateBinding Padding}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}">
 
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
 
                     </Border>
                 </ControlTemplate>
@@ -328,38 +263,35 @@
         </Style.Resources>
 
         <Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Trigger.EnterActions>
-                    <BeginStoryboard>
-                        <Storyboard>
+            <EventTrigger RoutedEvent="Button.MouseEnter">
+                <BeginStoryboard>
+                    <Storyboard>
 
-                            <ColorAnimation
-                                Storyboard.TargetProperty="Background.(SolidColorBrush.Color)"
-                                To="#d44242"
-                                Duration="0:0:0.2" />
+                        <DoubleAnimation
+                            Storyboard.TargetProperty="Opacity"
+                            To="0.8"
+                            Duration="0:0:0.2" />
 
-                        </Storyboard>
-                    </BeginStoryboard>
-                </Trigger.EnterActions>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+            <EventTrigger RoutedEvent="Button.MouseLeave">
+                <BeginStoryboard>
+                    <Storyboard>
 
-                <Trigger.ExitActions>
-                    <BeginStoryboard>
-                        <Storyboard>
+                        <DoubleAnimation
+                            Storyboard.TargetProperty="Opacity"
+                            To="1"
+                            Duration="0:0:0.2" />
 
-                            <ColorAnimation
-                                Storyboard.TargetProperty="Background.(SolidColorBrush.Color)"
-                                To="#CD1818"
-                                Duration="0:0:0.2" />
-
-                        </Storyboard>
-                    </BeginStoryboard>
-                </Trigger.ExitActions>
-
-            </Trigger>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
         </Style.Triggers>
 
     </Style>
 
+    <!--  Remove Default Button Hover Style  -->
     <Style x:Key="RemoveButtonHover" TargetType="Button">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Template">
@@ -371,6 +303,55 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+    </Style>
+
+    <!--  Change Button Opacity on Hover  -->
+    <Style x:Key="OpacityButton" TargetType="Button">
+        <Setter Property="Opacity" Value="1" />
+        <Setter Property="Cursor" Value="Hand" />
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border
+                        Padding="{TemplateBinding Padding}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}">
+
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <Style.Triggers>
+            <EventTrigger RoutedEvent="Button.MouseEnter">
+                <BeginStoryboard>
+                    <Storyboard>
+
+                        <DoubleAnimation
+                            Storyboard.TargetProperty="Opacity"
+                            To="0.8"
+                            Duration="0:0:0.2" />
+
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+            <EventTrigger RoutedEvent="Button.MouseLeave">
+                <BeginStoryboard>
+                    <Storyboard>
+
+                        <DoubleAnimation
+                            Storyboard.TargetProperty="Opacity"
+                            To="1"
+                            Duration="0:0:0.2" />
+
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Style.Triggers>
     </Style>
 
 </ResourceDictionary>

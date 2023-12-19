@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\App.xaml
-18-416019517
+311360596796
 1875577548
-29-119638508
+301030669893
 200721720868
-Login.xaml;MainWindow.xaml;Styles\Buttons.xaml;Styles\MainBorderShadow.xaml;Styles\Page.xaml;Styles\Password.xaml;Styles\ProfileImage.xaml;Styles\Text.xaml;Utilities\DataTemplate.xaml;View\BendaharaPengeluaran.xaml;View\FormatArip.xaml;View\FormatSimgaji.xaml;View\Home.xaml;View\InputDataBatch.xaml;View\KelolaData.xaml;View\LihatLaporan.xaml;View\UserInfo.xaml;View\UserManager.xaml;
+Styles\Buttons.xaml;Styles\DataGrid.xaml;Styles\Login\Login.xaml;Styles\Login\_Border\Login_Border.xaml;Styles\Login\_ButtonContainer\Login_ButtonContainer.xaml;Styles\Login\_Container\Login_Container.xaml;Styles\Login\_ErrorMessage\Login_ErrorMessage.xaml;Styles\Login\_LoginButton\Login_LoginButton.xaml;Styles\Login\_Logo\Login_Logo.xaml;Styles\Login\_PasswordBox\Login_PasswordBox.xaml;Styles\Login\_Text\Login_Text.xaml;Styles\Login\_UserBox\Login_UserBox.xaml;Styles\MainBorderShadow.xaml;Styles\Page.xaml;Styles\Password.xaml;Styles\ProfileImage.xaml;Styles\Text.xaml;Styles\Window\Window.xaml;Utilities\DataTemplate.xaml;View\BendaharaPengeluaran.xaml;View\FormatArip.xaml;View\FormatSimgaji.xaml;View\Home.xaml;View\InputDataBatch.xaml;View\KelolaData.xaml;View\LihatLaporan.xaml;View\Login.xaml;View\MainWindow.xaml;View\UserDataDialog.xaml;View\UserInfo.xaml;View\UserManager.xaml;
 
 False
 

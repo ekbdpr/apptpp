@@ -5,6 +5,7 @@ using System;
 using System.Configuration;
 using Microsoft.Win32;
 using System.IO;
+using System.Collections.Generic;
 
 namespace AppTpp.Services
 {
@@ -22,14 +23,12 @@ namespace AppTpp.Services
             }
         }
 
-        public int CurrentIdUser { get; private set; }
         public string CurrentUsername { get; private set; }
         public string CurrentPrivilege { get; private set; }
         public byte[] CurrentProfileImage { get; private set; }
 
-        public void SetCurrentUser(int idUser, string username, string privilege, byte[] profileImage)
+        public void SetCurrentUser(string username, string privilege, byte[] profileImage)
         {
-            CurrentIdUser = idUser;
             CurrentUsername = username;
             CurrentPrivilege = privilege;
             CurrentProfileImage = profileImage;
@@ -48,24 +47,24 @@ namespace AppTpp.Services
 
                     string query = "SELECT * FROM daftar_user WHERE username = @Username AND password = @Password";
 
-                    using MySqlCommand command = new MySqlCommand(query, connection);
+                    using MySqlCommand command = new(query, connection);
 
                     command.Parameters.AddWithValue("@Username", Username);
                     command.Parameters.AddWithValue("@Password", Password);
 
                     using MySqlDataReader reader = command.ExecuteReader();
 
-                    if (reader.Read())
+                    while (reader.Read())
                     {
                         UserModel userModel = new()
                         {
-                            Id = Convert.ToInt32(reader["id_user"]),
+                            Username = reader["username"].ToString(),
                             Name = reader["nama"].ToString(),
                             Privilege = reader["privilege"].ToString(),
                             ProfileImage = (byte[])reader["profile_image"]
                         };
 
-                        SetCurrentUser(userModel.Id, userModel.Name, userModel.Privilege, userModel.ProfileImage);
+                        SetCurrentUser(userModel.Name, userModel.Privilege, userModel.ProfileImage);
                     }
 
                     return reader.HasRows;
@@ -95,11 +94,11 @@ namespace AppTpp.Services
                     string filePath = openFileDialog.FileName;
                     byte[] fileBytes = File.ReadAllBytes(filePath);
 
-                    string query = "UPDATE daftar_user SET profile_image = @FileData WHERE id_user = @CurrentIdUser;";
+                    string query = "UPDATE daftar_user SET profile_image = @FileData WHERE username = @Username;";
 
                     using var command = new MySqlCommand(query, connection);
                     command.Parameters.AddWithValue("@FileData", fileBytes);
-                    command.Parameters.AddWithValue("@CurrentIdUser", CurrentIdUser);
+                    command.Parameters.AddWithValue("@Username", CurrentUsername);
 
                     command.ExecuteNonQuery();
 
@@ -113,6 +112,51 @@ namespace AppTpp.Services
                 {
                     connection.Close();
                 }
+        }
+
+        public static List<UserModel> GetAllUsers()
+        {
+            string connectionString = GetConnectionString();
+            var connection = new MySqlConnection(connectionString);
+
+            try
+            {
+                using (connection)
+                {
+                    connection.Open();
+
+                    string query = "SELECT * FROM daftar_user";
+
+                    using MySqlCommand command = new(query, connection);
+
+                    List<UserModel> userList = new();
+
+                    using MySqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        UserModel userModel = new()
+                        {
+                            Username = reader["username"].ToString(),
+                            Name = reader["nama"].ToString(),
+                            Privilege = reader["privilege"].ToString(),
+                            ProfileImage = (byte[])reader["profile_image"]
+                        };
+
+                        userList.Add(userModel);
+                    }
+
+                    return userList;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 
         public static string GetConnectionString()

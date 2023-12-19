@@ -9,7 +9,7 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Login.xaml.cs">
+    <Compile Update="View\Login.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\BendaharaPengeluaran.xaml.cs">
@@ -33,6 +33,9 @@
     <Compile Update="View\LihatLaporan.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\UserDataDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\UserInfo.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -41,10 +44,52 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="Login.xaml">
+    <Page Update="Styles\Login\_Border\Login_Border.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="MainWindow.xaml">
+    <Page Update="Styles\Login\_ButtonContainer\Login_ButtonContainer.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\Login\_Container\Login_Container.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\Login\_ErrorMessage\Login_ErrorMessage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\Login\Login.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\Login\_ExtraMessage\Login_ExtraMessage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\Login\_KeluarButton\Login_KeluarButton.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\Login\_LoginButton\Login_LoginButton.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\Login\_PasswordBox\Login_PasswordBox.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\Login\_Text\Login_Text.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\Login\_Logo\Login_Logo.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\Login\_UserBox\Login_UserBox.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\Window\Window.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Login.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\DataGrid.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Styles\MainBorderShadow.xaml">
@@ -87,6 +132,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\LihatLaporan.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\UserDataDialog.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\UserInfo.xaml">

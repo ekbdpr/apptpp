@@ -46,10 +46,7 @@ namespace AppTpp.ViewModel
             {
                 MainWindow mainWindow = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault();
 
-                if (mainWindow == null)
-                {
-                    mainWindow = new MainWindow();
-                }
+                mainWindow ??= new MainWindow();
 
                 mainWindow.Show();
 

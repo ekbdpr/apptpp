@@ -12,10 +12,9 @@
         <vm:HomeVM />
     </UserControl.DataContext>
 
-    <Viewbox>
+    <Viewbox VerticalAlignment="Top">
 
-        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-
+        <Grid Margin="30,0" HorizontalAlignment="Stretch">
             <Grid>
 
                 <Grid.RowDefinitions>
@@ -30,26 +29,26 @@
 
                 <TextBlock
                     Grid.Row="0"
-                    Margin="30,30,30,0"
                     FontSize="40"
+                    FontWeight="Bold"
                     Style="{StaticResource Text_Style}"
                     Text="Selamat Datang," />
                 <TextBlock
                     Grid.Row="1"
-                    Margin="30,0,30,0"
                     FontSize="50"
+                    FontWeight="Bold"
                     Style="{StaticResource Text_Style}"
                     Text="{Binding Name, StringFormat='{}{0} !'}" />
                 <TextBlock
                     Grid.Row="2"
-                    Margin="30,40,30,0"
+                    Margin="0,40,0,0"
                     FontSize="25"
                     Style="{StaticResource Text_Style}"
                     Text="Silahkan memilih menu pada sidebar disamping."
                     TextWrapping="Wrap" />
                 <TextBlock
                     Grid.Row="3"
-                    Margin="30,10,30,0"
+                    Margin="0,10,0,0"
                     FontSize="20"
                     Style="{StaticResource Text_Style}"
                     Text="Jika mengalami kendala silahkan lakukan relogin akun anda. Jika masih mengalami kendala yang sama, silahkan menghubungi admin !"
@@ -57,7 +56,7 @@
                 <Image
                     Grid.Row="4"
                     MaxWidth="500"
-                    Margin="30,50,30,-100"
+                    Margin="0,50,0,-100"
                     Source="/Images/welcome.png" />
 
             </Grid>

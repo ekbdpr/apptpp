@@ -4,20 +4,180 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:AppTpp.ViewModel"
     Style="{StaticResource Page_Style}"
     mc:Ignorable="d">
 
-    <Viewbox>
+    <UserControl.DataContext>
+        <vm:UserManagerVM />
+    </UserControl.DataContext>
 
-        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+    <Viewbox VerticalAlignment="Top">
 
-            <TextBlock
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                FontSize="100"
-                Style="{StaticResource Text_Style}"
-                Text="User Manager"
-                TextAlignment="Center" />
+        <Grid Margin="30,0" HorizontalAlignment="Stretch">
+            <Grid>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <TextBlock
+                    FontSize="40"
+                    FontWeight="Bold"
+                    Style="{StaticResource Text_Style}"
+                    Text="User Manager" />
+
+                <Border
+                    Grid.Row="1"
+                    Margin="0,20,0,20"
+                    BorderBrush="#A9A9A9"
+                    BorderThickness="0,0,0,1" />
+
+                <StackPanel Grid.Row="2" Orientation="Horizontal">
+                    <Button
+                        Width="120"
+                        Height="30"
+                        Margin="0,30,0,0"
+                        Background="#3081D0"
+                        BorderThickness="0"
+                        Command="{Binding AddDataCommand}"
+                        FontWeight="SemiBold"
+                        Foreground="White"
+                        Style="{StaticResource OpacityButton}">
+
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="10" />
+                            </Style>
+                        </Button.Resources>
+
+                        <TextBlock Style="{StaticResource Text_Style}" Text="Add New Data" />
+
+                    </Button>
+                </StackPanel>
+
+                <Grid Grid.Row="3">
+
+                    <Border
+                        Margin="0,15,0,0"
+                        Background="White"
+                        BorderBrush="#CCCCCC"
+                        BorderThickness="1"
+                        CornerRadius="5">
+
+                        <Border.Effect>
+
+                            <DropShadowEffect
+                                Direction="330"
+                                Opacity="0.5"
+                                ShadowDepth="3" />
+
+                        </Border.Effect>
+
+                        <DataGrid
+                            Width="1000"
+                            Margin="10"
+                            AutoGenerateColumns="False"
+                            BorderThickness="0"
+                            CanUserAddRows="False"
+                            FontFamily="/Fonts/#Fira Sans"
+                            ItemsSource="{Binding Users}">
+
+                            <DataGrid.Columns>
+
+                                <DataGridTextColumn
+                                    Width="*"
+                                    Binding="{Binding Username}"
+                                    Header="Username" />
+                                <DataGridTextColumn
+                                    Width="*"
+                                    Binding="{Binding Name}"
+                                    Header="Name" />
+                                <DataGridTextColumn
+                                    Width="*"
+                                    Binding="{Binding Privilege}"
+                                    Header="Privilege" />
+
+                                <DataGridTemplateColumn Width="Auto" Header="Options">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+
+                                            <StackPanel Orientation="Horizontal">
+                                                <Button
+                                                    Width="70"
+                                                    Height="25"
+                                                    Margin="5,0,5,0"
+                                                    Background="#FFB534"
+                                                    BorderThickness="0"
+                                                    FontWeight="SemiBold"
+                                                    Foreground="White"
+                                                    Style="{StaticResource OpacityButton}">
+
+                                                    <Button.Resources>
+                                                        <Style TargetType="{x:Type Border}">
+                                                            <Setter Property="CornerRadius" Value="10" />
+                                                        </Style>
+                                                    </Button.Resources>
+
+                                                    <TextBlock Style="{StaticResource Text_Style}" Text="Edit" />
+
+                                                </Button>
+                                                <Button
+                                                    Width="70"
+                                                    Height="25"
+                                                    Margin="5,0,5,0"
+                                                    Background="#F44336"
+                                                    BorderThickness="0"
+                                                    FontWeight="SemiBold"
+                                                    Foreground="White"
+                                                    Style="{StaticResource OpacityButton}">
+
+                                                    <Button.Resources>
+                                                        <Style TargetType="{x:Type Border}">
+                                                            <Setter Property="CornerRadius" Value="10" />
+                                                        </Style>
+                                                    </Button.Resources>
+
+                                                    <TextBlock Style="{StaticResource Text_Style}" Text="Delete" />
+
+                                                </Button>
+                                                <Button
+                                                    Width="70"
+                                                    Height="25"
+                                                    Margin="5,0,5,0"
+                                                    Background="#A9A9A9"
+                                                    BorderThickness="0"
+                                                    FontWeight="SemiBold"
+                                                    Foreground="White"
+                                                    Style="{StaticResource OpacityButton}">
+
+                                                    <Button.Resources>
+                                                        <Style TargetType="{x:Type Border}">
+                                                            <Setter Property="CornerRadius" Value="10" />
+                                                        </Style>
+                                                    </Button.Resources>
+
+                                                    <TextBlock Style="{StaticResource Text_Style}" Text="Detail" />
+
+                                                </Button>
+                                            </StackPanel>
+
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                            </DataGrid.Columns>
+
+                        </DataGrid>
+
+                    </Border>
+
+                </Grid>
+
+            </Grid>
 
         </Grid>
 

@@ -54,10 +54,7 @@ namespace AppTpp.ViewModel
         {
             Name = UserDataService.Instance.CurrentUsername;
             Privilege = UserDataService.Instance.CurrentPrivilege;
-            ProfileImage = UserDataService.Instance.CurrentProfileImage == null ||
-                   UserDataService.Instance.CurrentProfileImage.Length == 0
-        ? GetDefaultProfileImage()
-        : UserDataService.Instance.CurrentProfileImage;
+            ProfileImage = UserDataService.Instance.CurrentProfileImage == null || UserDataService.Instance.CurrentProfileImage.Length == 0 ? GetDefaultProfileImage() : UserDataService.Instance.CurrentProfileImage;
         }
 
         private byte[] GetDefaultProfileImage()
