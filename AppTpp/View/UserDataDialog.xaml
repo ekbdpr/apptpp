@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:AppTpp.View"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:AppTpp.ViewModel"
     Title="Add New Data"
     Width="{x:Static SystemParameters.PrimaryScreenWidth}"
     Height="{x:Static SystemParameters.PrimaryScreenHeight}"
@@ -19,6 +20,10 @@
     <Window.Background>
         <SolidColorBrush Opacity="0.4" Color="Black" />
     </Window.Background>
+
+    <Window.DataContext>
+        <vm:UserDataDialogVM />
+    </Window.DataContext>
 
     <Window.Resources>
         <Style TargetType="TextBox">
@@ -62,7 +67,7 @@
                     BorderBrush="#A9A9A9"
                     BorderThickness="0"
                     CornerRadius="0 0 10 10">
-                    <StackPanel Margin="15">
+                    <StackPanel Margin="30">
 
                         <StackPanel Margin="0,0,0,10" Orientation="Horizontal">
                             <TextBlock
@@ -72,9 +77,10 @@
                                 Text="Username:" />
                             <TextBox
                                 x:Name="UsernameTextBox"
-                                Width="370"
+                                Width="340"
                                 FontFamily="Fonts/#Fira Sans"
-                                FontSize="16" />
+                                FontSize="16"
+                                Text="{Binding Username, Mode=TwoWay}" />
                         </StackPanel>
 
                         <StackPanel Margin="0,0,0,10" Orientation="Horizontal">
@@ -85,9 +91,10 @@
                                 Text="Password:" />
                             <TextBox
                                 x:Name="PasswordBox"
-                                Width="370"
+                                Width="340"
                                 FontFamily="Fonts/#Fira Sans"
-                                FontSize="16" />
+                                FontSize="16"
+                                Text="{Binding Password, Mode=TwoWay}" />
                         </StackPanel>
 
                         <StackPanel Margin="0,0,0,10" Orientation="Horizontal">
@@ -98,9 +105,10 @@
                                 Text="Name:" />
                             <TextBox
                                 x:Name="NameTextBox"
-                                Width="370"
+                                Width="340"
                                 FontFamily="Fonts/#Fira Sans"
-                                FontSize="16" />
+                                FontSize="16"
+                                Text="{Binding Nama, Mode=TwoWay}" />
                         </StackPanel>
 
                         <StackPanel Margin="0,0,0,20" Orientation="Horizontal">
@@ -109,11 +117,24 @@
                                 FontSize="16"
                                 Style="{StaticResource TextStyle}"
                                 Text="Privilege:" />
-                            <TextBox
-                                x:Name="PrivilegeTextBox"
-                                Width="370"
-                                FontFamily="Fonts/#Fira Sans"
-                                FontSize="16" />
+
+                            <Border
+                                BorderBrush="Gray"
+                                BorderThickness="1"
+                                CornerRadius="10">
+                                <ComboBox
+                                    Width="338"
+                                    BorderThickness="0"
+                                    FontFamily="Fonts/#Fira Sans"
+                                    FontSize="16"
+                                    SelectedItem="{Binding Privilege, Mode=TwoWay}"
+                                    Style="{DynamicResource ComboBoxStyle}">
+                                    <ComboBoxItem Content="--- Pilih salah satu ---" IsSelected="True" />
+                                    <ComboBoxItem Content="Admin" />
+                                    <ComboBoxItem Content="Bendahara" />
+                                    <ComboBoxItem Content="Pimpinan" />
+                                </ComboBox>
+                            </Border>
                         </StackPanel>
 
                         <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
@@ -123,6 +144,7 @@
                                 Margin="0,0,10,0"
                                 Background="#3081D0"
                                 BorderThickness="0"
+                                Command="{Binding SaveCommand}"
                                 Style="{StaticResource OpacityButton}">
 
                                 <Button.Resources>
@@ -143,6 +165,7 @@
                                 Height="30"
                                 Background="#A9A9A9"
                                 BorderThickness="0"
+                                Click="CancelButton_Click"
                                 Style="{StaticResource OpacityButton}">
 
                                 <Button.Resources>

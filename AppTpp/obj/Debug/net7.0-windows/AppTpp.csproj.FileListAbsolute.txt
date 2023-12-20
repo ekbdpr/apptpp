@@ -110,3 +110,4 @@ D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\Styles\MainWindow\Navigation\_UserManagerButton\Navigation_UserManagerButton.baml
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\Styles\MainWindow\Content\Content.baml
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\Styles\MainWindow\Navigation\_LogoutButton\Navigation_LogoutButton.baml
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Debug\net7.0-windows\Styles\ComboBox.baml

@@ -24,5 +24,10 @@ namespace AppTpp.View
             InitializeComponent();
             this.Owner = Application.Current.MainWindow;
         }
+
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

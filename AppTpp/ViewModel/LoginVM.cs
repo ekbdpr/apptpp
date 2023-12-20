@@ -52,10 +52,7 @@ namespace AppTpp.ViewModel
 
                 foreach (Window window in Application.Current.Windows)
                 {
-                    if (window != mainWindow)
-                    {
-                        window.Close();
-                    }
+                    if (window.DataContext == this) window.Close();
                 }
 
                 return;

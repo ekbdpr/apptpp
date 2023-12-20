@@ -44,6 +44,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Styles\ComboBox.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Styles\Login\_Border\Login_Border.xaml">
       <SubType>Designer</SubType>
     </Page>

@@ -18,6 +18,7 @@
                 <ResourceDictionary Source="/Styles/Buttons.xaml" />
                 <ResourceDictionary Source="/Styles/MainBorderShadow.xaml" />
                 <ResourceDictionary Source="/Styles/DataGrid.xaml" />
+                <ResourceDictionary Source="/Styles/ComboBox.xaml" />
                 <ResourceDictionary Source="/Utilities/DataTemplate.xaml" />
 
                 <!--  Window Load Animation  -->
