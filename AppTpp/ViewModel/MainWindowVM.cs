@@ -1,9 +1,14 @@
-﻿using AppTpp.Utilities;
+﻿using AppTpp.Services;
+using AppTpp.Utilities;
+using System.Diagnostics;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace AppTpp.ViewModel
 {
-    class NavigationVM : ViewModelBase
+    class MainWindowVM : ViewModelBase
     {
         private object _currentview;
 
@@ -31,7 +36,8 @@ namespace AppTpp.ViewModel
         private void Bendahara(object obj) => Currentview = new BendaharaVM();
         private void UserManager(object obj) => Currentview = new UserManagerVM();
 
-        public NavigationVM()
+
+        public MainWindowVM()
         {
             HomeCommand = new RelayCommand(Home);
             InputDataBatchCommand = new RelayCommand(InputDataBatch);

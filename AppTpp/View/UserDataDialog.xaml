@@ -5,134 +5,166 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:AppTpp.View"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Title="UserDataDialog"
-    Width="600"
-    Height="250"
-    Background="Transparent"
-    ResizeMode="NoResize"
+    Title="Add New Data"
+    Width="{x:Static SystemParameters.PrimaryScreenWidth}"
+    Height="{x:Static SystemParameters.PrimaryScreenHeight}"
+    AllowsTransparency="True"
+    SnapsToDevicePixels="True"
+    Style="{StaticResource windowLoad}"
+    UseLayoutRounding="True"
     WindowStartupLocation="CenterScreen"
     WindowStyle="None"
     mc:Ignorable="d">
 
-    <Border Background="#222831" CornerRadius="10">
+    <Window.Background>
+        <SolidColorBrush Opacity="0.4" Color="Black" />
+    </Window.Background>
 
-        <Grid>
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="Padding" Value="5" />
+            <Style.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10" />
+                </Style>
+            </Style.Resources>
+        </Style>
+    </Window.Resources>
 
-            <TextBlock
-                Margin="15,5"
-                FontSize="16"
-                Foreground="White"
-                Style="{StaticResource TextStyle}"
-                Text="Add New Data" />
+    <Border
+        MaxWidth="600"
+        VerticalAlignment="Center"
+        Background="#222831"
+        CornerRadius="10">
 
-            <Border
-                Margin="0,30,0,0"
-                Background="White"
-                BorderBrush="#A9A9A9"
-                BorderThickness="0">
-                <StackPanel Margin="15">
+        <Border BorderBrush="#CCCCCC" BorderThickness="0">
 
-                    <StackPanel Margin="0,0,0,10" Orientation="Horizontal">
-                        <TextBlock
-                            Width="200"
-                            FontSize="16"
-                            Style="{StaticResource TextStyle}"
-                            Text="Username:" />
-                        <TextBox
-                            x:Name="UsernameTextBox"
-                            Width="370"
-                            FontFamily="Fonts/#Fira Sans"
-                            FontSize="16" />
-                    </StackPanel>
+            <Border.Effect>
 
-                    <StackPanel Margin="0,0,0,10" Orientation="Horizontal">
-                        <TextBlock
-                            Width="200"
-                            FontSize="16"
-                            Style="{StaticResource TextStyle}"
-                            Text="Password:" />
-                        <TextBox
-                            x:Name="PasswordBox"
-                            Width="370"
-                            FontFamily="Fonts/#Fira Sans"
-                            FontSize="16" />
-                    </StackPanel>
+                <DropShadowEffect
+                    Direction="330"
+                    Opacity="0.5"
+                    ShadowDepth="3" />
 
-                    <StackPanel Margin="0,0,0,10" Orientation="Horizontal">
-                        <TextBlock
-                            Width="200"
-                            FontSize="16"
-                            Style="{StaticResource TextStyle}"
-                            Text="Name:" />
-                        <TextBox
-                            x:Name="NameTextBox"
-                            Width="370"
-                            FontFamily="Fonts/#Fira Sans"
-                            FontSize="16" />
-                    </StackPanel>
+            </Border.Effect>
 
-                    <StackPanel Margin="0,0,0,20" Orientation="Horizontal">
-                        <TextBlock
-                            Width="200"
-                            FontSize="16"
-                            Style="{StaticResource TextStyle}"
-                            Text="Privilege:" />
-                        <TextBox
-                            x:Name="PrivilegeTextBox"
-                            Width="370"
-                            FontFamily="Fonts/#Fira Sans"
-                            FontSize="16" />
-                    </StackPanel>
+            <Grid>
+                <TextBlock
+                    Margin="15,5"
+                    FontSize="16"
+                    Foreground="White"
+                    Style="{StaticResource TextStyle}"
+                    Text="Add New Data" />
 
-                    <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
-                        <Button
-                            Width="80"
-                            Height="30"
-                            Margin="0,0,10,0"
-                            Background="#3081D0"
-                            BorderThickness="0"
-                            Style="{StaticResource OpacityButton}">
+                <Border
+                    Margin="0,30,0,0"
+                    Background="White"
+                    BorderBrush="#A9A9A9"
+                    BorderThickness="0"
+                    CornerRadius="0 0 10 10">
+                    <StackPanel Margin="15">
 
-                            <Button.Resources>
-                                <Style TargetType="{x:Type Border}">
-                                    <Setter Property="CornerRadius" Value="10" />
-                                </Style>
-                            </Button.Resources>
-
+                        <StackPanel Margin="0,0,0,10" Orientation="Horizontal">
                             <TextBlock
+                                Width="200"
                                 FontSize="16"
-                                Foreground="White"
                                 Style="{StaticResource TextStyle}"
-                                Text="Save" />
+                                Text="Username:" />
+                            <TextBox
+                                x:Name="UsernameTextBox"
+                                Width="370"
+                                FontFamily="Fonts/#Fira Sans"
+                                FontSize="16" />
+                        </StackPanel>
 
-                        </Button>
-                        <Button
-                            Width="80"
-                            Height="30"
-                            Background="#A9A9A9"
-                            BorderThickness="0"
-                            Style="{StaticResource OpacityButton}">
-
-                            <Button.Resources>
-                                <Style TargetType="{x:Type Border}">
-                                    <Setter Property="CornerRadius" Value="10" />
-                                </Style>
-                            </Button.Resources>
-
+                        <StackPanel Margin="0,0,0,10" Orientation="Horizontal">
                             <TextBlock
+                                Width="200"
                                 FontSize="16"
-                                Foreground="White"
                                 Style="{StaticResource TextStyle}"
-                                Text="Cancel" />
+                                Text="Password:" />
+                            <TextBox
+                                x:Name="PasswordBox"
+                                Width="370"
+                                FontFamily="Fonts/#Fira Sans"
+                                FontSize="16" />
+                        </StackPanel>
 
-                        </Button>
+                        <StackPanel Margin="0,0,0,10" Orientation="Horizontal">
+                            <TextBlock
+                                Width="200"
+                                FontSize="16"
+                                Style="{StaticResource TextStyle}"
+                                Text="Name:" />
+                            <TextBox
+                                x:Name="NameTextBox"
+                                Width="370"
+                                FontFamily="Fonts/#Fira Sans"
+                                FontSize="16" />
+                        </StackPanel>
+
+                        <StackPanel Margin="0,0,0,20" Orientation="Horizontal">
+                            <TextBlock
+                                Width="200"
+                                FontSize="16"
+                                Style="{StaticResource TextStyle}"
+                                Text="Privilege:" />
+                            <TextBox
+                                x:Name="PrivilegeTextBox"
+                                Width="370"
+                                FontFamily="Fonts/#Fira Sans"
+                                FontSize="16" />
+                        </StackPanel>
+
+                        <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                            <Button
+                                Width="80"
+                                Height="30"
+                                Margin="0,0,10,0"
+                                Background="#3081D0"
+                                BorderThickness="0"
+                                Style="{StaticResource OpacityButton}">
+
+                                <Button.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="10" />
+                                    </Style>
+                                </Button.Resources>
+
+                                <TextBlock
+                                    FontSize="16"
+                                    Foreground="White"
+                                    Style="{StaticResource TextStyle}"
+                                    Text="Save" />
+
+                            </Button>
+                            <Button
+                                Width="80"
+                                Height="30"
+                                Background="#A9A9A9"
+                                BorderThickness="0"
+                                Style="{StaticResource OpacityButton}">
+
+                                <Button.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="10" />
+                                    </Style>
+                                </Button.Resources>
+
+                                <TextBlock
+                                    FontSize="16"
+                                    Foreground="White"
+                                    Style="{StaticResource TextStyle}"
+                                    Text="Cancel" />
+
+                            </Button>
+                        </StackPanel>
                     </StackPanel>
-                </StackPanel>
-            </Border>
-        </Grid>
+                </Border>
+            </Grid>
+
+        </Border>
 
     </Border>
-
-
 
 </Window>

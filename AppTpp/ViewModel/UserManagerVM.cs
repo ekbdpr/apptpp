@@ -3,7 +3,13 @@ using AppTpp.Services;
 using AppTpp.Utilities;
 using AppTpp.View;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace AppTpp.ViewModel
 {
@@ -32,8 +38,8 @@ namespace AppTpp.ViewModel
 
         public static void AddData(object obj)
         {
-            UserDataDialog userDataDialog = new();
-            userDataDialog.Show();
+            UserDataDialog userDataDialog = new UserDataDialog();
+            userDataDialog.ShowDialog();
         }
     }
 }

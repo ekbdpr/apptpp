@@ -10,19 +10,26 @@
     Title="Dashboard"
     Width="{x:Static SystemParameters.PrimaryScreenWidth}"
     Height="{x:Static SystemParameters.PrimaryScreenHeight}"
-    AllowsTransparency="True"
-    Background="Transparent"
     Icon="/dashboard-logo.ico"
-    ResizeMode="NoResize"
+    ResizeMode="CanResize"
     SnapsToDevicePixels="True"
     UseLayoutRounding="True"
     WindowStartupLocation="CenterScreen"
     WindowState="Maximized"
-    WindowStyle="None"
+    WindowStyle="SingleBorderWindow"
     mc:Ignorable="d">
 
+    <WindowChrome.WindowChrome>
+        <WindowChrome
+            CaptionHeight="0"
+            CornerRadius="0"
+            GlassFrameThickness="0"
+            ResizeBorderThickness="7"
+            UseAeroCaptionButtons="False" />
+    </WindowChrome.WindowChrome>
+
     <Window.DataContext>
-        <vm:NavigationVM />
+        <vm:MainWindowVM />
     </Window.DataContext>
 
     <Grid>

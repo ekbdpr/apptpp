@@ -4,10 +4,8 @@
         <Style.Triggers>
             <EventTrigger RoutedEvent="Loaded">
                 <BeginStoryboard>
-                    <Storyboard Storyboard.TargetProperty="Opacity" Duration="0:0:3">
-
+                    <Storyboard Storyboard.TargetProperty="Opacity" Duration="00:00:1">
                         <DoubleAnimation From="0" To="1" />
-
                     </Storyboard>
                 </BeginStoryboard>
             </EventTrigger>

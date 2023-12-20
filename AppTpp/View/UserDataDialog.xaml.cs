@@ -22,6 +22,7 @@ namespace AppTpp.View
         public UserDataDialog()
         {
             InitializeComponent();
+            this.Owner = Application.Current.MainWindow;
         }
     }
 }
