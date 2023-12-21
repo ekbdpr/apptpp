@@ -1,6 +1,9 @@
-﻿using AppTpp.Utilities;
+﻿using AppTpp.Model;
+using AppTpp.Services;
+using AppTpp.Utilities;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -63,13 +66,29 @@ namespace AppTpp.ViewModel
             SaveCommand = new RelayCommand(Save);
         }
 
+        public static event Action? OnDataSaved;
+
         private void Save(object obj)
         {
-
-            foreach (Window window in Application.Current.Windows)
+            try
             {
-                if (window.DataContext == this) window.Close();
+                UserDataService.InsertNewUser(Nip, Nama, Jabatan, Username, Password, Privilege);
+                OnDataSaved?.Invoke();
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+
+                foreach (Window window in Application.Current.Windows)
+                {
+                    if (window.DataContext == this) window.Close();
+                }
+            }
+
+
 
         }
     }

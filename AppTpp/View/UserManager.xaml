@@ -84,7 +84,7 @@
                             BorderThickness="0"
                             CanUserAddRows="False"
                             FontFamily="/Fonts/#Fira Sans"
-                            ItemsSource="{Binding Users}">
+                            ItemsSource="{Binding Users, IsAsync=True}">
 
                             <DataGrid.Columns>
 

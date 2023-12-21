@@ -156,6 +156,35 @@ namespace AppTpp.Services
             }
         }
 
+        public static void InsertNewUser(string? nip, string? name, string? jabatan, string? username, string? password, string? privilege)
+        {
+            var connection = OpenConnection();
+
+            try
+            {
+                string query = "INSERT INTO daftar_user (nip, nama, jabatan, username, password, privilege, profile_image) " +
+                               "VALUES (@nip, @nama, @jabatan, @username, @password, @privilege, NULL)";
+
+                using MySqlCommand command = new(query, connection);
+                command.Parameters.AddWithValue("@nip", nip);
+                command.Parameters.AddWithValue("@nama", name);
+                command.Parameters.AddWithValue("@jabatan", jabatan);
+                command.Parameters.AddWithValue("@username", username);
+                command.Parameters.AddWithValue("@password", password);
+                command.Parameters.AddWithValue("@privilege", privilege);
+
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
         private protected static string GetConnectionString()
         {
             return ConfigurationManager.ConnectionStrings["DbConnectionString"].ConnectionString;

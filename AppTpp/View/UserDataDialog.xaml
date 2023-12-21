@@ -156,7 +156,8 @@
                                     Cursor="Hand"
                                     FontFamily="Fonts/#Fira Sans"
                                     FontSize="16"
-                                    SelectedItem="{Binding Privilege, Mode=TwoWay}"
+                                    SelectedValue="{Binding Privilege, Mode=TwoWay}"
+                                    SelectedValuePath="Content"
                                     Style="{DynamicResource ComboBoxStyle}">
 
                                     <ComboBoxItem Content="--- Pilih salah satu ---" IsSelected="True" />

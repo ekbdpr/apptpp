@@ -34,12 +34,19 @@ namespace AppTpp.ViewModel
             Users = new ObservableCollection<UserModel>(UserDataService.GetAllUsers()!);
 
             AddDataCommand = new RelayCommand(AddData);
+
+            UserDataDialogVM.OnDataSaved += RefreshUsers;
         }
 
         public static void AddData(object obj)
         {
             UserDataDialog userDataDialog = new UserDataDialog();
             userDataDialog.ShowDialog();
+        }
+
+        private void RefreshUsers()
+        {
+            Users = new ObservableCollection<UserModel>(UserDataService.GetAllUsers()!);
         }
     }
 }
