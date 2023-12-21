@@ -8,7 +8,7 @@ namespace AppTpp.ViewModel
     {
         private readonly UserModel _userModel;
 
-        public string Name
+        public string? Name
         {
             get { return _userModel.Name; }
             set { _userModel.Name = value; OnPropertyChanged(); }

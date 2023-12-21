@@ -15,9 +15,9 @@ namespace AppTpp.ViewModel
 {
     class UserManagerVM : ViewModelBase
     {
-        private ObservableCollection<UserModel> _users;
+        private ObservableCollection<UserModel>? _users;
 
-        public ObservableCollection<UserModel> Users
+        public ObservableCollection<UserModel>? Users
         {
             get { return _users; }
             set
@@ -31,7 +31,7 @@ namespace AppTpp.ViewModel
 
         public UserManagerVM()
         {
-            Users = new ObservableCollection<UserModel>(UserDataService.GetAllUsers());
+            Users = new ObservableCollection<UserModel>(UserDataService.GetAllUsers()!);
 
             AddDataCommand = new RelayCommand(AddData);
         }

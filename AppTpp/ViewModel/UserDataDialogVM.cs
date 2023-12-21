@@ -12,30 +12,45 @@ namespace AppTpp.ViewModel
 {
     internal class UserDataDialogVM : ViewModelBase
     {
-        private string _username { get; set; }
-        private string _password { get; set; }
-        private string _nama { get; set; }
-        private string _privilege { get; set; }
+        private string? _nip { get; set; }
+        private string? _nama { get; set; }
+        private string? _jabatan { get; set; }
+        private string? _username { get; set; }
+        private string? _password { get; set; }
 
-        public string Username
+        private string? _privilege { get; set; }
+
+        public string? Nip
         {
-            get { return _username; }
-            set { _username = value; OnPropertyChanged(nameof(Username)); }
+            get { return _nip; }
+            set { _nip = value; OnPropertyChanged(nameof(Nip)); }
         }
 
-        public string Password
-        {
-            get { return _password; }
-            set { _password = value; OnPropertyChanged(nameof(Password)); }
-        }
-
-        public string Nama
+        public string? Nama
         {
             get { return _nama; }
             set { _nama = value; OnPropertyChanged(nameof(Nama)); }
         }
 
-        public string Privilege
+        public string? Jabatan
+        {
+            get { return _jabatan; }
+            set { _jabatan = value; OnPropertyChanged(nameof(Jabatan)); }
+        }
+
+        public string? Username
+        {
+            get { return _username; }
+            set { _username = value; OnPropertyChanged(nameof(Username)); }
+        }
+
+        public string? Password
+        {
+            get { return _password; }
+            set { _password = value; OnPropertyChanged(nameof(Password)); }
+        }
+
+        public string? Privilege
         {
             get { return _privilege; }
             set { _privilege = value; OnPropertyChanged(nameof(Privilege)); }
@@ -50,10 +65,6 @@ namespace AppTpp.ViewModel
 
         private void Save(object obj)
         {
-            Debug.WriteLine(Username);
-            Debug.WriteLine(Password);
-            Debug.WriteLine(Nama);
-            Debug.WriteLine(Privilege);
 
             foreach (Window window in Application.Current.Windows)
             {

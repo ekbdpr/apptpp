@@ -27,7 +27,7 @@
 
                             <Border
                                 x:Name="Indicator"
-                                Width="4"
+                                Width="10"
                                 Height="35"
                                 HorizontalAlignment="Left"
                                 VerticalAlignment="Center"

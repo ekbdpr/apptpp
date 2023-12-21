@@ -10,9 +10,9 @@ namespace AppTpp.ViewModel
 {
     class MainWindowVM : ViewModelBase
     {
-        private object _currentview;
+        private object? _currentview;
 
-        public object Currentview
+        public object? Currentview
         {
             get { return _currentview; }
             set { _currentview = value; OnPropertyChanged(); }

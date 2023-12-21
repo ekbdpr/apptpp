@@ -90,12 +90,20 @@
 
                                 <DataGridTextColumn
                                     Width="*"
-                                    Binding="{Binding Username}"
-                                    Header="Username" />
+                                    Binding="{Binding Nip}"
+                                    Header="NIP" />
                                 <DataGridTextColumn
                                     Width="*"
                                     Binding="{Binding Name}"
                                     Header="Name" />
+                                <DataGridTextColumn
+                                    Width="*"
+                                    Binding="{Binding Jabatan}"
+                                    Header="Jabatan" />
+                                <DataGridTextColumn
+                                    Width="*"
+                                    Binding="{Binding Username}"
+                                    Header="Username" />
                                 <DataGridTextColumn
                                     Width="*"
                                     Binding="{Binding Privilege}"

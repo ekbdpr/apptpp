@@ -74,7 +74,46 @@
                                 Width="200"
                                 FontSize="16"
                                 Style="{StaticResource TextStyle}"
-                                Text="Username:" />
+                                Text="NIP" />
+                            <TextBox
+                                Width="340"
+                                FontFamily="Fonts/#Fira Sans"
+                                FontSize="16"
+                                Text="{Binding Nip, Mode=TwoWay}" />
+                        </StackPanel>
+
+                        <StackPanel Margin="0,0,0,10" Orientation="Horizontal">
+                            <TextBlock
+                                Width="200"
+                                FontSize="16"
+                                Style="{StaticResource TextStyle}"
+                                Text="Nama" />
+                            <TextBox
+                                Width="340"
+                                FontFamily="Fonts/#Fira Sans"
+                                FontSize="16"
+                                Text="{Binding Nama, Mode=TwoWay}" />
+                        </StackPanel>
+
+                        <StackPanel Margin="0,0,0,10" Orientation="Horizontal">
+                            <TextBlock
+                                Width="200"
+                                FontSize="16"
+                                Style="{StaticResource TextStyle}"
+                                Text="Jabatan" />
+                            <TextBox
+                                Width="340"
+                                FontFamily="Fonts/#Fira Sans"
+                                FontSize="16"
+                                Text="{Binding Jabatan, Mode=TwoWay}" />
+                        </StackPanel>
+
+                        <StackPanel Margin="0,0,0,10" Orientation="Horizontal">
+                            <TextBlock
+                                Width="200"
+                                FontSize="16"
+                                Style="{StaticResource TextStyle}"
+                                Text="Username" />
                             <TextBox
                                 x:Name="UsernameTextBox"
                                 Width="340"
@@ -88,7 +127,7 @@
                                 Width="200"
                                 FontSize="16"
                                 Style="{StaticResource TextStyle}"
-                                Text="Password:" />
+                                Text="Password" />
                             <TextBox
                                 x:Name="PasswordBox"
                                 Width="340"
@@ -97,44 +136,38 @@
                                 Text="{Binding Password, Mode=TwoWay}" />
                         </StackPanel>
 
-                        <StackPanel Margin="0,0,0,10" Orientation="Horizontal">
-                            <TextBlock
-                                Width="200"
-                                FontSize="16"
-                                Style="{StaticResource TextStyle}"
-                                Text="Name:" />
-                            <TextBox
-                                x:Name="NameTextBox"
-                                Width="340"
-                                FontFamily="Fonts/#Fira Sans"
-                                FontSize="16"
-                                Text="{Binding Nama, Mode=TwoWay}" />
-                        </StackPanel>
-
                         <StackPanel Margin="0,0,0,20" Orientation="Horizontal">
+
                             <TextBlock
                                 Width="200"
                                 FontSize="16"
                                 Style="{StaticResource TextStyle}"
-                                Text="Privilege:" />
+                                Text="Privilege" />
 
                             <Border
                                 BorderBrush="Gray"
                                 BorderThickness="1"
                                 CornerRadius="10">
+
                                 <ComboBox
                                     Width="338"
+                                    HorizontalContentAlignment="Center"
                                     BorderThickness="0"
+                                    Cursor="Hand"
                                     FontFamily="Fonts/#Fira Sans"
                                     FontSize="16"
                                     SelectedItem="{Binding Privilege, Mode=TwoWay}"
                                     Style="{DynamicResource ComboBoxStyle}">
+
                                     <ComboBoxItem Content="--- Pilih salah satu ---" IsSelected="True" />
                                     <ComboBoxItem Content="Admin" />
                                     <ComboBoxItem Content="Bendahara" />
                                     <ComboBoxItem Content="Pimpinan" />
+
                                 </ComboBox>
+
                             </Border>
+
                         </StackPanel>
 
                         <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">

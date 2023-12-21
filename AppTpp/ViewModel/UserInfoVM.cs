@@ -11,19 +11,19 @@ namespace AppTpp.ViewModel
     {
         private readonly UserModel _userModel;
 
-        public string Name
+        public string? Name
         {
             get { return _userModel.Name; }
             set { _userModel.Name = value; OnPropertyChanged(nameof(Name)); }
         }
 
-        public string Privilege
+        public string? Privilege
         {
             get { return _userModel.Privilege; }
             set { _userModel.Privilege = value; OnPropertyChanged(nameof(Privilege)); }
         }
 
-        public byte[] ProfileImage
+        public byte[]? ProfileImage
         {
             get { return _userModel.ProfileImage; }
             set { _userModel.ProfileImage = value; OnPropertyChanged(nameof(ProfileImage)); }
@@ -46,7 +46,7 @@ namespace AppTpp.ViewModel
                 Filter = "Image Files (*.jpg;*.png)|*.jpg;*.png|All Files (*.*)|*.*"
             };
 
-            UserDataService.Instance.SaveFileToDb(openFileDialog);
+            UserDataService.Instance.SaveImageToDB(openFileDialog);
             UpdateUserInfo();
         }
 
@@ -57,9 +57,9 @@ namespace AppTpp.ViewModel
             ProfileImage = UserDataService.Instance.CurrentProfileImage == null || UserDataService.Instance.CurrentProfileImage.Length == 0 ? GetDefaultProfileImage() : UserDataService.Instance.CurrentProfileImage;
         }
 
-        private byte[] GetDefaultProfileImage()
+        private static byte[] GetDefaultProfileImage()
         {
-            string defaultImagePath = "./Images/avatar.png";
+            string defaultImagePath = @"./Images/avatar.png";
             byte[] defaultImage = File.ReadAllBytes(defaultImagePath);
 
             return defaultImage;

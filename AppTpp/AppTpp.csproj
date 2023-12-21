@@ -59,7 +59,7 @@
 
   <ItemGroup>
     <None Update="Images\avatar.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 

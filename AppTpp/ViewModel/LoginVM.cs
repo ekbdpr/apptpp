@@ -11,23 +11,23 @@ namespace AppTpp.ViewModel
 {
     class LoginVM : ViewModelBase
     {
-        private string _username;
-        private string _password;
-        private string _errorMessage;
+        private string? _username;
+        private string? _password;
+        private string? _errorMessage;
 
-        public string Username
+        public string? Username
         {
             get { return _username; }
             set { _username = value; OnPropertyChanged(); }
         }
 
-        public string Password
+        public string? Password
         {
             get { return _password; }
             set { _password = value; OnPropertyChanged(); }
         }
 
-        public string ErrorMessage
+        public string? ErrorMessage
         {
             get { return _errorMessage; }
             set { _errorMessage = value; OnPropertyChanged(); }
@@ -44,7 +44,7 @@ namespace AppTpp.ViewModel
         {
             if (IsValidUser())
             {
-                MainWindow mainWindow = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault();
+                MainWindow? mainWindow = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault();
 
                 mainWindow ??= new MainWindow();
 

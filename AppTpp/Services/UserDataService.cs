@@ -6,12 +6,13 @@ using System.Configuration;
 using Microsoft.Win32;
 using System.IO;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace AppTpp.Services
 {
     internal class UserDataService
     {
-        private static UserDataService instance;
+        private static UserDataService? instance;
 
         public static UserDataService Instance
         {
@@ -23,52 +24,55 @@ namespace AppTpp.Services
             }
         }
 
-        public string CurrentUsername { get; private set; }
-        public string CurrentPrivilege { get; private set; }
-        public byte[] CurrentProfileImage { get; private set; }
+        public string? CurrentUsername { get; private set; }
+        public string? CurrentPrivilege { get; private set; }
+        public byte[]? CurrentProfileImage { get; private set; }
 
-        public void SetCurrentUser(string username, string privilege, byte[] profileImage)
+        public void SetCurrentUser(string? username, string? privilege, byte[]? profileImage)
         {
             CurrentUsername = username;
             CurrentPrivilege = privilege;
             CurrentProfileImage = profileImage;
         }
 
-        public bool GetUserLoginData(string Username, string Password)
+        private static MySqlConnection OpenConnection()
         {
             string connectionString = GetConnectionString();
             var connection = new MySqlConnection(connectionString);
 
+            connection.Open();
+            return connection;
+        }
+
+        public bool GetUserLoginData(string? Username, string? Password)
+        {
+            var connection = OpenConnection();
+
             try
             {
-                using (connection)
+                string query = "SELECT * FROM daftar_user WHERE username = @Username AND password = @Password";
+
+                using MySqlCommand command = new(query, connection);
+
+                command.Parameters.AddWithValue("@Username", Username);
+                command.Parameters.AddWithValue("@Password", Password);
+
+                using MySqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
                 {
-                    connection.Open();
-
-                    string query = "SELECT * FROM daftar_user WHERE username = @Username AND password = @Password";
-
-                    using MySqlCommand command = new(query, connection);
-
-                    command.Parameters.AddWithValue("@Username", Username);
-                    command.Parameters.AddWithValue("@Password", Password);
-
-                    using MySqlDataReader reader = command.ExecuteReader();
-
-                    while (reader.Read())
+                    UserModel? userModel = new()
                     {
-                        UserModel userModel = new()
-                        {
-                            Username = reader["username"].ToString(),
-                            Name = reader["nama"].ToString(),
-                            Privilege = reader["privilege"].ToString(),
-                            ProfileImage = (byte[])reader["profile_image"]
-                        };
+                        Username = reader["username"].ToString(),
+                        Name = reader["nama"].ToString(),
+                        Privilege = reader["privilege"].ToString(),
+                        ProfileImage = !string.IsNullOrEmpty(reader["profile_image"].ToString()) ? (byte[])reader["profile_image"] : null
+                    };
 
-                        SetCurrentUser(userModel.Name, userModel.Privilege, userModel.ProfileImage);
-                    }
-
-                    return reader.HasRows;
+                    SetCurrentUser(userModel.Name, userModel.Privilege, userModel.ProfileImage);
                 }
+
+                return reader.HasRows;
             }
             catch (Exception ex)
             {
@@ -81,16 +85,13 @@ namespace AppTpp.Services
             }
         }
 
-        public void SaveFileToDb(OpenFileDialog openFileDialog)
+        public void SaveImageToDB(OpenFileDialog openFileDialog)
         {
-            string connectionString = GetConnectionString();
-            var connection = new MySqlConnection(connectionString);
+            var connection = OpenConnection();
 
             if (openFileDialog.ShowDialog() == true)
                 try
                 {
-                    connection.Open();
-
                     string filePath = openFileDialog.FileName;
                     byte[] fileBytes = File.ReadAllBytes(filePath);
 
@@ -114,39 +115,35 @@ namespace AppTpp.Services
                 }
         }
 
-        public static List<UserModel> GetAllUsers()
+        public static List<UserModel>? GetAllUsers()
         {
-            string connectionString = GetConnectionString();
-            var connection = new MySqlConnection(connectionString);
+            var connection = OpenConnection();
 
             try
             {
-                using (connection)
+                string query = "SELECT * FROM daftar_user";
+
+                using MySqlCommand command = new(query, connection);
+
+                List<UserModel> userList = new();
+
+                using MySqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
                 {
-                    connection.Open();
-
-                    string query = "SELECT * FROM daftar_user";
-
-                    using MySqlCommand command = new(query, connection);
-
-                    List<UserModel> userList = new();
-
-                    using MySqlDataReader reader = command.ExecuteReader();
-                    while (reader.Read())
+                    UserModel userModel = new()
                     {
-                        UserModel userModel = new()
-                        {
-                            Username = reader["username"].ToString(),
-                            Name = reader["nama"].ToString(),
-                            Privilege = reader["privilege"].ToString(),
-                            ProfileImage = (byte[])reader["profile_image"]
-                        };
+                        Nip = Convert.ToInt64(reader["nip"]),
+                        Name = reader["nama"].ToString(),
+                        Jabatan = reader["jabatan"].ToString(),
+                        Username = reader["username"].ToString(),
+                        Privilege = reader["privilege"].ToString(),
+                        ProfileImage = !string.IsNullOrEmpty(reader["profile_image"].ToString()) ? (byte[])reader["profile_image"] : null
+                    };
 
-                        userList.Add(userModel);
-                    }
-
-                    return userList;
+                    userList.Add(userModel);
                 }
+
+                return userList;
             }
             catch (Exception ex)
             {
@@ -159,7 +156,7 @@ namespace AppTpp.Services
             }
         }
 
-        public static string GetConnectionString()
+        private protected static string GetConnectionString()
         {
             return ConfigurationManager.ConnectionStrings["DbConnectionString"].ConnectionString;
         }
