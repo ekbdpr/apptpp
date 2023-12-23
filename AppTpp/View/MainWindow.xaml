@@ -50,27 +50,25 @@
             <Border Style="{StaticResource DropShadowBorderStyle}" />
 
             <!--  Header  -->
-            <Viewbox HorizontalAlignment="Right">
-                <StackPanel Style="{StaticResource Header_Container}">
+            <StackPanel Style="{StaticResource Header_Container}" HorizontalAlignment="Right">
 
-                    <view:UserInfo />
+                <view:UserInfo />
 
-                    <!--  Minimize Window Button  -->
-                    <Button
-                        x:Name="btnMinimize"
-                        Click="BtnMinimize_Click"
-                        Content="_"
-                        Style="{StaticResource Header_MinimizeButton}" />
+                <!--  Minimize Window Button  -->
+                <Button
+                    x:Name="btnMinimize"
+                    Click="BtnMinimize_Click"
+                    Content="_"
+                    Style="{StaticResource Header_MinimizeButton}" />
 
-                    <!--  Close Window Button  -->
-                    <Button
-                        x:Name="btnClose"
-                        Click="BtnClose_Click"
-                        Content="X"
-                        Style="{StaticResource Header_CloseButton}" />
+                <!--  Close Window Button  -->
+                <Button
+                    x:Name="btnClose"
+                    Click="BtnClose_Click"
+                    Content="X"
+                    Style="{StaticResource Header_CloseButton}" />
 
-                </StackPanel>
-            </Viewbox>
+            </StackPanel>
         </Grid>
 
         <!--  Logo  -->
