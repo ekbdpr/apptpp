@@ -9,5 +9,6 @@
 //------------------------------------------------------------------------------
 
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/dashboard-logo.ico")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/avatar.png")]
 
 

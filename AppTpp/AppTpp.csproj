@@ -16,6 +16,7 @@
     <None Remove="Fonts\password.ttf" />
     <None Remove="Fonts\Poppins-Bold.ttf" />
     <None Remove="Fonts\Poppins-Regular.ttf" />
+    <None Remove="Images\avatar.png" />
     <None Remove="Images\dashboard-logo.png" />
     <None Remove="Images\key-icon.png" />
     <None Remove="Images\login-bg.jpg" />
@@ -46,6 +47,9 @@
     <Resource Include="Fonts\password.ttf">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Content Include="Images\avatar.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Resource Include="Images\dashboard-logo.png" />
     <Resource Include="Images\login-logo.png" />
   </ItemGroup>
@@ -55,12 +59,6 @@
     <Resource Include="Images\login-bg.jpg" />
     <Resource Include="Images\user-icon.png" />
     <Resource Include="Images\welcome.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="Images\avatar.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
 
 </Project>

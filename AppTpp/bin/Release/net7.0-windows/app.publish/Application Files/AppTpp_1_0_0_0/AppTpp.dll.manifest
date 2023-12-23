@@ -69,7 +69,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>tj4ukuGd6JIPNrsYI+c/UltAh2OLtu8o7014TLvHg6E=</dsig:DigestValue>
+      <dsig:DigestValue>MTiuw//PUyN4+FUOuvg+ZKvt+B8o8QRCe/5phcL3igw=</dsig:DigestValue>
     </hash>
   </file>
   <file name="AppTpp.dll.config" size="399">
@@ -87,7 +87,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>PRk5zxUvllXSUnt9UKo0sGPXpHA5dQHjXu6eyCap9t0=</dsig:DigestValue>
+      <dsig:DigestValue>WgeSq9dbsO7knieGNR3cZKHVMneX4eHib7Y+EFrm08M=</dsig:DigestValue>
     </hash>
   </file>
   <file name="AppTpp.runtimeconfig.json" size="458">
@@ -97,6 +97,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>YBIGLYblUb1QapC3Td+VcI9HtfEQ/6rQssb+JbeODyA=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Images\avatar.png" size="321619">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>/LyYxNUiLG+jdUhdZcEuNEU/xiCPUKsz7y+Z7Hyef/E=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Images\dashboard-logo.ico" size="410598">
