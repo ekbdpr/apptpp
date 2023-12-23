@@ -88,3 +88,7 @@ D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Release\net7.0-windo
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Release\net7.0-windows\View\MainWindow.baml
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Release\net7.0-windows\View\UserDataDialog.baml
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\bin\Release\net7.0-windows\Images\avatar.png
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\bin\Release\net7.0-windows\AppTpp.dll.manifest
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\bin\Release\net7.0-windows\AppTpp.application
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Release\net7.0-windows\AppTpp.dll.manifest
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Release\net7.0-windows\AppTpp.application

@@ -1,0 +1,9 @@
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\bin\Release\net7.0-windows\app.publish\Images\avatar.png
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\bin\Release\net7.0-windows\app.publish\AppTpp.exe
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\bin\Release\net7.0-windows\app.publish\AppTpp.dll
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\bin\Release\net7.0-windows\app.publish\AppTpp.deps.json
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\bin\Release\net7.0-windows\app.publish\AppTpp.runtimeconfig.json
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\bin\Release\net7.0-windows\app.publish\AppTpp.dll.config
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\bin\Release\net7.0-windows\app.publish\AppTpp.pdb
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\bin\Release\net7.0-windows\app.publish\Microsoft.Extensions.Logging.Abstractions.dll
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\bin\Release\net7.0-windows\app.publish\MySqlConnector.dll
