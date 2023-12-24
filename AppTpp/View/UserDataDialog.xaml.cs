@@ -22,7 +22,6 @@ namespace AppTpp.View
         public UserDataDialog()
         {
             InitializeComponent();
-            this.Owner = Application.Current.MainWindow;
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
