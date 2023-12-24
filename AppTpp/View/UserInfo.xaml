@@ -13,44 +13,46 @@
         <vm:UserInfoVM />
     </UserControl.DataContext>
 
-    <StackPanel Margin="0,10,30,10" Orientation="Horizontal">
+    <Viewbox>
+        <StackPanel Margin="0,10,30,10" Orientation="Horizontal">
 
-        <Button
-            Width="30"
-            Height="30"
-            Margin="0,0,10,0"
-            Command="{Binding ChangeProfileImageCommand}"
-            Cursor="Hand"
-            Style="{StaticResource RemoveButtonHover}">
-            <Button.Content>
-                <Image
-                    RenderOptions.BitmapScalingMode="HighQuality"
-                    Source="{Binding ProfileImage}"
-                    Style="{StaticResource ProfileImageStyle}">
-                    <Image.Clip>
+            <Button
+                Width="30"
+                Height="30"
+                Margin="0,0,10,0"
+                Command="{Binding ChangeProfileImageCommand}"
+                Cursor="Hand"
+                Style="{StaticResource RemoveButtonHover}">
+                <Button.Content>
+                    <Image
+                        RenderOptions.BitmapScalingMode="HighQuality"
+                        Source="{Binding ProfileImage}"
+                        Style="{StaticResource ProfileImageStyle}">
+                        <Image.Clip>
 
-                        <EllipseGeometry
-                            Center="15,15"
-                            RadiusX="15"
-                            RadiusY="15" />
+                            <EllipseGeometry
+                                Center="15,15"
+                                RadiusX="15"
+                                RadiusY="15" />
 
-                    </Image.Clip>
-                </Image>
-            </Button.Content>
-        </Button>
+                        </Image.Clip>
+                    </Image>
+                </Button.Content>
+            </Button>
 
-        <TextBlock
-            VerticalAlignment="Center"
-            FontSize="15"
-            Style="{StaticResource TextStyle}">
-            <TextBlock.Text>
-                <MultiBinding StringFormat="{}{0} ({1})">
-                    <Binding Path="Name" />
-                    <Binding Path="Privilege" />
-                </MultiBinding>
-            </TextBlock.Text>
-        </TextBlock>
+            <TextBlock
+                VerticalAlignment="Center"
+                FontSize="15"
+                Style="{StaticResource TextStyle}">
+                <TextBlock.Text>
+                    <MultiBinding StringFormat="{}{0} ({1})">
+                        <Binding Path="Name" />
+                        <Binding Path="Privilege" />
+                    </MultiBinding>
+                </TextBlock.Text>
+            </TextBlock>
 
-    </StackPanel>
+        </StackPanel>
+    </Viewbox>
 
 </UserControl>

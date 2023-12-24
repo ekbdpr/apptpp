@@ -2,7 +2,7 @@
 
     <Style x:Key="Content" TargetType="Grid">
         <Setter Property="Grid.Row" Value="1" />
-        <Setter Property="Grid.RowSpan" Value="2" />
+        <Setter Property="Grid.RowSpan" Value="3" />
         <Setter Property="Grid.Column" Value="1" />
         <Setter Property="Background" Value="#EEEEEE" />
     </Style>

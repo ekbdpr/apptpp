@@ -40,7 +40,7 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="3*" />
+            <RowDefinition Height="3*" MaxHeight="50" />
             <RowDefinition Height="3*" />
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
@@ -50,25 +50,27 @@
             <Border Style="{StaticResource DropShadowBorderStyle}" />
 
             <!--  Header  -->
-            <StackPanel Style="{StaticResource Header_Container}" HorizontalAlignment="Right">
+            <Viewbox Margin="0,0,10,0" HorizontalAlignment="Right">
+                <StackPanel Style="{StaticResource Header_Container}">
 
-                <view:UserInfo />
+                    <view:UserInfo />
 
-                <!--  Minimize Window Button  -->
-                <Button
-                    x:Name="btnMinimize"
-                    Click="BtnMinimize_Click"
-                    Content="_"
-                    Style="{StaticResource Header_MinimizeButton}" />
+                    <!--  Minimize Window Button  -->
+                    <Button
+                        x:Name="btnMinimize"
+                        Click="BtnMinimize_Click"
+                        Content="_"
+                        Style="{StaticResource Header_MinimizeButton}" />
 
-                <!--  Close Window Button  -->
-                <Button
-                    x:Name="btnClose"
-                    Click="BtnClose_Click"
-                    Content="X"
-                    Style="{StaticResource Header_CloseButton}" />
+                    <!--  Close Window Button  -->
+                    <Button
+                        x:Name="btnClose"
+                        Click="BtnClose_Click"
+                        Content="X"
+                        Style="{StaticResource Header_CloseButton}" />
 
-            </StackPanel>
+                </StackPanel>
+            </Viewbox>
         </Grid>
 
         <!--  Logo  -->
