@@ -2,6 +2,7 @@
 using AppTpp.Services;
 using AppTpp.Utilities;
 using AppTpp.View;
+using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
@@ -40,8 +41,15 @@ namespace AppTpp.ViewModel
 
         public static void AddData(object obj)
         {
-            UserDataDialog userDataDialog = new UserDataDialog();
-            userDataDialog.ShowDialog();
+            try
+            {
+                UserDataDialog userDataDialog = new UserDataDialog();
+                userDataDialog.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void RefreshUsers()
