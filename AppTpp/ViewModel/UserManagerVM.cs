@@ -44,7 +44,6 @@ namespace AppTpp.ViewModel
             try
             {
                 UserDataDialog userDataDialog = new UserDataDialog();
-                userDataDialog.Owner = Application.Current.MainWindow;
                 userDataDialog.ShowDialog();
             }
             catch (Exception ex)
