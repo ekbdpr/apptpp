@@ -34,13 +34,18 @@
                 Grid.Row="2"
                 Height="100"
                 Orientation="Horizontal">
-                <Grid Margin="0,20">
-                    <TextBlock Text="Bulan" />
+                <Grid Margin="0,10">
+                    <TextBlock
+                        FontSize="14"
+                        Style="{StaticResource TextStyle}"
+                        Text="Bulan" />
 
                     <ComboBox
-                        Width="130"
+                        Width="120"
                         MaxHeight="30"
-                        VerticalContentAlignment="Center">
+                        VerticalContentAlignment="Center"
+                        Cursor="Hand"
+                        FontFamily="Fonts/#Fira Sans">
                         <ComboBoxItem Content="Januari" IsSelected="True" />
                         <ComboBoxItem Content="Februari" />
                         <ComboBoxItem Content="Maret" />
@@ -56,12 +61,18 @@
                     </ComboBox>
                 </Grid>
 
-                <Grid Margin="20">
-                    <TextBlock Text="Tahun" />
+                <Grid Margin="10">
+                    <TextBlock
+                        FontSize="14"
+                        Style="{StaticResource TextStyle}"
+                        Text="Tahun" />
+
                     <ComboBox
                         Width="130"
                         MaxHeight="30"
-                        VerticalContentAlignment="Center">
+                        VerticalContentAlignment="Center"
+                        Cursor="Hand"
+                        FontFamily="Fonts/#Fira Sans">
                         <ComboBoxItem Content="2024" IsSelected="True" />
                         <ComboBoxItem Content="2025" />
                         <ComboBoxItem Content="2026" />
@@ -72,17 +83,47 @@
 
             <Button
                 Grid.Row="3"
-                Width="130"
+                Width="120"
+                Height="30"
+                Margin="0,10"
                 HorizontalAlignment="Left"
-                Content="Choose File" />
+                Style="{StaticResource OpacityButton}">
+
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10" />
+                    </Style>
+                </Button.Resources>
+
+                <TextBlock Style="{StaticResource TextStyle}" Text="Choose File" />
+
+            </Button>
 
 
             <Button
                 Grid.Row="4"
-                Width="130"
+                Width="120"
+                Height="30"
+                Margin="0,10"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                Content="Import Data" />
+                Background="#3081D0"
+                BorderThickness="0"
+                Foreground="White"
+                Style="{StaticResource OpacityButton}">
+
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10" />
+                    </Style>
+                </Button.Resources>
+
+                <TextBlock
+                    FontWeight="SemiBold"
+                    Style="{StaticResource TextStyle}"
+                    Text="Import Data" />
+
+            </Button>
 
 
 

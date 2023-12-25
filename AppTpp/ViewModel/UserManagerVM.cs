@@ -43,7 +43,9 @@ namespace AppTpp.ViewModel
         {
             try
             {
-                UserDataDialog userDataDialog = new UserDataDialog();
+                UserDataDialog userDataDialog = new();
+                userDataDialog.Owner = App.Current.MainWindow;
+
                 userDataDialog.ShowDialog();
             }
             catch (Exception ex)

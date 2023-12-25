@@ -44,7 +44,6 @@
                         Background="#3081D0"
                         BorderThickness="0"
                         Command="{Binding AddDataCommand}"
-                        FontWeight="SemiBold"
                         Foreground="White"
                         Style="{StaticResource OpacityButton}">
 
@@ -54,7 +53,10 @@
                             </Style>
                         </Button.Resources>
 
-                        <TextBlock Style="{StaticResource TextStyle}" Text="Add New Data" />
+                        <TextBlock
+                            FontWeight="SemiBold"
+                            Style="{StaticResource TextStyle}"
+                            Text="Add New Data" />
 
                     </Button>
                 </StackPanel>
@@ -120,7 +122,6 @@
                                                     Margin="5,0,5,0"
                                                     Background="#FFB534"
                                                     BorderThickness="0"
-                                                    FontWeight="SemiBold"
                                                     Foreground="White"
                                                     Style="{StaticResource OpacityButton}">
 
@@ -130,7 +131,10 @@
                                                         </Style>
                                                     </Button.Resources>
 
-                                                    <TextBlock Style="{StaticResource TextStyle}" Text="Edit" />
+                                                    <TextBlock
+                                                        FontWeight="SemiBold"
+                                                        Style="{StaticResource TextStyle}"
+                                                        Text="Edit" />
 
                                                 </Button>
                                                 <Button
@@ -139,7 +143,6 @@
                                                     Margin="5,0,5,0"
                                                     Background="#F44336"
                                                     BorderThickness="0"
-                                                    FontWeight="SemiBold"
                                                     Foreground="White"
                                                     Style="{StaticResource OpacityButton}">
 
@@ -149,7 +152,10 @@
                                                         </Style>
                                                     </Button.Resources>
 
-                                                    <TextBlock Style="{StaticResource TextStyle}" Text="Delete" />
+                                                    <TextBlock
+                                                        FontWeight="SemiBold"
+                                                        Style="{StaticResource TextStyle}"
+                                                        Text="Delete" />
 
                                                 </Button>
                                             </StackPanel>
