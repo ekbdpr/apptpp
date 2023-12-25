@@ -7,16 +7,84 @@
     Style="{StaticResource Page_Style}"
     mc:Ignorable="d">
 
-    <Viewbox>
+    <Viewbox HorizontalAlignment="Left" VerticalAlignment="Top">
 
-        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid Width="1000" Margin="30,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
 
             <TextBlock
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                FontSize="100"
+                FontSize="40"
+                FontWeight="Bold"
                 Style="{StaticResource TextStyle}"
-                Text="Input Data Batch" />
+                Text="Insert Data Batch" />
+
+            <Border
+                Grid.Row="1"
+                Margin="0,20,0,20"
+                BorderBrush="#A9A9A9"
+                BorderThickness="0,0,0,1" />
+
+            <StackPanel
+                Grid.Row="2"
+                Height="100"
+                Orientation="Horizontal">
+                <Grid Margin="0,20">
+                    <TextBlock Text="Bulan" />
+
+                    <ComboBox
+                        Width="130"
+                        MaxHeight="30"
+                        VerticalContentAlignment="Center">
+                        <ComboBoxItem Content="Januari" IsSelected="True" />
+                        <ComboBoxItem Content="Februari" />
+                        <ComboBoxItem Content="Maret" />
+                        <ComboBoxItem Content="April" />
+                        <ComboBoxItem Content="Mei" />
+                        <ComboBoxItem Content="Juni" />
+                        <ComboBoxItem Content="Juli" />
+                        <ComboBoxItem Content="Agustus" />
+                        <ComboBoxItem Content="September" />
+                        <ComboBoxItem Content="Oktober" />
+                        <ComboBoxItem Content="November" />
+                        <ComboBoxItem Content="Desember" />
+                    </ComboBox>
+                </Grid>
+
+                <Grid Margin="20">
+                    <TextBlock Text="Tahun" />
+                    <ComboBox
+                        Width="130"
+                        MaxHeight="30"
+                        VerticalContentAlignment="Center">
+                        <ComboBoxItem Content="2024" IsSelected="True" />
+                        <ComboBoxItem Content="2025" />
+                        <ComboBoxItem Content="2026" />
+                        <ComboBoxItem Content="2027" />
+                    </ComboBox>
+                </Grid>
+            </StackPanel>
+
+            <Button
+                Grid.Row="3"
+                Width="130"
+                HorizontalAlignment="Left"
+                Content="Choose File" />
+
+
+            <Button
+                Grid.Row="4"
+                Width="130"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Content="Import Data" />
+
+
 
         </Grid>
 

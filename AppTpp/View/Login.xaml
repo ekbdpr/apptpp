@@ -31,7 +31,10 @@
 
                 <!--  Logo  -->
                 <Image Style="{StaticResource Login_Logo}" />
-                <TextBlock Style="{StaticResource Login_ExtraMessage}" Text="v1.0.0.3" />
+                <TextBlock
+                    Foreground="Red"
+                    Style="{StaticResource Login_ExtraMessage}"
+                    Text="-- Experimental v1.0.0.0 --" />
 
                 <!--  Username  -->
                 <TextBlock Style="{StaticResource Login_Text}" Text="Username" />
