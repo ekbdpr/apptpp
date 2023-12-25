@@ -43,8 +43,12 @@ namespace AppTpp.ViewModel
         {
             try
             {
-                UserDataDialog userDataDialog = new();
-                userDataDialog.Owner = App.Current.MainWindow;
+                UserDataDialog userDataDialog = new UserDataDialog();
+
+                if (App.Current.MainWindow != null && App.Current.MainWindow.IsLoaded)
+                {
+                    userDataDialog.Owner = App.Current.MainWindow;
+                }
 
                 userDataDialog.ShowDialog();
             }

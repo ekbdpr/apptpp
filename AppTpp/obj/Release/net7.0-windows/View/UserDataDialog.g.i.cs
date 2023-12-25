@@ -70,7 +70,7 @@ namespace AppTpp.View {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/AppTpp;V1.0.0.0;component/view/userdatadialog.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/AppTpp;component/view/userdatadialog.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\View\UserDataDialog.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
