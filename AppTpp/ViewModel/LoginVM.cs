@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace AppTpp.ViewModel
@@ -14,6 +15,7 @@ namespace AppTpp.ViewModel
         private string? _username;
         private string? _password;
         private string? _errorMessage;
+        private Visibility? _loading;
 
         public string? Username
         {
@@ -33,32 +35,61 @@ namespace AppTpp.ViewModel
             set { _errorMessage = value; OnPropertyChanged(); }
         }
 
+        public Visibility? Loading
+        {
+            get { return _loading; }
+            set { _loading = value; OnPropertyChanged(); }
+        }
+
         public ICommand LoginCommand { get; }
 
         public LoginVM()
         {
-            LoginCommand = new RelayCommand(Login);
+            LoginCommand = new RelayCommand(Login, CanLogin);
         }
 
-        private void Login(object obj)
+        private bool _isLoading;
+
+        private bool CanLogin(object obj)
         {
-            if (IsValidUser())
+            Loading = _isLoading ? Visibility.Visible : Visibility.Collapsed;
+            return !_isLoading;
+        }
+
+        private async void Login(object obj)
+        {
+            _isLoading = true;
+
+            try
             {
-                MainWindow? mainWindow = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault();
+                Loading = Visibility.Visible;
 
-                mainWindow ??= new MainWindow();
+                await Task.Delay(1000);
 
-                mainWindow.Show();
-
-                foreach (Window window in Application.Current.Windows)
+                if (IsValidUser())
                 {
-                    if (window.DataContext == this) window.Close();
+                    MainWindow? mainWindow = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault();
+                    mainWindow ??= new MainWindow();
+
+                    mainWindow.Show();
+
+                    foreach (Window window in Application.Current.Windows)
+                    {
+                        if (window.DataContext == this) window.Close();
+                    }
+
+                    return;
                 }
 
-                return;
+                ErrorMessage = "* Username atau Password Tidak Valid";
             }
+            finally
+            {
+                await Task.Delay(100);
 
-            ErrorMessage = "* Username atau Password Tidak Valid";
+                Loading = Visibility.Collapsed;
+                _isLoading = false;
+            }
         }
 
         private bool IsValidUser() => UserDataService.Instance.GetUserLoginData(Username, Password);

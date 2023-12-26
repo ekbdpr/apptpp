@@ -54,7 +54,7 @@
 
             <Grid>
                 <TextBlock
-                    Margin="15,15"
+                    Margin="30,15"
                     FontSize="16"
                     Foreground="White"
                     Style="{StaticResource TextStyle}"
@@ -160,7 +160,10 @@
                                     SelectedValuePath="Content"
                                     Style="{DynamicResource ComboBoxStyle}">
 
-                                    <ComboBoxItem Content="--- Pilih salah satu ---" IsSelected="True" />
+                                    <ComboBoxItem
+                                        Content="--- Pilih salah satu ---"
+                                        IsEnabled="False"
+                                        IsSelected="True" />
                                     <ComboBoxItem Content="Admin" />
                                     <ComboBoxItem Content="Bendahara" />
                                     <ComboBoxItem Content="Pimpinan" />
