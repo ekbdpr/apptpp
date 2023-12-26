@@ -5,17 +5,22 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:AppTpp.ViewModel"
-    Style="{StaticResource Page_Style}"
     mc:Ignorable="d">
 
     <UserControl.DataContext>
         <vm:UserManagerVM />
     </UserControl.DataContext>
 
-    <Viewbox VerticalAlignment="Top">
+    <Viewbox VerticalAlignment="{Binding ContentVerticalAlignment}">
 
         <Grid Margin="30,0" HorizontalAlignment="Stretch">
-            <Grid>
+
+            <ContentControl
+                Panel.ZIndex="1"
+                Content="{Binding SpinnerView}"
+                Visibility="{Binding SpinnerVisibility}" />
+
+            <Grid Visibility="{Binding ContentVisibility}">
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />

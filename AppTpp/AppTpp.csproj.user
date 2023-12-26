@@ -36,6 +36,9 @@
     <Compile Update="View\Spinner.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\SpinnerMainWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\UserDataDialog.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -189,6 +192,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\Spinner.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\SpinnerMainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\UserDataDialog.xaml">

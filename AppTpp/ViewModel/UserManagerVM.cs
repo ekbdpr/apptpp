@@ -28,15 +28,66 @@ namespace AppTpp.ViewModel
             }
         }
 
+        private object? _spinnerView;
+        private Visibility? _spinnerVisibility;
+        private Visibility? _contentVisibility;
+        private VerticalAlignment? _contentVerticalAlignment;
+
+        public object? SpinnerView
+        {
+            get { return _spinnerView; }
+            set { _spinnerView = value; OnPropertyChanged(); }
+        }
+
+        public Visibility? SpinnerVisibility
+        {
+            get { return _spinnerVisibility; }
+            set { _spinnerVisibility = value; OnPropertyChanged(); }
+        }
+
+        public Visibility? ContentVisibility
+        {
+            get { return _contentVisibility; }
+            set { _contentVisibility = value; OnPropertyChanged(); }
+        }
+        public VerticalAlignment? ContentVerticalAlignment
+        {
+            get { return _contentVerticalAlignment; }
+            set { _contentVerticalAlignment = value; OnPropertyChanged(); }
+        }
+
+
         public ICommand AddDataCommand { get; set; }
 
         public UserManagerVM()
         {
-            Users = new ObservableCollection<UserModel>(UserDataService.GetAllUsers()!);
+            SpinnerView = new SpinnerMainWindowVM();
 
+            InitializeUserLogin();
             AddDataCommand = new RelayCommand(AddData);
-
             UserDataDialogVM.OnDataSaved += RefreshUsers;
+        }
+
+        private async void InitializeUserLogin()
+        { 
+            try
+            {
+                SpinnerVisibility = Visibility.Visible;
+                ContentVisibility = Visibility.Collapsed;
+                ContentVerticalAlignment = VerticalAlignment.Center;
+
+                await Task.Run(() =>
+                {
+                    Users = new ObservableCollection<UserModel>(UserDataService.GetAllUsers()!);
+                });
+            }
+            finally
+            {
+                SpinnerVisibility = Visibility.Collapsed;
+                ContentVisibility = Visibility.Visible;
+                ContentVerticalAlignment = VerticalAlignment.Top;
+            }
+
         }
 
         public static void AddData(object obj)

@@ -1,7 +1,10 @@
 ﻿using AppTpp.Services;
 using AppTpp.Utilities;
+using AppTpp.View;
+using System;
 using System.Diagnostics;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
@@ -42,6 +45,7 @@ namespace AppTpp.ViewModel
         private void FormatSimgaji(object obj) => Currentview = new FormatSimgajiVM();
         private void Bendahara(object obj) => Currentview = new BendaharaVM();
         private void UserManager(object obj) => Currentview = new UserManagerVM();
+
 
         public MainWindowVM()
         {
