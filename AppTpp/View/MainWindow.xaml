@@ -5,7 +5,6 @@
     xmlns:Menu="clr-namespace:AppTpp.Utilities"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:view="clr-namespace:AppTpp.View"
     xmlns:vm="clr-namespace:AppTpp.ViewModel"
     Title="Dashboard"
     Width="{x:Static SystemParameters.PrimaryScreenWidth}"
@@ -53,7 +52,7 @@
             <Viewbox Margin="0,0,10,0" HorizontalAlignment="Right">
                 <StackPanel Style="{StaticResource Header_Container}">
 
-                    <view:UserInfo />
+                    <ContentControl Content="{Binding UserInfoView}" />
 
                     <!--  Minimize Window Button  -->
                     <Button
@@ -223,7 +222,6 @@
         <Grid Style="{StaticResource Content}">
 
             <Border Style="{StaticResource DropShadowBorderStyle}" />
-
             <ContentControl Content="{Binding Currentview}" />
 
         </Grid>

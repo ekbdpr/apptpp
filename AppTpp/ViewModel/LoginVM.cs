@@ -15,6 +15,7 @@ namespace AppTpp.ViewModel
         private string? _username;
         private string? _password;
         private string? _errorMessage;
+        private object? _spinner;
         private Visibility? _loading;
 
         public string? Username
@@ -41,10 +42,18 @@ namespace AppTpp.ViewModel
             set { _loading = value; OnPropertyChanged(); }
         }
 
+        public object? Spinner
+        {
+            get { return _spinner; }
+            set { _spinner = value; OnPropertyChanged(); }
+        }
+
         public ICommand LoginCommand { get; }
 
         public LoginVM()
         {
+            Spinner = new SpinnerVM();
+
             LoginCommand = new RelayCommand(Login, CanLogin);
         }
 

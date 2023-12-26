@@ -36,4 +36,12 @@
         <view:UserManager />
     </DataTemplate>
 
+    <DataTemplate DataType="{x:Type vm:UserInfoVM}">
+        <view:UserInfo />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:SpinnerVM}">
+        <view:Spinner />
+    </DataTemplate>
+
 </ResourceDictionary>

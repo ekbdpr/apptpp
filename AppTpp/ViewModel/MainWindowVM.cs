@@ -11,11 +11,18 @@ namespace AppTpp.ViewModel
     class MainWindowVM : ViewModelBase
     {
         private object? _currentview;
+        private object? _userInfoView;
 
         public object? Currentview
         {
             get { return _currentview; }
             set { _currentview = value; OnPropertyChanged(); }
+        }
+
+        public object? UserInfoView
+        {
+            get { return _userInfoView; }
+            set { _userInfoView = value; OnPropertyChanged(); }
         }
 
         public ICommand HomeCommand { get; set; }
@@ -36,7 +43,6 @@ namespace AppTpp.ViewModel
         private void Bendahara(object obj) => Currentview = new BendaharaVM();
         private void UserManager(object obj) => Currentview = new UserManagerVM();
 
-
         public MainWindowVM()
         {
             HomeCommand = new RelayCommand(Home);
@@ -49,6 +55,7 @@ namespace AppTpp.ViewModel
             UserManagerCommand = new RelayCommand(UserManager);
 
             Currentview = new HomeVM();
+            UserInfoView = new UserInfoVM();
         }
     }
 }
