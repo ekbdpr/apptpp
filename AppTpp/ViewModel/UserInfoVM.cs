@@ -3,6 +3,7 @@ using AppTpp.Services;
 using AppTpp.Utilities;
 using Microsoft.Win32;
 using System.IO;
+using System.Reflection;
 using System.Windows.Input;
 
 namespace AppTpp.ViewModel
@@ -59,8 +60,9 @@ namespace AppTpp.ViewModel
 
         private static byte[] GetDefaultProfileImage()
         {
-            string defaultImagePath = @"./Images/avatar.png";
-            byte[] defaultImage = File.ReadAllBytes(defaultImagePath);
+            string epath = Assembly.GetExecutingAssembly().Location;
+            string filepath = epath[..(epath.LastIndexOf('\\') + 1)] + "Images/avatar.png";
+            byte[] defaultImage = File.ReadAllBytes(filepath);
 
             return defaultImage;
         }

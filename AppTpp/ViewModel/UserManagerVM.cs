@@ -4,6 +4,7 @@ using AppTpp.Utilities;
 using AppTpp.View;
 using System;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading;
@@ -31,7 +32,6 @@ namespace AppTpp.ViewModel
         private object? _spinnerView;
         private Visibility? _spinnerVisibility;
         private Visibility? _contentVisibility;
-        private VerticalAlignment? _contentVerticalAlignment;
 
         public object? SpinnerView
         {
@@ -50,44 +50,45 @@ namespace AppTpp.ViewModel
             get { return _contentVisibility; }
             set { _contentVisibility = value; OnPropertyChanged(); }
         }
-        public VerticalAlignment? ContentVerticalAlignment
-        {
-            get { return _contentVerticalAlignment; }
-            set { _contentVerticalAlignment = value; OnPropertyChanged(); }
-        }
 
-
-        public ICommand AddDataCommand { get; set; }
+        public ICommand? AddDataCommand { get; set; }
 
         public UserManagerVM()
         {
-            SpinnerView = new SpinnerMainWindowVM();
+            if (!IsInDesignMode)
+            {
+                SpinnerView = new SpinnerMainWindowVM();
 
-            InitializeUserLogin();
-            AddDataCommand = new RelayCommand(AddData);
-            UserDataDialogVM.OnDataSaved += RefreshUsers;
+                InitializeUserLogin();
+                AddDataCommand = new RelayCommand(AddData);
+                UserDataDialogVM.OnDataSaved += RefreshUsers;
+            }
+        }
+        private static bool IsInDesignMode
+        {
+            get
+            {
+                var prop = DesignerProperties.IsInDesignModeProperty;
+                return (bool)DependencyPropertyDescriptor
+                    .FromProperty(prop, typeof(FrameworkElement))
+                    .Metadata.DefaultValue;
+            }
         }
 
         private async void InitializeUserLogin()
-        { 
+        {
             try
             {
                 SpinnerVisibility = Visibility.Visible;
                 ContentVisibility = Visibility.Collapsed;
-                ContentVerticalAlignment = VerticalAlignment.Center;
 
-                await Task.Run(() =>
-                {
-                    Users = new ObservableCollection<UserModel>(UserDataService.GetAllUsers()!);
-                });
+                await Task.Run(() => Users = new ObservableCollection<UserModel>(UserDataService.GetAllUsers()!));
             }
             finally
             {
                 SpinnerVisibility = Visibility.Collapsed;
                 ContentVisibility = Visibility.Visible;
-                ContentVerticalAlignment = VerticalAlignment.Top;
             }
-
         }
 
         public static void AddData(object obj)

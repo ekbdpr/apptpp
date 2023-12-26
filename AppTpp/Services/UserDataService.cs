@@ -76,7 +76,7 @@ namespace AppTpp.Services
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                Console.WriteLine($"An error occurred: {ex.Message}");
                 return false;
             }
             finally
@@ -107,7 +107,7 @@ namespace AppTpp.Services
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    Console.WriteLine($"An error occurred: {ex.Message}");
                 }
                 finally
                 {
@@ -147,7 +147,7 @@ namespace AppTpp.Services
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                Console.WriteLine($"An error occurred: {ex.Message}");
                 return null;
             }
             finally
@@ -177,7 +177,7 @@ namespace AppTpp.Services
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                Console.WriteLine($"An error occurred: {ex.Message}");
             }
             finally
             {
@@ -185,7 +185,7 @@ namespace AppTpp.Services
             }
         }
 
-        private protected static string GetConnectionString()
+        private static string GetConnectionString()
         {
             return ConfigurationManager.ConnectionStrings["DbConnectionString"].ConnectionString;
         }

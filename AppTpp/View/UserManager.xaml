@@ -11,16 +11,15 @@
         <vm:UserManagerVM />
     </UserControl.DataContext>
 
-    <Viewbox VerticalAlignment="{Binding ContentVerticalAlignment}">
+    <Viewbox VerticalAlignment="Top">
 
-        <Grid Margin="30,0" HorizontalAlignment="Stretch">
+        <Grid
+            Width="1000"
+            MaxWidth="1000"
+            Margin="30,0"
+            HorizontalAlignment="Stretch">
 
-            <ContentControl
-                Panel.ZIndex="1"
-                Content="{Binding SpinnerView}"
-                Visibility="{Binding SpinnerVisibility}" />
-
-            <Grid Visibility="{Binding ContentVisibility}">
+            <Grid>
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
@@ -66,7 +65,14 @@
                     </Button>
                 </StackPanel>
 
-                <Grid Grid.Row="3">
+                <ContentControl
+                    Grid.Row="3"
+                    MaxWidth="500"
+                    Panel.ZIndex="1"
+                    Content="{Binding SpinnerView}"
+                    Visibility="{Binding SpinnerVisibility}" />
+
+                <Grid Grid.Row="3" Visibility="{Binding ContentVisibility}">
 
                     <Border
                         Margin="0,15,0,0"
