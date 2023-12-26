@@ -64,36 +64,42 @@ namespace AppTpp.ViewModel
             {
                 Loading = Visibility.Visible;
 
-                await Task.Delay(1000);
-
-                if (IsValidUser())
+                await Task.Run(() =>
                 {
-                    MainWindow? mainWindow = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault();
-                    mainWindow ??= new MainWindow();
+                    Task.Delay(1000).Wait();
 
-                    mainWindow.Show();
-
-                    foreach (Window window in Application.Current.Windows)
+                    if (IsValidUser())
                     {
-                        if (window.DataContext == this) window.Close();
+                        Application.Current.Dispatcher.Invoke(() =>
+                        {
+                            MainWindow? mainWindow = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault();
+                            mainWindow ??= new MainWindow();
+
+                            mainWindow.Show();
+
+                            foreach (Window window in Application.Current.Windows)
+                            {
+                                if (window.DataContext == this) window.Close();
+                            }
+                        });
                     }
-
-                    return;
-                }
-
-                ErrorMessage = "* Username atau Password Tidak Valid";
+                    else
+                    {
+                        Application.Current.Dispatcher.Invoke(() =>
+                        {
+                            ErrorMessage = "* Username atau Password Tidak Valid";
+                        });
+                    }
+                });
             }
             finally
             {
-                await Task.Delay(100);
-
                 Loading = Visibility.Collapsed;
                 _isLoading = false;
             }
         }
 
+
         private bool IsValidUser() => UserDataService.Instance.GetUserLoginData(Username, Password);
-
-
     }
 }

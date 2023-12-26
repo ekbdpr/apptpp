@@ -41,7 +41,7 @@
                         <TextBlock
                             Foreground="Red"
                             Style="{StaticResource Login_ExtraMessage}"
-                            Text="-- Experimental v1.0.0.3 --" />
+                            Text="-- Experimental v1.0.0.4 --" />
 
                         <!--  Username  -->
                         <TextBlock Style="{StaticResource Login_Text}" Text="Username" />
