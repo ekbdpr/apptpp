@@ -31,6 +31,7 @@
 
                 <Grid Height="500">
 
+                    <!--  Loading Spinner  -->
                     <ContentControl
                         Panel.ZIndex="1"
                         Content="{Binding Spinner}"
@@ -40,10 +41,12 @@
 
                         <!--  Logo  -->
                         <Image Style="{StaticResource Login_Logo}" />
+
+                        <!--  App Version  -->
                         <TextBlock
                             Foreground="Red"
                             Style="{StaticResource Login_ExtraMessage}"
-                            Text="-- Experimental v1.0.0.7 --" />
+                            Text="-- Experimental v1.0.0.8 --" />
 
                         <!--  Username  -->
                         <TextBlock Style="{StaticResource Login_Text}" Text="Username" />
@@ -51,7 +54,20 @@
 
                         <!--  Password  -->
                         <TextBlock Style="{StaticResource Login_Text}" Text="Password" />
-                        <TextBox Style="{StaticResource Login_PasswordBox}" Text="{Binding Password}" />
+                        <TextBox
+                            x:Name="PasswordBox"
+                            Style="{StaticResource Login_PasswordBox}"
+                            Text="{Binding Password}" />
+                        <CheckBox
+                            x:Name="ShowPassword"
+                            MaxWidth="250"
+                            Margin="0,10,0,0"
+                            VerticalContentAlignment="Center"
+                            Checked="ShowPassword_Checked"
+                            Content="Show Password"
+                            Foreground="White"
+                            Style="{DynamicResource CheckBoxCustom}"
+                            Unchecked="ShowPassword_Unchecked" />
 
                         <!--  Error Message  -->
                         <TextBlock Style="{StaticResource Login_ErrorMessage}" Text="{Binding ErrorMessage}" />

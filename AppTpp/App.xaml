@@ -14,11 +14,11 @@
                 <ResourceDictionary Source="/Styles/Page.xaml" />
                 <ResourceDictionary Source="/Styles/Text.xaml" />
                 <ResourceDictionary Source="/Styles/ProfileImage.xaml" />
-                <ResourceDictionary Source="/Styles/Password.xaml" />
                 <ResourceDictionary Source="/Styles/Buttons.xaml" />
                 <ResourceDictionary Source="/Styles/MainBorderShadow.xaml" />
                 <ResourceDictionary Source="/Styles/DataGrid.xaml" />
-                <ResourceDictionary Source="/Styles/ComboBox.xaml" />
+                <ResourceDictionary Source="/Styles/ComboBoxCustom.xaml" />
+                <ResourceDictionary Source="/Styles/CheckBoxCustom.xaml" />
                 <ResourceDictionary Source="/Utilities/DataTemplate.xaml" />
 
                 <!--  Window Load Animation  -->

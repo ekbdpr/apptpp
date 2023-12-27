@@ -52,7 +52,7 @@ namespace AppTpp.View {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/AppTpp;component/view/formatsimgaji.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/AppTpp;V1.0.0.0;component/view/formatsimgaji.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\View\FormatSimgaji.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

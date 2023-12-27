@@ -27,18 +27,23 @@
 
                 </Grid.RowDefinitions>
 
+                <!--  Greeting  -->
                 <TextBlock
                     Grid.Row="0"
                     FontSize="40"
                     FontWeight="Bold"
                     Style="{StaticResource TextStyle}"
                     Text="Selamat Datang," />
+
+                <!--  User Info  -->
                 <TextBlock
                     Grid.Row="1"
                     FontSize="50"
                     FontWeight="Bold"
                     Style="{StaticResource TextStyle}"
                     Text="{Binding Name, StringFormat='{}{0} !'}" />
+
+                <!--  Information  -->
                 <TextBlock
                     Grid.Row="2"
                     Margin="0,40,0,0"
@@ -53,6 +58,8 @@
                     Style="{StaticResource TextStyle}"
                     Text="Jika mengalami kendala silahkan lakukan relogin akun anda. Jika masih mengalami kendala yang sama, silahkan menghubungi admin !"
                     TextWrapping="Wrap" />
+
+                <!--  Greeting Image  -->
                 <Image
                     Grid.Row="4"
                     MaxWidth="500"

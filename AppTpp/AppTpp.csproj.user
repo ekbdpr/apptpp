@@ -50,7 +50,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="Styles\ComboBox.xaml">
+    <Page Update="Styles\CheckBoxCustom.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\ComboBoxCustom.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Styles\Login\_Border\Login_Border.xaml">
@@ -156,9 +159,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Styles\Page.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Styles\Password.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Styles\ProfileImage.xaml">
