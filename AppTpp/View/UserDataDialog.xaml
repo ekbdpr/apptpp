@@ -190,6 +190,23 @@
                                     </Style>
                                 </Button.Resources>
 
+                                <Button.Template>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border
+                                            x:Name="border"
+                                            Background="{TemplateBinding Background}"
+                                            CornerRadius="10">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                        </Border>
+
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsEnabled" Value="False">
+                                                <Setter TargetName="border" Property="Background" Value="#A9A9A9" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Button.Template>
+
                                 <TextBlock
                                     FontSize="16"
                                     Foreground="White"
@@ -197,6 +214,7 @@
                                     Text="Save" />
 
                             </Button>
+
                             <Button
                                 Width="80"
                                 Height="30"

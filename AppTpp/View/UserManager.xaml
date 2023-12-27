@@ -14,8 +14,8 @@
     <Viewbox VerticalAlignment="Top">
 
         <Grid
-            Width="1000"
-            MaxWidth="1000"
+            Width="1024"
+            MaxWidth="1024"
             Margin="30,0"
             HorizontalAlignment="Stretch">
 

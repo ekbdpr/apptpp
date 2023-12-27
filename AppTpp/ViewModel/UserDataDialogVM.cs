@@ -63,7 +63,17 @@ namespace AppTpp.ViewModel
 
         public UserDataDialogVM()
         {
-            SaveCommand = new RelayCommand(Save);
+            SaveCommand = new RelayCommand(Save, CanSave);
+        }
+
+        private bool CanSave(object obj)
+        {
+            return !string.IsNullOrEmpty(Nip) &&
+                   !string.IsNullOrEmpty(Nama) &&
+                   !string.IsNullOrEmpty(Jabatan) &&
+                   !string.IsNullOrEmpty(Username) &&
+                   !string.IsNullOrEmpty(Password) &&
+                   !string.IsNullOrEmpty(Privilege);
         }
 
         public static event Action? OnDataSaved;
@@ -81,15 +91,11 @@ namespace AppTpp.ViewModel
             }
             finally
             {
-
                 foreach (Window window in Application.Current.Windows)
                 {
                     if (window.DataContext == this) window.Close();
                 }
             }
-
-
-
         }
     }
 }

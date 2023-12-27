@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="AppTpp.exe" version="1.0.0.6" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
+  <asmv1:assemblyIdentity name="AppTpp.exe" version="1.0.0.7" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
   <description asmv2:iconFile="Images\dashboard-logo.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
@@ -63,13 +63,13 @@
       <dsig:DigestValue>R4CmbIprKMd8DYlXTXFgCos4C9bInAlvh/qIJ2pBwy0=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="AppTpp.dll" size="2707456">
+  <file name="AppTpp.dll" size="2707968">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>mr/rf7zlHoOMckLX3Tp37l7tgV2Pe4t5JGUTUGaYoLM=</dsig:DigestValue>
+      <dsig:DigestValue>UEHzH6Z9rcGIE84zWmzoJQbWFhQtijYcF8C1nxb0r04=</dsig:DigestValue>
     </hash>
   </file>
   <file name="AppTpp.dll.config" size="399">
@@ -87,7 +87,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>tDSgqAwcJFbfYnJawloHb5qPDDAg/WwhAyDmyNbm8qE=</dsig:DigestValue>
+      <dsig:DigestValue>lw1MLVobFPN+m7scpzH/zAII3rncdllj9eGANJZea0k=</dsig:DigestValue>
     </hash>
   </file>
   <file name="AppTpp.runtimeconfig.json" size="458">
