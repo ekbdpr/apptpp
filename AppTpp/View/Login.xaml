@@ -46,7 +46,7 @@
                         <TextBlock
                             Foreground="Red"
                             Style="{StaticResource Login_ExtraMessage}"
-                            Text="-- Experimental v1.0.0.8 --" />
+                            Text="-- Experimental v1.0.0.9 --" />
 
                         <!--  Username  -->
                         <TextBlock Style="{StaticResource Login_Text}" Text="Username" />
@@ -58,15 +58,13 @@
                             x:Name="PasswordBox"
                             Style="{StaticResource Login_PasswordBox}"
                             Text="{Binding Password}" />
+
+                        <!--  Password CheckBox  -->
                         <CheckBox
                             x:Name="ShowPassword"
-                            MaxWidth="250"
-                            Margin="0,10,0,0"
-                            VerticalContentAlignment="Center"
                             Checked="ShowPassword_Checked"
                             Content="Show Password"
-                            Foreground="White"
-                            Style="{DynamicResource CheckBoxCustom}"
+                            Style="{StaticResource Login_PasswordCheckBox}"
                             Unchecked="ShowPassword_Unchecked" />
 
                         <!--  Error Message  -->

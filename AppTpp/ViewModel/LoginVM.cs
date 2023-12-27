@@ -1,11 +1,8 @@
 ﻿using AppTpp.Services;
 using AppTpp.Utilities;
-using System;
-using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace AppTpp.ViewModel
@@ -100,6 +97,10 @@ namespace AppTpp.ViewModel
                         });
                     }
                 });
+            }
+            catch
+            {
+                ErrorMessage = "* Gagal Menghubungkan ke Server. Periksa Koneksi Internet Anda";
             }
             finally
             {

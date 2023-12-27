@@ -32,6 +32,7 @@
                 <ResourceDictionary Source="/Styles/Login/_Text/Login_Text.xaml" />
                 <ResourceDictionary Source="/Styles/Login/_UserBox/Login_UserBox.xaml" />
                 <ResourceDictionary Source="/Styles/Login/_PasswordBox/Login_PasswordBox.xaml" />
+                <ResourceDictionary Source="/Styles/Login/_PasswordCheckBox/Login_PasswordCheckBox.xaml" />
                 <ResourceDictionary Source="/Styles/Login/_ErrorMessage/Login_ErrorMessage.xaml" />
                 <ResourceDictionary Source="/Styles/Login/_ButtonContainer/Login_ButtonContainer.xaml" />
                 <ResourceDictionary Source="/Styles/Login/_LoginButton/Login_LoginButton.xaml" />
