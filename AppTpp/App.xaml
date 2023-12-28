@@ -28,6 +28,7 @@
                 <ResourceDictionary Source="/Styles/Login/Login.xaml" />
                 <ResourceDictionary Source="/Styles/Login/_Border/Login_Border.xaml" />
                 <ResourceDictionary Source="/Styles/Login/_Container/Login_Container.xaml" />
+                <ResourceDictionary Source="/Styles/Login/_ContainerBorder/Login_ContainerBorder.xaml" />
                 <ResourceDictionary Source="/Styles/Login/_Logo/Login_Logo.xaml" />
                 <ResourceDictionary Source="/Styles/Login/_Text/Login_Text.xaml" />
                 <ResourceDictionary Source="/Styles/Login/_UserBox/Login_UserBox.xaml" />

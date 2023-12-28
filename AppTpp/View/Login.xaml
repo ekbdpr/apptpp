@@ -30,10 +30,16 @@
             <StackPanel Style="{StaticResource Login_Container}">
 
                 <Grid Height="500">
+                    <Grid.OpacityMask>
+                        <VisualBrush Visual="{Binding ElementName=SpinnerBorder}" />
+                    </Grid.OpacityMask>
+
+                    <Border x:Name="SpinnerBorder" Style="{StaticResource Login_ContainerBorder}" />
 
                     <!--  Loading Spinner  -->
                     <ContentControl
                         Panel.ZIndex="1"
+                        ClipToBounds="True"
                         Content="{Binding Spinner}"
                         Visibility="{Binding Loading}" />
 
@@ -46,7 +52,7 @@
                         <TextBlock
                             Foreground="Red"
                             Style="{StaticResource Login_ExtraMessage}"
-                            Text="-- Experimental v1.0.0.9 --" />
+                            Text="-- Experimental v1.0.0.10 --" />
 
                         <!--  Username  -->
                         <TextBlock Style="{StaticResource Login_Text}" Text="Username" />

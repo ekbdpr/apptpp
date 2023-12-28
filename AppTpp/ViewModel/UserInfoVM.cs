@@ -2,8 +2,11 @@
 using AppTpp.Services;
 using AppTpp.Utilities;
 using Microsoft.Win32;
+using System;
+using System.Diagnostics;
 using System.IO;
 using System.Reflection;
+using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace AppTpp.ViewModel
@@ -47,13 +50,14 @@ namespace AppTpp.ViewModel
                 Filter = "Image Files (*.jpg;*.png)|*.jpg;*.png|All Files (*.*)|*.*"
             };
 
+
             UserDataService.Instance.SaveImageToDB(openFileDialog);
             UpdateUserInfo();
         }
 
         public void UpdateUserInfo()
         {
-            Name = UserDataService.Instance.CurrentUsername;
+            Name = UserDataService.Instance.CurrentName;
             Privilege = UserDataService.Instance.CurrentPrivilege;
             ProfileImage = UserDataService.Instance.CurrentProfileImage == null || UserDataService.Instance.CurrentProfileImage.Length == 0 ? GetDefaultProfileImage() : UserDataService.Instance.CurrentProfileImage;
         }

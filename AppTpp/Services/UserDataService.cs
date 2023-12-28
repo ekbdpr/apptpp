@@ -24,12 +24,14 @@ namespace AppTpp.Services
             }
         }
 
+        public string? CurrentName { get; private set; }
         public string? CurrentUsername { get; private set; }
         public string? CurrentPrivilege { get; private set; }
         public byte[]? CurrentProfileImage { get; private set; }
 
-        public void SetCurrentUser(string? username, string? privilege, byte[]? profileImage)
+        public void SetCurrentUser(string? name, string? username, string? privilege, byte[]? profileImage)
         {
+            CurrentName = name;
             CurrentUsername = username;
             CurrentPrivilege = privilege;
             CurrentProfileImage = profileImage;
@@ -46,7 +48,7 @@ namespace AppTpp.Services
 
         public bool GetUserLoginData(string? Username, string? Password)
         {
-            var connection = OpenConnection();
+            using var connection = OpenConnection();
 
             try
             {
@@ -69,7 +71,7 @@ namespace AppTpp.Services
                         ProfileImage = !string.IsNullOrEmpty(reader["profile_image"].ToString()) ? (byte[])reader["profile_image"] : null
                     };
 
-                    SetCurrentUser(userModel.Name, userModel.Privilege, userModel.ProfileImage);
+                    SetCurrentUser(userModel.Name, userModel.Username, userModel.Privilege, userModel.ProfileImage);
                 }
 
                 return reader.HasRows;
@@ -79,17 +81,14 @@ namespace AppTpp.Services
                 Console.WriteLine($"An error occurred: {ex.Message}");
                 return false;
             }
-            finally
-            {
-                connection.Close();
-            }
         }
 
         public void SaveImageToDB(OpenFileDialog openFileDialog)
         {
-            var connection = OpenConnection();
+            using var connection = OpenConnection();
 
             if (openFileDialog.ShowDialog() == true)
+            {
                 try
                 {
                     string filePath = openFileDialog.FileName;
@@ -104,20 +103,19 @@ namespace AppTpp.Services
                     command.ExecuteNonQuery();
 
                     Instance.CurrentProfileImage = fileBytes;
+
+                    MessageBox.Show(CurrentUsername, CurrentProfileImage?.ToString());
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine($"An error occurred: {ex.Message}");
                 }
-                finally
-                {
-                    connection.Close();
-                }
+            }
         }
 
         public static List<UserModel>? GetAllUsers()
         {
-            var connection = OpenConnection();
+            using var connection = OpenConnection();
 
             try
             {
@@ -150,15 +148,11 @@ namespace AppTpp.Services
                 Console.WriteLine($"An error occurred: {ex.Message}");
                 return null;
             }
-            finally
-            {
-                connection.Close();
-            }
         }
 
         public static void InsertNewUser(string? nip, string? name, string? jabatan, string? username, string? password, string? privilege)
         {
-            var connection = OpenConnection();
+            using var connection = OpenConnection();
 
             try
             {
@@ -178,10 +172,6 @@ namespace AppTpp.Services
             catch (Exception ex)
             {
                 Console.WriteLine($"An error occurred: {ex.Message}");
-            }
-            finally
-            {
-                connection.Close();
             }
         }
 

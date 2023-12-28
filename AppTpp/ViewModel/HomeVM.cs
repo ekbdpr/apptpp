@@ -18,7 +18,7 @@ namespace AppTpp.ViewModel
         {
             _userModel = new UserModel();
 
-            Name = UserDataService.Instance.CurrentUsername;
+            Name = UserDataService.Instance.CurrentName;
         }
     }
 }
