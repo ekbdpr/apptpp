@@ -103,8 +103,6 @@ namespace AppTpp.Services
                     command.ExecuteNonQuery();
 
                     Instance.CurrentProfileImage = fileBytes;
-
-                    MessageBox.Show(CurrentUsername, CurrentProfileImage?.ToString());
                 }
                 catch (Exception ex)
                 {

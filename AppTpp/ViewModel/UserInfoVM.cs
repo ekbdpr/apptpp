@@ -50,7 +50,6 @@ namespace AppTpp.ViewModel
                 Filter = "Image Files (*.jpg;*.png)|*.jpg;*.png|All Files (*.*)|*.*"
             };
 
-
             UserDataService.Instance.SaveImageToDB(openFileDialog);
             UpdateUserInfo();
         }
