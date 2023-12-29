@@ -29,11 +29,15 @@ namespace AppTpp.Services
         public string? CurrentPrivilege { get; private set; }
         public byte[]? CurrentProfileImage { get; private set; }
 
-        public void SetCurrentUser(string? name, string? username, string? privilege, byte[]? profileImage)
+        public void SetCurrentUser(string? name, string? username, string? privilege)
         {
             CurrentName = name;
             CurrentUsername = username;
             CurrentPrivilege = privilege;
+        }
+
+        public void SetCurrentUserPhoto(byte[]? profileImage)
+        {
             CurrentProfileImage = profileImage;
         }
 
@@ -52,7 +56,7 @@ namespace AppTpp.Services
 
             try
             {
-                string query = "SELECT * FROM daftar_user WHERE username = @Username AND password = @Password";
+                string query = "SELECT * FROM daftar_user WHERE Username = @Username AND Password = @Password";
 
                 using MySqlCommand command = new(query, connection);
 
@@ -65,13 +69,45 @@ namespace AppTpp.Services
                 {
                     UserModel? userModel = new()
                     {
-                        Username = reader["username"].ToString(),
-                        Name = reader["nama"].ToString(),
-                        Privilege = reader["privilege"].ToString(),
-                        ProfileImage = !string.IsNullOrEmpty(reader["profile_image"].ToString()) ? (byte[])reader["profile_image"] : null
+                        Username = reader["Username"].ToString(),
+                        Name = reader["Nama"].ToString(),
+                        Privilege = reader["Privilege"].ToString(),
                     };
 
-                    SetCurrentUser(userModel.Name, userModel.Username, userModel.Privilege, userModel.ProfileImage);
+                    SetCurrentUser(userModel.Name, userModel.Username, userModel.Privilege);
+                }
+
+                return reader.HasRows;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred: {ex.Message}");
+                return false;
+            }
+        }
+
+        public bool GetUserPhoto(string? Username)
+        {
+            using var connection = OpenConnection();
+
+            try
+            {
+                string query = "SELECT * FROM user_photo WHERE Username = @Username";
+
+                using MySqlCommand command = new(query, connection);
+
+                command.Parameters.AddWithValue("@Username", Username);
+
+                using MySqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    UserModel? userModel = new()
+                    {
+                        ProfileImage = !string.IsNullOrEmpty(reader["Profile_image"].ToString()) ? (byte[])reader["Profile_image"] : null
+                    };
+
+                    SetCurrentUserPhoto(userModel.ProfileImage);
                 }
 
                 return reader.HasRows;
@@ -94,7 +130,7 @@ namespace AppTpp.Services
                     string filePath = openFileDialog.FileName;
                     byte[] fileBytes = File.ReadAllBytes(filePath);
 
-                    string query = "UPDATE daftar_user SET profile_image = @FileData WHERE username = @Username;";
+                    string query = "UPDATE user_photo SET Profile_image = @FileData WHERE Username = @Username;";
 
                     using var command = new MySqlCommand(query, connection);
                     command.Parameters.AddWithValue("@FileData", fileBytes);
@@ -106,6 +142,7 @@ namespace AppTpp.Services
                 }
                 catch (Exception ex)
                 {
+                    MessageBox.Show($"An error occurred: {ex.Message}");
                     Console.WriteLine($"An error occurred: {ex.Message}");
                 }
             }
@@ -128,12 +165,11 @@ namespace AppTpp.Services
                 {
                     UserModel userModel = new()
                     {
-                        Nip = Convert.ToInt64(reader["nip"]),
-                        Name = reader["nama"].ToString(),
-                        Jabatan = reader["jabatan"].ToString(),
-                        Username = reader["username"].ToString(),
-                        Privilege = reader["privilege"].ToString(),
-                        ProfileImage = !string.IsNullOrEmpty(reader["profile_image"].ToString()) ? (byte[])reader["profile_image"] : null
+                        Nip = Convert.ToInt64(reader["Nip"]),
+                        Name = reader["Nama"].ToString(),
+                        Jabatan = reader["Jabatan"].ToString(),
+                        Username = reader["Username"].ToString(),
+                        Privilege = reader["Privilege"].ToString(),
                     };
 
                     userList.Add(userModel);
@@ -154,16 +190,16 @@ namespace AppTpp.Services
 
             try
             {
-                string query = "INSERT INTO daftar_user (nip, nama, jabatan, username, password, privilege, profile_image) " +
-                               "VALUES (@nip, @nama, @jabatan, @username, @password, @privilege, NULL)";
+                string query = "INSERT INTO daftar_user (Nip, Nama, Jabatan, Username, Password, Privilege) " +
+                               "VALUES (@Nip, @Nama, @Jabatan, @Username, @Password, @Privilege)";
 
                 using MySqlCommand command = new(query, connection);
-                command.Parameters.AddWithValue("@nip", nip);
-                command.Parameters.AddWithValue("@nama", name);
-                command.Parameters.AddWithValue("@jabatan", jabatan);
-                command.Parameters.AddWithValue("@username", username);
-                command.Parameters.AddWithValue("@password", password);
-                command.Parameters.AddWithValue("@privilege", privilege);
+                command.Parameters.AddWithValue("@Nip", nip);
+                command.Parameters.AddWithValue("@Nama", name);
+                command.Parameters.AddWithValue("@Jabatan", jabatan);
+                command.Parameters.AddWithValue("@Username", username);
+                command.Parameters.AddWithValue("@Password", password);
+                command.Parameters.AddWithValue("@Privilege", privilege);
 
                 command.ExecuteNonQuery();
             }

@@ -41,7 +41,19 @@
                     BorderBrush="#A9A9A9"
                     BorderThickness="0,0,0,1" />
 
-                <StackPanel Grid.Row="2" Orientation="Horizontal">
+                <!--  Loading Spinner  -->
+                <ContentControl
+                    Grid.Row="2"
+                    Grid.RowSpan="2"
+                    MaxWidth="500"
+                    Panel.ZIndex="1"
+                    Content="{Binding SpinnerView}"
+                    Visibility="{Binding SpinnerVisibility}" />
+
+                <StackPanel
+                    Grid.Row="2"
+                    Orientation="Horizontal"
+                    Visibility="{Binding ContentVisibility}">
 
                     <!--  Add Data Button  -->
                     <Button
@@ -67,14 +79,6 @@
 
                     </Button>
                 </StackPanel>
-
-                <!--  Loading Spinner  -->
-                <ContentControl
-                    Grid.Row="3"
-                    MaxWidth="500"
-                    Panel.ZIndex="1"
-                    Content="{Binding SpinnerView}"
-                    Visibility="{Binding SpinnerVisibility}" />
 
                 <!--  Users Table  -->
                 <Grid Grid.Row="3" Visibility="{Binding ContentVisibility}">

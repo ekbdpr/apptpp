@@ -74,8 +74,6 @@ namespace AppTpp.ViewModel
 
                 await Task.Run(() =>
                 {
-                    Task.Delay(1000).Wait();
-
                     if (IsValidUser())
                     {
                         Application.Current.Dispatcher.Invoke(() =>
@@ -112,6 +110,6 @@ namespace AppTpp.ViewModel
         }
 
 
-        private bool IsValidUser() => UserDataService.Instance.GetUserLoginData(Username, Password);
+        private bool IsValidUser() => UserDataService.Instance.GetUserLoginData(Username, Password) && UserDataService.Instance.GetUserPhoto(Username);
     }
 }
