@@ -52,18 +52,18 @@
                         <TextBlock
                             Foreground="Red"
                             Style="{StaticResource Login_ExtraMessage}"
-                            Text="-- Experimental v1.0.0.12 --" />
+                            Text="-- Experimental v2.0.0.0 --" />
 
                         <!--  Username  -->
                         <TextBlock Style="{StaticResource Login_Text}" Text="Username" />
-                        <TextBox Style="{StaticResource Login_UserBox}" Text="{Binding Username}" />
+                        <TextBox Style="{StaticResource Login_UserBox}" Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" />
 
                         <!--  Password  -->
                         <TextBlock Style="{StaticResource Login_Text}" Text="Password" />
                         <TextBox
                             x:Name="PasswordBox"
                             Style="{StaticResource Login_PasswordBox}"
-                            Text="{Binding Password}" />
+                            Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}" />
 
                         <!--  Password CheckBox  -->
                         <CheckBox
@@ -79,7 +79,10 @@
                         <StackPanel Style="{StaticResource Login_ButtonContainer}">
 
                             <!--  Login Button  -->
-                            <Button Command="{Binding LoginCommand}" Style="{StaticResource Login_LoginButton}">
+                            <Button
+                                Command="{Binding LoginCommand}"
+                                IsDefault="True"
+                                Style="{StaticResource Login_LoginButton}">
                                 <TextBlock Style="{StaticResource TextStyle}" Text="Login" />
                             </Button>
 
