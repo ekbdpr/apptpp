@@ -1,0 +1,233 @@
+﻿<Window
+    x:Class="AppTpp.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Menu="clr-namespace:AppTpp.Utilities"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:AppTpp.MVVM.ViewModel"
+    Title="Dashboard"
+    Width="{x:Static SystemParameters.PrimaryScreenWidth}"
+    Height="{x:Static SystemParameters.PrimaryScreenHeight}"
+    Icon="/dashboard-logo.ico"
+    ResizeMode="CanResize"
+    SnapsToDevicePixels="True"
+    UseLayoutRounding="True"
+    WindowStartupLocation="CenterScreen"
+    WindowState="Maximized"
+    WindowStyle="SingleBorderWindow"
+    mc:Ignorable="d">
+
+    <WindowChrome.WindowChrome>
+        <WindowChrome
+            CaptionHeight="0"
+            CornerRadius="0"
+            GlassFrameThickness="0"
+            ResizeBorderThickness="7"
+            UseAeroCaptionButtons="False" />
+    </WindowChrome.WindowChrome>
+
+    <Window.DataContext>
+        <vm:MainWindowVM />
+    </Window.DataContext>
+
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="14*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*" MaxHeight="50" />
+            <RowDefinition Height="3*" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+
+        <Grid Style="{StaticResource Header}">
+
+            <Border Style="{StaticResource DropShadowBorderStyle}" />
+
+            <!--  Header  -->
+            <Viewbox Margin="0,0,10,0" HorizontalAlignment="Right">
+                <StackPanel Style="{StaticResource Header_Container}">
+
+                    <!--  User Login Information  -->
+                    <ContentControl Content="{Binding UserInfoView}" />
+
+                    <!--  Minimize Window Button  -->
+                    <Button
+                        x:Name="btnMinimize"
+                        Click="BtnMinimize_Click"
+                        Content="_"
+                        Style="{StaticResource Header_MinimizeButton}" />
+
+                    <!--  Close Window Button  -->
+                    <Button
+                        x:Name="btnClose"
+                        Click="BtnClose_Click"
+                        Content="X"
+                        Style="{StaticResource Header_CloseButton}" />
+
+                </StackPanel>
+            </Viewbox>
+        </Grid>
+
+        <!--  Logo  -->
+        <Grid Style="{StaticResource Logo}">
+
+            <Viewbox>
+                <Image Style="{StaticResource Logo_Image}" />
+            </Viewbox>
+
+        </Grid>
+
+        <!--  Navigation  -->
+        <Grid Style="{StaticResource Navigation}">
+
+            <Viewbox>
+                <StackPanel>
+
+                    <!--  Home Button  -->
+                    <Menu:Btn
+                        Command="{Binding HomeCommand}"
+                        IsChecked="True"
+                        Style="{StaticResource Navigation_RadioButton}">
+
+                        <TextBlock Style="{StaticResource Navigation_ButtonText}" Text="&#127968;  Home" />
+
+                    </Menu:Btn>
+
+                    <!--  Data Pegawai Button  -->
+                    <Button
+                        x:Name="btnDataPegawai"
+                        Click="BtnDataPegawai_Click"
+                        Style="{StaticResource CustomButtonStyle}">
+
+                        <TextBlock
+                            Padding="0"
+                            Style="{StaticResource Navigation_ButtonText}"
+                            Text="&#128119;  Data Pegawai    &#10149;" />
+
+                    </Button>
+
+                    <!--  Data Pegawai Dropdown  -->
+                    <StackPanel x:Name="menuDataPegawai" Style="{StaticResource Navigation_Dropdown}">
+
+                        <!--  Input Data Batch Button  -->
+                        <Menu:Btn Command="{Binding InputDataBatchCommand}" Style="{StaticResource Navigation_RadioButton}">
+
+                            <TextBlock
+                                Padding="40"
+                                Style="{StaticResource Navigation_ButtonText}"
+                                Text="&#8284;  Input Data Batch" />
+
+                        </Menu:Btn>
+
+                        <!--  Kelola Data Pegawai Button  -->
+                        <Menu:Btn Command="{Binding KelolaDataCommand}" Style="{StaticResource Navigation_RadioButton}">
+
+                            <TextBlock
+                                Padding="40"
+                                Style="{StaticResource Navigation_ButtonText}"
+                                Text="&#8284;  Kelola Data Pegawai" />
+
+                        </Menu:Btn>
+
+                    </StackPanel>
+
+                    <!--  Lihat Laporan Button  -->
+                    <Menu:Btn
+                        x:Name="btnLihatLaporan"
+                        Command="{Binding LihatLaporanCommand}"
+                        Style="{StaticResource Navigation_LihatLaporanButton}">
+
+                        <TextBlock Style="{StaticResource Navigation_ButtonText}" Text="&#128196;  Lihat Laporan" />
+
+                    </Menu:Btn>
+
+                    <!--  Unduh TPP Button  -->
+                    <Button
+                        x:Name="btnUnduhTpp"
+                        Click="BtnUnduhTpp_Click"
+                        Style="{StaticResource Navigation_UnduhTppButton}">
+
+                        <TextBlock
+                            Padding="0"
+                            Style="{StaticResource Navigation_ButtonText}"
+                            Text="&#128229;  Unduh TPP    &#10149;" />
+
+                    </Button>
+
+
+                    <!--  Unduh Tpp Dropdown  -->
+                    <StackPanel x:Name="menuUnduhTpp" Style="{StaticResource Navigation_Dropdown}">
+
+                        <!--  Format ARIP Button  -->
+                        <Menu:Btn Command="{Binding FormatAripCommand}" Style="{StaticResource Navigation_RadioButton}">
+
+                            <TextBlock
+                                Padding="40"
+                                Style="{StaticResource Navigation_ButtonText}"
+                                Text="&#8284;  Format ARIP" />
+
+                        </Menu:Btn>
+
+                        <!--  Format SIMGAJI  -->
+                        <Menu:Btn Command="{Binding FormatSimgajiCommand}" Style="{StaticResource Navigation_RadioButton}">
+
+                            <TextBlock
+                                Padding="40"
+                                Style="{StaticResource Navigation_ButtonText}"
+                                Text="&#8284;  Format SIMGAJI" />
+
+                        </Menu:Btn>
+
+                    </StackPanel>
+
+                    <!--  Bendahara Pengeluaran Button  -->
+                    <Menu:Btn
+                        x:Name="btnBendahara"
+                        Command="{Binding BendaharaCommand}"
+                        Style="{StaticResource Navigation_BendaharaButton}">
+
+                        <TextBlock Style="{StaticResource Navigation_ButtonText}" Text="&#128181;  Bendahara Pengeluaran" />
+
+                    </Menu:Btn>
+
+                    <!--  User Manager Button  -->
+                    <Menu:Btn
+                        x:Name="btnUserManager"
+                        Command="{Binding UserManagerCommand}"
+                        Style="{StaticResource Navigation_UserManagerButton}">
+
+                        <TextBlock Style="{StaticResource Navigation_ButtonText}" Text="&#127899;  User Manager" />
+
+                    </Menu:Btn>
+
+                    <!--  Logout Button  -->
+                    <Button Click="LogoutButton_Click" Style="{StaticResource Navigation_LogoutButton}">
+
+                        <TextBlock
+                            Padding="0"
+                            Style="{StaticResource Navigation_ButtonText}"
+                            Text="Logout &#x25E2;" />
+
+                    </Button>
+
+                </StackPanel>
+            </Viewbox>
+
+        </Grid>
+
+        <!--  Main Content  -->
+        <Grid Style="{StaticResource Content}">
+
+            <Border Style="{StaticResource DropShadowBorderStyle}" />
+            <ContentControl Content="{Binding Currentview}" />
+
+        </Grid>
+
+    </Grid>
+
+</Window>

@@ -1,0 +1,75 @@
+﻿<UserControl
+    x:Class="AppTpp.View.Home"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:AppTpp.MVVM.ViewModel"
+    Style="{StaticResource Page_Style}"
+    mc:Ignorable="d">
+
+    <UserControl.DataContext>
+        <vm:HomeVM />
+    </UserControl.DataContext>
+
+    <Viewbox VerticalAlignment="Top">
+
+        <Grid Margin="30,0" HorizontalAlignment="Stretch">
+            <Grid>
+
+                <Grid.RowDefinitions>
+
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+
+                </Grid.RowDefinitions>
+
+                <!--  Greeting  -->
+                <TextBlock
+                    Grid.Row="0"
+                    FontSize="40"
+                    FontWeight="Bold"
+                    Style="{StaticResource TextStyle}"
+                    Text="Selamat Datang," />
+
+                <!--  User Info  -->
+                <TextBlock
+                    Grid.Row="1"
+                    FontSize="50"
+                    FontWeight="Bold"
+                    Style="{StaticResource TextStyle}"
+                    Text="{Binding Name, StringFormat='{}{0} !'}" />
+
+                <!--  Information  -->
+                <TextBlock
+                    Grid.Row="2"
+                    Margin="0,40,0,0"
+                    FontSize="25"
+                    Style="{StaticResource TextStyle}"
+                    Text="Silahkan memilih menu pada sidebar disamping."
+                    TextWrapping="Wrap" />
+                <TextBlock
+                    Grid.Row="3"
+                    Margin="0,10,0,0"
+                    FontSize="20"
+                    Style="{StaticResource TextStyle}"
+                    Text="Jika mengalami kendala silahkan lakukan relogin akun anda. Jika masih mengalami kendala yang sama, silahkan menghubungi admin !"
+                    TextWrapping="Wrap" />
+
+                <!--  Greeting Image  -->
+                <Image
+                    Grid.Row="4"
+                    MaxWidth="500"
+                    Margin="0,50,0,-100"
+                    Source="/Images/welcome.png" />
+
+            </Grid>
+
+        </Grid>
+
+    </Viewbox>
+
+</UserControl>

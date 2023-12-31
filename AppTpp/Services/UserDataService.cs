@@ -1,5 +1,4 @@
-﻿using AppTpp.Model;
-using MySqlConnector;
+﻿using MySqlConnector;
 using System.Windows;
 using System;
 using System.Configuration;
@@ -7,6 +6,7 @@ using Microsoft.Win32;
 using System.IO;
 using System.Collections.Generic;
 using System.Diagnostics;
+using AppTpp.MVVM.Model;
 
 namespace AppTpp.Services
 {

@@ -1,0 +1,109 @@
+﻿<Window
+    x:Class="AppTpp.Login"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:AppTpp.MVVM.ViewModel"
+    Title="Login"
+    Width="400"
+    Height="500"
+    AllowsTransparency="True"
+    Background="Transparent"
+    Icon="/dashboard-logo.ico"
+    ResizeMode="NoResize"
+    SnapsToDevicePixels="True"
+    Style="{StaticResource windowLoad}"
+    UseLayoutRounding="True"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None"
+    mc:Ignorable="d">
+
+    <Window.DataContext>
+        <vm:LoginVM />
+    </Window.DataContext>
+
+    <Border Style="{StaticResource Login}">
+
+        <Border Style="{StaticResource Login_Border}">
+
+            <StackPanel Style="{StaticResource Login_Container}">
+
+                <Grid Height="500">
+                    <Grid.OpacityMask>
+                        <VisualBrush Visual="{Binding ElementName=SpinnerBorder}" />
+                    </Grid.OpacityMask>
+
+                    <Border x:Name="SpinnerBorder" Style="{StaticResource Login_ContainerBorder}" />
+
+                    <!--  Loading Spinner  -->
+                    <ContentControl
+                        Panel.ZIndex="1"
+                        ClipToBounds="True"
+                        Content="{Binding Spinner}"
+                        Visibility="{Binding Loading}" />
+
+                    <StackPanel VerticalAlignment="Center">
+
+                        <!--  Logo  -->
+                        <Image Style="{StaticResource Login_Logo}" />
+
+                        <!--  App Version  -->
+                        <TextBlock
+                            Foreground="Red"
+                            Style="{StaticResource Login_ExtraMessage}"
+                            Text="-- Experimental v2.0.0.0 --" />
+
+                        <!--  Username  -->
+                        <TextBlock Style="{StaticResource Login_Text}" Text="Username" />
+                        <TextBox Style="{StaticResource Login_UserBox}" Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" />
+
+                        <!--  Password  -->
+                        <TextBlock Style="{StaticResource Login_Text}" Text="Password" />
+                        <TextBox
+                            x:Name="PasswordBox"
+                            Style="{StaticResource Login_PasswordBox}"
+                            Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}" />
+
+                        <!--  Password CheckBox  -->
+                        <CheckBox
+                            x:Name="ShowPassword"
+                            Checked="ShowPassword_Checked"
+                            Content="Show Password"
+                            Style="{StaticResource Login_PasswordCheckBox}"
+                            Unchecked="ShowPassword_Unchecked" />
+
+                        <!--  Error Message  -->
+                        <TextBlock Style="{StaticResource Login_ErrorMessage}" Text="{Binding ErrorMessage}" />
+
+                        <StackPanel Style="{StaticResource Login_ButtonContainer}">
+
+                            <!--  Login Button  -->
+                            <Button
+                                Command="{Binding LoginCommand}"
+                                IsDefault="True"
+                                Style="{StaticResource Login_LoginButton}">
+                                <TextBlock Style="{StaticResource TextStyle}" Text="Login" />
+                            </Button>
+
+                            <!--  Keluar Button  -->
+                            <Button Click="Exit_Button_Click" Style="{StaticResource Login_KeluarButton}">
+                                <TextBlock Style="{StaticResource TextStyle}" Text="Keluar" />
+                            </Button>
+
+                        </StackPanel>
+
+                        <!--  Extra Message  -->
+                        <TextBlock Style="{StaticResource Login_ExtraMessage}" Text="Lupa Password ? Silahkan menghubungi Admin di 081XXXXXXXXX (WhatsApp)" />
+
+                    </StackPanel>
+
+                </Grid>
+
+            </StackPanel>
+
+        </Border>
+
+    </Border>
+
+</Window>
