@@ -36,19 +36,19 @@ namespace AppTpp.MVVM.ViewModel
         public object? SpinnerView
         {
             get { return _spinnerView; }
-            set { _spinnerView = value; OnPropertyChanged(); }
+            set { _spinnerView = value; OnPropertyChanged(nameof(SpinnerView)); }
         }
 
         public Visibility? SpinnerVisibility
         {
             get { return _spinnerVisibility; }
-            set { _spinnerVisibility = value; OnPropertyChanged(); }
+            set { _spinnerVisibility = value; OnPropertyChanged(nameof(SpinnerVisibility)); }
         }
 
         public Visibility? ContentVisibility
         {
             get { return _contentVisibility; }
-            set { _contentVisibility = value; OnPropertyChanged(); }
+            set { _contentVisibility = value; OnPropertyChanged(nameof(ContentVisibility)); }
         }
 
         public ICommand? AddDataCommand { get; set; }

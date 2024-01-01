@@ -11,13 +11,13 @@ namespace AppTpp.MVVM.ViewModel
         public object? Currentview
         {
             get { return _currentview; }
-            set { _currentview = value; OnPropertyChanged(); }
+            set { _currentview = value; OnPropertyChanged(nameof(Currentview)); }
         }
 
         public object? UserInfoView
         {
             get { return _userInfoView; }
-            set { _userInfoView = value; OnPropertyChanged(); }
+            set { _userInfoView = value; OnPropertyChanged(nameof(UserInfoView)); }
         }
 
         public ICommand HomeCommand { get; set; }

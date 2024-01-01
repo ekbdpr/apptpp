@@ -29,18 +29,6 @@ namespace AppTpp.Services
         public string? CurrentPrivilege { get; private set; }
         public byte[]? CurrentProfileImage { get; private set; }
 
-        public void SetCurrentUser(string? name, string? username, string? privilege)
-        {
-            CurrentName = name;
-            CurrentUsername = username;
-            CurrentPrivilege = privilege;
-        }
-
-        public void SetCurrentUserPhoto(byte[]? profileImage)
-        {
-            CurrentProfileImage = profileImage;
-        }
-
         private static MySqlConnection OpenConnection()
         {
             string connectionString = GetConnectionString();
@@ -67,14 +55,9 @@ namespace AppTpp.Services
 
                 while (reader.Read())
                 {
-                    UserModel? userModel = new()
-                    {
-                        Username = reader["Username"].ToString(),
-                        Name = reader["Nama"].ToString(),
-                        Privilege = reader["Privilege"].ToString(),
-                    };
-
-                    SetCurrentUser(userModel.Name, userModel.Username, userModel.Privilege);
+                    CurrentUsername = reader["Username"].ToString();
+                    CurrentName = reader["Nama"].ToString();
+                    CurrentPrivilege = reader["Privilege"].ToString();
                 }
 
                 return reader.HasRows;
@@ -102,12 +85,7 @@ namespace AppTpp.Services
 
                 while (reader.Read())
                 {
-                    UserModel? userModel = new()
-                    {
-                        ProfileImage = !string.IsNullOrEmpty(reader["Profile_image"].ToString()) ? (byte[])reader["Profile_image"] : null
-                    };
-
-                    SetCurrentUserPhoto(userModel.ProfileImage);
+                    CurrentProfileImage = !string.IsNullOrEmpty(reader["Profile_image"].ToString()) ? (byte[])reader["Profile_image"] : null
                 }
 
                 return reader.HasRows;
@@ -184,7 +162,7 @@ namespace AppTpp.Services
             }
         }
 
-        public static void InsertNewUser(string? nip, string? name, string? jabatan, string? username, string? password, string? privilege)
+        public static void InsertNewUser(long? nip, string? name, string? jabatan, string? username, string? password, string? privilege)
         {
             using var connection = OpenConnection();
 

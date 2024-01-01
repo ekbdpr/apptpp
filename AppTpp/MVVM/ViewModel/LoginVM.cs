@@ -1,4 +1,5 @@
-﻿using AppTpp.Services;
+﻿using AppTpp.MVVM.Model;
+using AppTpp.Services;
 using AppTpp.Utilities;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,40 +10,39 @@ namespace AppTpp.MVVM.ViewModel
 {
     class LoginVM : ViewModelBase
     {
-        private string? _username;
-        private string? _password;
+        private readonly UserModel _userModel = new();
         private string? _errorMessage;
         private object? _spinner;
         private Visibility? _loading;
 
         public string? Username
         {
-            get { return _username; }
-            set { _username = value; OnPropertyChanged(); }
+            get { return _userModel.Username; }
+            set { _userModel.Username = value; OnPropertyChanged(nameof(Username)); }
         }
 
         public string? Password
         {
-            get { return _password; }
-            set { _password = value; OnPropertyChanged(); }
+            get { return _userModel.Password; }
+            set { _userModel.Password = value; OnPropertyChanged(nameof(Password)); }
         }
 
         public string? ErrorMessage
         {
             get { return _errorMessage; }
-            set { _errorMessage = value; OnPropertyChanged(); }
+            set { _errorMessage = value; OnPropertyChanged(nameof(ErrorMessage)); }
         }
 
         public Visibility? Loading
         {
             get { return _loading; }
-            set { _loading = value; OnPropertyChanged(); }
+            set { _loading = value; OnPropertyChanged(nameof(Loading)); }
         }
 
         public object? Spinner
         {
             get { return _spinner; }
-            set { _spinner = value; OnPropertyChanged(); }
+            set { _spinner = value; OnPropertyChanged(nameof(Spinner)); }
         }
 
         public ICommand LoginCommand { get; }
