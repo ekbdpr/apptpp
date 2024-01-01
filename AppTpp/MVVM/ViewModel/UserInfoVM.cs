@@ -30,7 +30,7 @@ namespace AppTpp.MVVM.ViewModel
             set { _userModel.ProfileImage = value; OnPropertyChanged(nameof(ProfileImage)); }
         }
 
-        public ICommand ChangeProfileImageCommand { get; }
+        public RelayCommand ChangeProfileImageCommand { get; }
 
         public UserInfoVM()
         {

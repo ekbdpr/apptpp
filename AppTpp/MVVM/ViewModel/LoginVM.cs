@@ -11,9 +11,6 @@ namespace AppTpp.MVVM.ViewModel
     class LoginVM : ViewModelBase
     {
         private readonly UserModel _userModel = new();
-        private string? _errorMessage;
-        private object? _spinner;
-        private Visibility? _loading;
 
         public string? Username
         {
@@ -27,25 +24,28 @@ namespace AppTpp.MVVM.ViewModel
             set { _userModel.Password = value; OnPropertyChanged(nameof(Password)); }
         }
 
+        private string? _errorMessage;
         public string? ErrorMessage
         {
             get { return _errorMessage; }
             set { _errorMessage = value; OnPropertyChanged(nameof(ErrorMessage)); }
         }
 
+        private Visibility? _loading;
         public Visibility? Loading
         {
             get { return _loading; }
             set { _loading = value; OnPropertyChanged(nameof(Loading)); }
         }
 
+        private object? _spinner;
         public object? Spinner
         {
             get { return _spinner; }
             set { _spinner = value; OnPropertyChanged(nameof(Spinner)); }
         }
 
-        public ICommand LoginCommand { get; }
+        public RelayCommand LoginCommand { get; }
 
         public LoginVM()
         {
@@ -106,7 +106,6 @@ namespace AppTpp.MVVM.ViewModel
                 _isLoading = false;
             }
         }
-
 
         private bool IsValidUser() => UserDataService.Instance.GetUserLoginData(Username, Password) && UserDataService.Instance.GetUserPhoto(Username);
     }

@@ -82,7 +82,7 @@
                                 Width="340"
                                 FontFamily="Fonts/#Fira Sans"
                                 FontSize="16"
-                                Text="{Binding Nip, Mode=TwoWay}" />
+                                Text="{Binding Nip, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                         </StackPanel>
 
                         <!--  Nama  -->
@@ -96,7 +96,7 @@
                                 Width="340"
                                 FontFamily="Fonts/#Fira Sans"
                                 FontSize="16"
-                                Text="{Binding Nama, Mode=TwoWay}" />
+                                Text="{Binding Nama, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                         </StackPanel>
 
                         <!--  Jabatan  -->
@@ -110,7 +110,7 @@
                                 Width="340"
                                 FontFamily="Fonts/#Fira Sans"
                                 FontSize="16"
-                                Text="{Binding Jabatan, Mode=TwoWay}" />
+                                Text="{Binding Jabatan, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                         </StackPanel>
 
                         <!--  Username  -->
@@ -125,7 +125,7 @@
                                 Width="340"
                                 FontFamily="Fonts/#Fira Sans"
                                 FontSize="16"
-                                Text="{Binding Username, Mode=TwoWay}" />
+                                Text="{Binding Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                         </StackPanel>
 
                         <!--  Password  -->
@@ -140,7 +140,7 @@
                                 Width="340"
                                 FontFamily="Fonts/#Fira Sans"
                                 FontSize="16"
-                                Text="{Binding Password, Mode=TwoWay}" />
+                                Text="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                         </StackPanel>
 
                         <!--  Privilege  -->

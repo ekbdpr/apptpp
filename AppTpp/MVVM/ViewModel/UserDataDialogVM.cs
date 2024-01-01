@@ -3,7 +3,6 @@ using AppTpp.Services;
 using AppTpp.Core;
 using System;
 using System.Windows;
-using System.Windows.Input;
 
 namespace AppTpp.MVVM.ViewModel
 {
@@ -47,7 +46,9 @@ namespace AppTpp.MVVM.ViewModel
             set { _userModel.Privilege = value; OnPropertyChanged(nameof(Privilege)); }
         }
 
-        public ICommand SaveCommand { get; }
+        public RelayCommand SaveCommand { get; }
+
+        public static event Action? OnDataSaved;
 
         public UserDataDialogVM()
         {
@@ -65,8 +66,6 @@ namespace AppTpp.MVVM.ViewModel
                    !string.IsNullOrEmpty(Password) &&
                    !string.IsNullOrEmpty(Privilege);
         }
-
-        public static event Action? OnDataSaved;
 
         private void Save(object obj)
         {

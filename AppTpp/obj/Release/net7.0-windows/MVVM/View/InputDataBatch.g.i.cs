@@ -52,7 +52,7 @@ namespace AppTpp.View {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/AppTpp;component/mvvm/view/inputdatabatch.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/AppTpp;V1.0.0.0;component/mvvm/view/inputdatabatch.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\MVVM\View\InputDataBatch.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

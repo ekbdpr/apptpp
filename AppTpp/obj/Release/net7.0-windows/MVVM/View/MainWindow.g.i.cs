@@ -126,7 +126,7 @@ namespace AppTpp {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/AppTpp;component/mvvm/view/mainwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/AppTpp;V1.0.0.0;component/mvvm/view/mainwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\MVVM\View\MainWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

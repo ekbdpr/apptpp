@@ -7,14 +7,12 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Input;
 
 namespace AppTpp.MVVM.ViewModel
 {
     class UserManagerVM : ViewModelBase
     {
         private ObservableCollection<UserModel>? _users;
-
         public ObservableCollection<UserModel>? Users
         {
             get { return _users; }
@@ -26,28 +24,28 @@ namespace AppTpp.MVVM.ViewModel
         }
 
         private object? _spinnerView;
-        private Visibility? _spinnerVisibility;
-        private Visibility? _contentVisibility;
-
         public object? SpinnerView
         {
             get { return _spinnerView; }
             set { _spinnerView = value; OnPropertyChanged(nameof(SpinnerView)); }
         }
 
+        private Visibility? _spinnerVisibility;
         public Visibility? SpinnerVisibility
         {
             get { return _spinnerVisibility; }
             set { _spinnerVisibility = value; OnPropertyChanged(nameof(SpinnerVisibility)); }
         }
 
+        private Visibility? _contentVisibility;
         public Visibility? ContentVisibility
         {
             get { return _contentVisibility; }
             set { _contentVisibility = value; OnPropertyChanged(nameof(ContentVisibility)); }
         }
 
-        public ICommand? AddDataCommand { get; set; }
+        public RelayCommand? AddDataCommand { get; set; }
+        public RelayCommand? EditDataCommand { get; set; }
 
         public UserManagerVM()
         {
@@ -56,8 +54,10 @@ namespace AppTpp.MVVM.ViewModel
                 SpinnerView = new SpinnerMainWindowVM();
 
                 InitializeUserLogin();
-                AddDataCommand = new RelayCommand(AddData);
-                UserDataDialogVM.OnDataSaved += RefreshUsers;
+                AddDataCommand = new RelayCommand(OpenDataDialog);
+                EditDataCommand = new RelayCommand(OpenDataDialog);
+
+                UserDataDialogVM.OnDataSaved += InitializeUserLogin;
             }
         }
         private static bool IsInDesignMode
@@ -87,11 +87,11 @@ namespace AppTpp.MVVM.ViewModel
             }
         }
 
-        public static void AddData(object obj)
+        public static void OpenDataDialog(object obj)
         {
             try
             {
-                UserDataDialog userDataDialog = new UserDataDialog();
+                UserDataDialog userDataDialog = new();
 
                 if (Application.Current.MainWindow != null && Application.Current.MainWindow.IsLoaded)
                 {
@@ -104,11 +104,6 @@ namespace AppTpp.MVVM.ViewModel
             {
                 MessageBox.Show(ex.ToString());
             }
-        }
-
-        private void RefreshUsers()
-        {
-            Users = new ObservableCollection<UserModel>(UserDataService.GetAllUsers()!);
         }
     }
 }
