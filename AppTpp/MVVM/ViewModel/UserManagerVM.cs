@@ -1,17 +1,13 @@
 ﻿using AppTpp.MVVM.Model;
 using AppTpp.Services;
-using AppTpp.Utilities;
+using AppTpp.Core;
 using AppTpp.View;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
-using System.Windows.Media;
 
 namespace AppTpp.MVVM.ViewModel
 {

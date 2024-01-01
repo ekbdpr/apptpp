@@ -1,4 +1,4 @@
-﻿using AppTpp.Utilities;
+﻿using AppTpp.Core;
 using System.Windows.Input;
 
 namespace AppTpp.MVVM.ViewModel

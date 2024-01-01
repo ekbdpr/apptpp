@@ -5,7 +5,6 @@ using System.Configuration;
 using Microsoft.Win32;
 using System.IO;
 using System.Collections.Generic;
-using System.Diagnostics;
 using AppTpp.MVVM.Model;
 
 namespace AppTpp.Services
@@ -85,7 +84,7 @@ namespace AppTpp.Services
 
                 while (reader.Read())
                 {
-                    CurrentProfileImage = !string.IsNullOrEmpty(reader["Profile_image"].ToString()) ? (byte[])reader["Profile_image"] : null
+                    CurrentProfileImage = !string.IsNullOrEmpty(reader["Profile_image"].ToString()) ? (byte[])reader["Profile_image"] : null;
                 }
 
                 return reader.HasRows;

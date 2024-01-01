@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 
-namespace AppTpp.Utilities
+namespace AppTpp.Core
 {
     class Btn : RadioButton
     {

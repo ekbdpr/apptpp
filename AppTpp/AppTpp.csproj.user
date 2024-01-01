@@ -173,7 +173,7 @@
     <Page Update="Styles\Text.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Utilities\DataTemplate.xaml">
+    <Page Update="Core\DataTemplate.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MVVM\View\BendaharaPengeluaran.xaml">

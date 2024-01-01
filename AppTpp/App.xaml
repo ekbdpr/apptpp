@@ -19,7 +19,7 @@
                 <ResourceDictionary Source="/Styles/DataGrid.xaml" />
                 <ResourceDictionary Source="/Styles/ComboBoxCustom.xaml" />
                 <ResourceDictionary Source="/Styles/CheckBoxCustom.xaml" />
-                <ResourceDictionary Source="/Utilities/DataTemplate.xaml" />
+                <ResourceDictionary Source="/Core/DataTemplate.xaml" />
 
                 <!--  Window Load Animation  -->
                 <ResourceDictionary Source="/Styles/Window/Window.xaml" />

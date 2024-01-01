@@ -1,6 +1,6 @@
 ﻿using AppTpp.MVVM.Model;
 using AppTpp.Services;
-using AppTpp.Utilities;
+using AppTpp.Core;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;

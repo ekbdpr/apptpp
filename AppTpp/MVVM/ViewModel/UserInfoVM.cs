@@ -1,12 +1,9 @@
 ﻿using AppTpp.MVVM.Model;
 using AppTpp.Services;
-using AppTpp.Utilities;
+using AppTpp.Core;
 using Microsoft.Win32;
-using System;
-using System.Diagnostics;
 using System.IO;
 using System.Reflection;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace AppTpp.MVVM.ViewModel

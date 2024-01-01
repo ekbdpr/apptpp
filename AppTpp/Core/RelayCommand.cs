@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace AppTpp.Utilities
+namespace AppTpp.Core
 {
     class RelayCommand : ICommand
     {

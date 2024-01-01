@@ -53,7 +53,6 @@ D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Release\net7.0-windo
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Release\net7.0-windows\GeneratedInternalTypeHelper.g.cs
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Release\net7.0-windows\AppTpp_MarkupCompile.cache
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Release\net7.0-windows\AppTpp_MarkupCompile.lref
-D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Release\net7.0-windows\Utilities\DataTemplate.baml
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Release\net7.0-windows\AppTpp.g.resources
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Release\net7.0-windows\AppTpp.GeneratedMSBuildEditorConfig.editorconfig
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Release\net7.0-windows\AppTpp.AssemblyInfoInputs.cache
@@ -94,3 +93,4 @@ D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Release\net7.0-windo
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Release\net7.0-windows\MVVM\View\UserDataDialog.baml
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Release\net7.0-windows\MVVM\View\UserInfo.baml
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Release\net7.0-windows\MVVM\View\UserManager.baml
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Release\net7.0-windows\Core\DataTemplate.baml

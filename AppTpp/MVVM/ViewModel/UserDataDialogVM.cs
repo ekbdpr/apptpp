@@ -1,6 +1,6 @@
 ﻿using AppTpp.MVVM.Model;
 using AppTpp.Services;
-using AppTpp.Utilities;
+using AppTpp.Core;
 using System;
 using System.Windows;
 using System.Windows.Input;
