@@ -48,8 +48,6 @@ namespace AppTpp.MVVM.ViewModel
 
         public RelayCommand SaveCommand { get; }
 
-        public static event Action? OnDataSaved;
-
         public UserDataDialogVM()
         {
             SaveCommand = new RelayCommand(Save, CanSave);
@@ -72,7 +70,7 @@ namespace AppTpp.MVVM.ViewModel
             try
             {
                 UserDataService.InsertNewUser(Nip, Nama, Jabatan, Username, Password, Privilege);
-                OnDataSaved?.Invoke();
+                DataDialogService.Instance.InvokeDataSaved();
             }
             catch (Exception ex)
             {

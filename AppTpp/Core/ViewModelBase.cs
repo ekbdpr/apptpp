@@ -12,5 +12,7 @@ namespace AppTpp.Core
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
         }
+
+        public virtual void Dispose() { }
     }
 }

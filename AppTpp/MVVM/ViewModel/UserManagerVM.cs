@@ -53,13 +53,14 @@ namespace AppTpp.MVVM.ViewModel
             {
                 SpinnerView = new SpinnerMainWindowVM();
 
-                InitializeUserLogin();
+                InitializeUsersList();
                 AddDataCommand = new RelayCommand(OpenDataDialog);
                 EditDataCommand = new RelayCommand(OpenDataDialog);
 
-                UserDataDialogVM.OnDataSaved += InitializeUserLogin;
+                DataDialogService.Instance.OnDataSaved += InitializeUsersList;
             }
         }
+
         private static bool IsInDesignMode
         {
             get
@@ -71,7 +72,7 @@ namespace AppTpp.MVVM.ViewModel
             }
         }
 
-        private async void InitializeUserLogin()
+        private async void InitializeUsersList()
         {
             try
             {
@@ -104,6 +105,12 @@ namespace AppTpp.MVVM.ViewModel
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        public override void Dispose()
+        {
+            DataDialogService.Instance.OnDataSaved -= InitializeUsersList;
+            base.Dispose();
         }
     }
 }

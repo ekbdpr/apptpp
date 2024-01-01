@@ -11,15 +11,14 @@ namespace AppTpp.Services
 {
     internal class UserDataService
     {
-        private static UserDataService? instance;
-
+        private static UserDataService? _instance;
         public static UserDataService Instance
         {
             get
             {
-                instance ??= new UserDataService();
+                _instance ??= new UserDataService();
 
-                return instance;
+                return _instance;
             }
         }
 
