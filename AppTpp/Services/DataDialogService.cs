@@ -19,6 +19,17 @@ namespace AppTpp.Services
             }
         }
 
+        public long? CurrentNip { get; set; }
+
+        public string? CurrentName { get; set; }
+
+        public string? CurrentJabatan { get; set; }
+
+        public string? CurrentUsername { get; set; }
+
+        public string? CurrentPrivilege { get; set; }
+
+
         private event Action? _onDataSaved;
         public event Action? OnDataSaved
         {

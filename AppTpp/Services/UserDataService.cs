@@ -119,7 +119,6 @@ namespace AppTpp.Services
                 catch (Exception ex)
                 {
                     MessageBox.Show($"An error occurred: {ex.Message}");
-                    Console.WriteLine($"An error occurred: {ex.Message}");
                 }
             }
         }
@@ -182,6 +181,31 @@ namespace AppTpp.Services
             catch (Exception ex)
             {
                 Console.WriteLine($"An error occurred: {ex.Message}");
+            }
+        }
+
+        public static void UpdateUser(long? nip, string? nama, string? jabatan, string? username, string? password, string? privilege)
+        {
+            using var connection = OpenConnection();
+
+            try
+            {
+                string query = "UPDATE daftar_user SET Nama = @Nama, Jabatan = @Jabatan, Username = @Username, Password = @Password, Privilege = @Privilege " +
+                               "WHERE Nip = @Nip;";
+
+                using var command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@Nama", nama);
+                command.Parameters.AddWithValue("@Jabatan", jabatan);
+                command.Parameters.AddWithValue("@Username", username);
+                command.Parameters.AddWithValue("@Password", password);
+                command.Parameters.AddWithValue("@Privilege", privilege);
+                command.Parameters.AddWithValue("@Nip", nip);
+
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}");
             }
         }
 

@@ -9,47 +9,53 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="MVVM\View\Components\EditDataDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="MVVM\View\Login.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="MVVM\View\BendaharaPengeluaran.xaml.cs">
+    <Compile Update="MVVM\View\Components\BendaharaPengeluaran.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="MVVM\View\FormatArip.xaml.cs">
+    <Compile Update="MVVM\View\Components\FormatArip.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="MVVM\View\FormatSimgaji.xaml.cs">
+    <Compile Update="MVVM\View\Components\FormatSimgaji.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="MVVM\View\Home.xaml.cs">
+    <Compile Update="MVVM\View\Components\Home.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="MVVM\View\InputDataBatch.xaml.cs">
+    <Compile Update="MVVM\View\Components\InputDataBatch.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="MVVM\View\KelolaData.xaml.cs">
+    <Compile Update="MVVM\View\Components\KelolaData.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="MVVM\View\LihatLaporan.xaml.cs">
+    <Compile Update="MVVM\View\Components\LihatLaporan.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="MVVM\View\Spinner.xaml.cs">
+    <Compile Update="MVVM\View\Components\Spinner.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="MVVM\View\SpinnerMainWindow.xaml.cs">
+    <Compile Update="MVVM\View\Components\SpinnerMainWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="MVVM\View\UserDataDialog.xaml.cs">
+    <Compile Update="MVVM\View\Components\AddDataDialog.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="MVVM\View\UserInfo.xaml.cs">
+    <Compile Update="MVVM\View\Components\UserInfo.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="MVVM\View\UserManager.xaml.cs">
+    <Compile Update="MVVM\View\Components\UserManager.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="MVVM\View\Components\EditDataDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Styles\CheckBoxCustom.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -176,40 +182,40 @@
     <Page Update="Core\DataTemplate.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="MVVM\View\BendaharaPengeluaran.xaml">
+    <Page Update="MVVM\View\Components\BendaharaPengeluaran.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="MVVM\View\FormatArip.xaml">
+    <Page Update="MVVM\View\Components\FormatArip.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="MVVM\View\FormatSimgaji.xaml">
+    <Page Update="MVVM\View\Components\FormatSimgaji.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="MVVM\View\Home.xaml">
+    <Page Update="MVVM\View\Components\Home.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="MVVM\View\InputDataBatch.xaml">
+    <Page Update="MVVM\View\Components\InputDataBatch.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="MVVM\View\KelolaData.xaml">
+    <Page Update="MVVM\View\Components\KelolaData.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="MVVM\View\LihatLaporan.xaml">
+    <Page Update="MVVM\View\Components\LihatLaporan.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="MVVM\View\Spinner.xaml">
+    <Page Update="MVVM\View\Components\Spinner.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="MVVM\View\SpinnerMainWindow.xaml">
+    <Page Update="MVVM\View\Components\SpinnerMainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="MVVM\View\UserDataDialog.xaml">
+    <Page Update="MVVM\View\Components\AddDataDialog.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="MVVM\View\UserInfo.xaml">
+    <Page Update="MVVM\View\Components\UserInfo.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="MVVM\View\UserManager.xaml">
+    <Page Update="MVVM\View\Components\UserManager.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

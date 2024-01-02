@@ -1,9 +1,10 @@
-﻿using System;
+﻿using AppTpp.MVVM.View;
+using System;
 using System.Diagnostics;
 using System.Windows;
 using System.Windows.Media.Animation;
 
-namespace AppTpp
+namespace AppTpp.MVVM.View
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

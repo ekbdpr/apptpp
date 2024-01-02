@@ -1,12 +1,12 @@
 ﻿using AppTpp.MVVM.Model;
 using AppTpp.Services;
 using AppTpp.Core;
-using AppTpp.View;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Windows;
+using AppTpp.MVVM.View.Components;
 
 namespace AppTpp.MVVM.ViewModel
 {
@@ -44,6 +44,26 @@ namespace AppTpp.MVVM.ViewModel
             set { _contentVisibility = value; OnPropertyChanged(nameof(ContentVisibility)); }
         }
 
+        private UserModel? _selectedUser;
+        public UserModel? SelectedUser
+        {
+            get { return _selectedUser; }
+            set
+            {
+                _selectedUser = value;
+                OnPropertyChanged(nameof(SelectedUser));
+
+                if (_selectedUser != null)
+                {
+                    DataDialogService.Instance.CurrentNip = _selectedUser.Nip;
+                    DataDialogService.Instance.CurrentName = _selectedUser.Name;
+                    DataDialogService.Instance.CurrentJabatan = _selectedUser.Jabatan;
+                    DataDialogService.Instance.CurrentUsername = _selectedUser.Username;
+                    DataDialogService.Instance.CurrentPrivilege = _selectedUser.Privilege;
+                }
+            }
+        }
+
         public RelayCommand? AddDataCommand { get; set; }
         public RelayCommand? EditDataCommand { get; set; }
 
@@ -54,8 +74,8 @@ namespace AppTpp.MVVM.ViewModel
                 SpinnerView = new SpinnerMainWindowVM();
 
                 InitializeUsersList();
-                AddDataCommand = new RelayCommand(OpenDataDialog);
-                EditDataCommand = new RelayCommand(OpenDataDialog);
+                AddDataCommand = new RelayCommand(OpenAddDataDialog);
+                EditDataCommand = new RelayCommand(OpenEditDataDialog);
 
                 DataDialogService.Instance.OnDataSaved += InitializeUsersList;
             }
@@ -88,18 +108,37 @@ namespace AppTpp.MVVM.ViewModel
             }
         }
 
-        public static void OpenDataDialog(object obj)
+        public static void OpenAddDataDialog(object obj)
         {
             try
             {
-                UserDataDialog userDataDialog = new();
+                AddDataDialog addDataDialog = new();
 
                 if (Application.Current.MainWindow != null && Application.Current.MainWindow.IsLoaded)
                 {
-                    userDataDialog.Owner = Application.Current.MainWindow;
+                    addDataDialog.Owner = Application.Current.MainWindow;
                 }
 
-                userDataDialog.ShowDialog();
+                addDataDialog.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        public static void OpenEditDataDialog(object obj)
+        {
+            try
+            {
+                EditDataDialog editDataDialog = new();
+
+                if (Application.Current.MainWindow != null && Application.Current.MainWindow.IsLoaded)
+                {
+                    editDataDialog.Owner = Application.Current.MainWindow;
+                }
+
+                editDataDialog.ShowDialog();
             }
             catch (Exception ex)
             {

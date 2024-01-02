@@ -4,7 +4,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 
 
-namespace AppTpp
+namespace AppTpp.MVVM.View
 {
     /// <summary>
     /// Interaction logic for Login.xaml
