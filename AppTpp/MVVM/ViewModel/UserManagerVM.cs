@@ -64,8 +64,9 @@ namespace AppTpp.MVVM.ViewModel
             }
         }
 
-        public RelayCommand? AddDataCommand { get; set; }
-        public RelayCommand? EditDataCommand { get; set; }
+        public RelayCommand? AddUserCommand { get; set; }
+        public RelayCommand? EditUserCommand { get; set; }
+        public RelayCommand? DeleteUserCommand { get; set; }
 
         public UserManagerVM()
         {
@@ -74,8 +75,9 @@ namespace AppTpp.MVVM.ViewModel
                 SpinnerView = new SpinnerMainWindowVM();
 
                 InitializeUsersList();
-                AddDataCommand = new RelayCommand(OpenAddDataDialog);
-                EditDataCommand = new RelayCommand(OpenEditDataDialog);
+                AddUserCommand = new RelayCommand(OpenAddUserDialog);
+                EditUserCommand = new RelayCommand(OpenEditUserDialog);
+                DeleteUserCommand = new RelayCommand(DeleteUser);
 
                 DataDialogService.Instance.OnDataSaved += InitializeUsersList;
             }
@@ -108,18 +110,18 @@ namespace AppTpp.MVVM.ViewModel
             }
         }
 
-        public static void OpenAddDataDialog(object obj)
+        private static void OpenAddUserDialog(object obj)
         {
             try
             {
-                AddDataDialog addDataDialog = new();
+                AddUserDialog addUserDialog = new();
 
                 if (Application.Current.MainWindow != null && Application.Current.MainWindow.IsLoaded)
                 {
-                    addDataDialog.Owner = Application.Current.MainWindow;
+                    addUserDialog.Owner = Application.Current.MainWindow;
                 }
 
-                addDataDialog.ShowDialog();
+                addUserDialog.ShowDialog();
             }
             catch (Exception ex)
             {
@@ -127,18 +129,31 @@ namespace AppTpp.MVVM.ViewModel
             }
         }
 
-        public static void OpenEditDataDialog(object obj)
+        private static void OpenEditUserDialog(object obj)
         {
             try
             {
-                EditDataDialog editDataDialog = new();
+                EditUserDialog editUserDialog = new();
 
                 if (Application.Current.MainWindow != null && Application.Current.MainWindow.IsLoaded)
                 {
-                    editDataDialog.Owner = Application.Current.MainWindow;
+                    editUserDialog.Owner = Application.Current.MainWindow;
                 }
 
-                editDataDialog.ShowDialog();
+                editUserDialog.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private async void DeleteUser(object obj)
+        {
+            try
+            {
+                await Task.Run(() => UserDataService.DeleteUser(DataDialogService.Instance.CurrentUsername));
+                DataDialogService.Instance.InvokeDataSaved();
             }
             catch (Exception ex)
             {

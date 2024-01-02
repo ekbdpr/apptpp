@@ -9,7 +9,7 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="MVVM\View\Components\EditDataDialog.xaml.cs">
+    <Compile Update="MVVM\View\Components\EditUserDialog.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="MVVM\View\Login.xaml.cs">
@@ -42,7 +42,7 @@
     <Compile Update="MVVM\View\Components\SpinnerMainWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="MVVM\View\Components\AddDataDialog.xaml.cs">
+    <Compile Update="MVVM\View\Components\AddUserDialog.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="MVVM\View\Components\UserInfo.xaml.cs">
@@ -53,7 +53,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="MVVM\View\Components\EditDataDialog.xaml">
+    <Page Update="MVVM\View\Components\EditUserDialog.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Styles\CheckBoxCustom.xaml">
@@ -209,7 +209,7 @@
     <Page Update="MVVM\View\Components\SpinnerMainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="MVVM\View\Components\AddDataDialog.xaml">
+    <Page Update="MVVM\View\Components\AddUserDialog.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MVVM\View\Components\UserInfo.xaml">

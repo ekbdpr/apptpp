@@ -22,6 +22,7 @@ namespace AppTpp.Services
             }
         }
 
+        public long? CurrentNip { get; set; }
         public string? CurrentName { get; private set; }
         public string? CurrentUsername { get; private set; }
         public string? CurrentPrivilege { get; private set; }
@@ -53,6 +54,7 @@ namespace AppTpp.Services
 
                 while (reader.Read())
                 {
+                    CurrentNip = Convert.ToInt64(reader["Nip"]);
                     CurrentUsername = reader["Username"].ToString();
                     CurrentName = reader["Nama"].ToString();
                     CurrentPrivilege = reader["Privilege"].ToString();
@@ -106,11 +108,11 @@ namespace AppTpp.Services
                     string filePath = openFileDialog.FileName;
                     byte[] fileBytes = File.ReadAllBytes(filePath);
 
-                    string query = "UPDATE user_photo SET Profile_image = @FileData WHERE Username = @Username;";
+                    string query = "UPDATE user_photo SET Profile_Image = @FileData WHERE Nip = @Nip;";
 
                     using var command = new MySqlCommand(query, connection);
                     command.Parameters.AddWithValue("@FileData", fileBytes);
-                    command.Parameters.AddWithValue("@Username", CurrentUsername);
+                    command.Parameters.AddWithValue("@Nip", CurrentNip);
 
                     command.ExecuteNonQuery();
 
@@ -168,6 +170,8 @@ namespace AppTpp.Services
                 string query = "INSERT INTO daftar_user (Nip, Nama, Jabatan, Username, Password, Privilege) " +
                                "VALUES (@Nip, @Nama, @Jabatan, @Username, @Password, @Privilege)";
 
+                string secondQuery = "INSERT INTO user_photo (Nip, Username) VALUES (@Nip, @Username)";
+
                 using MySqlCommand command = new(query, connection);
                 command.Parameters.AddWithValue("@Nip", nip);
                 command.Parameters.AddWithValue("@Nama", name);
@@ -176,7 +180,12 @@ namespace AppTpp.Services
                 command.Parameters.AddWithValue("@Password", password);
                 command.Parameters.AddWithValue("@Privilege", privilege);
 
+                using MySqlCommand secondCommand = new(secondQuery, connection);
+                secondCommand.Parameters.AddWithValue("@Nip", nip);
+                secondCommand.Parameters.AddWithValue("@Username", username);
+
                 command.ExecuteNonQuery();
+                secondCommand.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
@@ -193,6 +202,8 @@ namespace AppTpp.Services
                 string query = "UPDATE daftar_user SET Nama = @Nama, Jabatan = @Jabatan, Username = @Username, Password = @Password, Privilege = @Privilege " +
                                "WHERE Nip = @Nip;";
 
+                string secondQuery = "UPDATE user_photo SET Username = @Username WHERE Nip = @Nip";
+
                 using var command = new MySqlCommand(query, connection);
                 command.Parameters.AddWithValue("@Nama", nama);
                 command.Parameters.AddWithValue("@Jabatan", jabatan);
@@ -201,9 +212,39 @@ namespace AppTpp.Services
                 command.Parameters.AddWithValue("@Privilege", privilege);
                 command.Parameters.AddWithValue("@Nip", nip);
 
+                using var secondCommand = new MySqlCommand(secondQuery, connection);
+                secondCommand.Parameters.AddWithValue("@Username", username);
+                secondCommand.Parameters.AddWithValue("@Nip", nip);
+
+                secondCommand.ExecuteNonQuery();
                 command.ExecuteNonQuery();
             }
             catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}");
+            }
+        }
+
+        public static void DeleteUser(string? username)
+        {
+            using var connection = OpenConnection();
+
+            try
+            {
+                string query = "DELETE FROM daftar_user WHERE Username = @Username";
+
+                string secondQuery = "DELETE FROM user_photo WHERE Username = @Username";
+
+                using var command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@Username", username);
+
+                using var secondCommand = new MySqlCommand(secondQuery, connection);
+                secondCommand.Parameters.AddWithValue("@Username", username);
+
+                secondCommand.ExecuteNonQuery();
+                command.ExecuteNonQuery();
+            }
+            catch ( Exception ex )
             {
                 MessageBox.Show($"An error occurred: {ex.Message}");
             }
