@@ -131,7 +131,7 @@ namespace AppTpp.Services
 
             try
             {
-                string query = "SELECT * FROM daftar_user";
+                string query = "SELECT * FROM daftar_user WHERE Privilege != 'Super User' ORDER BY Privilege ASC";
 
                 using MySqlCommand command = new(query, connection);
 
