@@ -150,9 +150,34 @@ namespace AppTpp.MVVM.ViewModel
 
         private async void DeleteUser(object obj)
         {
+            DataDialogService.Instance.ConfirmationDialogMessage = $"Apakah anda ingin menghapus {_selectedUser?.Nip} {_selectedUser?.Username} dari sistem ?";
+
             try
             {
-                await Task.Run(() => UserDataService.DeleteUser(DataDialogService.Instance.CurrentUsername));
+                ConfirmationDialog confirmationDialog = new ConfirmationDialog();
+
+                if (Application.Current.MainWindow != null && Application.Current.MainWindow.IsLoaded)
+                {
+                    confirmationDialog.Owner = Application.Current.MainWindow;
+                }
+
+                confirmationDialog.ShowDialog();   
+
+                await Task.Run(async () =>
+                {
+                    await Application.Current.Dispatcher.InvokeAsync(() =>
+                    {
+                        if (DataDialogService.Instance.ConfirmationDialogState == false)
+                        {
+                            return;
+                        }
+                        else
+                        {
+                            UserDataService.DeleteUser(DataDialogService.Instance.CurrentUsername);
+                        }
+                    });
+                });
+
                 DataDialogService.Instance.InvokeDataSaved();
             }
             catch (Exception ex)

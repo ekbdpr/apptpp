@@ -29,6 +29,10 @@ namespace AppTpp.Services
 
         public string? CurrentPrivilege { get; set; }
 
+        public bool ConfirmationDialogState { get; set; }
+        
+        public string? ConfirmationDialogMessage { get; set; }
+
 
         private event Action? _onDataSaved;
         public event Action? OnDataSaved

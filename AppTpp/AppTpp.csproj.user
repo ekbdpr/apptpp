@@ -9,6 +9,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="MVVM\View\Components\ConfirmationDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="MVVM\View\Components\EditUserDialog.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -53,6 +56,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="MVVM\View\Components\ConfirmationDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MVVM\View\Components\EditUserDialog.xaml">
       <SubType>Designer</SubType>
     </Page>

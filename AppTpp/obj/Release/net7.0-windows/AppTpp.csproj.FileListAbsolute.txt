@@ -96,3 +96,5 @@ D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Release\net7.0-windo
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Release\net7.0-windows\MVVM\View\Components\AddUserDialog.baml
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Release\net7.0-windows\MVVM\View\Components\EditUserDialog.g.cs
 D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Release\net7.0-windows\MVVM\View\Components\EditUserDialog.baml
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Release\net7.0-windows\MVVM\View\Components\ConfirmationDialog.g.cs
+D:\UNITAMA\Semester 3\Pemrograman 2\Tugas\AppTpp\AppTpp\obj\Release\net7.0-windows\MVVM\View\Components\ConfirmationDialog.baml

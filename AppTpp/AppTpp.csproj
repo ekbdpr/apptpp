@@ -23,6 +23,7 @@
     <None Remove="Images\login-logo.png" />
     <None Remove="Images\user-icon.png" />
     <None Remove="Images\welcome.png" />
+    <None Remove="MVVM\ViewModel\ConfirmationDialogVM.cs~RFbcd9c3.TMP" />
   </ItemGroup>
 
   <ItemGroup>
