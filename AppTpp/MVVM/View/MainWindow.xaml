@@ -206,7 +206,7 @@
                     </Menu:Btn>
 
                     <!--  Logout Button  -->
-                    <Button Click="LogoutButton_Click" Style="{StaticResource Navigation_LogoutButton}">
+                    <Button Command="{Binding LogoutCommand}" Style="{StaticResource Navigation_LogoutButton}">
 
                         <TextBlock
                             Padding="0"

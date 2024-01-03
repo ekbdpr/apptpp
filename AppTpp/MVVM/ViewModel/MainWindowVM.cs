@@ -1,4 +1,10 @@
 ﻿using AppTpp.Core;
+using AppTpp.MVVM.View;
+using AppTpp.MVVM.View.Components;
+using AppTpp.Services;
+using System;
+using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace AppTpp.MVVM.ViewModel
@@ -27,6 +33,7 @@ namespace AppTpp.MVVM.ViewModel
         public RelayCommand FormatSimgajiCommand { get; set; }
         public RelayCommand BendaharaCommand { get; set; }
         public RelayCommand UserManagerCommand { get; set; }
+        public RelayCommand LogoutCommand { get; set; }
 
         private void Home(object obj) => Currentview = new HomeVM();
         private void InputDataBatch(object obj) => Currentview = new InputDataBatchVM();
@@ -48,9 +55,57 @@ namespace AppTpp.MVVM.ViewModel
             FormatSimgajiCommand = new RelayCommand(FormatSimgaji);
             BendaharaCommand = new RelayCommand(Bendahara);
             UserManagerCommand = new RelayCommand(UserManager);
+            LogoutCommand = new RelayCommand(Logout);
 
             Currentview = new HomeVM();
             UserInfoView = new UserInfoVM();
+        }
+
+        private async void Logout(object obj)
+        {
+            DataDialogService.Instance.ConfirmationDialogMessage = "Apakah anda yakin ingin logout ?";
+
+            try
+            {
+                ConfirmationDialog confirmationDialog = new ConfirmationDialog();
+
+                if (Application.Current.MainWindow != null && Application.Current.MainWindow.IsLoaded)
+                {
+                    confirmationDialog.Owner = Application.Current.MainWindow;
+                }
+
+                confirmationDialog.ShowDialog();
+
+                await Task.Run(async () =>
+                {
+                    await Application.Current.Dispatcher.InvokeAsync(() =>
+                    {
+                        if (DataDialogService.Instance.ConfirmationDialogState == false)
+                        {
+                            return;
+                        }
+                        else
+                        {
+                            Login login = new();
+                            login.Show();
+
+                            foreach (Window window in Application.Current.Windows)
+                            {
+                                if (window.DataContext == this) window.Close();
+                            }
+                        }
+                    });
+                });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
+
+
+
+
         }
     }
 }

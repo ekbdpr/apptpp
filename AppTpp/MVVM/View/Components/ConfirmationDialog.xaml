@@ -64,7 +64,7 @@
     </Window.Resources>
 
     <Border
-        MaxWidth="500"
+        MaxWidth="350"
         VerticalAlignment="Center"
         BorderBrush="#CCCCCC"
         BorderThickness="0">
@@ -87,12 +87,12 @@
                 BorderThickness="0"
                 CornerRadius="10">
 
-                <StackPanel Margin="30">
+                <StackPanel Margin="20">
 
                     <TextBlock
                         HorizontalAlignment="Center"
                         VerticalAlignment="Top"
-                        FontSize="30"
+                        FontSize="20"
                         LineHeight="30"
                         Style="{StaticResource TextStyle}"
                         Text="{Binding Message}"
@@ -100,13 +100,13 @@
                         TextWrapping="Wrap" />
 
                     <StackPanel
-                        Margin="0,50,0,0"
+                        Margin="0,30,0,0"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Bottom"
                         Orientation="Horizontal">
 
                         <Button
-                            Margin="0,0,100,0"
+                            Margin="0,0,50,0"
                             Background="#379237"
                             Click="Button_Click"
                             Command="{Binding YesButtonCommand}">
@@ -120,7 +120,7 @@
                         </Button>
 
                         <Button
-                            Background="#FF0000"
+                            Background="#CD1818"
                             Click="Button_Click"
                             Command="{Binding NoButtonCommand}">
 

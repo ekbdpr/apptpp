@@ -244,13 +244,5 @@ namespace AppTpp.MVVM.View
         {
             WindowState = WindowState.Minimized;
         }
-
-        private void LogoutButton_Click(object sender, RoutedEventArgs e)
-        {
-            Login login = new();
-            login.Show();
-
-            this.Close();
-        }
     }
 }

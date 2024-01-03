@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using AppTpp.MVVM.View;
+using System;
 
 namespace AppTpp.MVVM.ViewModel
 {
@@ -97,8 +98,9 @@ namespace AppTpp.MVVM.ViewModel
                     }
                 });
             }
-            catch
+            catch (Exception ex)
             {
+                MessageBox.Show(ex.Message.ToString());
                 ErrorMessage = "* Gagal Menghubungkan ke Server. Periksa Koneksi Internet Anda";
             }
             finally

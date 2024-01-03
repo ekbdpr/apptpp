@@ -150,7 +150,7 @@ namespace AppTpp.MVVM.ViewModel
 
         private async void DeleteUser(object obj)
         {
-            DataDialogService.Instance.ConfirmationDialogMessage = $"Apakah anda ingin menghapus {_selectedUser?.Nip} {_selectedUser?.Username} dari sistem ?";
+            DataDialogService.Instance.ConfirmationDialogMessage = $"Apakah anda ingin menghapus ({_selectedUser?.Nip} - {_selectedUser?.Username}) dari sistem ?";
 
             try
             {
@@ -174,11 +174,10 @@ namespace AppTpp.MVVM.ViewModel
                         else
                         {
                             UserDataService.DeleteUser(DataDialogService.Instance.CurrentUsername);
+                            DataDialogService.Instance.InvokeDataSaved();
                         }
                     });
                 });
-
-                DataDialogService.Instance.InvokeDataSaved();
             }
             catch (Exception ex)
             {
