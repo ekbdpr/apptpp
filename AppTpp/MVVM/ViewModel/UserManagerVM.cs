@@ -110,18 +110,12 @@ namespace AppTpp.MVVM.ViewModel
             }
         }
 
-        private static void OpenAddUserDialog(object obj)
+        private void OpenAddUserDialog(object obj)
         {
             try
             {
                 AddUserDialog addUserDialog = new();
-
-                if (Application.Current.MainWindow != null && Application.Current.MainWindow.IsLoaded)
-                {
-                    addUserDialog.Owner = Application.Current.MainWindow;
-                }
-
-                addUserDialog.ShowDialog();
+                OpenDialog(addUserDialog);
             }
             catch (Exception ex)
             {
@@ -129,18 +123,12 @@ namespace AppTpp.MVVM.ViewModel
             }
         }
 
-        private static void OpenEditUserDialog(object obj)
+        private void OpenEditUserDialog(object obj)
         {
             try
             {
                 EditUserDialog editUserDialog = new();
-
-                if (Application.Current.MainWindow != null && Application.Current.MainWindow.IsLoaded)
-                {
-                    editUserDialog.Owner = Application.Current.MainWindow;
-                }
-
-                editUserDialog.ShowDialog();
+                OpenDialog(editUserDialog);
             }
             catch (Exception ex)
             {
@@ -154,14 +142,8 @@ namespace AppTpp.MVVM.ViewModel
 
             try
             {
-                ConfirmationDialog confirmationDialog = new ConfirmationDialog();
-
-                if (Application.Current.MainWindow != null && Application.Current.MainWindow.IsLoaded)
-                {
-                    confirmationDialog.Owner = Application.Current.MainWindow;
-                }
-
-                confirmationDialog.ShowDialog();   
+                ConfirmationDialog confirmationDialog = new();
+                OpenDialog(confirmationDialog);
 
                 await Task.Run(async () =>
                 {
@@ -183,6 +165,16 @@ namespace AppTpp.MVVM.ViewModel
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        private static void OpenDialog(Window dialog)
+        {
+            if (Application.Current.MainWindow != null && Application.Current.MainWindow.IsLoaded)
+            {
+                dialog.Owner = Application.Current.MainWindow;
+            }
+
+            dialog.ShowDialog();
         }
 
         public override void Dispose()

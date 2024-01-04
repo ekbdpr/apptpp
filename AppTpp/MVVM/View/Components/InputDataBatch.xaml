@@ -4,8 +4,14 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:AppTpp.MVVM.ViewModel"
+    Background="#EEEEEE"
     Style="{StaticResource Page_Style}"
     mc:Ignorable="d">
+
+    <UserControl.DataContext>
+        <vm:InputDataBatchVM />
+    </UserControl.DataContext>
 
     <Viewbox HorizontalAlignment="Left" VerticalAlignment="Top">
 
@@ -23,7 +29,7 @@
                 FontSize="40"
                 FontWeight="Bold"
                 Style="{StaticResource TextStyle}"
-                Text="Insert Data Batch" />
+                Text="Input Data Batch" />
 
             <Border
                 Grid.Row="1"
@@ -92,6 +98,7 @@
                 Height="30"
                 Margin="0,10"
                 HorizontalAlignment="Left"
+                Command="{Binding ChooseFileCommand}"
                 Style="{StaticResource OpacityButton}">
 
                 <Button.Resources>
