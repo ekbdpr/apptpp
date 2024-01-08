@@ -5,7 +5,6 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:AppTpp.MVVM.ViewModel"
-    Background="#EEEEEE"
     Style="{StaticResource Page_Style}"
     mc:Ignorable="d">
 
@@ -54,7 +53,8 @@
                         MaxHeight="30"
                         VerticalContentAlignment="Center"
                         Cursor="Hand"
-                        FontFamily="Fonts/#Fira Sans">
+                        FontFamily="Fonts/#Fira Sans"
+                        Style="{StaticResource ComboBoxStyle}">
                         <ComboBoxItem Content="Januari" IsSelected="True" />
                         <ComboBoxItem Content="Februari" />
                         <ComboBoxItem Content="Maret" />
@@ -82,34 +82,47 @@
                         MaxHeight="30"
                         VerticalContentAlignment="Center"
                         Cursor="Hand"
-                        FontFamily="Fonts/#Fira Sans">
+                        FontFamily="Fonts/#Fira Sans"
+                        Style="{StaticResource ComboBoxStyle}">
                         <ComboBoxItem Content="2024" IsSelected="True" />
                         <ComboBoxItem Content="2025" />
                         <ComboBoxItem Content="2026" />
                         <ComboBoxItem Content="2027" />
+                        <ComboBoxItem Content="2028" />
+                        <ComboBoxItem Content="2029" />
+                        <ComboBoxItem Content="2030" />
                     </ComboBox>
                 </Grid>
             </StackPanel>
 
             <!--  Choose File Button  -->
-            <Button
-                Grid.Row="3"
-                Width="120"
-                Height="30"
-                Margin="0,10"
-                HorizontalAlignment="Left"
-                Command="{Binding ChooseFileCommand}"
-                Style="{StaticResource OpacityButton}">
+            <StackPanel Grid.Row="3" Orientation="Horizontal">
 
-                <Button.Resources>
-                    <Style TargetType="{x:Type Border}">
-                        <Setter Property="CornerRadius" Value="10" />
-                    </Style>
-                </Button.Resources>
+                <Button
+                    Width="120"
+                    Height="30"
+                    Margin="0,10"
+                    HorizontalAlignment="Left"
+                    Command="{Binding ChooseFileCommand}"
+                    Style="{StaticResource OpacityButton}">
 
-                <TextBlock Style="{StaticResource TextStyle}" Text="Choose File" />
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="10" />
+                        </Style>
+                    </Button.Resources>
 
-            </Button>
+                    <TextBlock Style="{StaticResource TextStyle}" Text="Choose File" />
+
+                </Button>
+
+                <TextBlock
+                    Margin="10"
+                    VerticalAlignment="Center"
+                    Style="{StaticResource TextStyle}"
+                    Text="{Binding FileName}" />
+
+            </StackPanel>
 
             <!--  Import Data Button  -->
             <Button

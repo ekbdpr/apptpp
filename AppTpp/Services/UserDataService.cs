@@ -43,7 +43,7 @@ namespace AppTpp.Services
 
             try
             {
-                string query = "SELECT * FROM daftar_user WHERE Username = @Username AND Password = @Password";
+                string query = "SELECT Nip, Username, Nama, Privilege FROM daftar_user WHERE Username = @Username AND Password = @Password";
 
                 using MySqlCommand command = new(query, connection);
 
@@ -75,7 +75,7 @@ namespace AppTpp.Services
 
             try
             {
-                string query = "SELECT * FROM user_photo WHERE Username = @Username";
+                string query = "SELECT Profile_image FROM user_photo WHERE Username = @Username";
 
                 using MySqlCommand command = new(query, connection);
 
@@ -131,7 +131,7 @@ namespace AppTpp.Services
 
             try
             {
-                string query = "SELECT * FROM daftar_user WHERE Privilege != 'Super User' ORDER BY Privilege ASC";
+                string query = "SELECT Nip, Nama, Jabatan, Username, Privilege FROM daftar_user WHERE Privilege != 'Super User' ORDER BY Privilege ASC";
 
                 using MySqlCommand command = new(query, connection);
 
