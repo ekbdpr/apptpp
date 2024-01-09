@@ -11,7 +11,7 @@ namespace AppTpp.MVVM.ViewModel
     {
         private readonly UserModel _userModel = new();
 
-        public long? Nip
+        public string? Nip
         {
             get { return _userModel.Nip; }
             set { _userModel.Nip = value; OnPropertyChanged(nameof(Nip)); }
@@ -56,9 +56,7 @@ namespace AppTpp.MVVM.ViewModel
 
         private bool CanSave(object obj)
         {
-            string? nipStr = Nip.ToString();
-
-            return !string.IsNullOrEmpty(nipStr) &&
+            return !string.IsNullOrEmpty(Nip) &&
                    !string.IsNullOrEmpty(Nama) &&
                    !string.IsNullOrEmpty(Jabatan) &&
                    !string.IsNullOrEmpty(Username) &&

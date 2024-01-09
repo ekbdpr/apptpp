@@ -12,7 +12,7 @@ namespace AppTpp.MVVM.ViewModel
     {
         private readonly UserModel _userModel = new();
 
-        public long? Nip
+        public string? Nip
         {
             get { return _userModel.Nip; }
             set { _userModel.Nip = value; OnPropertyChanged(nameof(Nip)); }

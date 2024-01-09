@@ -22,7 +22,7 @@ namespace AppTpp.Services
             }
         }
 
-        public long? CurrentNip { get; set; }
+        public string? CurrentNip { get; set; }
         public string? CurrentName { get; private set; }
         public string? CurrentUsername { get; private set; }
         public string? CurrentPrivilege { get; private set; }
@@ -35,6 +35,11 @@ namespace AppTpp.Services
 
             connection.Open();
             return connection;
+        }
+
+        private static string GetConnectionString()
+        {
+            return ConfigurationManager.ConnectionStrings["DbConnectionString"].ConnectionString;
         }
 
         public bool GetUserLoginData(string? Username, string? Password)
@@ -54,7 +59,7 @@ namespace AppTpp.Services
 
                 while (reader.Read())
                 {
-                    CurrentNip = Convert.ToInt64(reader["Nip"]);
+                    CurrentNip = reader["Nip"].ToString();
                     CurrentUsername = reader["Username"].ToString();
                     CurrentName = reader["Nama"].ToString();
                     CurrentPrivilege = reader["Privilege"].ToString();
@@ -75,7 +80,7 @@ namespace AppTpp.Services
 
             try
             {
-                string query = "SELECT Profile_image FROM user_photo WHERE Username = @Username";
+                string query = "SELECT Profile_Image FROM user_photo WHERE Username = @Username";
 
                 using MySqlCommand command = new(query, connection);
 
@@ -142,7 +147,7 @@ namespace AppTpp.Services
                 {
                     UserModel userModel = new()
                     {
-                        Nip = Convert.ToInt64(reader["Nip"]),
+                        Nip = reader["Nip"].ToString(),
                         Name = reader["Nama"].ToString(),
                         Jabatan = reader["Jabatan"].ToString(),
                         Username = reader["Username"].ToString(),
@@ -161,7 +166,7 @@ namespace AppTpp.Services
             }
         }
 
-        public static void InsertNewUser(long? nip, string? name, string? jabatan, string? username, string? password, string? privilege)
+        public static void InsertNewUser(string? nip, string? name, string? jabatan, string? username, string? password, string? privilege)
         {
             using var connection = OpenConnection();
 
@@ -193,7 +198,7 @@ namespace AppTpp.Services
             }
         }
 
-        public static void UpdateUser(long? nip, string? nama, string? jabatan, string? username, string? password, string? privilege)
+        public static void UpdateUser(string? nip, string? nama, string? jabatan, string? username, string? password, string? privilege)
         {
             using var connection = OpenConnection();
 
@@ -248,11 +253,6 @@ namespace AppTpp.Services
             {
                 MessageBox.Show($"An error occurred: {ex.Message}");
             }
-        }
-
-        private static string GetConnectionString()
-        {
-            return ConfigurationManager.ConnectionStrings["DbConnectionString"].ConnectionString;
         }
     }
 }

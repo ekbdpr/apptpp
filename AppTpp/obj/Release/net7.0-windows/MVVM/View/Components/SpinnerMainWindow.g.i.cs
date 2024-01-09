@@ -60,7 +60,7 @@ namespace AppTpp.MVVM.View.Components {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/AppTpp;V1.0.0.0;component/mvvm/view/components/spinnermainwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/AppTpp;component/mvvm/view/components/spinnermainwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\..\MVVM\View\Components\SpinnerMainWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -19,7 +19,7 @@ namespace AppTpp.Services
             }
         }
 
-        public long? CurrentNip { get; set; }
+        public string? CurrentNip { get; set; }
 
         public string? CurrentName { get; set; }
 
