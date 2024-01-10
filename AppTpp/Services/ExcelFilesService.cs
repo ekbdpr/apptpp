@@ -5,8 +5,6 @@ using System.Configuration;
 using System.IO;
 using System.Windows;
 
-
-
 namespace AppTpp.Services
 {
     internal class ExcelFilesService
@@ -36,9 +34,9 @@ namespace AppTpp.Services
             return ConfigurationManager.ConnectionStrings["DbConnectionString"].ConnectionString;
         }
 
-        public void ImportExcelToDatabase(string? filePath)
+        public static void ImportExcelToDatabase(string? filePath)
         {
-            using var package = new ExcelPackage(new FileInfo(filePath));
+            using var package = new ExcelPackage(new FileInfo(filePath!));
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
 
             var worksheet = package.Workbook.Worksheets[0];
@@ -80,7 +78,7 @@ namespace AppTpp.Services
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error during import: {ex.Message}", "Import Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"Error during execute: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

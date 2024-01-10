@@ -119,7 +119,7 @@ namespace AppTpp.MVVM.ViewModel
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show($"Error during execute: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -132,18 +132,15 @@ namespace AppTpp.MVVM.ViewModel
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show($"Error during execute: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
         private async void DeleteUser(object obj)
         {
-            DataDialogService.Instance.ConfirmationDialogMessage = $"Apakah anda ingin menghapus ({_selectedUser?.Nip} - {_selectedUser?.Username}) dari sistem ?";
-
             try
             {
-                ConfirmationDialog confirmationDialog = new();
-                OpenDialog(confirmationDialog);
+                DataDialogService.OpenConfirmationDialog($"Apakah anda ingin menghapus ({_selectedUser?.Nip} - {_selectedUser?.Username}) dari sistem ?");
 
                 await Task.Run(async () =>
                 {
@@ -163,7 +160,7 @@ namespace AppTpp.MVVM.ViewModel
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show($"Error during execute: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

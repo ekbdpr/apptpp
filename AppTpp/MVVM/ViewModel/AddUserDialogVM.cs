@@ -73,14 +73,19 @@ namespace AppTpp.MVVM.ViewModel
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show($"Error during execute: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             finally
             {
-                foreach (Window window in Application.Current.Windows)
-                {
-                    if (window.DataContext == this) window.Close();
-                }
+                CloseCurrentWindow();
+            }
+        }
+
+        private void CloseCurrentWindow()
+        {
+            foreach (Window window in Application.Current.Windows)
+            {
+                if (window.DataContext == this) window.Close();
             }
         }
     }

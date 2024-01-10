@@ -63,9 +63,7 @@ namespace AppTpp.MVVM.ViewModel
 
         private bool CanSave(object obj)
         {
-            string? nipStr = Nip.ToString();
-
-            return !string.IsNullOrEmpty(nipStr) &&
+            return !string.IsNullOrEmpty(Nip) &&
                    !string.IsNullOrEmpty(Nama) &&
                    !string.IsNullOrEmpty(Jabatan) &&
                    !string.IsNullOrEmpty(Username) &&
@@ -86,10 +84,15 @@ namespace AppTpp.MVVM.ViewModel
             }
             finally
             {
-                foreach (Window window in Application.Current.Windows)
-                {
-                    if (window.DataContext == this) window.Close();
-                }
+                CloseCurrentWindow();
+            }
+        }
+
+        private void CloseCurrentWindow()
+        {
+            foreach (Window window in Application.Current.Windows)
+            {
+                if (window.DataContext == this) window.Close();
             }
         }
     }

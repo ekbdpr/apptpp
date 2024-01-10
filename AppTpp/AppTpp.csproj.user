@@ -15,6 +15,9 @@
     <Compile Update="MVVM\View\Components\EditUserDialog.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="MVVM\View\Components\SmallSpinner.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="MVVM\View\Login.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -60,6 +63,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MVVM\View\Components\EditUserDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MVVM\View\Components\SmallSpinner.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Styles\CheckBoxCustom.xaml">

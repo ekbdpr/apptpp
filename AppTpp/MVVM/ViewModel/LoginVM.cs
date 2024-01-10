@@ -78,15 +78,8 @@ namespace AppTpp.MVVM.ViewModel
                     {
                         Application.Current.Dispatcher.Invoke(() =>
                         {
-                            MainWindow? mainWindow = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault();
-                            mainWindow ??= new MainWindow();
-
-                            mainWindow.Show();
-
-                            foreach (Window window in Application.Current.Windows)
-                            {
-                                if (window.DataContext == this) window.Close();
-                            }
+                            OpenMainWindow();
+                            CloseCurrentWindow();
                         });
                     }
                     else
@@ -98,9 +91,8 @@ namespace AppTpp.MVVM.ViewModel
                     }
                 });
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show(ex.Message.ToString());
                 ErrorMessage = "* Gagal Menghubungkan ke Server. Periksa Koneksi Internet Anda";
             }
             finally
@@ -111,5 +103,21 @@ namespace AppTpp.MVVM.ViewModel
         }
 
         private bool IsValidUser() => UserDataService.Instance.GetUserLoginData(Username, Password) && UserDataService.Instance.GetUserPhoto(Username);
+
+        private static void OpenMainWindow()
+        {
+            MainWindow? mainWindow = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault();
+            mainWindow ??= new MainWindow();
+
+            mainWindow.Show();
+        }
+
+        private void CloseCurrentWindow()
+        {
+            foreach (Window window in Application.Current.Windows)
+            {
+                if (window.DataContext == this) window.Close();
+            }
+        }
     }
 }

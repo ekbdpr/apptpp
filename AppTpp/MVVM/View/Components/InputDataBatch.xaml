@@ -95,9 +95,9 @@
                 </Grid>
             </StackPanel>
 
-            <!--  Choose File Button  -->
             <StackPanel Grid.Row="3" Orientation="Horizontal">
 
+                <!--  Choose File Button  -->
                 <Button
                     Width="120"
                     Height="30"
@@ -116,6 +116,7 @@
 
                 </Button>
 
+                <!--  File Name  -->
                 <TextBlock
                     Margin="10"
                     VerticalAlignment="Center"
@@ -124,32 +125,51 @@
 
             </StackPanel>
 
-            <!--  Import Data Button  -->
-            <Button
-                Grid.Row="4"
-                Width="120"
-                Height="30"
-                Margin="0,10"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Background="#3081D0"
-                BorderThickness="0"
-                Command="{Binding ImportFileCommand}"
-                Foreground="White"
-                Style="{StaticResource OpacityButton}">
+            <StackPanel Grid.Row="4" Orientation="Horizontal">
 
-                <Button.Resources>
-                    <Style TargetType="{x:Type Border}">
-                        <Setter Property="CornerRadius" Value="10" />
-                    </Style>
-                </Button.Resources>
+                <!--  Import Data Button  -->
+                <Button
+                    Width="120"
+                    Height="30"
+                    Margin="0,10"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Background="#3081D0"
+                    BorderThickness="0"
+                    Command="{Binding ImportFileCommand}"
+                    Foreground="White"
+                    Style="{StaticResource OpacityButton}">
 
-                <TextBlock
-                    FontWeight="SemiBold"
-                    Style="{StaticResource TextStyle}"
-                    Text="Import Data" />
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="10" />
+                        </Style>
+                    </Button.Resources>
 
-            </Button>
+                    <TextBlock
+                        FontWeight="SemiBold"
+                        Style="{StaticResource TextStyle}"
+                        Text="Import Data" />
+
+                </Button>
+
+                <Grid
+                    Height="20"
+                    Margin="10"
+                    VerticalAlignment="Center">
+
+                    <ContentControl Content="{Binding SpinnerView}" Visibility="{Binding SpinnerVisibility}" />
+
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Foreground="Green"
+                        Text="&#9989;"
+                        Visibility="{Binding GreenCheckVisibility}" />
+
+                </Grid>
+
+            </StackPanel>
 
 
 

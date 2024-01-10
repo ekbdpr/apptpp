@@ -48,4 +48,8 @@
         <view:SpinnerMainWindow />
     </DataTemplate>
 
+    <DataTemplate DataType="{x:Type vm:SmallSpinnerVM}">
+        <view:SmallSpinner />
+    </DataTemplate>
+
 </ResourceDictionary>

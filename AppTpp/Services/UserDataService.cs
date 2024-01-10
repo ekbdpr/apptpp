@@ -69,7 +69,7 @@ namespace AppTpp.Services
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"An error occurred: {ex.Message}");
+                MessageBox.Show($"Error during execute: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
         }
@@ -97,7 +97,7 @@ namespace AppTpp.Services
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"An error occurred: {ex.Message}");
+                MessageBox.Show($"Error during execute: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
         }
@@ -125,7 +125,7 @@ namespace AppTpp.Services
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"An error occurred: {ex.Message}");
+                    MessageBox.Show($"Error during execute: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
         }
@@ -161,7 +161,7 @@ namespace AppTpp.Services
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"An error occurred: {ex.Message}");
+                MessageBox.Show($"Error during execute: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return null;
             }
         }
@@ -194,7 +194,7 @@ namespace AppTpp.Services
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"An error occurred: {ex.Message}");
+                MessageBox.Show($"Error during execute: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -226,7 +226,7 @@ namespace AppTpp.Services
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error occurred: {ex.Message}");
+                MessageBox.Show($"Error during execute: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -251,7 +251,7 @@ namespace AppTpp.Services
             }
             catch ( Exception ex )
             {
-                MessageBox.Show($"An error occurred: {ex.Message}");
+                MessageBox.Show($"Error during execute: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

@@ -1,6 +1,6 @@
 ﻿namespace AppTpp.MVVM.ViewModel
 {
-    class SpinnerVM
+    internal class SpinnerVM
     {
     }
 }

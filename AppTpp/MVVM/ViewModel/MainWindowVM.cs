@@ -63,18 +63,9 @@ namespace AppTpp.MVVM.ViewModel
 
         private async void Logout(object obj)
         {
-            DataDialogService.Instance.ConfirmationDialogMessage = "Apakah anda yakin ingin logout ?";
-
             try
             {
-                ConfirmationDialog confirmationDialog = new ConfirmationDialog();
-
-                if (Application.Current.MainWindow != null && Application.Current.MainWindow.IsLoaded)
-                {
-                    confirmationDialog.Owner = Application.Current.MainWindow;
-                }
-
-                confirmationDialog.ShowDialog();
+                DataDialogService.OpenConfirmationDialog("Apakah anda yakin ingin logout ?");
 
                 await Task.Run(async () =>
                 {
@@ -89,10 +80,7 @@ namespace AppTpp.MVVM.ViewModel
                             Login login = new();
                             login.Show();
 
-                            foreach (Window window in Application.Current.Windows)
-                            {
-                                if (window.DataContext == this) window.Close();
-                            }
+                            CloseCurrentWindow();
                         }
                     });
                 });
@@ -101,11 +89,14 @@ namespace AppTpp.MVVM.ViewModel
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
 
-
-
-
-
+        private void CloseCurrentWindow()
+        {
+            foreach (Window window in Application.Current.Windows)
+            {
+                if (window.DataContext == this) window.Close();
+            }
         }
     }
 }

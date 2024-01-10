@@ -4,11 +4,14 @@ using System.Windows;
 using System;
 using System.IO;
 using AppTpp.Services;
+using System.Threading.Tasks;
 
 namespace AppTpp.MVVM.ViewModel
 {
     internal class InputDataBatchVM : ViewModelBase
     {
+        private string? _filePath;
+
         private string? _fileName;
         public string? FileName
         {
@@ -16,17 +19,45 @@ namespace AppTpp.MVVM.ViewModel
             set { _fileName = value; OnPropertyChanged(nameof(FileName)); }
         }
 
-        private string? _filePath;
+        private object? _spinnerView;
+        public object? SpinnerView
+        {
+            get { return _spinnerView; }
+            set { _spinnerView = value; OnPropertyChanged(nameof(SpinnerView)); }
+        }
+
+        private Visibility? _spinnerVisibility;
+        public Visibility? SpinnerVisibility
+        {
+            get { return _spinnerVisibility; }
+            set { _spinnerVisibility = value; OnPropertyChanged(nameof(SpinnerVisibility)); }
+        }
+
+        private Visibility? _greenCheckVisibility;
+        public Visibility? GreenCheckVisibility
+        {
+            get { return _greenCheckVisibility; }
+            set { _greenCheckVisibility = value; OnPropertyChanged(nameof(GreenCheckVisibility)); }
+        }
 
         public RelayCommand ChooseFileCommand { get; set; }
         public RelayCommand ImportFileCommand { get; set; }
 
         public InputDataBatchVM()
         {
-            FileName = "No File Choosen";
+            SetDefaultFileName();
+            SpinnerView = new SmallSpinnerVM();
+
+            SpinnerVisibility = Visibility.Collapsed;
+            GreenCheckVisibility = Visibility.Collapsed;
 
             ChooseFileCommand = new RelayCommand(ChooseFile);
             ImportFileCommand = new RelayCommand(ImportFile);
+        }
+
+        private void SetDefaultFileName()
+        {
+            FileName = "No File Choosen";
         }
 
         private void ChooseFile(object obj)
@@ -50,10 +81,16 @@ namespace AppTpp.MVVM.ViewModel
                 _filePath = destinationPath;
 
                 CheckFolderExists(tempFolderPath);
-                CheckFileExists(destinationPath);
 
-                File.Copy(selectedFileName, destinationPath, true);
-                FileName = Path.GetFileName(selectedFileName);
+                if (CheckFileExists(destinationPath))
+                {
+                    File.Copy(selectedFileName, destinationPath, true);
+                    FileName = Path.GetFileName(selectedFileName);
+                }
+                else
+                {
+                    return;
+                }
             }
         }
 
@@ -65,23 +102,46 @@ namespace AppTpp.MVVM.ViewModel
             }
         }
 
-        private static void CheckFileExists(string fileName)
+        private static bool CheckFileExists(string fileName)
         {
             if (File.Exists(fileName))
             {
-                MessageBoxResult result = MessageBox.Show("The file already exists. Do you want to replace it?", "Replace File", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                DataDialogService.OpenConfirmationDialog("Berkas tersebut sudah ada. Apakah Anda ingin menggantinya?");
 
-                if (result == MessageBoxResult.No)
+                if (DataDialogService.Instance.ConfirmationDialogState == false)
                 {
-                    return;
+                    return false;
                 }
+            }
+
+            return true;
+        }
+
+        private async void ImportFile(object obj)
+        {
+            try
+            {
+                SpinnerVisibility = Visibility.Visible;
+                await Task.Run(() => ExcelFilesService.ImportExcelToDatabase(_filePath));
+
+                GreenCheckVisibility = Visibility.Visible;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error during execute: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            finally
+            {
+                SpinnerVisibility = Visibility.Collapsed;
+
+                SetDefaultFileName();
+                DeleteFile();
             }
         }
 
-        private void ImportFile(object obj)
+        private void DeleteFile()
         {
-            ExcelFilesService.Instance.ImportExcelToDatabase(_filePath);
+            File.Delete(_filePath!);
         }
-
     }
 }
