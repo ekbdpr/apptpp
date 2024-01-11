@@ -5,6 +5,7 @@ using System;
 using System.IO;
 using AppTpp.Services;
 using System.Threading.Tasks;
+using AppTpp.Exceptions;
 
 namespace AppTpp.MVVM.ViewModel
 {
@@ -40,25 +41,50 @@ namespace AppTpp.MVVM.ViewModel
             set { _greenCheckVisibility = value; OnPropertyChanged(nameof(GreenCheckVisibility)); }
         }
 
+        private Visibility? _redCrossVisibility;
+        public Visibility? RedCrossVisibility
+        {
+            get { return _redCrossVisibility; }
+            set { _redCrossVisibility = value; OnPropertyChanged(nameof(RedCrossVisibility)); }
+        }
+
+        private string? _errorMessage;
+        public string? ErrorMessage
+        {
+            get { return _errorMessage; }
+            set { _errorMessage = value; OnPropertyChanged(nameof(ErrorMessage)); }
+        }
+
+
         public RelayCommand ChooseFileCommand { get; set; }
         public RelayCommand ImportFileCommand { get; set; }
 
         public InputDataBatchVM()
         {
-            SetDefaultFileName();
+            //Set default state
+            InitialFileState();
+            InitialIconState();
+
             SpinnerView = new SmallSpinnerVM();
 
+            ChooseFileCommand = new RelayCommand(ChooseFile);
+            ImportFileCommand = new RelayCommand(ImportFile, CanImport);
+        }
+
+        private void InitialIconState()
+        {
             SpinnerVisibility = Visibility.Collapsed;
             GreenCheckVisibility = Visibility.Collapsed;
-
-            ChooseFileCommand = new RelayCommand(ChooseFile);
-            ImportFileCommand = new RelayCommand(ImportFile);
+            RedCrossVisibility = Visibility.Collapsed;
         }
 
-        private void SetDefaultFileName()
+        private void InitialFileState()
         {
             FileName = "No File Choosen";
+            _isFileUploaded = false;
         }
+
+        private bool _isFileUploaded;
 
         private void ChooseFile(object obj)
         {
@@ -82,10 +108,12 @@ namespace AppTpp.MVVM.ViewModel
 
                 CheckFolderExists(tempFolderPath);
 
-                if (CheckFileExists(destinationPath))
+                if (IsFileExists(destinationPath))
                 {
                     File.Copy(selectedFileName, destinationPath, true);
                     FileName = Path.GetFileName(selectedFileName);
+
+                    _isFileUploaded = true;
                 }
                 else
                 {
@@ -102,7 +130,7 @@ namespace AppTpp.MVVM.ViewModel
             }
         }
 
-        private static bool CheckFileExists(string fileName)
+        private static bool IsFileExists(string fileName)
         {
             if (File.Exists(fileName))
             {
@@ -113,29 +141,35 @@ namespace AppTpp.MVVM.ViewModel
                     return false;
                 }
             }
-
             return true;
+        }
+
+        private bool CanImport(object obj)
+        {
+            return _isFileUploaded;
         }
 
         private async void ImportFile(object obj)
         {
+            InitialIconState();
+
             try
             {
                 SpinnerVisibility = Visibility.Visible;
                 await Task.Run(() => ExcelFilesService.ImportExcelToDatabase(_filePath));
 
                 GreenCheckVisibility = Visibility.Visible;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error during execute: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            finally
-            {
                 SpinnerVisibility = Visibility.Collapsed;
 
-                SetDefaultFileName();
+                InitialFileState();
                 DeleteFile();
+            }
+            catch (DuplicateDataException ex) 
+            {
+                ErrorMessage = ex.Message;
+
+                SpinnerVisibility = Visibility.Collapsed;
+                RedCrossVisibility = Visibility.Visible;
             }
         }
 

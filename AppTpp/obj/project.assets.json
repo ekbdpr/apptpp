@@ -1193,11 +1193,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\UNITAMA\\Semester 3\\Pemrograman 2\\Tugas\\AppTpp\\AppTpp\\AppTpp.csproj",
+      "projectUniqueName": "D:\\UNITAMA\\Semester 3\\Pemrograman 2\\Tugas\\apptpp\\AppTpp\\AppTpp.csproj",
       "projectName": "AppTpp",
-      "projectPath": "D:\\UNITAMA\\Semester 3\\Pemrograman 2\\Tugas\\AppTpp\\AppTpp\\AppTpp.csproj",
+      "projectPath": "D:\\UNITAMA\\Semester 3\\Pemrograman 2\\Tugas\\apptpp\\AppTpp\\AppTpp.csproj",
       "packagesPath": "C:\\Users\\ekabu\\.nuget\\packages\\",
-      "outputPath": "D:\\UNITAMA\\Semester 3\\Pemrograman 2\\Tugas\\AppTpp\\AppTpp\\obj\\",
+      "outputPath": "D:\\UNITAMA\\Semester 3\\Pemrograman 2\\Tugas\\apptpp\\AppTpp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ekabu\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1254,7 +1254,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

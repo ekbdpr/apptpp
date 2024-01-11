@@ -1,4 +1,5 @@
-﻿using MySqlConnector;
+﻿using AppTpp.Exceptions;
+using MySqlConnector;
 using OfficeOpenXml;
 using System;
 using System.Configuration;
@@ -76,9 +77,18 @@ namespace AppTpp.Services
                     command.ExecuteNonQuery();
                 }
             }
-            catch (Exception ex)
+            catch (MySqlException ex)
             {
-                MessageBox.Show($"Error during execute: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                if (ex.Number == 1062)
+                {
+                    throw new DuplicateDataException("❌ Terdapat NIP yang terduplikasi / telah ada di database !");
+                }
+                else
+                {
+                    MessageBox.Show($"Error during execute: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+
             }
         }
     }

@@ -146,6 +146,23 @@
                         </Style>
                     </Button.Resources>
 
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border
+                                x:Name="InnerBorder"
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="10">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsEnabled" Value="False">
+                                    <Setter TargetName="InnerBorder" Property="Background" Value="#A9A9A9" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Button.Template>
+
                     <TextBlock
                         FontWeight="SemiBold"
                         Style="{StaticResource TextStyle}"
@@ -158,14 +175,26 @@
                     Margin="10"
                     VerticalAlignment="Center">
 
+                    <!--  Loading spinner  -->
                     <ContentControl Content="{Binding SpinnerView}" Visibility="{Binding SpinnerVisibility}" />
 
+                    <!--  Checklist mark  -->
                     <TextBlock
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         Foreground="Green"
-                        Text="&#9989;"
+                        Style="{StaticResource TextStyle}"
+                        Text="&#9989; Import data berhasil !"
                         Visibility="{Binding GreenCheckVisibility}" />
+
+                    <!--  Cross mark  -->
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Foreground="Red"
+                        Style="{StaticResource TextStyle}"
+                        Text="{Binding ErrorMessage}"
+                        Visibility="{Binding RedCrossVisibility}" />
 
                 </Grid>
 

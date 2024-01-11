@@ -51,23 +51,16 @@ namespace AppTpp.MVVM.ViewModel
 
         public LoginVM()
         {
+            //Set default state
+            Loading = Visibility.Collapsed;
+
             Spinner = new SpinnerVM();
 
-            LoginCommand = new RelayCommand(Login, CanLogin);
-        }
-
-        private bool _isLoading;
-
-        private bool CanLogin(object obj)
-        {
-            Loading = _isLoading ? Visibility.Visible : Visibility.Collapsed;
-            return !_isLoading;
+            LoginCommand = new RelayCommand(Login);
         }
 
         private async void Login(object obj)
         {
-            _isLoading = true;
-
             try
             {
                 Loading = Visibility.Visible;
@@ -98,7 +91,6 @@ namespace AppTpp.MVVM.ViewModel
             finally
             {
                 Loading = Visibility.Collapsed;
-                _isLoading = false;
             }
         }
 

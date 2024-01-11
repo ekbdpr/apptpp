@@ -16,7 +16,7 @@ namespace AppTpp.MVVM.ViewModel
 
         public ConfirmationDialogVM()
         {
-            _message = DataDialogService.Instance.ConfirmationDialogMessage;
+            Message = DataDialogService.Instance.ConfirmationDialogMessage;
 
             YesButtonCommand = new RelayCommand(YesButton);
             NoButtonCommand = new RelayCommand(NoButton);
