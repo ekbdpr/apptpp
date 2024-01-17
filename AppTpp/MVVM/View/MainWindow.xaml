@@ -211,7 +211,7 @@
                         <TextBlock
                             Padding="0"
                             Style="{StaticResource Navigation_ButtonText}"
-                            Text="Logout &#x25E2;" />
+                            Text="Log Out" />
 
                     </Button>
 

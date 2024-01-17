@@ -96,7 +96,7 @@
                                 Width="340"
                                 FontFamily="Fonts/#Fira Sans"
                                 FontSize="16"
-                                Text="{Binding Nama, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                         </StackPanel>
 
                         <!--  Jabatan  -->

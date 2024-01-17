@@ -30,6 +30,7 @@
 
                 <!--  Title  -->
                 <TextBlock
+                    Grid.Row="0"
                     FontSize="40"
                     FontWeight="Bold"
                     Style="{StaticResource TextStyle}"

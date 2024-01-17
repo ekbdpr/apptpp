@@ -17,10 +17,10 @@ namespace AppTpp.MVVM.ViewModel
             set { _userModel.Nip = value; OnPropertyChanged(nameof(Nip)); }
         }
 
-        public string? Nama
+        public string? Name
         {
             get { return _userModel.Name; }
-            set { _userModel.Name = value; OnPropertyChanged(nameof(Nama)); }
+            set { _userModel.Name = value; OnPropertyChanged(nameof(Name)); }
         }
 
         public string? Jabatan
@@ -57,7 +57,7 @@ namespace AppTpp.MVVM.ViewModel
         private bool CanSave(object obj)
         {
             return !string.IsNullOrEmpty(Nip) &&
-                   !string.IsNullOrEmpty(Nama) &&
+                   !string.IsNullOrEmpty(Name) &&
                    !string.IsNullOrEmpty(Jabatan) &&
                    !string.IsNullOrEmpty(Username) &&
                    !string.IsNullOrEmpty(Password) &&
@@ -68,7 +68,7 @@ namespace AppTpp.MVVM.ViewModel
         {
             try
             {
-                await Task.Run(() => UserDataService.InsertNewUser(Nip, Nama, Jabatan, Username, Password, Privilege));
+                await Task.Run(() => UserDataService.InsertNewUser(Nip, Name, Jabatan, Username, Password, Privilege));
                 DataDialogService.Instance.InvokeDataSaved();
             }
             catch (Exception ex)

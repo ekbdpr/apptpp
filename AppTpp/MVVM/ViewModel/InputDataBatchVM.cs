@@ -106,7 +106,7 @@ namespace AppTpp.MVVM.ViewModel
 
                 _filePath = destinationPath;
 
-                CheckFolderExists(tempFolderPath);
+                CreateTempFolder(tempFolderPath);
 
                 if (IsFileExists(destinationPath))
                 {
@@ -122,7 +122,7 @@ namespace AppTpp.MVVM.ViewModel
             }
         }
 
-        private static void CheckFolderExists(string folderPath)
+        private static void CreateTempFolder(string folderPath)
         {
             if (!Directory.Exists(folderPath))
             {
@@ -156,7 +156,7 @@ namespace AppTpp.MVVM.ViewModel
             try
             {
                 SpinnerVisibility = Visibility.Visible;
-                await Task.Run(() => ExcelFilesService.ImportExcelToDatabase(_filePath));
+                await Task.Run(() => PegawaiDataService.ImportExcelToDatabase(_filePath));
 
                 GreenCheckVisibility = Visibility.Visible;
                 SpinnerVisibility = Visibility.Collapsed;
