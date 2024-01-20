@@ -18,18 +18,27 @@
         <Setter Property="Background" Value="#222831" />
         <Setter Property="Foreground" Value="#EEEEEE" />
         <Setter Property="Height" Value="30" />
-        <Setter Property="FontSize" Value="14" />
-        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="FontSize" Value="11" />
+        <Setter Property="FontWeight" Value="ExtraBold" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="BorderBrush" Value="#222831" />
         <Setter Property="BorderThickness" Value="0,0,1,1" />
+
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}" TextWrapping="Wrap" />
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+
     </Style>
 
     <Style TargetType="DataGridCell">
         <Setter Property="BorderBrush" Value="#EEEEEE" />
         <Setter Property="BorderThickness" Value="0,0,1,1" />
         <Setter Property="Height" Value="30" />
-        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontSize" Value="10" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
 
         <Setter Property="Template">

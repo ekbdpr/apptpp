@@ -109,11 +109,9 @@ namespace AppTpp.Services
                 using MySqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    DateTime tglGaji = (DateTime)reader["Tgl_Gaji"];
 
                     PegawaiModel pegawaiModel = new()
                     {
-                        TglGaji = tglGaji.ToString("dd-MM-yyyy"),
                         Nip = reader["Nip"].ToString(),
                         Name = reader["Nama"].ToString(),
                         KdSatker = reader["Kd_Satker"].ToString(),

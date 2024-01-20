@@ -5,7 +5,6 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:AppTpp.MVVM.ViewModel"
-    Style="{StaticResource Page_Style}"
     mc:Ignorable="d">
 
     <UserControl.DataContext>
@@ -23,6 +22,8 @@
             <Grid>
 
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="*" />
@@ -51,8 +52,88 @@
                     Content="{Binding SpinnerView}"
                     Visibility="{Binding SpinnerVisibility}" />
 
+                <StackPanel
+                    Grid.Row="2"
+                    Height="100"
+                    Orientation="Horizontal">
+
+                    <!--  Bulan Combobox  -->
+                    <Grid Margin="0,10">
+                        <TextBlock
+                            FontSize="14"
+                            Style="{StaticResource TextStyle}"
+                            Text="Bulan" />
+
+                        <ComboBox
+                            Width="120"
+                            MaxHeight="30"
+                            VerticalContentAlignment="Center"
+                            Cursor="Hand"
+                            FontFamily="Fonts/#Fira Sans"
+                            Style="{StaticResource ComboBoxStyle}">
+                            <ComboBoxItem Content="Januari" IsSelected="True" />
+                            <ComboBoxItem Content="Februari" />
+                            <ComboBoxItem Content="Maret" />
+                            <ComboBoxItem Content="April" />
+                            <ComboBoxItem Content="Mei" />
+                            <ComboBoxItem Content="Juni" />
+                            <ComboBoxItem Content="Juli" />
+                            <ComboBoxItem Content="Agustus" />
+                            <ComboBoxItem Content="September" />
+                            <ComboBoxItem Content="Oktober" />
+                            <ComboBoxItem Content="November" />
+                            <ComboBoxItem Content="Desember" />
+                        </ComboBox>
+                    </Grid>
+
+                    <!--  Tahun Combobox  -->
+                    <Grid Margin="10">
+                        <TextBlock
+                            FontSize="14"
+                            Style="{StaticResource TextStyle}"
+                            Text="Tahun" />
+
+                        <ComboBox
+                            Width="130"
+                            MaxHeight="30"
+                            VerticalContentAlignment="Center"
+                            Cursor="Hand"
+                            FontFamily="Fonts/#Fira Sans"
+                            Style="{StaticResource ComboBoxStyle}">
+                            <ComboBoxItem Content="2024" IsSelected="True" />
+                            <ComboBoxItem Content="2025" />
+                            <ComboBoxItem Content="2026" />
+                            <ComboBoxItem Content="2027" />
+                            <ComboBoxItem Content="2028" />
+                            <ComboBoxItem Content="2029" />
+                            <ComboBoxItem Content="2030" />
+                        </ComboBox>
+                    </Grid>
+
+                    <Button
+                        Width="70"
+                        Height="30"
+                        Background="#3081D0"
+                        BorderThickness="0"
+                        Foreground="White"
+                        Style="{StaticResource OpacityButton}">
+
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="10" />
+                            </Style>
+                        </Button.Resources>
+
+                        <TextBlock
+                            FontWeight="SemiBold"
+                            Style="{StaticResource TextStyle}"
+                            Text="Search" />
+
+                    </Button>
+                </StackPanel>
+
                 <!--  Users Table  -->
-                <Grid Grid.Row="2" Visibility="{Binding ContentVisibility}">
+                <Grid Grid.Row="3" Visibility="{Binding ContentVisibility}">
 
                     <Border
                         Margin="0,15,0,0"
@@ -76,36 +157,17 @@
                             AutoGenerateColumns="False"
                             BorderThickness="0"
                             CanUserAddRows="False"
-                            ColumnHeaderHeight="50"
                             ColumnWidth="*"
                             FontFamily="/Fonts/#Fira Sans"
-                            ItemsSource="{Binding Pegawai, IsAsync=True}"
+                            ItemsSource="{Binding Pegawai, IsAsync=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                             SelectedItem="{Binding SelectedUser}">
 
                             <DataGrid.Columns>
 
-                                <DataGridTextColumn Binding="{Binding TglGaji}" Header="Tanggal &#x0a;Gaji">
-
-                                    <DataGridTextColumn.ElementStyle>
-                                        <Style>
-                                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
-                                        </Style>
-                                    </DataGridTextColumn.ElementStyle>
-
-                                </DataGridTextColumn>
-
                                 <DataGridTextColumn
                                     Width="1.5*"
                                     Binding="{Binding Nip}"
-                                    Header="NIP">
-
-                                    <DataGridTextColumn.ElementStyle>
-                                        <Style>
-                                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
-                                        </Style>
-                                    </DataGridTextColumn.ElementStyle>
-
-                                </DataGridTextColumn>
+                                    Header="NIP" />
 
                                 <DataGridTextColumn
                                     Width="1.5*"
@@ -123,51 +185,41 @@
                                 <DataGridTextColumn
                                     Width="1.5*"
                                     Binding="{Binding KdSatker}"
-                                    Header="Kd Satker">
-
-                                    <DataGridTextColumn.ElementStyle>
-                                        <Style>
-                                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
-                                        </Style>
-                                    </DataGridTextColumn.ElementStyle>
-
-                                </DataGridTextColumn>
+                                    Header="Kd Satker" />
 
                                 <DataGridTextColumn
                                     Width="1.75*"
                                     Binding="{Binding Norek}"
-                                    Header="No.Rek">
+                                    Header="No.Rek" />
+
+                                <DataGridTextColumn
+                                    Width="0.7*"
+                                    Binding="{Binding KdPangkat}"
+                                    Header="Kd Pangkat">
 
                                     <DataGridTextColumn.ElementStyle>
                                         <Style>
-                                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
-                                        </Style>
-                                    </DataGridTextColumn.ElementStyle>
-
-                                </DataGridTextColumn>
-
-                                <DataGridTextColumn Binding="{Binding KdPangkat}" Header="Kd Pangkat">
-
-                                    <DataGridTextColumn.ElementStyle>
-                                        <Style>
-                                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
-                                        </Style>
-                                    </DataGridTextColumn.ElementStyle>
-
-                                </DataGridTextColumn>
-
-                                <DataGridTextColumn Binding="{Binding Piwp1}" Header="Piwp1">
-
-                                    <DataGridTextColumn.ElementStyle>
-                                        <Style>
-                                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                            <Setter Property="TextBlock.TextAlignment" Value="Center" />
                                         </Style>
                                     </DataGridTextColumn.ElementStyle>
 
                                 </DataGridTextColumn>
 
                                 <DataGridTextColumn
-                                    Width="2*"
+                                    Width="0.5*"
+                                    Binding="{Binding Piwp1}"
+                                    Header="Piwp1">
+
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style>
+                                            <Setter Property="TextBlock.TextAlignment" Value="Center" />
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+
+                                </DataGridTextColumn>
+
+                                <DataGridTextColumn
+                                    Width="2.5*"
                                     Binding="{Binding NamaSkpd}"
                                     Header="Nama SKPD">
 
@@ -179,25 +231,10 @@
 
                                 </DataGridTextColumn>
 
-                                <DataGridTextColumn Binding="{Binding PaguTpp}" Header="Pagu TPP &#x0a;Beban Kerja">
+                                <DataGridTextColumn Binding="{Binding PaguTpp}" Header="Pagu TPP Beban Kerja" />
 
-                                    <DataGridTextColumn.ElementStyle>
-                                        <Style>
-                                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
-                                        </Style>
-                                    </DataGridTextColumn.ElementStyle>
+                                <DataGridTextColumn Binding="{Binding PaguTpp}" Header="Pagu TPP Kondisi Kerja" />
 
-                                </DataGridTextColumn>
-
-                                <DataGridTextColumn Binding="{Binding PaguTpp}" Header="Pagu TPP &#x0a;Kondisi Kerja">
-
-                                    <DataGridTextColumn.ElementStyle>
-                                        <Style>
-                                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
-                                        </Style>
-                                    </DataGridTextColumn.ElementStyle>
-
-                                </DataGridTextColumn>
 
                                 <DataGridTemplateColumn Width="Auto" Header="Options">
                                     <DataGridTemplateColumn.CellTemplate>
@@ -259,13 +296,71 @@
                                 </DataGridTemplateColumn>
 
                             </DataGrid.Columns>
-
                         </DataGrid>
 
                     </Border>
 
                 </Grid>
 
+                <!--  Button  -->
+                <StackPanel
+                    Grid.Row="4"
+                    Margin="5"
+                    HorizontalAlignment="Right"
+                    Orientation="Horizontal">
+
+                    <TextBlock
+                        VerticalAlignment="Center"
+                        Style="{StaticResource TextStyle}"
+                        Text="{Binding DataCountMessage}" />
+
+                    <Grid Margin="10,0">
+                        <Button
+                            Width="20"
+                            Height="20"
+                            Padding="0,0,2,3"
+                            Background="#222831"
+                            BorderThickness="0"
+                            Command="{Binding PrevPageCommand}"
+                            Content="&#9001;"
+                            Cursor="Hand"
+                            Foreground="#EEEEEE"
+                            Style="{StaticResource OpacityButton}">
+
+                            <Button.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="20" />
+                                </Style>
+                            </Button.Resources>
+
+                        </Button>
+                    </Grid>
+
+                    <TextBlock VerticalAlignment="Center" Text="{Binding CurrentPage}" />
+
+                    <Grid Margin="10,0,0,0">
+                        <Button
+                            Width="20"
+                            Height="20"
+                            Padding="2,0,0,3"
+                            Background="#222831"
+                            BorderThickness="0"
+                            Command="{Binding NextPageCommand}"
+                            Content="&#9002;"
+                            Cursor="Hand"
+                            Foreground="#EEEEEE"
+                            Style="{StaticResource OpacityButton}">
+
+                            <Button.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="20" />
+                                </Style>
+                            </Button.Resources>
+
+                        </Button>
+                    </Grid>
+
+                </StackPanel>
             </Grid>
 
         </Grid>
