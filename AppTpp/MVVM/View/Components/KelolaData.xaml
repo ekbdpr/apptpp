@@ -157,8 +157,14 @@
                             AutoGenerateColumns="False"
                             BorderThickness="0"
                             CanUserAddRows="False"
+                            CanUserDeleteRows="False"
+                            CanUserReorderColumns="False"
+                            CanUserResizeColumns="False"
+                            CanUserResizeRows="False"
+                            CanUserSortColumns="False"
                             ColumnWidth="*"
                             FontFamily="/Fonts/#Fira Sans"
+                            IsReadOnly="True"
                             ItemsSource="{Binding Pegawai, IsAsync=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                             SelectedItem="{Binding SelectedUser}">
 
@@ -305,7 +311,7 @@
                 <!--  Button  -->
                 <StackPanel
                     Grid.Row="4"
-                    Margin="5"
+                    Margin="5,5,12,0"
                     HorizontalAlignment="Right"
                     Orientation="Horizontal">
 
@@ -318,7 +324,6 @@
                         <Button
                             Width="20"
                             Height="20"
-                            Padding="0,0,2,3"
                             Background="#222831"
                             BorderThickness="0"
                             Command="{Binding PrevPageCommand}"
@@ -333,6 +338,24 @@
                                 </Style>
                             </Button.Resources>
 
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border
+                                        x:Name="InnerBorder"
+                                        Padding="0,0,2,3"
+                                        Background="{TemplateBinding Background}"
+                                        CornerRadius="10">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                    </Border>
+
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsEnabled" Value="False">
+                                            <Setter TargetName="InnerBorder" Property="Background" Value="#A9A9A9" />
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Button.Template>
+
                         </Button>
                     </Grid>
 
@@ -342,7 +365,6 @@
                         <Button
                             Width="20"
                             Height="20"
-                            Padding="2,0,0,3"
                             Background="#222831"
                             BorderThickness="0"
                             Command="{Binding NextPageCommand}"
@@ -356,6 +378,24 @@
                                     <Setter Property="CornerRadius" Value="20" />
                                 </Style>
                             </Button.Resources>
+
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border
+                                        x:Name="InnerBorder"
+                                        Padding="2,0,0,3"
+                                        Background="{TemplateBinding Background}"
+                                        CornerRadius="10">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                    </Border>
+
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsEnabled" Value="False">
+                                            <Setter TargetName="InnerBorder" Property="Background" Value="#A9A9A9" />
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Button.Template>
 
                         </Button>
                     </Grid>

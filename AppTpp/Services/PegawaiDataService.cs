@@ -100,7 +100,7 @@ namespace AppTpp.Services
 
             try
             {
-                string query = "SELECT Tgl_Gaji, Nip, Nama, Kd_Satker, Norek, Kd_Pangkat, Piwp1, Nm_Skpd, Pagu_Tpp FROM data_pegawai";
+                string query = "SELECT Tgl_Gaji, Nip, Nama, Kd_Satker, Norek, Kd_Pangkat, Piwp1, Nm_Skpd, Pagu_Tpp FROM data_pegawai ORDER BY Nama ASC";
 
                 using MySqlCommand command = new(query, connection);
 

@@ -106,7 +106,13 @@
                             AutoGenerateColumns="False"
                             BorderThickness="0"
                             CanUserAddRows="False"
+                            CanUserDeleteRows="False"
+                            CanUserReorderColumns="False"
+                            CanUserResizeColumns="False"
+                            CanUserResizeRows="False"
+                            CanUserSortColumns="False"
                             FontFamily="/Fonts/#Fira Sans"
+                            IsReadOnly="True"
                             ItemsSource="{Binding Users, IsAsync=True}"
                             SelectedItem="{Binding SelectedUser}">
 
