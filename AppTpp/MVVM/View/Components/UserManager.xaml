@@ -25,6 +25,7 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
@@ -205,6 +206,100 @@
                     </Border>
 
                 </Grid>
+
+                <!--  Pagination Buttons  -->
+                <StackPanel
+                    Grid.Row="4"
+                    Margin="5,5,12,0"
+                    HorizontalAlignment="Right"
+                    Orientation="Horizontal">
+
+                    <TextBlock
+                        VerticalAlignment="Center"
+                        Style="{StaticResource TextStyle}"
+                        Text="{Binding DataCountMessage}" />
+
+                    <Grid Margin="10,0">
+                        <Button
+                            Width="20"
+                            Height="20"
+                            Background="#222831"
+                            BorderThickness="0"
+                            Command="{Binding PrevPageCommand}"
+                            Content="&#9001;"
+                            Cursor="Hand"
+                            Foreground="#EEEEEE"
+                            Style="{StaticResource OpacityButton}">
+
+                            <Button.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="20" />
+                                </Style>
+                            </Button.Resources>
+
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border
+                                        x:Name="InnerBorder"
+                                        Padding="0,0,2,3"
+                                        Background="{TemplateBinding Background}"
+                                        CornerRadius="10">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                    </Border>
+
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsEnabled" Value="False">
+                                            <Setter TargetName="InnerBorder" Property="Background" Value="#A9A9A9" />
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Button.Template>
+
+                        </Button>
+                    </Grid>
+
+                    <TextBlock VerticalAlignment="Center" Text="{Binding CurrentPage}" />
+
+                    <Grid Margin="10,0,0,0">
+                        <Button
+                            Width="20"
+                            Height="20"
+                            Background="#222831"
+                            BorderThickness="0"
+                            Command="{Binding NextPageCommand}"
+                            Content="&#9002;"
+                            Cursor="Hand"
+                            Foreground="#EEEEEE"
+                            Style="{StaticResource OpacityButton}">
+
+                            <Button.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="20" />
+                                </Style>
+                            </Button.Resources>
+
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border
+                                        x:Name="InnerBorder"
+                                        Padding="2,0,0,3"
+                                        Background="{TemplateBinding Background}"
+                                        CornerRadius="10">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                    </Border>
+
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsEnabled" Value="False">
+                                            <Setter TargetName="InnerBorder" Property="Background" Value="#A9A9A9" />
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Button.Template>
+
+                        </Button>
+                    </Grid>
+
+                </StackPanel>
 
             </Grid>
 

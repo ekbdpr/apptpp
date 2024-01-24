@@ -308,7 +308,7 @@
 
                 </Grid>
 
-                <!--  Button  -->
+                <!--  Pagination Buttons  -->
                 <StackPanel
                     Grid.Row="4"
                     Margin="5,5,12,0"

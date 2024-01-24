@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Windows;
 using AppTpp.MVVM.View.Components;
+using System.Linq;
 
 namespace AppTpp.MVVM.ViewModel
 {
@@ -22,6 +23,8 @@ namespace AppTpp.MVVM.ViewModel
                 OnPropertyChanged(nameof(Users));
             }
         }
+
+        private ObservableCollection<UserModel>? currentUsers;
 
         private object? _spinnerView;
         public object? SpinnerView
@@ -64,9 +67,29 @@ namespace AppTpp.MVVM.ViewModel
             }
         }
 
+        private string? _dataCountMessage;
+        public string? DataCountMessage
+        {
+            get { return _dataCountMessage; }
+            set { _dataCountMessage = value; OnPropertyChanged(nameof(DataCountMessage)); }
+        }
+
+        private readonly int itemsPerPage = 10;
+        private int startIndex;
+        private int endIndex;
+
+        private int _currentPage = 1;
+        public int CurrentPage
+        {
+            get { return _currentPage; }
+            set { _currentPage = value; OnPropertyChanged(nameof(CurrentPage)); }
+        }
+
         public RelayCommand? AddUserCommand { get; set; }
         public RelayCommand? EditUserCommand { get; set; }
         public RelayCommand? DeleteUserCommand { get; set; }
+        public RelayCommand? NextPageCommand { get; set; }
+        public RelayCommand? PrevPageCommand { get; set; }
 
         public UserManagerVM()
         {
@@ -74,12 +97,16 @@ namespace AppTpp.MVVM.ViewModel
             {
                 SpinnerView = new SpinnerMainWindowVM();
 
-                InitializeUsersList();
+                InitializeUserList();
+
                 AddUserCommand = new RelayCommand(OpenAddUserDialog);
                 EditUserCommand = new RelayCommand(OpenEditUserDialog);
                 DeleteUserCommand = new RelayCommand(DeleteUser);
 
-                DataDialogService.Instance.OnDataSaved += InitializeUsersList;
+                NextPageCommand = new RelayCommand(NextPage, CanNextPage);
+                PrevPageCommand = new RelayCommand(PrevPage, CanPrevPage);
+
+                DataDialogService.Instance.OnDataSaved += InitializeUserList;
             }
         }
 
@@ -94,17 +121,23 @@ namespace AppTpp.MVVM.ViewModel
             }
         }
 
-        private async void InitializeUsersList()
+        private async void InitializeUserList()
         {
             try
             {
                 SpinnerVisibility = Visibility.Visible;
                 ContentVisibility = Visibility.Collapsed;
 
-                await Task.Run(() => Users = new ObservableCollection<UserModel>(UserDataService.GetAllUsers()!));
+                currentUsers = new ObservableCollection<UserModel>(UserDataService.GetAllUsers()!);
+
+                startIndex = (CurrentPage - 1) * itemsPerPage;
+                endIndex = Math.Min(startIndex + itemsPerPage, currentUsers.Count);
+
+                await Task.Run(() => Users = new ObservableCollection<UserModel>(currentUsers.Skip(startIndex).Take(endIndex)));
             }
             finally
             {
+                LoadDataCount();
                 SpinnerVisibility = Visibility.Collapsed;
                 ContentVisibility = Visibility.Visible;
             }
@@ -154,6 +187,7 @@ namespace AppTpp.MVVM.ViewModel
                         {
                             UserDataService.DeleteUser(DataDialogService.Instance.CurrentUsername);
                             DataDialogService.Instance.InvokeDataSaved();
+                            LoadDataCount();
                         }
                     });
                 });
@@ -162,6 +196,52 @@ namespace AppTpp.MVVM.ViewModel
             {
                 MessageBox.Show($"Error during execute: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private bool CanNextPage(object arg)
+        {
+            if (endIndex >= currentUsers!.Count)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        private void NextPage(object obj)
+        {
+            CurrentPage++;
+            InitializeUserList();
+            LoadDataCount();
+        }
+
+        private bool CanPrevPage(object arg)
+        {
+            if (CurrentPage <= 1)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        private void PrevPage(object obj)
+        {
+            CurrentPage--;
+            InitializeUserList();
+            LoadDataCount();
+        }
+
+        private void LoadDataCount()
+        {
+            string showDataCount = (endIndex).ToString();
+            string allDataCount = currentUsers!.Count.ToString();
+
+            DataCountMessage = $"{showDataCount} dari {allDataCount} pegawai";
         }
 
         private static void OpenDialog(Window dialog)
@@ -176,7 +256,7 @@ namespace AppTpp.MVVM.ViewModel
 
         public override void Dispose()
         {
-            DataDialogService.Instance.OnDataSaved -= InitializeUsersList;
+            DataDialogService.Instance.OnDataSaved -= InitializeUserList;
             base.Dispose();
         }
     }
