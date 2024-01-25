@@ -23,6 +23,14 @@ namespace AppTpp.MVVM.ViewModel
 
         private ObservableCollection<PegawaiModel>? currentPegawai;
 
+        private PegawaiModel? _selectedPegawai;
+
+        public PegawaiModel? SelectedPegawai
+        {
+            get { return _selectedPegawai; }
+            set { _selectedPegawai = value; OnPropertyChanged(nameof(SelectedPegawai)); }
+        }
+
         private string? _dataCountMessage;
         public string? DataCountMessage
         {
@@ -32,7 +40,7 @@ namespace AppTpp.MVVM.ViewModel
 
         private readonly int itemsPerPage = 10;
         private int startIndex;
-        private int endIndex;
+        private int currentPageCountPegawai;
 
         private int _currentPage = 1;
         public int CurrentPage
@@ -41,6 +49,8 @@ namespace AppTpp.MVVM.ViewModel
             set { _currentPage = value; OnPropertyChanged(nameof(CurrentPage)); }
         }
 
+        public RelayCommand EditPegawaiCommand { get; set; }
+        public RelayCommand DeletePegawaiCommand { get; set; }
         public RelayCommand NextPageCommand { get; set; }
         public RelayCommand PrevPageCommand { get; set; }
 
@@ -48,8 +58,21 @@ namespace AppTpp.MVVM.ViewModel
         {
             InitializePegawaiList();
 
+            EditPegawaiCommand = new RelayCommand(EditPegawai);
+            DeletePegawaiCommand = new RelayCommand(DeletePegawai);
+
             NextPageCommand = new RelayCommand(NextPage, CanNextPage);
             PrevPageCommand = new RelayCommand(PrevPage, CanPrevPage);
+        }
+
+        private void EditPegawai(object obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void DeletePegawai(object obj)
+        {
+            throw new NotImplementedException();
         }
 
         private void InitializePegawaiList()
@@ -57,16 +80,16 @@ namespace AppTpp.MVVM.ViewModel
             currentPegawai = new ObservableCollection<PegawaiModel>(PegawaiDataService.GetAllDataPegawai());
 
             startIndex = (CurrentPage - 1) * itemsPerPage;
-            endIndex = Math.Min(startIndex + itemsPerPage - 1, currentPegawai.Count - 1);
+            currentPageCountPegawai = Math.Min(startIndex + itemsPerPage, currentPegawai.Count);
 
-            Pegawai = new ObservableCollection<PegawaiModel>(currentPegawai.Skip(startIndex).Take(endIndex));
+            Pegawai = new ObservableCollection<PegawaiModel>(currentPegawai.Skip(startIndex).Take(itemsPerPage));
 
             LoadDataCount();
         }
 
         private bool CanNextPage(object arg)
         {
-            if (endIndex + 1 >= currentPegawai!.Count)
+            if (currentPageCountPegawai >= currentPegawai!.Count)
             {
                 return false;
             }
@@ -106,7 +129,7 @@ namespace AppTpp.MVVM.ViewModel
 
         private void LoadDataCount()
         {
-            string showDataCount = (endIndex + 1).ToString();
+            string showDataCount = (currentPageCountPegawai).ToString();
             string allDataCount = currentPegawai!.Count.ToString();
 
             DataCountMessage = $"{showDataCount} dari {allDataCount} pegawai";

@@ -20,6 +20,20 @@ namespace AppTpp.MVVM.ViewModel
             set { _fileName = value; OnPropertyChanged(nameof(FileName)); }
         }
 
+        private string? _bulan;
+        public string? Bulan
+        {
+            get { return _bulan; }
+            set { _bulan = value; OnPropertyChanged(nameof(Bulan)); }
+        }
+
+        private string? _tahun;
+        public string? Tahun
+        {
+            get { return _tahun; }
+            set { _tahun = value; OnPropertyChanged(nameof(Tahun)); }
+        }
+
         private object? _spinnerView;
         public object? SpinnerView
         {
@@ -55,7 +69,6 @@ namespace AppTpp.MVVM.ViewModel
             set { _errorMessage = value; OnPropertyChanged(nameof(ErrorMessage)); }
         }
 
-
         public RelayCommand ChooseFileCommand { get; set; }
         public RelayCommand ImportFileCommand { get; set; }
 
@@ -82,6 +95,26 @@ namespace AppTpp.MVVM.ViewModel
         {
             FileName = "No File Choosen";
             _isFileUploaded = false;
+        }
+
+        private string ConvertBulanToNumber()
+        {
+            return Bulan switch
+            {
+                "Januari" => "01",
+                "Februari" => "02",
+                "Maret" => "03",
+                "April" => "04",
+                "Mei" => "05",
+                "Juni" => "06",
+                "Juli" => "07",
+                "Agustus" => "08",
+                "September" => "09",
+                "Oktober" => "10",
+                "November" => "11",
+                "Desember" => "12",
+                _ => "0",
+            };
         }
 
         private bool _isFileUploaded;
@@ -144,7 +177,7 @@ namespace AppTpp.MVVM.ViewModel
             return true;
         }
 
-        private bool CanImport(object obj)
+        private bool CanImport(object arg)
         {
             return _isFileUploaded;
         }
@@ -156,7 +189,7 @@ namespace AppTpp.MVVM.ViewModel
             try
             {
                 SpinnerVisibility = Visibility.Visible;
-                await Task.Run(() => PegawaiDataService.ImportExcelToDatabase(_filePath));
+                await Task.Run(() => PegawaiDataService.ImportExcelToDatabase(_filePath, Tahun, ConvertBulanToNumber()));
 
                 GreenCheckVisibility = Visibility.Visible;
                 SpinnerVisibility = Visibility.Collapsed;
@@ -164,7 +197,7 @@ namespace AppTpp.MVVM.ViewModel
                 InitialFileState();
                 DeleteFile();
             }
-            catch (DuplicateDataException ex) 
+            catch (DuplicateDataException ex)
             {
                 ErrorMessage = ex.Message;
 

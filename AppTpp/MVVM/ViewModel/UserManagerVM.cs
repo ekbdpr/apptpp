@@ -76,7 +76,7 @@ namespace AppTpp.MVVM.ViewModel
 
         private readonly int itemsPerPage = 10;
         private int startIndex;
-        private int endIndex;
+        private int currentPageCountUsers;
 
         private int _currentPage = 1;
         public int CurrentPage
@@ -131,9 +131,9 @@ namespace AppTpp.MVVM.ViewModel
                 currentUsers = new ObservableCollection<UserModel>(UserDataService.GetAllUsers()!);
 
                 startIndex = (CurrentPage - 1) * itemsPerPage;
-                endIndex = Math.Min(startIndex + itemsPerPage, currentUsers.Count);
+                currentPageCountUsers = Math.Min(startIndex + itemsPerPage, currentUsers.Count);
 
-                await Task.Run(() => Users = new ObservableCollection<UserModel>(currentUsers.Skip(startIndex).Take(endIndex)));
+                await Task.Run(() => Users = new ObservableCollection<UserModel>(currentUsers.Skip(startIndex).Take(itemsPerPage)));
             }
             finally
             {
@@ -200,7 +200,7 @@ namespace AppTpp.MVVM.ViewModel
 
         private bool CanNextPage(object arg)
         {
-            if (endIndex >= currentUsers!.Count)
+            if (currentPageCountUsers >= currentUsers!.Count)
             {
                 return false;
             }
@@ -238,7 +238,7 @@ namespace AppTpp.MVVM.ViewModel
 
         private void LoadDataCount()
         {
-            string showDataCount = (endIndex).ToString();
+            string showDataCount = (currentPageCountUsers).ToString();
             string allDataCount = currentUsers!.Count.ToString();
 
             DataCountMessage = $"{showDataCount} dari {allDataCount} pegawai";

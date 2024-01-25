@@ -8,6 +8,8 @@ using System.Configuration;
 using System.IO;
 using System.Windows;
 using System.Windows.Documents;
+using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace AppTpp.Services
 {
@@ -38,7 +40,7 @@ namespace AppTpp.Services
             return ConfigurationManager.ConnectionStrings["DbConnectionString"].ConnectionString;
         }
 
-        public static void ImportExcelToDatabase(string? filePath)
+        public static void ImportExcelToDatabase(string? filePath, string? tahun, string? bulan)
         {
             using var package = new ExcelPackage(new FileInfo(filePath!));
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
@@ -52,18 +54,23 @@ namespace AppTpp.Services
             {
                 for (int row = startRow; row <= worksheet.Dimension.Rows; row++)
                 {
-                    string? tglGaji = worksheet.Cells[row, 1].Value?.ToString();
-                    string? nip = worksheet.Cells[row, 2].Value?.ToString();
-                    string? nama = worksheet.Cells[row, 3].Value?.ToString();
-                    string? kdSatker = worksheet.Cells[row, 4].Value?.ToString();
-                    string? norek = worksheet.Cells[row, 5].Value?.ToString();
-                    string? kdPangkat = worksheet.Cells[row, 6].Value?.ToString();
-                    string? piwp1 = worksheet.Cells[row, 7].Value?.ToString();
-                    string? nmSkpd = worksheet.Cells[row, 8].Value?.ToString();
-                    string? paguTpp = worksheet.Cells[row, 9].Value?.ToString();
+                    string? tglGaji = $"{tahun}-{bulan}-01".Trim();
+                    string? nip = worksheet.Cells[row, 1].Value?.ToString()?.Trim();
+                    string? nama = worksheet.Cells[row, 2].Value?.ToString()?.Trim();
+                    string? kdSatker = worksheet.Cells[row, 3].Value?.ToString()?.Trim();
+                    string? norek = worksheet.Cells[row, 4].Value?.ToString()?.Trim();
+                    string? kdPangkat = worksheet.Cells[row, 5].Value?.ToString()?.Trim();
+                    string? piwp1 = worksheet.Cells[row, 6].Value?.ToString()?.Trim();
+                    string? nmSkpd = worksheet.Cells[row, 7].Value?.ToString()?.Trim();
+                    string? paguTpp = worksheet.Cells[row, 8].Value?.ToString()?.Trim();
 
                     string query = $"INSERT INTO data_pegawai (Tgl_Gaji, Nip, Nama, Kd_Satker, Norek, Kd_Pangkat, Piwp1, Nm_Skpd, Pagu_Tpp) " +
                                     "VALUES (@Tgl_Gaji, @Nip, @Nama, @Kd_Satker, @Norek, @Kd_Pangkat, @Piwp1, @Nm_Skpd, @Pagu_Tpp);";
+
+                    if (IsNipExist(nip, tglGaji))
+                    {
+                        throw new DuplicateDataException("❌ Terdapat NIP yang terduplikasi / telah ada di database pada bulan yang sama !");
+                    }
 
                     using var command = new MySqlCommand(query, connection);
 
@@ -82,15 +89,31 @@ namespace AppTpp.Services
             }
             catch (MySqlException ex)
             {
-                if (ex.Number == 1062)
-                {
-                    throw new DuplicateDataException("❌ Terdapat NIP yang terduplikasi / telah ada di database !");
-                }
-                else
-                {
-                    MessageBox.Show($"Error during execute: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return;
-                }
+                MessageBox.Show($"Error during execute: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+        }
+
+        private static bool IsNipExist(string? nip, string tglGaji)
+        {
+            using var connection = OpenConnection();
+
+            try
+            {
+                string query = "SELECT COUNT(*) FROM data_pegawai WHERE Nip = @Nip AND Tgl_Gaji = @Tgl_Gaji";
+
+                using var command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@Nip", nip);
+                command.Parameters.AddWithValue("@Tgl_Gaji", tglGaji);
+
+                int count = Convert.ToInt32(command.ExecuteScalar());
+
+                return count > 0;
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show($"Error during execute: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
             }
         }
 

@@ -54,6 +54,8 @@
                         VerticalContentAlignment="Center"
                         Cursor="Hand"
                         FontFamily="Fonts/#Fira Sans"
+                        SelectedValue="{Binding Bulan, Mode=TwoWay}"
+                        SelectedValuePath="Content"
                         Style="{StaticResource ComboBoxStyle}">
                         <ComboBoxItem Content="Januari" IsSelected="True" />
                         <ComboBoxItem Content="Februari" />
@@ -83,6 +85,8 @@
                         VerticalContentAlignment="Center"
                         Cursor="Hand"
                         FontFamily="Fonts/#Fira Sans"
+                        SelectedValue="{Binding Tahun, Mode=TwoWay}"
+                        SelectedValuePath="Content"
                         Style="{StaticResource ComboBoxStyle}">
                         <ComboBoxItem Content="2024" IsSelected="True" />
                         <ComboBoxItem Content="2025" />
