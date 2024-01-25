@@ -70,8 +70,14 @@
                             VerticalContentAlignment="Center"
                             Cursor="Hand"
                             FontFamily="Fonts/#Fira Sans"
+                            SelectedValue="{Binding Bulan, Mode=TwoWay}"
+                            SelectedValuePath="Content"
                             Style="{StaticResource ComboBoxStyle}">
-                            <ComboBoxItem Content="Januari" IsSelected="True" />
+                            <ComboBoxItem
+                                Content="Pilih Bulan"
+                                IsEnabled="False"
+                                IsSelected="True" />
+                            <ComboBoxItem Content="Januari" />
                             <ComboBoxItem Content="Februari" />
                             <ComboBoxItem Content="Maret" />
                             <ComboBoxItem Content="April" />
@@ -99,8 +105,14 @@
                             VerticalContentAlignment="Center"
                             Cursor="Hand"
                             FontFamily="Fonts/#Fira Sans"
+                            SelectedValue="{Binding Tahun, Mode=TwoWay}"
+                            SelectedValuePath="Content"
                             Style="{StaticResource ComboBoxStyle}">
-                            <ComboBoxItem Content="2024" IsSelected="True" />
+                            <ComboBoxItem
+                                Content="Pilih Tahun"
+                                IsEnabled="False"
+                                IsSelected="True" />
+                            <ComboBoxItem Content="2024" />
                             <ComboBoxItem Content="2025" />
                             <ComboBoxItem Content="2026" />
                             <ComboBoxItem Content="2027" />
@@ -115,6 +127,7 @@
                         Height="30"
                         Background="#3081D0"
                         BorderThickness="0"
+                        Command="{Binding SearchFilteredPegawaiCommand}"
                         Foreground="White"
                         Style="{StaticResource OpacityButton}">
 

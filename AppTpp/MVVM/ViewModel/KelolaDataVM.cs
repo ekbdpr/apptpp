@@ -4,6 +4,7 @@ using AppTpp.Services;
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
 
 namespace AppTpp.MVVM.ViewModel
@@ -21,7 +22,7 @@ namespace AppTpp.MVVM.ViewModel
             }
         }
 
-        private ObservableCollection<PegawaiModel>? currentPegawai;
+        private ObservableCollection<PegawaiModel> currentPegawai;
 
         private PegawaiModel? _selectedPegawai;
 
@@ -29,6 +30,20 @@ namespace AppTpp.MVVM.ViewModel
         {
             get { return _selectedPegawai; }
             set { _selectedPegawai = value; OnPropertyChanged(nameof(SelectedPegawai)); }
+        }
+
+        private string? _bulan;
+        public string? Bulan
+        {
+            get { return _bulan; }
+            set { _bulan = value; OnPropertyChanged(nameof(Bulan)); }
+        }
+
+        private string? _tahun;
+        public string? Tahun
+        {
+            get { return _tahun; }
+            set { _tahun = value; OnPropertyChanged(nameof(Tahun)); }
         }
 
         private string? _dataCountMessage;
@@ -49,6 +64,7 @@ namespace AppTpp.MVVM.ViewModel
             set { _currentPage = value; OnPropertyChanged(nameof(CurrentPage)); }
         }
 
+        public RelayCommand SearchFilteredPegawaiCommand { get; set; }
         public RelayCommand EditPegawaiCommand { get; set; }
         public RelayCommand DeletePegawaiCommand { get; set; }
         public RelayCommand NextPageCommand { get; set; }
@@ -58,11 +74,38 @@ namespace AppTpp.MVVM.ViewModel
         {
             InitializePegawaiList();
 
+            SearchFilteredPegawaiCommand = new RelayCommand(SearchFilteredPegawai);
+
             EditPegawaiCommand = new RelayCommand(EditPegawai);
             DeletePegawaiCommand = new RelayCommand(DeletePegawai);
 
             NextPageCommand = new RelayCommand(NextPage, CanNextPage);
             PrevPageCommand = new RelayCommand(PrevPage, CanPrevPage);
+        }
+
+        private string ConvertBulanToNumber()
+        {
+            return Bulan switch
+            {
+                "Januari" => "01",
+                "Februari" => "02",
+                "Maret" => "03",
+                "April" => "04",
+                "Mei" => "05",
+                "Juni" => "06",
+                "Juli" => "07",
+                "Agustus" => "08",
+                "September" => "09",
+                "Oktober" => "10",
+                "November" => "11",
+                "Desember" => "12",
+                _ => "0",
+            };
+        }
+
+        private void SearchFilteredPegawai(object obj)
+        {
+            InitializePegawaiList();
         }
 
         private void EditPegawai(object obj)
@@ -75,21 +118,45 @@ namespace AppTpp.MVVM.ViewModel
             throw new NotImplementedException();
         }
 
-        private void InitializePegawaiList()
+        private async void InitializePegawaiList()
         {
-            currentPegawai = new ObservableCollection<PegawaiModel>(PegawaiDataService.GetAllDataPegawai());
 
-            startIndex = (CurrentPage - 1) * itemsPerPage;
-            currentPageCountPegawai = Math.Min(startIndex + itemsPerPage, currentPegawai.Count);
+            try
+            {
+                Console.WriteLine(Bulan);
+                Console.WriteLine(Tahun);
 
-            Pegawai = new ObservableCollection<PegawaiModel>(currentPegawai.Skip(startIndex).Take(itemsPerPage));
+                await Task.Run(() =>
+                {
+                    if (Tahun != null)
+                    {
+                        var data = PegawaiDataService.GetAllDataPegawai(Tahun, ConvertBulanToNumber());
+                        currentPegawai = data != null ? new ObservableCollection<PegawaiModel>(data) : new ObservableCollection<PegawaiModel>();
+                    }
+                    else
+                    {
+                        currentPegawai = new ObservableCollection<PegawaiModel>();
+                    }
+                });
 
-            LoadDataCount();
+                startIndex = (CurrentPage - 1) * itemsPerPage;
+                currentPageCountPegawai = Math.Min(startIndex + itemsPerPage, currentPegawai.Count);
+
+                Pegawai = new ObservableCollection<PegawaiModel>(currentPegawai.Skip(startIndex).Take(itemsPerPage));
+
+                LoadDataCount();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error during execute: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
         }
 
         private bool CanNextPage(object arg)
         {
-            if (currentPageCountPegawai >= currentPegawai!.Count)
+            if (currentPegawai == null || currentPageCountPegawai >= currentPegawai.Count)
             {
                 return false;
             }
@@ -130,7 +197,7 @@ namespace AppTpp.MVVM.ViewModel
         private void LoadDataCount()
         {
             string showDataCount = (currentPageCountPegawai).ToString();
-            string allDataCount = currentPegawai!.Count.ToString();
+            string allDataCount = currentPegawai.Count.ToString();
 
             DataCountMessage = $"{showDataCount} dari {allDataCount} pegawai";
         }

@@ -72,7 +72,7 @@ namespace AppTpp.Services
                         throw new DuplicateDataException("❌ Terdapat NIP yang terduplikasi / telah ada di database pada bulan yang sama !");
                     }
 
-                    using var command = new MySqlCommand(query, connection);
+                    using MySqlCommand command = new(query, connection);
 
                     command.Parameters.AddWithValue("@Tgl_Gaji", tglGaji);
                     command.Parameters.AddWithValue("@Nip", nip);
@@ -117,15 +117,18 @@ namespace AppTpp.Services
             }
         }
 
-        public static List<PegawaiModel> GetAllDataPegawai()
+        public static List<PegawaiModel> GetAllDataPegawai(string tahun, string bulan)
         {
             using var connection = OpenConnection();
 
             try
             {
-                string query = "SELECT Tgl_Gaji, Nip, Nama, Kd_Satker, Norek, Kd_Pangkat, Piwp1, Nm_Skpd, Pagu_Tpp FROM data_pegawai ORDER BY Nama ASC";
+                string query = $"SELECT Tgl_Gaji, Nip, Nama, Kd_Satker, Norek, Kd_Pangkat, Piwp1, Nm_Skpd, Pagu_Tpp FROM data_pegawai WHERE Tgl_Gaji = @Tgl_Gaji ORDER BY Nama ASC";
+                string? tglGaji = $"{tahun}-{bulan}-01".Trim();
 
                 using MySqlCommand command = new(query, connection);
+
+                command.Parameters.AddWithValue("@Tgl_Gaji", tglGaji);
 
                 List<PegawaiModel> pegawaiList = new();
 
@@ -135,6 +138,7 @@ namespace AppTpp.Services
 
                     PegawaiModel pegawaiModel = new()
                     {
+                        TglGaji = reader["Tgl_Gaji"].ToString(),
                         Nip = reader["Nip"].ToString(),
                         Name = reader["Nama"].ToString(),
                         KdSatker = reader["Kd_Satker"].ToString(),
