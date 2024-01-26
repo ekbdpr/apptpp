@@ -2,14 +2,14 @@
 {
     public class PegawaiModel
     {
-        public string? TglGaji { get; set; }
-        public string? Nip {  get; set; }
-        public string? Name {  get; set; }
-        public string? KdSatker {  get; set; }
-        public string? Norek {  get; set; }
-        public string? KdPangkat {  get; set; }
-        public string? Piwp1 {  get; set; }
-        public string? NamaSkpd {  get; set; }
-        public int? PaguTpp {  get; set; }
+        public string TglGaji { get; set; } = string.Empty;
+        public string Nip { get; set; } = string.Empty;
+        public string Name { get; set; } = string.Empty;
+        public string KdSatker { get; set; } = string.Empty;
+        public string Norek { get; set; } = string.Empty;
+        public string KdPangkat { get; set; } = string.Empty;
+        public string Piwp1 { get; set; } = string.Empty;
+        public string NamaSkpd { get; set; } = string.Empty;
+        public int? PaguTpp { get; set; }
     }
 }

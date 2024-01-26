@@ -4,7 +4,6 @@ using AppTpp.Core;
 using Microsoft.Win32;
 using System.IO;
 using System.Reflection;
-using System.Windows.Input;
 
 namespace AppTpp.MVVM.ViewModel
 {
@@ -12,13 +11,13 @@ namespace AppTpp.MVVM.ViewModel
     {
         private readonly UserModel _userModel;
 
-        public string? Name
+        public string Name
         {
             get { return _userModel.Name; }
             set { _userModel.Name = value; OnPropertyChanged(nameof(Name)); }
         }
 
-        public string? Privilege
+        public string Privilege
         {
             get { return _userModel.Privilege; }
             set { _userModel.Privilege = value; OnPropertyChanged(nameof(Privilege)); }

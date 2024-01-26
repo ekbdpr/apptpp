@@ -11,59 +11,59 @@ namespace AppTpp.MVVM.ViewModel
 {
     internal class InputDataBatchVM : ViewModelBase
     {
-        private string? _filePath;
+        private string _filePath = string.Empty;
 
-        private string? _fileName;
-        public string? FileName
+        private string _fileName = string.Empty;
+        public string FileName
         {
             get { return _fileName; }
             set { _fileName = value; OnPropertyChanged(nameof(FileName)); }
         }
 
-        private string? _bulan;
-        public string? Bulan
+        private string _bulan = string.Empty;
+        public string Bulan
         {
             get { return _bulan; }
             set { _bulan = value; OnPropertyChanged(nameof(Bulan)); }
         }
 
-        private string? _tahun;
-        public string? Tahun
+        private string _tahun = string.Empty;
+        public string Tahun
         {
             get { return _tahun; }
             set { _tahun = value; OnPropertyChanged(nameof(Tahun)); }
         }
 
-        private object? _spinnerView;
-        public object? SpinnerView
+        private object _spinnerView = new();
+        public object SpinnerView
         {
             get { return _spinnerView; }
             set { _spinnerView = value; OnPropertyChanged(nameof(SpinnerView)); }
         }
 
-        private Visibility? _spinnerVisibility;
-        public Visibility? SpinnerVisibility
+        private Visibility _spinnerVisibility;
+        public Visibility SpinnerVisibility
         {
             get { return _spinnerVisibility; }
             set { _spinnerVisibility = value; OnPropertyChanged(nameof(SpinnerVisibility)); }
         }
 
-        private Visibility? _greenCheckVisibility;
-        public Visibility? GreenCheckVisibility
+        private Visibility _greenCheckVisibility;
+        public Visibility GreenCheckVisibility
         {
             get { return _greenCheckVisibility; }
             set { _greenCheckVisibility = value; OnPropertyChanged(nameof(GreenCheckVisibility)); }
         }
 
-        private Visibility? _redCrossVisibility;
-        public Visibility? RedCrossVisibility
+        private Visibility _redCrossVisibility;
+        public Visibility RedCrossVisibility
         {
             get { return _redCrossVisibility; }
             set { _redCrossVisibility = value; OnPropertyChanged(nameof(RedCrossVisibility)); }
         }
 
-        private string? _errorMessage;
-        public string? ErrorMessage
+        private string _errorMessage = string.Empty;
+        public string ErrorMessage
         {
             get { return _errorMessage; }
             set { _errorMessage = value; OnPropertyChanged(nameof(ErrorMessage)); }
@@ -208,7 +208,7 @@ namespace AppTpp.MVVM.ViewModel
 
         private void DeleteFile()
         {
-            File.Delete(_filePath!);
+            File.Delete(_filePath);
         }
     }
 }

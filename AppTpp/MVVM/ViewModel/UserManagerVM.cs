@@ -13,8 +13,8 @@ namespace AppTpp.MVVM.ViewModel
 {
     class UserManagerVM : ViewModelBase
     {
-        private ObservableCollection<UserModel>? _users;
-        public ObservableCollection<UserModel>? Users
+        private ObservableCollection<UserModel> _users = new();
+        public ObservableCollection<UserModel> Users
         {
             get { return _users; }
             set
@@ -24,31 +24,31 @@ namespace AppTpp.MVVM.ViewModel
             }
         }
 
-        private ObservableCollection<UserModel>? currentUsers;
+        private ObservableCollection<UserModel> currentUsers = new();
 
-        private object? _spinnerView;
+        private object _spinnerView = new();
         public object? SpinnerView
         {
             get { return _spinnerView; }
-            set { _spinnerView = value; OnPropertyChanged(nameof(SpinnerView)); }
+            set { _spinnerView = value ?? new(); OnPropertyChanged(nameof(SpinnerView)); }
         }
 
-        private Visibility? _spinnerVisibility;
-        public Visibility? SpinnerVisibility
+        private Visibility _spinnerVisibility = Visibility.Collapsed;
+        public Visibility SpinnerVisibility
         {
             get { return _spinnerVisibility; }
             set { _spinnerVisibility = value; OnPropertyChanged(nameof(SpinnerVisibility)); }
         }
 
-        private Visibility? _contentVisibility;
-        public Visibility? ContentVisibility
+        private Visibility _contentVisibility = Visibility.Collapsed;
+        public Visibility ContentVisibility
         {
             get { return _contentVisibility; }
             set { _contentVisibility = value; OnPropertyChanged(nameof(ContentVisibility)); }
         }
 
-        private UserModel? _selectedUser;
-        public UserModel? SelectedUser
+        private UserModel _selectedUser = new();
+        public UserModel SelectedUser
         {
             get { return _selectedUser; }
             set
@@ -67,16 +67,16 @@ namespace AppTpp.MVVM.ViewModel
             }
         }
 
-        private string? _dataCountMessage;
-        public string? DataCountMessage
+        private string _dataCountMessage = string.Empty;
+        public string DataCountMessage
         {
             get { return _dataCountMessage; }
             set { _dataCountMessage = value; OnPropertyChanged(nameof(DataCountMessage)); }
         }
 
         private readonly int itemsPerPage = 10;
-        private int startIndex;
-        private int currentPageCountUsers;
+        private int startIndex = 0;
+        private int currentPageCountUsers = 0;
 
         private int _currentPage = 1;
         public int CurrentPage
@@ -128,7 +128,7 @@ namespace AppTpp.MVVM.ViewModel
                 SpinnerVisibility = Visibility.Visible;
                 ContentVisibility = Visibility.Collapsed;
 
-                currentUsers = new ObservableCollection<UserModel>(UserDataService.GetAllUsers()!);
+                currentUsers = new ObservableCollection<UserModel>(UserDataService.GetAllUsers());
 
                 startIndex = (CurrentPage - 1) * itemsPerPage;
                 currentPageCountUsers = Math.Min(startIndex + itemsPerPage, currentUsers.Count);
@@ -173,7 +173,7 @@ namespace AppTpp.MVVM.ViewModel
         {
             try
             {
-                DataDialogService.OpenConfirmationDialog($"Apakah anda ingin menghapus ({_selectedUser?.Nip} - {_selectedUser?.Username}) dari sistem ?");
+                DataDialogService.OpenConfirmationDialog($"Apakah anda ingin menghapus ({_selectedUser.Nip} - {_selectedUser.Username}) dari sistem ?");
 
                 await Task.Run(async () =>
                 {
@@ -200,7 +200,7 @@ namespace AppTpp.MVVM.ViewModel
 
         private bool CanNextPage(object arg)
         {
-            if (currentPageCountUsers >= currentUsers!.Count)
+            if (currentPageCountUsers >= currentUsers.Count)
             {
                 return false;
             }
@@ -239,7 +239,7 @@ namespace AppTpp.MVVM.ViewModel
         private void LoadDataCount()
         {
             string showDataCount = (currentPageCountUsers).ToString();
-            string allDataCount = currentUsers!.Count.ToString();
+            string allDataCount = currentUsers.Count.ToString();
 
             DataCountMessage = $"{showDataCount} dari {allDataCount} pegawai";
         }

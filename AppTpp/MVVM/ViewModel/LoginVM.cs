@@ -4,9 +4,7 @@ using AppTpp.Core;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Input;
 using AppTpp.MVVM.View;
-using System;
 
 namespace AppTpp.MVVM.ViewModel
 {
@@ -14,34 +12,34 @@ namespace AppTpp.MVVM.ViewModel
     {
         private readonly UserModel _userModel = new();
 
-        public string? Username
+        public string Username
         {
             get { return _userModel.Username; }
             set { _userModel.Username = value; OnPropertyChanged(nameof(Username)); }
         }
 
-        public string? Password
+        public string Password
         {
             get { return _userModel.Password; }
             set { _userModel.Password = value; OnPropertyChanged(nameof(Password)); }
         }
 
-        private string? _errorMessage;
-        public string? ErrorMessage
+        private string _errorMessage = string.Empty;
+        public string ErrorMessage
         {
             get { return _errorMessage; }
             set { _errorMessage = value; OnPropertyChanged(nameof(ErrorMessage)); }
         }
 
-        private Visibility? _loading;
-        public Visibility? Loading
+        private Visibility _loading;
+        public Visibility Loading
         {
             get { return _loading; }
             set { _loading = value; OnPropertyChanged(nameof(Loading)); }
         }
 
-        private object? _spinner;
-        public object? Spinner
+        private object _spinner = new();
+        public object Spinner
         {
             get { return _spinner; }
             set { _spinner = value; OnPropertyChanged(nameof(Spinner)); }
@@ -98,7 +96,7 @@ namespace AppTpp.MVVM.ViewModel
 
         private static void OpenMainWindow()
         {
-            MainWindow? mainWindow = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault();
+            MainWindow mainWindow = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault() ?? new();
             mainWindow ??= new MainWindow();
 
             mainWindow.Show();

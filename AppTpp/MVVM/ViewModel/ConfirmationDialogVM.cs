@@ -5,8 +5,8 @@ namespace AppTpp.MVVM.ViewModel
 {
     internal class ConfirmationDialogVM : ViewModelBase
     {
-        private string? _message;
-        public string? Message
+        private string _message = string.Empty;
+        public string Message
         {
             get { return _message; }
             set { _message = value; OnPropertyChanged(nameof(Message)); }

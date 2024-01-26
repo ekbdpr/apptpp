@@ -11,7 +11,7 @@ namespace AppTpp.Services
 {
     internal class UserDataService
     {
-        private static UserDataService? _instance;
+        private static UserDataService _instance = new();
         public static UserDataService Instance
         {
             get
@@ -22,10 +22,10 @@ namespace AppTpp.Services
             }
         }
 
-        public string? CurrentNip { get; set; }
-        public string? CurrentName { get; private set; }
-        public string? CurrentUsername { get; private set; }
-        public string? CurrentPrivilege { get; private set; }
+        public string CurrentNip { get ; private set; } = string.Empty;
+        public string CurrentName { get; private set; } = string.Empty;
+        public string CurrentUsername { get; private set; } = string.Empty;
+        public string CurrentPrivilege { get; private set; } = string.Empty;
         public byte[]? CurrentProfileImage { get; private set; }
 
         private static MySqlConnection OpenConnection()
@@ -42,7 +42,7 @@ namespace AppTpp.Services
             return ConfigurationManager.ConnectionStrings["DbConnectionString"].ConnectionString;
         }
 
-        public bool GetUserLoginData(string? Username, string? Password)
+        public bool GetUserLoginData(string Username, string Password)
         {
             using var connection = OpenConnection();
 
@@ -59,10 +59,10 @@ namespace AppTpp.Services
 
                 while (reader.Read())
                 {
-                    CurrentNip = reader["Nip"].ToString();
-                    CurrentUsername = reader["Username"].ToString();
-                    CurrentName = reader["Nama"].ToString();
-                    CurrentPrivilege = reader["Privilege"].ToString();
+                    CurrentNip = reader["Nip"].ToString() ?? string.Empty;
+                    CurrentUsername = reader["Username"].ToString() ?? string.Empty;
+                    CurrentName = reader["Nama"].ToString() ?? string.Empty;
+                    CurrentPrivilege = reader["Privilege"].ToString() ?? string.Empty;
                 }
 
                 return reader.HasRows;
@@ -74,7 +74,7 @@ namespace AppTpp.Services
             }
         }
 
-        public bool GetUserPhoto(string? Username)
+        public bool GetUserPhoto(string Username)
         {
             using var connection = OpenConnection();
 
@@ -130,7 +130,7 @@ namespace AppTpp.Services
             }
         }
 
-        public static List<UserModel>? GetAllUsers()
+        public static List<UserModel> GetAllUsers()
         {
             using var connection = OpenConnection();
 
@@ -162,11 +162,11 @@ namespace AppTpp.Services
             catch (Exception ex)
             {
                 MessageBox.Show($"Error during execute: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return null;
+                return new();
             }
         }
 
-        public static void InsertNewUser(string? nip, string? name, string? jabatan, string? username, string? password, string? privilege)
+        public static void InsertNewUser(string nip, string name, string jabatan, string username, string password, string privilege)
         {
             using var connection = OpenConnection();
 
@@ -198,7 +198,7 @@ namespace AppTpp.Services
             }
         }
 
-        public static void UpdateUser(string? nip, string? nama, string? jabatan, string? username, string? password, string? privilege)
+        public static void UpdateUser(string nip, string nama, string jabatan, string username, string password, string privilege)
         {
             using var connection = OpenConnection();
 
@@ -230,7 +230,7 @@ namespace AppTpp.Services
             }
         }
 
-        public static void DeleteUser(string? username)
+        public static void DeleteUser(string username)
         {
             using var connection = OpenConnection();
 

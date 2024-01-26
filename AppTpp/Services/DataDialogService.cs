@@ -10,7 +10,7 @@ namespace AppTpp.Services
 {
     internal class DataDialogService
     {
-        private static DataDialogService? _instance;
+        private static DataDialogService _instance = new();
         public static DataDialogService Instance
         {
             get
@@ -21,23 +21,23 @@ namespace AppTpp.Services
             }
         }
 
-        public string? CurrentNip { get; set; }
+        public string CurrentNip { get; set; } = string.Empty;
 
-        public string? CurrentName { get; set; }
+        public string CurrentName { get; set; } = string.Empty;
 
-        public string? CurrentJabatan { get; set; }
+        public string CurrentJabatan { get; set; } = string.Empty;
 
-        public string? CurrentUsername { get; set; }
+        public string CurrentUsername { get; set; } = string.Empty;
 
-        public string? CurrentPrivilege { get; set; }
+        public string CurrentPrivilege { get; set; } = string.Empty;
 
         public bool ConfirmationDialogState { get; set; }
         
-        public string? ConfirmationDialogMessage { get; set; }
+        public string ConfirmationDialogMessage { get; set; } = string.Empty;
 
 
         private event Action? _onDataSaved;
-        public event Action? OnDataSaved
+        public event Action OnDataSaved
         {
             add
             {

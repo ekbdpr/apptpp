@@ -5,21 +5,20 @@ using AppTpp.Services;
 using System;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Input;
 
 namespace AppTpp.MVVM.ViewModel
 {
     class MainWindowVM : ViewModelBase
     {
-        private object? _currentview;
-        public object? Currentview
+        private object _currentview = new();
+        public object Currentview
         {
             get { return _currentview; }
             set { _currentview = value; OnPropertyChanged(nameof(Currentview)); }
         }
 
-        private object? _userInfoView;
-        public object? UserInfoView
+        private object _userInfoView = new();
+        public object UserInfoView
         {
             get { return _userInfoView; }
             set { _userInfoView = value; OnPropertyChanged(nameof(UserInfoView)); }

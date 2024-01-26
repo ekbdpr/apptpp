@@ -124,8 +124,6 @@ namespace AppTpp.MVVM.ViewModel
                 var data = PegawaiDataService.GetAllDataPegawai(Tahun, ConvertBulanToNumber());
                 currentPegawai = data != null ? new ObservableCollection<PegawaiModel>(data) : new ObservableCollection<PegawaiModel>();
 
-                Console.WriteLine(currentPegawai[1].Name);
-
                 startIndex = (CurrentPage - 1) * itemsPerPage;
                 currentPageCountPegawai = Math.Min(startIndex + itemsPerPage, currentPegawai.Count);
 

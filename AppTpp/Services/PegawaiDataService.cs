@@ -7,9 +7,6 @@ using System;
 using System.Configuration;
 using System.IO;
 using System.Windows;
-using System.Windows.Documents;
-using System.Collections.ObjectModel;
-using System.Linq;
 
 namespace AppTpp.Services
 {
@@ -40,7 +37,7 @@ namespace AppTpp.Services
             return ConfigurationManager.ConnectionStrings["DbConnectionString"].ConnectionString;
         }
 
-        public static void ImportExcelToDatabase(string? filePath, string? tahun, string? bulan)
+        public static void ImportExcelToDatabase(string filePath, string tahun, string bulan)
         {
             using var package = new ExcelPackage(new FileInfo(filePath!));
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
@@ -54,15 +51,15 @@ namespace AppTpp.Services
             {
                 for (int row = startRow; row <= worksheet.Dimension.Rows; row++)
                 {
-                    string? tglGaji = $"{tahun}-{bulan}-01".Trim();
-                    string? nip = worksheet.Cells[row, 1].Value?.ToString()?.Trim();
-                    string? nama = worksheet.Cells[row, 2].Value?.ToString()?.Trim();
-                    string? kdSatker = worksheet.Cells[row, 3].Value?.ToString()?.Trim();
-                    string? norek = worksheet.Cells[row, 4].Value?.ToString()?.Trim();
-                    string? kdPangkat = worksheet.Cells[row, 5].Value?.ToString()?.Trim();
-                    string? piwp1 = worksheet.Cells[row, 6].Value?.ToString()?.Trim();
-                    string? nmSkpd = worksheet.Cells[row, 7].Value?.ToString()?.Trim();
-                    string? paguTpp = worksheet.Cells[row, 8].Value?.ToString()?.Trim();
+                    string tglGaji = $"{tahun}-{bulan}-01".Trim();
+                    string nip = worksheet.Cells[row, 1].Value?.ToString()?.Trim() ?? string.Empty;
+                    string nama = worksheet.Cells[row, 2].Value?.ToString()?.Trim() ?? string.Empty;
+                    string kdSatker = worksheet.Cells[row, 3].Value?.ToString()?.Trim() ?? string.Empty;
+                    string norek = worksheet.Cells[row, 4].Value?.ToString()?.Trim() ?? string.Empty;
+                    string kdPangkat = worksheet.Cells[row, 5].Value?.ToString()?.Trim() ?? string.Empty;
+                    string piwp1 = worksheet.Cells[row, 6].Value?.ToString()?.Trim() ?? string.Empty;
+                    string nmSkpd = worksheet.Cells[row, 7].Value?.ToString()?.Trim() ?? string.Empty;
+                    string paguTpp = worksheet.Cells[row, 8].Value?.ToString()?.Trim() ?? string.Empty;
 
                     string query = $"INSERT INTO data_pegawai (Tgl_Gaji, Nip, Nama, Kd_Satker, Norek, Kd_Pangkat, Piwp1, Nm_Skpd, Pagu_Tpp) " +
                                     "VALUES (@Tgl_Gaji, @Nip, @Nama, @Kd_Satker, @Norek, @Kd_Pangkat, @Piwp1, @Nm_Skpd, @Pagu_Tpp);";
@@ -94,7 +91,7 @@ namespace AppTpp.Services
             }
         }
 
-        private static bool IsNipExist(string? nip, string tglGaji)
+        private static bool IsNipExist(string nip, string tglGaji)
         {
             using var connection = OpenConnection();
 

@@ -11,37 +11,37 @@ namespace AppTpp.MVVM.ViewModel
     {
         private readonly UserModel _userModel = new();
 
-        public string? Nip
+        public string Nip
         {
             get { return _userModel.Nip; }
             set { _userModel.Nip = value; OnPropertyChanged(nameof(Nip)); }
         }
 
-        public string? Name
+        public string Name
         {
             get { return _userModel.Name; }
             set { _userModel.Name = value; OnPropertyChanged(nameof(Name)); }
         }
 
-        public string? Jabatan
+        public string Jabatan
         {
             get { return _userModel.Jabatan; }
             set { _userModel.Jabatan = value; OnPropertyChanged(nameof(Jabatan)); }
         }
 
-        public string? Username
+        public string Username
         {
             get { return _userModel.Username; }
             set { _userModel.Username = value; OnPropertyChanged(nameof(Username)); }
         }
 
-        public string? Password
+        public string Password
         {
             get { return _userModel.Password; }
             set { _userModel.Password = value; OnPropertyChanged(nameof(Password)); }
         }
 
-        public string? Privilege
+        public string Privilege
         {
             get { return _userModel.Privilege; }
             set { _userModel.Privilege = value; OnPropertyChanged(nameof(Privilege)); }
