@@ -72,8 +72,6 @@ namespace AppTpp.MVVM.ViewModel
 
         public KelolaDataVM()
         {
-            InitializePegawaiList();
-
             SearchFilteredPegawaiCommand = new RelayCommand(SearchFilteredPegawai);
 
             EditPegawaiCommand = new RelayCommand(EditPegawai);
@@ -121,11 +119,12 @@ namespace AppTpp.MVVM.ViewModel
 
         private void InitializePegawaiList()
         {
-
             try
             {
                 var data = PegawaiDataService.GetAllDataPegawai(Tahun, ConvertBulanToNumber());
                 currentPegawai = data != null ? new ObservableCollection<PegawaiModel>(data) : new ObservableCollection<PegawaiModel>();
+
+                Console.WriteLine(currentPegawai[1].Name);
 
                 startIndex = (CurrentPage - 1) * itemsPerPage;
                 currentPageCountPegawai = Math.Min(startIndex + itemsPerPage, currentPegawai.Count);
@@ -136,7 +135,7 @@ namespace AppTpp.MVVM.ViewModel
             }
             catch (Exception ex)
             {
-                Debug.WriteLine($"Error during execute: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"Error during execute: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
         }
