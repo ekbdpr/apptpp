@@ -3,16 +3,16 @@ using AppTpp.MVVM.Model;
 using AppTpp.Services;
 using System;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace AppTpp.MVVM.ViewModel
 {
     internal class KelolaDataVM : ViewModelBase
     {
-        private ObservableCollection<PegawaiModel>? _pegawai;
-        public ObservableCollection<PegawaiModel>? Pegawai
+        private ObservableCollection<PegawaiModel> _pegawai = new();
+        public ObservableCollection<PegawaiModel> Pegawai
         {
             get { return _pegawai; }
             set
@@ -22,40 +22,40 @@ namespace AppTpp.MVVM.ViewModel
             }
         }
 
-        private ObservableCollection<PegawaiModel> currentPegawai;
+        private ObservableCollection<PegawaiModel> currentPegawai = new();
 
-        private PegawaiModel? _selectedPegawai;
+        private PegawaiModel _selectedPegawai = new();
 
-        public PegawaiModel? SelectedPegawai
+        public PegawaiModel SelectedPegawai
         {
             get { return _selectedPegawai; }
             set { _selectedPegawai = value; OnPropertyChanged(nameof(SelectedPegawai)); }
         }
 
-        private string? _bulan;
-        public string? Bulan
+        private string _bulan = string.Empty;
+        public string Bulan
         {
             get { return _bulan; }
             set { _bulan = value; OnPropertyChanged(nameof(Bulan)); }
         }
 
-        private string? _tahun;
-        public string? Tahun
+        private string _tahun = string.Empty;
+        public string Tahun
         {
             get { return _tahun; }
             set { _tahun = value; OnPropertyChanged(nameof(Tahun)); }
         }
 
-        private string? _dataCountMessage;
-        public string? DataCountMessage
+        private string _dataCountMessage = string.Empty;
+        public string DataCountMessage
         {
             get { return _dataCountMessage; }
             set { _dataCountMessage = value; OnPropertyChanged(nameof(DataCountMessage)); }
         }
 
         private readonly int itemsPerPage = 10;
-        private int startIndex;
-        private int currentPageCountPegawai;
+        private int startIndex = 0;
+        private int currentPageCountPegawai = 0;
 
         private int _currentPage = 1;
         public int CurrentPage
@@ -105,6 +105,7 @@ namespace AppTpp.MVVM.ViewModel
 
         private void SearchFilteredPegawai(object obj)
         {
+            CurrentPage = 1;
             InitializePegawaiList();
         }
 
@@ -118,26 +119,13 @@ namespace AppTpp.MVVM.ViewModel
             throw new NotImplementedException();
         }
 
-        private async void InitializePegawaiList()
+        private void InitializePegawaiList()
         {
 
             try
             {
-                Console.WriteLine(Bulan);
-                Console.WriteLine(Tahun);
-
-                await Task.Run(() =>
-                {
-                    if (Tahun != null)
-                    {
-                        var data = PegawaiDataService.GetAllDataPegawai(Tahun, ConvertBulanToNumber());
-                        currentPegawai = data != null ? new ObservableCollection<PegawaiModel>(data) : new ObservableCollection<PegawaiModel>();
-                    }
-                    else
-                    {
-                        currentPegawai = new ObservableCollection<PegawaiModel>();
-                    }
-                });
+                var data = PegawaiDataService.GetAllDataPegawai(Tahun, ConvertBulanToNumber());
+                currentPegawai = data != null ? new ObservableCollection<PegawaiModel>(data) : new ObservableCollection<PegawaiModel>();
 
                 startIndex = (CurrentPage - 1) * itemsPerPage;
                 currentPageCountPegawai = Math.Min(startIndex + itemsPerPage, currentPegawai.Count);
@@ -148,15 +136,14 @@ namespace AppTpp.MVVM.ViewModel
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error during execute: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
+                Debug.WriteLine($"Error during execute: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
         }
 
         private bool CanNextPage(object arg)
         {
-            if (currentPegawai == null || currentPageCountPegawai >= currentPegawai.Count)
+            if (currentPageCountPegawai >= currentPegawai.Count)
             {
                 return false;
             }

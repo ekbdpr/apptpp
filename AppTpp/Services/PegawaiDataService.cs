@@ -15,7 +15,7 @@ namespace AppTpp.Services
 {
     internal class PegawaiDataService
     {
-        private static PegawaiDataService? _instance;
+        private static PegawaiDataService _instance = new();
         public static PegawaiDataService Instance
         {
             get
@@ -124,7 +124,7 @@ namespace AppTpp.Services
             try
             {
                 string query = $"SELECT Tgl_Gaji, Nip, Nama, Kd_Satker, Norek, Kd_Pangkat, Piwp1, Nm_Skpd, Pagu_Tpp FROM data_pegawai WHERE Tgl_Gaji = @Tgl_Gaji ORDER BY Nama ASC";
-                string? tglGaji = $"{tahun}-{bulan}-01".Trim();
+                string tglGaji = $"{tahun}-{bulan}-01".Trim();
 
                 using MySqlCommand command = new(query, connection);
 
@@ -157,7 +157,7 @@ namespace AppTpp.Services
             catch (Exception ex)
             {
                 MessageBox.Show($"Error during execute: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return null!;
+                return new();
             }
         }
     }
